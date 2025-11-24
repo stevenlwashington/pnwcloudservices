@@ -1,0 +1,103 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Poppins",
+      "role": "body"
+    },
+    {
+      "family": "Urbanist",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#173618",
+    "accent": "#2E7D32",
+    "background": "#EAF6EA",
+    "textPrimary": "#2E7D32",
+    "link": "#2E7D32"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Poppins",
+      "heading": "Poppins"
+    },
+    "fontStacks": {
+      "heading": [
+        "Urbanist"
+      ],
+      "body": [
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Poppins"
+      ]
+    },
+    "fontSizes": {
+      "h1": "64px",
+      "h2": "44.8px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "0px"
+    },
+    "buttonPrimary": {
+      "background": "#2E7D32",
+      "textColor": "#FFFFFF",
+      "borderRadius": "10px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "transparent",
+      "textColor": "#2E7D32",
+      "borderColor": "#2E7D32",
+      "borderRadius": "10px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.webp",
+    "favicon": "File saved at: attached_assets/favicon.txt",
+    "ogImage": "http://static1.squarespace.com/static/67ca5cfab15fa61fbb5a224e/t/67cfef9f2bb6893f1a9e4d28/1741680543590/Screenshot+2025-03-11+at+1.08.12%E2%80%AFAM.png?format=1500w"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 visually represents the brand name 'PNW Cloud Services' and is located in the header, linking to the homepage, making it the main brand logo.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Schedule Free Consultation",
+      "reasoning": "Button #0 has vibrant green background (#2E7D32) and action-oriented text 'Schedule Free Consultation', making it the primary CTA."
+    },
+    "secondary": {
+      "index": 6,
+      "text": "Why PNW Cloud",
+      "reasoning": "Button #6 has a transparent background and is less prominent, making it suitable as the secondary button. It is from a different color group than the primary button."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "businesses and individuals seeking cloud services"
+  },
+  "designSystem": {
+    "framework": "unknown",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
