@@ -2,13 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "wouter";
 import logo from "@assets/logo.webp";
+import { navigation } from "@/config/navigation";
 
 export function Footer() {
   return (
     <footer className="bg-white pt-24 pb-12 border-t border-border">
       <div className="container mx-auto px-6">
         
-        {/* CTA Section */}
+        {/* Top Section - CTA */}
         <div className="grid lg:grid-cols-2 gap-16 mb-24">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-primary">
@@ -27,7 +28,6 @@ export function Footer() {
               {[
                 { title: "Free Consultation", duration: "30 minutes", price: "Free" },
                 { title: "Basic Service", duration: "1 hour", price: "$99.00" },
-                { title: "Advanced Service", duration: "1 hour", price: "$199.00" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between p-4 bg-white border border-border hover:border-secondary transition-colors group cursor-pointer">
                   <div>
@@ -45,46 +45,54 @@ export function Footer() {
 
         <div className="h-px bg-border mb-16"></div>
 
-        {/* Links & Newsletter */}
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-1">
+        {/* Navigation Links */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+          <div className="lg:col-span-2">
             <img src={logo} alt="PNW Cloud" className="h-12 mb-6" />
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mb-6">
               Smarter Cloud Decisions. <br />
               Better Business Outcomes.
             </p>
+            <div className="flex flex-col gap-2">
+              <h4 className="font-bold text-foreground">Join our Community</h4>
+              <div className="flex gap-2 max-w-sm">
+                <Input placeholder="Email Address" className="rounded-none bg-background border-border h-10" />
+                <Button className="bg-secondary text-white rounded-none hover:bg-secondary/90 h-10">
+                  Sign Up
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div>
             <h4 className="font-bold text-foreground mb-6">Company</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link href="/about"><a className="hover:text-secondary">About</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-secondary">Services</a></Link></li>
-              <li><Link href="/careers"><a className="hover:text-secondary">Careers</a></Link></li>
-              <li><Link href="/contact"><a className="hover:text-secondary">Contact</a></Link></li>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {navigation.footer.company.map((link, i) => (
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-foreground mb-6">Legal</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link href="/privacy"><a className="hover:text-secondary">Privacy Policy</a></Link></li>
-              <li><Link href="/terms"><a className="hover:text-secondary">Terms of Service</a></Link></li>
-              <li><Link href="/security"><a className="hover:text-secondary">Security</a></Link></li>
+            <h4 className="font-bold text-foreground mb-6">Services</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {navigation.footer.services.map((link, i) => (
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-foreground mb-6">Join our Community</h4>
-            <div className="space-y-3">
-              <Input placeholder="Email Address" className="rounded-none bg-background border-border" />
-              <Button className="w-full bg-secondary text-white rounded-none hover:bg-secondary/90">
-                Sign Up
-              </Button>
-              <p className="text-xs text-muted-foreground">
-                Protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-              </p>
-            </div>
+            <h4 className="font-bold text-foreground mb-6">Resources</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {navigation.footer.resources.map((link, i) => (
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+              ))}
+              <li className="pt-4 font-bold text-foreground">Legal</li>
+               {navigation.footer.legal.map((link, i) => (
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+              ))}
+            </ul>
           </div>
         </div>
 

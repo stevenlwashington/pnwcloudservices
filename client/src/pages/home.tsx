@@ -1,8 +1,11 @@
 import { Navbar } from "@/components/layout/navbar";
-import { Hero } from "@/components/sections/hero";
-import { Testimonials } from "@/components/sections/testimonials";
-import { Services } from "@/components/sections/services";
 import { Footer } from "@/components/layout/footer";
+import { Hero } from "@/components/home/hero";
+import { Stats } from "@/components/home/stats";
+import { ServicesGrid } from "@/components/home/services-grid";
+import { Highlights } from "@/components/home/highlights";
+import { BlogTeaser } from "@/components/home/blog-teaser";
+import { CTA } from "@/components/home/cta";
 
 export default function Home() {
   return (
@@ -10,8 +13,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Testimonials />
-        <Services />
+        <Stats />
+        <ServicesGrid />
+        <Highlights />
+        <BlogTeaser />
+        <CTA />
       </main>
       <Footer />
     </div>
