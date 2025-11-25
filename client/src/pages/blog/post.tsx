@@ -91,7 +91,7 @@ export default function BlogPost() {
           </div>
 
         </div>
-      </section>
+      </article>
 
       <section className="py-20 bg-background border-t border-border">
         <div className="container mx-auto px-6 max-w-4xl text-center">
