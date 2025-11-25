@@ -42,6 +42,10 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
+
+  /* New Accents */
+  --color-accent-purple: hsl(var(--accent-purple));
+  --color-accent-orange: hsl(var(--accent-orange));
   
   --font-sans: 'Urbanist', sans-serif;
   --font-heading: 'Poppins', sans-serif;
@@ -72,6 +76,10 @@
   /* Secondary: #2E7D32 (Vibrant Green) - Used for accents/buttons */
   --secondary: 123 46% 33%;
   --secondary-foreground: 0 0% 100%;
+
+  /* New Accents - Muted for Enterprise feel */
+  --accent-purple: 265 40% 50%; /* Muted Royal Purple */
+  --accent-orange: 25 85% 55%;  /* Burnt Orange */
 
   /* Muted: Soft Green Gray */
   --muted: 120 10% 90%;
@@ -116,6 +124,9 @@
 
   --secondary: 123 46% 33%;
   --secondary-foreground: 0 0% 100%;
+
+  --accent-purple: 265 50% 65%;
+  --accent-orange: 25 90% 65%;
 
   --muted: 122 30% 15%;
   --muted-foreground: 120 20% 70%;

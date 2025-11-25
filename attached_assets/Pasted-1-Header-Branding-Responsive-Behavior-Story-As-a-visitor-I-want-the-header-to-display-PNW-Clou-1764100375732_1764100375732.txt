@@ -1,0 +1,405 @@
+1. Header Branding & Responsive Behavior
+Story
+
+As a visitor, I want the header to display “PNW Cloud Services” next to the icon and link back to the homepage, so I always know whose site I’m on and can easily navigate home.
+
+Acceptance Criteria
+
+Icon + text behave as one unified clickable home link.
+
+Desktop full width shows “PNW Cloud Services.”
+
+At screen width < 900px, text changes to “PNW Cloud.”
+
+On mobile, always display “PNW Cloud Services.”
+
+Typography, spacing, color consistent with brand.
+
+No wrapping, clipping, or overflow at any resolution.
+
+Assumptions
+
+Header uses global styling across all pages.
+
+Business Value
+
+Clear branding, consistent navigation, improved professionalism and trust.
+
+2. Platform Modernization Page
+Story
+
+As a prospective enterprise client, I want a Platform Modernization page with diagrams, real UX designs, and modernization principles so I can understand how PNW Cloud approaches modernization.
+
+Acceptance Criteria
+
+Page accessible via main nav with URL /platform-modernization.
+
+Includes hero section summarizing modernization philosophy.
+
+Includes sections for:
+
+Application modernization
+
+Data modernization
+
+Workflow modernization
+
+Architecture & automation
+
+Includes realistic UX/UI product designs.
+
+Includes diagram-style visuals showing:
+
+Data model mappings
+
+System migration flow
+
+Includes futuristic crane/blocks imagery aligned to green + purple palette.
+
+Uses vendor-agnostic language with AWS + Salesforce examples.
+
+Includes modernization case study with placeholder metrics.
+
+CTA: “Book a Modernization Assessment.”
+
+Assumptions
+
+UX mockups will be generic/anonymized.
+
+Business Value
+
+Establishes credibility and enables buyers to “see” modernization capability.
+
+3. Salesforce & CRM Strategy Page
+Story
+
+As a GTM or RevOps leader, I want a Salesforce & CRM Strategy page explaining your CRM modernization approach and outcomes so I can evaluate platform fit.
+
+Acceptance Criteria
+
+Page at /salesforce-crm-strategy.
+
+Includes:
+
+Hero section
+
+CRM modernization overview
+
+Architecture and integration strategy
+
+Reporting/forecasting modernization
+
+Cross-channel workflows and automations
+
+Highlights systems: Salesforce + Genesys + Gong + Sonar + HubSpot + Airbyte + Databricks.
+
+Includes anonymized outcomes referencing:
+
+Leading online real estate marketplace
+
+World’s top cloud computing company
+
+Major telecommunications carrier
+
+Includes placeholders for $$$ and AI-driven CRM improvements.
+
+No client logos.
+
+Assumptions
+
+TCPA/CPRA impacts referenced in data-collection and contact workflows.
+
+Business Value
+
+Positions PNW Cloud as a trusted CRM modernization and architectural partner.
+
+4. AI-Powered Productivity & Automation Page
+Story
+
+As a business or engineering leader, I want a page that explains PNW Cloud’s AI-powered automation capabilities so I can understand how AI will improve my workflows, productivity, and business outcomes.
+
+Acceptance Criteria
+
+Page at /ai-automation.
+
+Includes hero + summary of AI value prop.
+
+Sections for:
+
+AI Sales Agents (B2B + B2C)
+
+AI-embedded product analytics
+
+AI roadmap/user story generation
+
+Insight generation (Glean, analytics)
+
+Calls out tools: OpenAI, Anthropic, Gemini, Glean, Replit.
+
+Imagery blends PNW nature + AI + sustainability.
+
+Includes a capability matrix (strategy, automation, LLM pipelines, governance).
+
+Includes LLM architecture diagram.
+
+Balanced messaging: fast iteration + responsible AI safety.
+
+CTA: “Discuss AI & Automation Opportunities.”
+
+Assumptions
+
+AI diagrams will be conceptual, not proprietary.
+
+Business Value
+
+Differentiates PNW Cloud as an AI-forward consultancy grounded in enterprise reality.
+
+5. DevEx & DevOps Page
+Story
+
+As an engineering leader, I want a DevEx & DevOps page so I can understand how PNW Cloud improves developer velocity, reduces friction, and enhances the developer experience.
+
+Acceptance Criteria
+
+Page at /devex-devops.
+
+Includes:
+
+Hero section
+
+Philosophy (platform as a product)
+
+Salesforce DevOps section
+
+Tooling: VSCode, GitLab, Gearset, Jira, Functionize, Slack, Splunk
+
+Includes full e2e pipeline diagram (branching → automation → testing → observability → deployment).
+
+Mentions DORA metrics as outcomes:
+
+Reduced lead time
+
+Improved deployment frequency
+
+Reduced MTTR
+
+Change failure rate
+
+Includes narrative connecting DevEx → satisfaction → velocity.
+
+Assumptions
+
+Pipeline diagram is illustrative, not tied to proprietary tools.
+
+Business Value
+
+Helps technical buyers evaluate engineering efficiency and modernization capability.
+
+6. Observability Page
+Story
+
+As a leader responsible for system reliability, I want an Observability page so I can understand how PNW Cloud improves visibility, MTTR, and decision-making.
+
+Acceptance Criteria
+
+Page at /observability.
+
+High-level descriptions suitable for non-technical audiences.
+
+Tools referenced: Splunk, DataDog, Pendo.
+
+Detailed DORA explainer (why metrics matter).
+
+Includes a dashboard mockup showing:
+
+Lead time to change → business impact
+
+Change failure rate → revenue/cost/satisfaction impact
+
+Includes before/after transformation visuals.
+
+CTA: “Assess Your Observability Posture.”
+
+Assumptions
+
+Mockups are generic and not tied to a vendor.
+
+Business Value
+
+Connects system metrics to business outcomes for executive decision-makers.
+
+7. Compliance & Governance Page
+Story
+
+As a compliance stakeholder, I want a Compliance & Governance page describing TCPA and CPRA capabilities so I can ensure my org can operate legally and responsibly.
+
+Acceptance Criteria
+
+Page at /compliance-governance.
+
+Includes:
+
+Compliance philosophy
+
+TCPA and CPRA impacts on workflows
+
+AI governance considerations
+
+Includes regulatory risk reduction examples ($1B+ placeholder).
+
+Does not reference SOC2/ISO/NIST.
+
+CTA to book compliance evaluation.
+
+Assumptions
+
+Compliance content is informational, not legal advice.
+
+Business Value
+
+Builds trust and clarifies your ability to help clients avoid regulatory risk.
+
+8. Cloud Strategy & Cost Optimization Page
+Story
+
+As a technology or finance leader, I want a page explaining how PNW Cloud reduces cloud costs and improves business productivity so I can evaluate ROI.
+
+Acceptance Criteria
+
+Page at /cloud-strategy-cost-optimization.
+
+Highlights AWS + Salesforce (with Azure/GCP lightly mentioned).
+
+Includes $450K savings example + placeholders.
+
+Includes sections about impacts to:
+
+Engineering
+
+Sales
+
+Service
+
+Customers/self-service
+
+Includes cost optimization diagram.
+
+Uses generalized productivity + efficiency language instead of FinOps.
+
+Business Value
+
+Clarifies cost reduction capability and demonstrates enterprise value.
+
+9. Blog Home + Blog Post Pages + Categories + Newsletter CTA
+Story
+
+As a returning visitor, I want a blog with categories and a newsletter CTA so I can follow your thinking and receive updates.
+
+Acceptance Criteria
+
+Blog index at /blog.
+
+Categories:
+
+AI
+
+DevEx
+
+Salesforce
+
+Leadership
+
+PNW Cloud Updates
+
+Post pages at /blog/[slug].
+
+Template includes:
+
+Title
+
+Published date
+
+Estimated reading time
+
+Body markdown styles
+
+Newsletter CTA at bottom
+
+All posts authored by Steven Washington.
+
+Assumptions
+
+Posts stored in MDX or basic file system inside Replit.
+
+Business Value
+
+Creates thought leadership, SEO value, and subscriber growth.
+
+10. Contact Form + Formspree Integration
+Story
+
+As a potential client, I want a simple, reliable contact form so I can reach PNW Cloud easily.
+
+Acceptance Criteria
+
+Contact page at /contact.
+
+Fields:
+
+Name
+
+Business email
+
+Company
+
+Role
+
+Message
+
+“How did you hear about us?” (optional)
+
+Uses Formspree free tier for inbound handling.
+
+Submissions routed to hello@pnwcloudservices.com
+.
+
+Shows success confirmation after submission.
+
+Includes spam protection (honeypot field).
+
+Assumptions
+
+No backend code required beyond Formspree integration.
+
+Business Value
+
+Enables client outreach with negligible cost and minimal engineering effort.
+
+11. Global UX Modernization (Look & Feel)
+Story
+
+As a visitor, I want the site to feel modern, clean, and reflective of an enterprise-grade tech consultancy.
+
+Acceptance Criteria
+
+Updated color palette using:
+
+Green (primary)
+
+Purple + orange blended accents
+
+Buttons: rounded-square with hover (darken + ≤5% scale-up).
+
+Section spacing, type scale, and component rhythm standardized.
+
+Light interactivity throughout (Stripe-level polish, minimal animations).
+
+Consistent across all devices and breakpoints.
+
+Assumptions
+
+Accent colors will be muted variants to maintain enterprise tone.
+
+Business Value
+
+Increases perceived quality, trust, and credibility for enterprise buyers.
