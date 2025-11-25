@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import heroImage from "@assets/stock_images/futuristic_construct_f8e13174.jpg"; // Reusing existing image
+import heroImage from "@assets/stock_images/futuristic_construct_f8e13174.jpg";
 
 export function Hero() {
   return (
@@ -28,7 +28,6 @@ export function Hero() {
             </Link>
             
             <Link href="/services"> 
-              {/* Note: /services redirects to Home in current router, but keeping link for intent */}
               <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-sm h-14 px-8 text-lg bg-transparent">
                 Explore services
               </Button>
@@ -43,7 +42,6 @@ export function Hero() {
             alt="Enterprise Platform Architecture" 
             className="w-full h-full object-cover rounded-l-3xl shadow-2xl opacity-90"
           />
-          {/* Abstract shapes */}
           <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-accent-purple/20 rounded-full blur-3xl -z-10"></div>
           <div className="absolute top-12 right-12 w-48 h-48 bg-accent-orange/20 rounded-full blur-3xl -z-10"></div>
         </div>

@@ -4,7 +4,6 @@ import { Link } from "wouter";
 export function CTA() {
   return (
     <section className="py-24 bg-background border-t border-border relative overflow-hidden">
-      {/* Decorative background */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30 mix-blend-multiply"></div>
       
       <div className="container mx-auto px-6 text-center relative z-10">

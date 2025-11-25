@@ -1,8 +1,10 @@
 import { PageHeader } from "@/components/layout/page-header";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Activity, AlertTriangle, CheckCircle, Search } from "lucide-react";
-import heroImage from "@assets/stock_images/data_dashboard_analy_aac797ea.jpg"; // Reusing dashboard image
+import { Activity, Link as LinkIcon, ArrowRight } from "lucide-react";
+import heroImage from "@assets/stock_images/data_dashboard_analy_aac797ea.jpg";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 export default function Observability() {
   return (
@@ -10,85 +12,104 @@ export default function Observability() {
       <Navbar />
       
       <PageHeader 
-        title="Observability"
-        description="Move beyond simple monitoring. Gain deep visibility into your system's health to reduce MTTR and improve reliability."
+        title="Observability that tells you why, not just what."
+        description="Turn logs, dashboards, and signals into meaningful decisions and reliability."
         image={heroImage}
-        ctaText="Assess Your Posture"
+        ctaText="Assess your observability posture"
+        ctaLink="/contact"
       />
 
+      {/* What Observability Means */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-primary mb-8">What Observability Really Means</h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Most dashboards tell teams <strong>what</strong> happened.<br/>
+              Few systems explain <strong>why</strong> it happened.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 text-left">
+              {["Reveal bottlenecks", "Improve incident response", "Reduce blind spots", "Tie engineering to business outcomes", "Power data for AI"].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 p-4 bg-white rounded border border-border">
+                  <Activity className="w-5 h-5 text-accent-purple" />
+                  <span className="font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tools & Signals */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          
-          <div className="max-w-3xl mx-auto text-center mb-16">
-             <h2 className="text-3xl font-bold mb-4">Why Metrics Matter</h2>
-             <p className="text-muted-foreground">
-               In modern distributed systems, "up" or "down" isn't enough. You need to know *why* something is happening before your customers do.
-             </p>
+          <h2 className="text-3xl font-bold text-primary text-center mb-12">Tools & Signals We Work With</h2>
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            {["Splunk", "DataDog", "Pendo", "Custom pipelines"].map((tool, i) => (
+              <div key={i} className="p-6 bg-background border border-border rounded text-center font-bold text-lg">
+                {tool}
+              </div>
+            ))}
           </div>
+          <p className="text-center text-muted-foreground">
+            We support logs, metrics, traces, behavioral data, product telemetry, and reliability signals.
+          </p>
+        </div>
+      </section>
 
-          {/* Dashboard Mockup */}
-          <div className="bg-gray-900 rounded-xl p-6 shadow-2xl border border-gray-800 mb-20 text-gray-300 font-mono text-xs overflow-hidden">
-            <div className="flex items-center justify-between mb-6 border-b border-gray-800 pb-4">
-               <div className="font-bold text-white text-lg">System Health Overview</div>
-               <div className="flex gap-4">
-                 <span className="text-green-400 flex items-center gap-2"><CheckCircle className="w-3 h-3" /> All Systems Operational</span>
-               </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Metric 1 */}
-              <div className="bg-gray-800 p-4 rounded border border-gray-700">
-                <div className="text-gray-400 mb-2">Lead Time to Change</div>
-                <div className="text-2xl font-bold text-white mb-2">45m</div>
-                <div className="h-16 flex items-end gap-1">
-                   {[40, 35, 50, 45, 60, 45, 40, 30].map((h, i) => (
-                     <div key={i} style={{ height: `${h}%` }} className="w-full bg-blue-500/50 rounded-t hover:bg-blue-400 transition-colors"></div>
-                   ))}
-                </div>
-              </div>
-
-              {/* Metric 2 */}
-              <div className="bg-gray-800 p-4 rounded border border-gray-700">
-                <div className="text-gray-400 mb-2">Change Failure Rate</div>
-                <div className="text-2xl font-bold text-green-400 mb-2">0.4%</div>
-                <div className="h-16 flex items-end gap-1">
-                   {[2, 5, 1, 0, 10, 2, 1, 0].map((h, i) => (
-                     <div key={i} style={{ height: `${h * 5}%` }} className="w-full bg-green-500/50 rounded-t hover:bg-green-400 transition-colors"></div>
-                   ))}
-                </div>
-              </div>
-
-              {/* Metric 3 */}
-              <div className="bg-gray-800 p-4 rounded border border-gray-700">
-                <div className="text-gray-400 mb-2">MTTR</div>
-                <div className="text-2xl font-bold text-white mb-2">12m</div>
-                <div className="h-16 flex items-end gap-1">
-                   {[60, 40, 30, 20, 15, 25, 10, 12].map((h, i) => (
-                     <div key={i} style={{ height: `${h}%` }} className="w-full bg-purple-500/50 rounded-t hover:bg-purple-400 transition-colors"></div>
-                   ))}
-                </div>
+      {/* DORA Metrics Deep Dive */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-primary mb-6">DORA Metrics Deep Dive</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                DORA metrics help leaders understand:
+              </p>
+              <ul className="space-y-4 mb-8">
+                {[
+                  "Lead time to change — how fast we can safely ship",
+                  "Deployment frequency — how often value reaches customers",
+                  "Change failure rate — how often releases break things",
+                  "MTTR — how long recovery takes"
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-3 text-foreground">
+                    <span className="font-bold text-secondary">{i + 1}.</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="p-4 bg-white border-l-4 border-secondary">
+                <p className="font-medium">When these metrics move, the business moves: Lower costs, higher reliability, more revenue.</p>
               </div>
             </div>
             
-            <div className="mt-6 grid md:grid-cols-2 gap-6">
-               <div className="bg-gray-800 p-4 rounded border border-gray-700 h-48 flex items-center justify-center text-gray-500">
-                 [Log Stream Visualization Placeholder]
-               </div>
-               <div className="bg-gray-800 p-4 rounded border border-gray-700 h-48 flex items-center justify-center text-gray-500">
-                 [Trace Waterfall Placeholder]
-               </div>
+            <div className="bg-gray-900 p-6 rounded-xl shadow-2xl text-green-400 font-mono text-xs">
+              <div className="mb-4 border-b border-gray-700 pb-2 text-white font-bold">Dashboard Mockup</div>
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="bg-gray-800 p-3 rounded">Lead Time: <span className="text-white font-bold">2h</span> <span className="text-green-500">↓ 90%</span></div>
+                <div className="bg-gray-800 p-3 rounded">Failure Rate: <span className="text-white font-bold">0.2%</span> <span className="text-green-500">↓ 50%</span></div>
+              </div>
+              <div className="space-y-2">
+                <div className="h-2 bg-gray-800 rounded w-full"></div>
+                <div className="h-2 bg-gray-800 rounded w-3/4"></div>
+                <div className="h-2 bg-gray-800 rounded w-1/2"></div>
+              </div>
+              <p className="mt-4 text-gray-400 italic">// Happier engineers, fewer fire drills</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Tools */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-             {["Splunk", "Datadog", "Pendo", "New Relic"].map((tool, i) => (
-               <div key={i} className="flex items-center justify-center text-xl font-bold text-gray-400 border border-gray-200 h-24 rounded-lg">
-                 {tool}
-               </div>
-             ))}
-          </div>
-
+      {/* CTA */}
+      <section className="py-24 bg-white text-center border-t border-border">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="text-4xl font-bold text-primary mb-6">Ready to improve visibility, reliability, and decisions?</h2>
+          <Link href="/contact">
+            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-sm shadow-lg">
+              Assess your observability posture
+            </Button>
+          </Link>
         </div>
       </section>
 

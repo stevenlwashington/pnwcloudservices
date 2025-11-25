@@ -1,20 +1,63 @@
-# Compliance & Governance — Content Template
+# Compliance & Governance
 
 ## Hero
-Title: Compliance and governance that scale with your GTM.  
-Subtitle: TCPA and CPRA-aware architectures, integrations, and workflows.  
-CTA: Review your compliance posture  
+**Title:** Compliance and governance that scale with your GTM motion.  
+**Subtitle:**  
+TCPA, CPRA, AI governance, data permissions, and platform safeguards that keep your business compliant—and your teams fast.  
+**Primary CTA:** Review compliance posture  
+**Secondary CTA:** Evaluate governance  
 
-## Philosophy
-Practical governance (not legal services).
+---
+
+## Why Compliance Must Be Designed In
+You cannot treat compliance as an add-on.  
+It must be built into your:
+
+- CRM  
+- Contact systems  
+- Outreach  
+- AI touchpoints  
+- Data pipelines  
+- GTM workflows  
+
+Without this, you risk fines, forced slowdowns, and customer trust loss.
+
+---
 
 ## TCPA & CPRA Foundations
-Data collection, consent flows, communication channels.
+We help teams define:
+
+- Consent policies  
+- Dialing logic  
+- Contact governance  
+- Data retention  
+- Customer access controls  
+- Audit pathways  
+
+Compliance becomes a **guardrail**, not a **roadblock**.
+
+---
 
 ## AI Governance
-Guardrails for AI workflows.
+AI creates both opportunity and risk.
+
+PNW Cloud Services designs:
+
+- Human-in-the-loop review  
+- Data access controls  
+- Model evaluation workflows  
+- Privacy-aware tooling  
+- Responsible AI practices  
+
+We help teams adopt AI responsibly—without freezing innovation.
+
+---
 
 ## Outcomes
-Placeholder risk reduction metric.
+For a major enterprise, governance improvements mitigated **over $1B in regulatory exposure** (placeholder metric for the site).
 
-## CTA  
+---
+
+## CTA
+**Protect your business without slowing it down.**  
+→ Review your compliance posture  
