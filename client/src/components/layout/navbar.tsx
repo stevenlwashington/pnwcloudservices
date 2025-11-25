@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@assets/logo.webp";
 import { navigation } from "@/config/navigation";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,7 +57,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8 animate-in fade-in duration-500">
           {navigation.main.map((item, index) => (
             item.children ? (
               <div key={index} className="relative group">
@@ -66,11 +67,11 @@ export function Navbar() {
                 </button>
                 
                 {/* Mega Menu Dropdown */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[300px] bg-white shadow-xl border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 p-4 rounded-sm">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[300px] bg-white shadow-xl border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 p-4 rounded-xl origin-top">
                   <div className="space-y-2">
                     {item.children.map((child, childIndex) => (
                       <Link key={childIndex} href={child.href}>
-                        <a className="block group/item p-2 hover:bg-background rounded-sm">
+                        <a className="block group/item p-2 hover:bg-background rounded-lg transition-colors">
                           <div className="font-medium text-sm text-foreground group-hover/item:text-secondary">{child.label}</div>
                         </a>
                       </Link>
@@ -86,11 +87,11 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/contact">
-            <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-md px-6 py-5 font-bold text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-              Schedule Consultation
+          <ConsultationModal>
+            <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-lg px-6 py-5 font-semibold text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+              Schedule a Consultation
             </Button>
-          </Link>
+          </ConsultationModal>
         </div>
 
         {/* Mobile Toggle */}
@@ -104,7 +105,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-border p-0 flex flex-col shadow-xl animate-in slide-in-from-top-5 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-border p-0 flex flex-col shadow-xl animate-in slide-in-from-right duration-300 max-h-[80vh] overflow-y-auto">
           <div className="p-6 space-y-6">
             {navigation.main.map((item, index) => (
               <div key={index} className="space-y-2">
@@ -125,9 +126,11 @@ export function Navbar() {
               </div>
             ))}
 
-            <Button className="w-full bg-secondary text-white rounded-md py-6 text-lg font-bold mt-4">
-              Schedule Consultation
-            </Button>
+            <ConsultationModal>
+              <Button className="w-full bg-secondary text-white rounded-lg py-6 text-lg font-bold mt-4">
+                Schedule a Consultation
+              </Button>
+            </ConsultationModal>
           </div>
         </div>
       )}

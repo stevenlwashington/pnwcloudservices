@@ -46,11 +46,13 @@
   /* New Accents */
   --color-accent-purple: hsl(var(--accent-purple));
   --color-accent-orange: hsl(var(--accent-orange));
+  --color-accent-pink: hsl(var(--accent-pink));
+  --color-accent-ai: hsl(var(--accent-ai));
   
   --font-sans: 'Urbanist', sans-serif;
   --font-heading: 'Poppins', sans-serif;
   
-  --radius: 0rem; /* Sharp edges per branding */
+  --radius: 0.75rem; /* 12px for rounded corners per requirement */
 }
 
 /* LIGHT MODE - PNW Theme */
@@ -73,13 +75,15 @@
   --primary: 122 40% 15%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: #2E7D32 (Vibrant Green) - Used for accents/buttons */
-  --secondary: 123 46% 33%;
+  /* Secondary: #1F6C3F (Standard Green for buttons) */
+  --secondary: 135 55% 27%; 
   --secondary-foreground: 0 0% 100%;
 
   /* New Accents - Muted for Enterprise feel */
   --accent-purple: 265 40% 50%; /* Muted Royal Purple */
   --accent-orange: 25 85% 55%;  /* Burnt Orange */
+  --accent-pink: 330 70% 60%;   /* Soft Pink for gradient */
+  --accent-ai: 252 90% 66%;     /* #7A5AF8 - Specific AI Accent */
 
   /* Muted: Soft Green Gray */
   --muted: 120 10% 90%;
@@ -93,9 +97,9 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  /* Border */
-  --border: 122 20% 85%;
-  --input: 122 20% 85%;
+  /* Border - Consistent Gray Scale */
+  --border: 210 10% 85%;
+  --input: 210 10% 85%;
   --ring: 122 40% 15%;
 
   /* Charts */
@@ -105,7 +109,7 @@
   --chart-4: 120 20% 70%;
   --chart-5: 120 10% 80%;
 
-  --radius: 0rem;
+  --radius: 0.75rem;
 }
 
 .dark {
@@ -122,11 +126,13 @@
   --primary: 120 33% 94%;
   --primary-foreground: 122 40% 15%;
 
-  --secondary: 123 46% 33%;
+  --secondary: 135 55% 27%;
   --secondary-foreground: 0 0% 100%;
 
   --accent-purple: 265 50% 65%;
   --accent-orange: 25 90% 65%;
+  --accent-pink: 330 70% 70%;
+  --accent-ai: 252 90% 75%;
 
   --muted: 122 30% 15%;
   --muted-foreground: 120 20% 70%;
@@ -137,8 +143,8 @@
   --destructive: 0 62% 30%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 122 30% 20%;
-  --input: 122 30% 20%;
+  --border: 210 10% 20%;
+  --input: 210 10% 20%;
   --ring: 120 33% 94%;
   
   --chart-1: 123 46% 33%;
@@ -154,8 +160,15 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    line-height: 1.6; /* Increased line-height for body */
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold;
+    @apply font-heading font-bold tracking-tight; /* Tighten letter-spacing for headings */
+  }
+}
+
+@layer utilities {
+  .text-gradient-hero {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-pink to-accent-orange;
   }
 }

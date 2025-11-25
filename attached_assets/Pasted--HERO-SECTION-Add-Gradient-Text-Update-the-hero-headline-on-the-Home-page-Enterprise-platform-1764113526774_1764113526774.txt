@@ -1,0 +1,101 @@
+. HERO SECTION — Add Gradient Text
+
+Update the hero headline on the Home page:
+
+"Enterprise platforms that power AI, efficiency, and growth."
+
+Enhancements:
+
+Apply a soft multicolor gradient similar to the “Product thinking.” text from the reference screenshot I provided.
+
+Suggested gradient: soft purple → pink → warm orange (very subtle, enterprise-friendly).
+
+Keep the second line (if split) in solid dark text for contrast.
+
+Ensure gradient affects text only, not background.
+
+2. AI ACCENT COLOR LOGIC
+
+Introduce a unified accent color scheme:
+
+Any tag, badge, icon, or phrase involving “AI”, “Automation,” or “Machine Learning” should use a soft purple accent (#7A5AF8 or nearest match to your palette).
+
+Apply this to:
+
+AI service page tags
+
+Blog AI category chip
+
+AI Automation page section headers
+
+Any callouts specifically referring to AI
+
+This should be subtle. Do NOT oversaturate.
+
+3. CTA UNIIFICATION + MODAL CONVERSION
+A. Standardize CTA Text
+
+Replace all variations with a single unified version:
+
+➡️ “Schedule a Consultation”
+
+Check ALL locations:
+
+Header
+
+Home page
+
+Footer
+
+Blog cards (if any)
+
+Contact page
+
+Any buttons generated in services pages
+
+B. Convert CTA → Modal
+
+When a user clicks Schedule a Consultation, open a modal instead of navigating to the Contact page.
+
+The modal should contain the existing contact form, including:
+
+Name
+
+Business email
+
+Company
+
+Job title
+
+How did you hear about us?
+
+Project description
+
+Submit button
+
+Modal design guidelines:
+
+White background
+
+Soft drop shadow
+
+Slight rounded corners (12–16px)
+
+Close button (X) in top right
+
+Prevent background scrolling while open
+
+Make the modal responsive for mobile
+
+Keep the standalone Contact page available via the nav link.
+
+4. UPDATE CONSULTATION INFO
+
+Apply these global changes wherever consultation messaging appears:
+
+Remove the $99 pricing entirely from the site.
+
+Replace any consultation time references with:
+“Free 20-minute consultation.”
+
+Update the Contact page block that references appointment scheduling.

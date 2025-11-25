@@ -1,8 +1,11 @@
 import { PageHeader } from "@/components/layout/page-header";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Layout, Database, GitBranch, Server, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Layout, Database, Server, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/futuristic_construct_f8e13174.jpg";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 export default function PlatformModernization() {
   return (
@@ -14,7 +17,6 @@ export default function PlatformModernization() {
         description="Upgrade your architecture, workflows, data, and user experience—while keeping your teams productive and your customers happy."
         image={heroImage}
         ctaText="Book a modernization assessment"
-        ctaLink="/contact"
       />
 
       {/* Why Modernization Matters */}
@@ -74,7 +76,7 @@ export default function PlatformModernization() {
                 items: ["Tune performance", "Add observability", "Validate outcomes"]
               }
             ].map((phase, i) => (
-              <div key={i} className="bg-background p-8 rounded-lg border border-border relative group hover:-translate-y-1 transition-transform duration-300">
+              <div key={i} className="bg-background p-8 rounded-xl border border-border relative group hover:-translate-y-1 transition-transform duration-300">
                 <div className="text-6xl font-bold text-border/40 absolute top-4 right-4 group-hover:text-secondary/10 transition-colors">{phase.step}</div>
                 <h3 className="text-xl font-bold text-primary mb-6 relative z-10">{phase.title}</h3>
                 <ul className="space-y-3 relative z-10">
@@ -110,18 +112,18 @@ export default function PlatformModernization() {
                   "Reduced operational overhead",
                   "Easier onboarding for engineering teams"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-sm border border-border">
+                  <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-border">
                     <CheckCircle2 className="w-5 h-5 text-accent-purple" />
                     <span className="text-foreground">{item}</span>
                   </div>
                 ))}
               </ul>
             </div>
-            {/* Conceptual Visual */}
+            {/* Placeholder Component */}
             <div className="bg-white p-8 rounded-xl border border-border shadow-lg flex items-center justify-center h-full min-h-[300px]">
               <div className="text-center opacity-50">
                 <Layout className="w-24 h-24 text-accent-purple mx-auto mb-4" />
-                <div className="font-mono text-sm">Microservices Architecture Visualization</div>
+                <div className="font-mono text-sm bg-gray-100 p-2 rounded">[Image placeholder — Modernization Diagram coming soon]</div>
               </div>
             </div>
           </div>
@@ -135,7 +137,7 @@ export default function PlatformModernization() {
             <div className="order-2 lg:order-1 bg-background p-8 rounded-xl border border-border shadow-lg flex items-center justify-center h-full min-h-[300px]">
               <div className="text-center opacity-50">
                 <Database className="w-24 h-24 text-accent-orange mx-auto mb-4" />
-                <div className="font-mono text-sm">Data Pipeline Visualization</div>
+                <div className="font-mono text-sm bg-gray-200 p-2 rounded">[Image placeholder — Data Flow coming soon]</div>
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -154,7 +156,7 @@ export default function PlatformModernization() {
                   "Aligning data governance to compliance (TCPA, CPRA)",
                   "Preparing your data for LLMs and automation"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-background p-4 rounded-sm border border-border">
+                  <div key={i} className="flex items-center gap-3 bg-background p-4 rounded-xl border border-border">
                     <CheckCircle2 className="w-5 h-5 text-accent-orange" />
                     <span className="text-foreground">{item}</span>
                   </div>
@@ -176,7 +178,7 @@ export default function PlatformModernization() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {["End-to-end customer journeys", "Seller and agent experiences", "Internal tooling", "Support & compliance workflows", "Mobile and desktop UI"].map((item, i) => (
-              <div key={i} className="bg-white p-6 rounded-lg border border-border text-center font-bold text-foreground shadow-sm">
+              <div key={i} className="bg-white p-6 rounded-xl border border-border text-center font-bold text-foreground shadow-sm hover:shadow-md transition-all">
                 {item}
               </div>
             ))}
@@ -211,11 +213,11 @@ export default function PlatformModernization() {
       <section className="py-24 bg-white text-center">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="text-4xl font-bold text-primary mb-6">Ready to modernize your platform the right way?</h2>
-          <Link href="/contact">
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-sm shadow-lg">
+          <ConsultationModal>
+            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
               Start your modernization assessment
             </Button>
-          </Link>
+          </ConsultationModal>
         </div>
       </section>
 

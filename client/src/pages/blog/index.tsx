@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const BLOG_POSTS = [
   {
@@ -71,18 +71,23 @@ export default function BlogIndex() {
           
           {/* Categories */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {["All", "AI", "DevEx", "Salesforce", "Leadership", "PNW Cloud Updates"].map((cat, i) => (
-              <button 
-                key={i}
-                className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
-                  i === 0 
-                    ? "bg-primary text-white border-primary" 
-                    : "bg-white text-muted-foreground border-border hover:border-secondary hover:text-secondary"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {["All", "AI", "DevEx", "Salesforce", "Leadership", "PNW Cloud Updates"].map((cat, i) => {
+              const isAI = cat === "AI";
+              return (
+                <button 
+                  key={i}
+                  className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
+                    i === 0 
+                      ? "bg-primary text-white border-primary" 
+                      : isAI
+                        ? "bg-accent-ai/10 text-accent-ai border-accent-ai/30 hover:bg-accent-ai/20"
+                        : "bg-white text-muted-foreground border-border hover:border-secondary hover:text-secondary"
+                  }`}
+                >
+                  {cat}
+                </button>
+              )
+            })}
           </div>
 
           {/* Grid */}
@@ -96,7 +101,11 @@ export default function BlogIndex() {
                       alt={post.title} 
                       className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary px-3 py-1 text-xs font-bold uppercase rounded-sm shadow-sm">
+                    <div className={`absolute top-4 left-4 px-3 py-1 text-xs font-bold uppercase rounded-md shadow-sm backdrop-blur ${
+                      post.category === 'AI' 
+                        ? 'bg-accent-ai/90 text-white' 
+                        : 'bg-white/90 text-primary'
+                    }`}>
                       {post.category}
                     </div>
                   </div>
@@ -132,9 +141,9 @@ export default function BlogIndex() {
               <p className="text-white/70 mb-8">
                 Join 5,000+ tech leaders receiving our weekly insights on cloud modernization and AI.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Input placeholder="Enter your business email" className="bg-white border-white h-12" />
-                <Button className="bg-accent-orange hover:bg-accent-orange/90 text-white h-12 px-8 font-bold">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Input placeholder="Enter your business email" className="bg-white border-white h-12 rounded-lg max-w-md" />
+                <Button className="bg-accent-orange hover:bg-accent-orange/90 text-white h-12 px-8 font-bold rounded-lg">
                   Subscribe
                 </Button>
               </div>

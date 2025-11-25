@@ -1,10 +1,10 @@
 import { PageHeader } from "@/components/layout/page-header";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Activity, Link as LinkIcon, ArrowRight } from "lucide-react";
+import { Activity } from "lucide-react";
 import heroImage from "@assets/stock_images/data_dashboard_analy_aac797ea.jpg";
-import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 export default function Observability() {
   return (
@@ -16,7 +16,6 @@ export default function Observability() {
         description="Turn logs, dashboards, and signals into meaningful decisions and reliability."
         image={heroImage}
         ctaText="Assess your observability posture"
-        ctaLink="/contact"
       />
 
       {/* What Observability Means */}
@@ -30,7 +29,7 @@ export default function Observability() {
             </p>
             <div className="grid sm:grid-cols-2 gap-4 text-left">
               {["Reveal bottlenecks", "Improve incident response", "Reduce blind spots", "Tie engineering to business outcomes", "Power data for AI"].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-4 bg-white rounded border border-border">
+                <div key={i} className="flex items-center gap-3 p-4 bg-white rounded-xl border border-border">
                   <Activity className="w-5 h-5 text-accent-purple" />
                   <span className="font-medium">{item}</span>
                 </div>
@@ -46,7 +45,7 @@ export default function Observability() {
           <h2 className="text-3xl font-bold text-primary text-center mb-12">Tools & Signals We Work With</h2>
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             {["Splunk", "DataDog", "Pendo", "Custom pipelines"].map((tool, i) => (
-              <div key={i} className="p-6 bg-background border border-border rounded text-center font-bold text-lg">
+              <div key={i} className="p-6 bg-background border border-border rounded-xl text-center font-bold text-lg">
                 {tool}
               </div>
             ))}
@@ -79,13 +78,16 @@ export default function Observability() {
                   </li>
                 ))}
               </ul>
-              <div className="p-4 bg-white border-l-4 border-secondary">
+              <div className="p-4 bg-white border-l-4 border-secondary shadow-sm">
                 <p className="font-medium">When these metrics move, the business moves: Lower costs, higher reliability, more revenue.</p>
               </div>
             </div>
             
             <div className="bg-gray-900 p-6 rounded-xl shadow-2xl text-green-400 font-mono text-xs">
-              <div className="mb-4 border-b border-gray-700 pb-2 text-white font-bold">Dashboard Mockup</div>
+              <div className="mb-4 border-b border-gray-700 pb-2 text-white font-bold flex justify-between">
+                <span>Dashboard Mockup</span>
+                <span className="bg-gray-800 px-2 py-0.5 rounded text-[10px] text-gray-400">[Image placeholder — Dashboard]</span>
+              </div>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="bg-gray-800 p-3 rounded">Lead Time: <span className="text-white font-bold">2h</span> <span className="text-green-500">↓ 90%</span></div>
                 <div className="bg-gray-800 p-3 rounded">Failure Rate: <span className="text-white font-bold">0.2%</span> <span className="text-green-500">↓ 50%</span></div>
@@ -105,11 +107,11 @@ export default function Observability() {
       <section className="py-24 bg-white text-center border-t border-border">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="text-4xl font-bold text-primary mb-6">Ready to improve visibility, reliability, and decisions?</h2>
-          <Link href="/contact">
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-sm shadow-lg">
+          <ConsultationModal>
+            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
               Assess your observability posture
             </Button>
-          </Link>
+          </ConsultationModal>
         </div>
       </section>
 

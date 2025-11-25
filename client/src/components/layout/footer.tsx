@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "wouter";
 import logo from "@assets/logo.webp";
 import { navigation } from "@/config/navigation";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 export function Footer() {
   return (
@@ -21,24 +22,21 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="bg-background p-8 space-y-6 border border-border">
+          <div className="bg-background p-8 space-y-6 border border-border rounded-xl shadow-sm">
             <h3 className="text-xl font-bold text-primary mb-4">Schedule Appointment</h3>
             
             <div className="space-y-4">
-              {[
-                { title: "Free Consultation", duration: "30 minutes", price: "Free" },
-                { title: "Basic Service", duration: "1 hour", price: "$99.00" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center justify-between p-4 bg-white border border-border hover:border-secondary transition-colors group cursor-pointer">
-                  <div>
-                    <h4 className="font-bold text-foreground group-hover:text-secondary transition-colors">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.duration} • {item.price}</p>
-                  </div>
-                  <Button size="sm" className="bg-primary text-white rounded-none opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex items-center justify-between p-4 bg-white border border-border hover:border-secondary transition-colors group cursor-pointer rounded-lg">
+                <div>
+                  <h4 className="font-bold text-foreground group-hover:text-secondary transition-colors">Free Consultation</h4>
+                  <p className="text-sm text-muted-foreground">Free 20-minute consultation</p>
+                </div>
+                <ConsultationModal>
+                  <Button size="sm" className="bg-secondary text-white rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                     Book
                   </Button>
-                </div>
-              ))}
+                </ConsultationModal>
+              </div>
             </div>
           </div>
         </div>
@@ -56,8 +54,8 @@ export function Footer() {
             <div className="flex flex-col gap-2">
               <h4 className="font-bold text-foreground">Join our Community</h4>
               <div className="flex gap-2 max-w-sm">
-                <Input placeholder="Email Address" className="rounded-none bg-background border-border h-10" />
-                <Button className="bg-secondary text-white rounded-none hover:bg-secondary/90 h-10">
+                <Input placeholder="Email Address" className="bg-background border-border h-10 rounded-lg" />
+                <Button className="bg-secondary text-white hover:bg-secondary/90 h-10 rounded-lg font-semibold">
                   Sign Up
                 </Button>
               </div>
@@ -68,7 +66,7 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {navigation.footer.company.map((link, i) => (
-                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary transition-colors">{link.label}</a></Link></li>
               ))}
             </ul>
           </div>
@@ -77,7 +75,7 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {navigation.footer.services.map((link, i) => (
-                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary transition-colors">{link.label}</a></Link></li>
               ))}
             </ul>
           </div>
@@ -86,18 +84,18 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6">Resources</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {navigation.footer.resources.map((link, i) => (
-                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary transition-colors">{link.label}</a></Link></li>
               ))}
               <li className="pt-4 font-bold text-foreground">Legal</li>
                {navigation.footer.legal.map((link, i) => (
-                <li key={i}><Link href={link.href}><a className="hover:text-secondary">{link.label}</a></Link></li>
+                <li key={i}><Link href={link.href}><a className="hover:text-secondary transition-colors">{link.label}</a></Link></li>
               ))}
             </ul>
           </div>
         </div>
 
         <div className="text-center text-xs text-muted-foreground pt-8 border-t border-border">
-          © 2025 Pacific Northwest Cloud Services. All rights reserved.
+          © 2025 Pacific Northwest Cloud Services LLC. All rights reserved.
         </div>
       </div>
     </footer>

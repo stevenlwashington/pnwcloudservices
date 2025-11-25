@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 export function CTA() {
   return (
@@ -13,11 +13,11 @@ export function CTA() {
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
           Ready to modernize? Schedule a free consultation to discuss your goals and challenges.
         </p>
-        <Link href="/contact">
-          <Button className="bg-secondary hover:bg-secondary/90 text-white h-16 px-12 text-xl font-bold rounded-sm shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-            Schedule Consultation
+        <ConsultationModal>
+          <Button className="bg-secondary hover:bg-secondary/90 text-white h-16 px-12 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+            Schedule a Consultation
           </Button>
-        </Link>
+        </ConsultationModal>
       </div>
     </section>
   );

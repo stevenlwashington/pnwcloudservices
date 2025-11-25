@@ -1,0 +1,230 @@
+Please apply the following enhancements across the entire website.
+
+1. HERO SECTION — Add Gradient Text
+
+Update the hero headline on the Home page:
+
+"Enterprise platforms that power AI, efficiency, and growth."
+
+Enhancements:
+
+Apply a soft multicolor gradient similar to the “Product thinking.” text from the reference screenshot I provided.
+
+Suggested gradient: soft purple → pink → warm orange (very subtle, enterprise-friendly).
+
+Keep the second line (if split) in solid dark text for contrast.
+
+Ensure gradient affects text only, not background.
+
+2. AI ACCENT COLOR LOGIC
+
+Introduce a unified accent color scheme:
+
+Any tag, badge, icon, or phrase involving “AI”, “Automation,” or “Machine Learning” should use a soft purple accent (#7A5AF8 or nearest match to your palette).
+
+Apply this to:
+
+AI service page tags
+
+Blog AI category chip
+
+AI Automation page section headers
+
+Any callouts specifically referring to AI
+
+This should be subtle. Do NOT oversaturate.
+
+3. CTA UNIIFICATION + MODAL CONVERSION
+A. Standardize CTA Text
+
+Replace all variations with a single unified version:
+
+➡️ “Schedule a Consultation”
+
+Check ALL locations:
+
+Header
+
+Home page
+
+Footer
+
+Blog cards (if any)
+
+Contact page
+
+Any buttons generated in services pages
+
+B. Convert CTA → Modal
+
+When a user clicks Schedule a Consultation, open a modal instead of navigating to the Contact page.
+
+The modal should contain the existing contact form, including:
+
+Name
+
+Business email
+
+Company
+
+Job title
+
+How did you hear about us?
+
+Project description
+
+Submit button
+
+Modal design guidelines:
+
+White background
+
+Soft drop shadow
+
+Slight rounded corners (12–16px)
+
+Close button (X) in top right
+
+Prevent background scrolling while open
+
+Make the modal responsive for mobile
+
+Keep the standalone Contact page available via the nav link.
+
+4. UPDATE CONSULTATION INFO
+
+Apply these global changes wherever consultation messaging appears:
+
+Remove the $99 pricing entirely from the site.
+
+Replace any consultation time references with:
+“Free 20-minute consultation.”
+
+Update the Contact page block that references appointment scheduling.
+
+5. FOOTER UPDATE
+
+In the footer’s copyright line:
+
+Replace:
+
+© 2025 Pacific Northwest Cloud Services. All rights reserved.
+
+
+With:
+
+© 2025 Pacific Northwest Cloud Services LLC. All rights reserved.
+
+
+Do not alter the footer layout.
+
+6. DESIGN SYSTEM POLISH
+
+Apply the following improvements globally:
+
+A. Color Enhancements
+
+Maintain green as the primary brand color.
+
+Add subtle purple as a secondary AI accent where appropriate.
+
+Use a consistent gray scale for borders & muted text.
+
+B. Typography Refinements
+
+Slightly increase line-height for body text.
+
+Tighten letter-spacing for headline fonts.
+
+Ensure consistent H1–H4 sizing across all pages.
+
+C. Button Styling
+
+All primary buttons should follow the same styling:
+
+Green background (#1F6C3F or site’s current primary)
+
+White text
+
+Slight hover darken effect
+
+Rounded corners (10–12px)
+
+Font weight semi-bold
+
+Secondary buttons (if used):
+
+White background
+
+Green border
+
+Green text
+
+Subtle hover fill
+
+7. SUBTLE ANIMATIONS
+
+Add gentle UX-friendly animations:
+
+Fade-in for hero text on page load
+
+Slight upward motion (5–10px) for cards on hover
+
+Smooth dropdown animation for desktop nav
+
+Mobile drawer slide-in animation
+
+Animations must be subtle, professional, and low-performance-cost.
+
+8. IMAGE PLACEHOLDER COMPONENTS
+
+Add placeholder components where imagery is expected in the future:
+
+For Service Pages:
+
+Platform Modernization → add a placeholder for a modernization diagram
+
+AI Automation → placeholder for an AI workflow graphic
+
+DevEx & DevOps → placeholder for CI/CD pipeline diagram
+
+Observability → placeholder for an observability dashboard mockup
+
+Use a neutral box with text like:
+“Image placeholder — coming soon.”
+
+Ensure they match the site’s color palette and are easy to swap later.
+
+9. BLOG GRID REFINEMENT
+
+Standardize blog featured images to a consistent aspect ratio (16:9 preferred).
+
+Add a subtle hover zoom (1–2% scale) on blog cards.
+
+Ensure all category badges follow the new color rules.
+
+10. CODE CLEANUP & CONSISTENCY
+
+Please do the following globally:
+
+Remove unused imports created during page generation
+
+Standardize spacing between components (32–48px vertical rhythm)
+
+Ensure all pages use consistent container widths
+
+Consolidate repeated styles into shared components or utility classes
+
+✔ When finished
+
+Please output:
+
+List of all files created/edited
+
+Summary of changes
+
+Any places where manual content or direction is needed
+
+Confirmation that the modal CTA works across desktop & mobile
+
+⭐ END OF PROMPT ⭐

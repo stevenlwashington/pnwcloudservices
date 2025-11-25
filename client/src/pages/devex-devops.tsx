@@ -3,8 +3,8 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { GitPullRequest, Terminal, Gauge, Rocket, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/devops_pipeline_infi_c0072be5.jpg";
-import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 export default function DevEx() {
   return (
@@ -16,7 +16,6 @@ export default function DevEx() {
         description="CI/CD pipelines, frictionless developer workflows, and DORA metrics that translate into real business outcomes."
         image={heroImage}
         ctaText="Evaluate your pipeline"
-        ctaLink="/contact"
       />
 
       {/* Why DevEx Matters */}
@@ -27,7 +26,7 @@ export default function DevEx() {
             <p className="text-lg text-muted-foreground mb-8">
               Developer experience is one of the strongest predictors of velocity, quality, talent retention, and innovation.
             </p>
-            <div className="p-6 bg-white border border-border shadow-sm inline-block rounded-lg">
+            <div className="p-6 bg-white border border-border shadow-sm inline-block rounded-xl">
               <p className="text-xl font-bold text-foreground">
                 If developers are frustrated, the business slows down.<br/>
                 <span className="text-secondary">If developers can move freely, the business accelerates.</span>
@@ -47,7 +46,7 @@ export default function DevEx() {
               "Low-friction environments", "Strong documentation",
               "Consistent workflows", "Good defaults that scale"
             ].map((item, i) => (
-              <div key={i} className="p-6 bg-background border border-border rounded text-center font-bold text-foreground">
+              <div key={i} className="p-6 bg-background border border-border rounded-xl text-center font-bold text-foreground">
                 {item}
               </div>
             ))}
@@ -95,13 +94,13 @@ export default function DevEx() {
               </ul>
             </div>
             <div className="bg-background p-8 rounded-xl border border-border flex flex-col items-center justify-center gap-4 min-h-[300px]">
-              <div className="font-mono text-sm text-muted-foreground mb-4">[Pipeline Diagram Placeholder]</div>
+              <div className="font-mono text-sm text-muted-foreground mb-4 bg-white p-2 rounded">[Image placeholder — CI/CD Pipeline Diagram coming soon]</div>
               <div className="flex gap-2 text-xs font-bold uppercase">
-                <span className="px-3 py-1 bg-white border">Plan</span>
-                <span className="px-3 py-1 bg-white border">Develop</span>
-                <span className="px-3 py-1 bg-white border">Validate</span>
-                <span className="px-3 py-1 bg-white border">Deploy</span>
-                <span className="px-3 py-1 bg-white border">Observe</span>
+                <span className="px-3 py-1 bg-white border rounded">Plan</span>
+                <span className="px-3 py-1 bg-white border rounded">Develop</span>
+                <span className="px-3 py-1 bg-white border rounded">Validate</span>
+                <span className="px-3 py-1 bg-white border rounded">Deploy</span>
+                <span className="px-3 py-1 bg-white border rounded">Observe</span>
               </div>
             </div>
           </div>
@@ -119,7 +118,7 @@ export default function DevEx() {
               { label: "Change failure rate", icon: Terminal },
               { label: "Mean time to restore", icon: Gauge },
             ].map((metric, i) => (
-              <div key={i} className="p-8 bg-white border border-border rounded-lg text-center group hover:border-accent-purple transition-colors">
+              <div key={i} className="p-8 bg-white border border-border rounded-xl text-center group hover:border-accent-purple transition-colors">
                 <metric.icon className="w-10 h-10 mx-auto mb-4 text-muted-foreground group-hover:text-accent-purple transition-colors" />
                 <div className="font-bold text-foreground">{metric.label}</div>
               </div>
@@ -140,11 +139,11 @@ export default function DevEx() {
       <section className="py-24 bg-white text-center border-t border-border">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="text-4xl font-bold text-primary mb-6">Ready to modernize your development pipeline?</h2>
-          <Link href="/contact">
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-sm shadow-lg">
+          <ConsultationModal>
+            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
               Improve developer experience
             </Button>
-          </Link>
+          </ConsultationModal>
         </div>
       </section>
 

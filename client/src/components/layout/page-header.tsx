@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { ConsultationModal } from "@/components/consultation-modal";
 
 interface PageHeaderProps {
   title: string;
   description: string;
   image?: string;
   ctaText?: string;
-  ctaLink?: string;
+  ctaLink?: string; // Kept for compatibility but will prioritize modal trigger for main CTA
 }
 
-export function PageHeader({ title, description, image, ctaText = "Get Started", ctaLink = "/contact" }: PageHeaderProps) {
+export function PageHeader({ title, description, image, ctaText = "Schedule a Consultation", ctaLink }: PageHeaderProps) {
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background">
       <div className="container mx-auto px-6 relative z-10">
@@ -20,9 +21,11 @@ export function PageHeader({ title, description, image, ctaText = "Get Started",
             {description}
           </p>
           <div className="animate-in slide-in-from-bottom-5 duration-700 delay-200">
-            <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-md px-8 py-6 text-lg font-bold shadow-md hover:shadow-xl transition-all">
-              {ctaText}
-            </Button>
+            <ConsultationModal>
+              <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-xl px-8 py-6 text-lg font-bold shadow-md hover:shadow-xl transition-all">
+                {ctaText === "Schedule a Consultation" ? ctaText : ctaText} 
+              </Button>
+            </ConsultationModal>
           </div>
         </div>
       </div>

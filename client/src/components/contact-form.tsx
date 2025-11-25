@@ -13,10 +13,9 @@ const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
   company: z.string().min(1, "Company name is required"),
-  role: z.string().min(1, "Role is required"),
+  role: z.string().min(1, "Job title is required"),
   source: z.string().optional(),
-  message: z.string().min(10, "Please provide a bit more detail"),
-  // Honeypot field for spam protection (should remain empty)
+  message: z.string().min(10, "Please provide a brief project description"),
   website: z.string().max(0, "Spam detected").optional().or(z.literal("")),
 });
 
@@ -39,24 +38,19 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    
-    // Simulate Formspree submission
     try {
-      const response = await fetch("https://formspree.io/f/mdknqelp", { // Using a demo formspree ID or placeholder
+      const response = await fetch("https://formspree.io/f/mdknqelp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
-
-      // For prototype, we'll assume success even if the ID isn't real
       setIsSuccess(true);
       form.reset();
     } catch (error) {
       console.error("Submission error", error);
-      // Fallback success for demo
-      setIsSuccess(true);
+      setIsSuccess(true); // Fallback success for demo
     } finally {
       setIsSubmitting(false);
     }
@@ -64,7 +58,7 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-secondary/10 p-8 rounded-lg border border-secondary text-center space-y-4 animate-in fade-in zoom-in duration-300">
+      <div className="bg-secondary/10 p-8 rounded-xl border border-secondary text-center space-y-4 animate-in fade-in zoom-in duration-300">
         <div className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center mx-auto">
           <CheckCircle className="w-8 h-8" />
         </div>
@@ -75,7 +69,7 @@ export function ContactForm() {
         <Button 
           variant="outline" 
           onClick={() => setIsSuccess(false)}
-          className="mt-4"
+          className="mt-4 rounded-lg font-semibold"
         >
           Send Another Message
         </Button>
@@ -85,8 +79,8 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
             name="name"
@@ -94,7 +88,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jane Doe" {...field} className="bg-white" />
+                  <Input placeholder="Jane Doe" {...field} className="bg-white rounded-lg border-border" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -107,7 +101,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Business Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="jane@company.com" {...field} className="bg-white" />
+                  <Input placeholder="jane@company.com" {...field} className="bg-white rounded-lg border-border" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -115,7 +109,7 @@ export function ContactForm() {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
             name="company"
@@ -123,7 +117,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Company</FormLabel>
                 <FormControl>
-                  <Input placeholder="Acme Corp" {...field} className="bg-white" />
+                  <Input placeholder="Acme Corp" {...field} className="bg-white rounded-lg border-border" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -136,7 +130,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Job Title</FormLabel>
                 <FormControl>
-                  <Input placeholder="CTO, VP of Engineering..." {...field} className="bg-white" />
+                  <Input placeholder="CTO, VP of Engineering..." {...field} className="bg-white rounded-lg border-border" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -152,7 +146,7 @@ export function ContactForm() {
               <FormLabel>How did you hear about us? (Optional)</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="bg-white">
+                  <SelectTrigger className="bg-white rounded-lg border-border">
                     <SelectValue placeholder="Select an option" />
                   </SelectTrigger>
                 </FormControl>
@@ -174,11 +168,11 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>How can we help?</FormLabel>
+              <FormLabel>Project Description</FormLabel>
               <FormControl>
                 <Textarea 
                   placeholder="Tell us about your project or challenges..." 
-                  className="min-h-[120px] bg-white" 
+                  className="min-h-[120px] bg-white rounded-lg border-border" 
                   {...field} 
                 />
               </FormControl>
@@ -187,7 +181,6 @@ export function ContactForm() {
           )}
         />
 
-        {/* Honeypot field - hidden from users */}
         <FormField
           control={form.control}
           name="website"
@@ -203,7 +196,7 @@ export function ContactForm() {
         <Button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-white font-bold py-6 px-8 rounded-md transition-all"
+          className="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-6 px-8 rounded-xl transition-all mt-2"
         >
           {isSubmitting ? (
             <>
@@ -211,7 +204,7 @@ export function ContactForm() {
               Sending...
             </>
           ) : (
-            "Send Message"
+            "Submit"
           )}
         </Button>
       </form>
