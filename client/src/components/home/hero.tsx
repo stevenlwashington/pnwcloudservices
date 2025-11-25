@@ -28,12 +28,6 @@ export function Hero() {
                 Schedule a Consultation
               </Button>
             </ConsultationModal>
-            
-            <Link href="/services"> 
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-xl h-14 px-8 text-lg bg-transparent font-semibold">
-                Explore services
-              </Button>
-            </Link>
           </div>
         </div>
 
