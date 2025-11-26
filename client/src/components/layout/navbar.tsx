@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@assets/logo.webp";
+import logoNew from "@assets/logo-pnw.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
 
@@ -45,13 +45,12 @@ export function Navbar() {
         <Link href="/">
           <a className="flex items-center gap-3 group">
             <img 
-              src={logo} 
+              src={logoNew} 
               alt="PNW Cloud Services" 
               className="h-10 w-auto object-contain"
             />
             <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
-              <span className="hidden lg:inline">PNW Cloud Services</span>
-              <span className="lg:hidden">PNW Cloud</span>
+              PNW Cloud Services
             </span>
           </a>
         </Link>

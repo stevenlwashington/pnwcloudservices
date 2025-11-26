@@ -9,13 +9,8 @@ export function Hero() {
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
         
         <div className="space-y-8 animate-in slide-in-from-bottom-5 duration-1000 fade-in">
-          <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-widest rounded-full mb-2">
-            Pacific Northwest Cloud Services
-          </div>
-          
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary">
-            <span className="text-gradient-hero">Enterprise platforms that power AI,</span><br/>
-            efficiency, and growth.
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+            <span className="text-gradient-hero">Enterprise platforms that power AI, efficiency, and growth.</span>
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-xl leading-relaxed animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in">
