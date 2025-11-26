@@ -14,8 +14,8 @@ export function CTA() {
           Ready to modernize? Schedule a free consultation to discuss your goals and challenges.
         </p>
         <ConsultationModal>
-          <Button className="bg-secondary hover:bg-secondary/90 text-white h-16 px-12 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-            Schedule a Consultation
+          <Button className="bg-primary hover:bg-primary/90 text-white h-16 px-12 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-primary/85">
+            Talk to a Platform Expert
           </Button>
         </ConsultationModal>
       </div>

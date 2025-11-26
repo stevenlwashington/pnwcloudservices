@@ -71,8 +71,8 @@ export default function Services() {
             From platform modernization to AI automation, we help you build, scale, and optimize the systems that power your business.
           </p>
           <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-md animate-in slide-in-from-bottom-5 duration-700 delay-200">
-              Start a Consultation
+            <Button className="bg-primary hover:bg-primary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-md animate-in slide-in-from-bottom-5 duration-700 delay-200 hover:scale-105 hover:bg-primary/85">
+              Talk to a Platform Expert
             </Button>
           </ConsultationModal>
         </div>

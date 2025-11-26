@@ -9,7 +9,7 @@ interface PageHeaderProps {
   ctaLink?: string; // Kept for compatibility but will prioritize modal trigger for main CTA
 }
 
-export function PageHeader({ title, description, image, ctaText = "Schedule a Consultation", ctaLink }: PageHeaderProps) {
+export function PageHeader({ title, description, image, ctaText = "Talk to a Platform Expert", ctaLink }: PageHeaderProps) {
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background">
       <div className="container mx-auto px-6 relative z-10">
@@ -22,8 +22,8 @@ export function PageHeader({ title, description, image, ctaText = "Schedule a Co
           </p>
           <div className="animate-in slide-in-from-bottom-5 duration-700 delay-200">
             <ConsultationModal>
-              <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-xl px-8 py-6 text-lg font-bold shadow-md hover:shadow-xl transition-all">
-                {ctaText === "Schedule a Consultation" ? ctaText : ctaText} 
+              <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 text-lg font-bold shadow-md hover:shadow-xl transition-all hover:scale-105 hover:bg-primary/85">
+                {ctaText}
               </Button>
             </ConsultationModal>
           </div>

@@ -171,4 +171,11 @@
   .text-gradient-hero {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-pink to-accent-orange;
   }
+  
+  .text-gradient-speed {
+    background: linear-gradient(90deg, #0B3D28, #2E7D32, #A48CE0, #7BB9FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }

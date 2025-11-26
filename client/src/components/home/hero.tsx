@@ -9,18 +9,18 @@ export function Hero() {
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
         
         <div className="space-y-8 animate-in slide-in-from-bottom-5 duration-1000 fade-in">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-            <span className="text-gradient-hero">Enterprise platforms that power AI, efficiency, and growth.</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary">
+            Engineering <span className="text-gradient-speed">Speed</span>. Business Confidence.
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-xl leading-relaxed animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in">
-            Helping companies modernize platforms, scale GTM systems, improve DevEx, and embed AI responsibly.
+            Helping organizations build the foundation their data, teams, and customers need to thrive in an AI-driven world.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4 animate-in slide-in-from-bottom-5 duration-1000 delay-300 fade-in">
             <ConsultationModal>
-              <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-xl h-14 px-8 text-lg font-semibold shadow-sm transition-all hover:translate-y-[-2px]">
-                Schedule a Consultation
+              <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-lg font-bold shadow-sm transition-all hover:scale-105 hover:bg-primary/85">
+                Talk to a Platform Expert
               </Button>
             </ConsultationModal>
           </div>
