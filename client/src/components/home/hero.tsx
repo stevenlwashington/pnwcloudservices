@@ -8,16 +8,18 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
         
-        <div className="space-y-8 animate-in slide-in-from-bottom-5 duration-1000 fade-in">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary">
-            Engineering <span className="text-gradient-speed">Speed</span> Business Confidence
+        <div className="animate-in slide-in-from-bottom-5 duration-1000 fade-in">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary hero-headline">
+            <span className="hero-line-top">Engineering</span>
+            <span className="hero-line-middle text-gradient-speed">Speed</span>
+            <span className="hero-line-bottom">Business Confidence</span>
           </h1>
           
-          <p className="text-xl text-muted-foreground max-w-xl leading-relaxed animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in">
+          <p className="text-xl text-muted-foreground max-w-xl leading-relaxed animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in hero-subtext">
             Helping organizations build the foundation their data, teams, and customers need to thrive in an AI-driven world.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-4 animate-in slide-in-from-bottom-5 duration-1000 delay-300 fade-in">
+          <div className="flex flex-wrap gap-4 animate-in slide-in-from-bottom-5 duration-1000 delay-300 fade-in hero-cta">
             <ConsultationModal>
               <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-lg font-bold shadow-sm transition-all hover:scale-105 hover:bg-primary/85">
                 Talk to a Platform Expert

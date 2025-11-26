@@ -175,4 +175,30 @@
   .text-gradient-speed {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-pink to-accent-orange;
   }
+
+  /* Hero Headline Three-Line Layout */
+  .hero-headline {
+    @apply flex flex-col leading-none;
+  }
+
+  .hero-line-top {
+    @apply block mb-[0.65em];
+  }
+
+  .hero-line-middle {
+    @apply block mb-[1.0em];
+  }
+
+  .hero-line-bottom {
+    @apply block;
+  }
+
+  /* Hero Spacing */
+  .hero-subtext {
+    @apply mt-[1.5em];
+  }
+
+  .hero-cta {
+    @apply pt-[1.0em];
+  }
 }
