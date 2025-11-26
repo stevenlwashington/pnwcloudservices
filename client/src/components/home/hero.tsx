@@ -11,8 +11,7 @@ export function Hero() {
         <div className="space-y-8 animate-in slide-in-from-bottom-5 duration-1000 fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary">
             Engineering<br />
-            <span className="text-gradient-speed">Speed</span><br />
-            Business Confidence
+            <span className="text-gradient-speed">Speed</span> Business Confidence
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-xl leading-relaxed animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in">
