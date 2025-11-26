@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import heroImage from "@assets/stock_images/futuristic_construct_f8e13174.jpg";
+import heroImage from "@assets/hero-forest-nature-tech.png";
 import { ConsultationModal } from "@/components/consultation-modal";
 
 export function Hero() {
