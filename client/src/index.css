@@ -57,8 +57,8 @@
 
 /* LIGHT MODE - PNW Theme */
 :root {
-  /* Background: #EAF6EA (Light Green Mist) */
-  --background: 120 33% 94%;
+  /* Background: White */
+  --background: 0 0% 100%;
   
   /* Foreground: #173618 (Dark Forest Green) */
   --foreground: 122 40% 15%;
