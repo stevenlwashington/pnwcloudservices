@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@assets/logo-pnw-toolbar.png";
+import logo from "@assets/logo-pnw-navbar.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
 
@@ -47,7 +47,8 @@ export function Navbar() {
             <img 
               src={logo} 
               alt="PNW Cloud Services" 
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain mix-blend-mode-screen"
+              style={{ mixBlendMode: 'screen' }}
             />
             <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
               PNW Cloud Services

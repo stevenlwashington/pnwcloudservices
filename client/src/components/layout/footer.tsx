@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "wouter";
-import logo from "@assets/logo-pnw-mountains.png";
+import logo from "@assets/logo-pnw-navbar.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
 import { NewsletterSignup } from "@/components/newsletter-signup";
