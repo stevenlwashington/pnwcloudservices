@@ -47,7 +47,7 @@ export function Navbar() {
             <img 
               src={logo} 
               alt="PNW Cloud Services" 
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain bg-white/50 px-1.5 py-0.5 rounded-md"
             />
             <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
               PNW Cloud Services
