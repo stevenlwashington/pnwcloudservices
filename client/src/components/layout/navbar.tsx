@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoNew from "@assets/logo-pnw.png";
+import logo from "@assets/logo-pnw-mountains.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
 
@@ -45,7 +45,7 @@ export function Navbar() {
         <Link href="/">
           <a className="flex items-center gap-3 group">
             <img 
-              src={logoNew} 
+              src={logo} 
               alt="PNW Cloud Services" 
               className="h-10 w-auto object-contain"
             />
