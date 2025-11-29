@@ -47,8 +47,8 @@ export function Navbar() {
             <img 
               src={logo} 
               alt="PNW Cloud Services" 
-              className="h-10 w-auto object-contain mix-blend-mode-screen"
-              style={{ mixBlendMode: 'screen' }}
+              className="h-10 w-auto object-contain"
+              style={{ mixBlendMode: 'lighten' }}
             />
             <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
               PNW Cloud Services
