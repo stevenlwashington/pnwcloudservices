@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import logoNew from "@assets/logo-pnw.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export function Footer() {
   return (
@@ -52,13 +53,8 @@ export function Footer() {
               Better Business Outcomes.
             </p>
             <div className="flex flex-col gap-2">
-              <h4 className="font-bold text-foreground">Join our Community</h4>
-              <div className="flex gap-2 max-w-sm">
-                <Input placeholder="Email Address" className="bg-background border-border h-10 rounded-lg" />
-                <Button className="bg-secondary text-white hover:bg-secondary/90 h-10 rounded-lg font-semibold">
-                  Sign Up
-                </Button>
-              </div>
+              <h4 className="font-bold text-foreground mb-3">Join our Community</h4>
+              <NewsletterSignup />
             </div>
           </div>
 
