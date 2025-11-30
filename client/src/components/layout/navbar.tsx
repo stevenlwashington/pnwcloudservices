@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@assets/logo-pnw-navbar.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
 
@@ -43,16 +42,8 @@ export function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo & Branding - Responsive Text */}
         <Link href="/">
-          <a className="flex items-center gap-3 group">
-            <img 
-              src={logo} 
-              alt="PNW Cloud Services" 
-              className="h-10 w-auto object-contain"
-              style={{ mixBlendMode: 'lighten' }}
-            />
-            <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
-              PNW Cloud Services
-            </span>
+          <a className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors group">
+            PNW Cloud Services
           </a>
         </Link>
 
