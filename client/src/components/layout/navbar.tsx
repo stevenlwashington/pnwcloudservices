@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
+import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_18_07 PM_1764479900919.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,8 +43,15 @@ export function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo & Branding - Responsive Text */}
         <Link href="/">
-          <a className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors group">
-            PNW Cloud Services
+          <a className="flex items-center gap-3 group">
+            <img 
+              src={logo} 
+              alt="PNW Cloud Services" 
+              className="h-10 w-auto object-contain"
+            />
+            <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
+              PNW Cloud Services
+            </span>
           </a>
         </Link>
 
