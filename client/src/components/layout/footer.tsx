@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "wouter";
-import logo from "@assets/logo-pnw-navbar.png";
+import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 import { navigation } from "@/config/navigation";
 import { ConsultationModal } from "@/components/consultation-modal";
 import { NewsletterSignup } from "@/components/newsletter-signup";
@@ -47,7 +47,7 @@ export function Footer() {
         {/* Navigation Links */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <img src={logo} alt="PNW Cloud" className="h-12 mb-6" />
+            <img src={logo} alt="PNW Cloud" style={{ height: '50px' }} className="mb-6" />
             <p className="text-sm text-muted-foreground mb-6">
               Smarter Cloud Decisions. <br />
               Better Business Outcomes.
