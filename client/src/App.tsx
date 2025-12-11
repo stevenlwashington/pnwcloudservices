@@ -21,6 +21,7 @@ import Contact from "@/pages/contact";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsOfUse from "@/pages/terms-of-use";
 
+// App Router
 function Router() {
   useScrollToTop();
 
