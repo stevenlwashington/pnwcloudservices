@@ -67,9 +67,27 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="mb-10">
-              <h2 className="text-2xl font-bold text-primary mb-4">5. Data Retention & Security</h2>
+              <h2 className="text-2xl font-bold text-primary mb-4">5. Client Data & Security Standards</h2>
               <p className="mb-4">
-                We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, 
+                For our consulting clients, we adhere to strict data security protocols to ensure the confidentiality and integrity of your project artifacts and sensitive information:
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  <strong>Storage & Encryption:</strong> All client deliverables, project artifacts, and communications are stored in encrypted environments (e.g., enterprise-grade cloud storage, encrypted hardware). Access is restricted to authorized personnel and secured via multi-factor authentication (MFA) and strict password management policies.
+                </li>
+                <li>
+                  <strong>Data Retention:</strong> We maintain a consistent data retention schedule. Inactive client data is retained for a period of <strong>90 days</strong> following project closeout, or for such longer period as may be required for ongoing business purposes, tax/legal compliance, or as specifically defined in a Master Services Agreement (MSA). After this retention period, data is securely deleted or archived in accordance with our internal policies.
+                </li>
+                <li>
+                  <strong>Project Closeout:</strong> Upon project completion, we conduct a formal handoff of all deliverables. Client access to our internal collaboration tools is revoked, and any temporary access credentials provided to us by the client are permanently destroyed or returned.
+                </li>
+              </ul>
+            </section>
+
+            <section className="mb-10">
+              <h2 className="text-2xl font-bold text-primary mb-4">6. Data Retention (General)</h2>
+              <p className="mb-4">
+                For general website visitors, we retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, 
                 including for the purposes of satisfying any legal, accounting, or reporting requirements.
               </p>
               <p>
@@ -79,7 +97,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="mb-10">
-              <h2 className="text-2xl font-bold text-primary mb-4">6. Your Rights</h2>
+              <h2 className="text-2xl font-bold text-primary mb-4">7. Your Rights</h2>
               <p className="mb-4">Depending on your location, you may have the right to:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Access the personal data we hold about you.</li>
@@ -93,14 +111,14 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="mb-10">
-              <h2 className="text-2xl font-bold text-primary mb-4">7. Changes to This Policy</h2>
+              <h2 className="text-2xl font-bold text-primary mb-4">8. Changes to This Policy</h2>
               <p>
                 We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Effective Date."
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-primary mb-4">8. Contact Us</h2>
+              <h2 className="text-2xl font-bold text-primary mb-4">9. Contact Us</h2>
               <p>
                 If you have any questions about this Privacy Policy or our data practices, please contact us through our 
                 <a href="/contact" className="text-secondary hover:underline ml-1">contact page</a>.
