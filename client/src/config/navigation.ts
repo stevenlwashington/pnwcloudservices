@@ -35,7 +35,7 @@ export const navigation = {
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms of Use", href: "/legal/terms" }, // Placeholder route
+      { label: "Terms of Use", href: "/terms-of-use" },
     ],
   },
 };

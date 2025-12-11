@@ -18,6 +18,7 @@ import BlogIndex from "@/pages/blog/index";
 import BlogPost from "@/pages/blog/post";
 import Contact from "@/pages/contact";
 import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfUse from "@/pages/terms-of-use";
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={Contact} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-use" component={TermsOfUse} />
       
       {/* Legacy/Alias routes mapping to Home for now if not explicitly built */}
       <Route path="/services" component={Home} />
