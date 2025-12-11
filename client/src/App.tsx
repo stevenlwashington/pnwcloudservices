@@ -17,6 +17,7 @@ import CloudStrategy from "@/pages/cloud-strategy-cost-optimization";
 import BlogIndex from "@/pages/blog/index";
 import BlogPost from "@/pages/blog/post";
 import Contact from "@/pages/contact";
+import PrivacyPolicy from "@/pages/privacy-policy";
 
 function Router() {
   return (
@@ -33,6 +34,7 @@ function Router() {
       <Route path="/blog" component={BlogIndex} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       
       {/* Legacy/Alias routes mapping to Home for now if not explicitly built */}
       <Route path="/services" component={Home} />

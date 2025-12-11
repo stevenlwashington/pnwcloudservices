@@ -1,0 +1,29 @@
+Story Description
+Create a dedicated Privacy Policy page that clearly communicates how user data is collected, stored, protected, and used by PNW Cloud Services. The policy should address data types collected (including form submissions), retention practices, user rights, and the involvement of third-party processors such as Formspree and Cloudflare Turnstile/Recaptcha. The final page must be compliant with common U.S. small-business privacy standards and styled consistently with the existing website.
+⸻
+Acceptance Criteria
+	1.	A Privacy Policy page is created and published at a stable, publicly accessible URL (e.g., /privacy-policy).
+	2.	The policy clearly explains:
+	•	Personal data collected from forms and website interactions.
+	•	The purpose and lawful basis for data usage.
+	•	Data retention periods and how data is deleted or archived.
+	•	Security measures in place to protect user data.
+	•	Third-party processors involved in form handling (Formspree) and bot/spam prevention (Cloudflare Turnstile/reCAPTCHA).
+	•	User rights, including how users may request access, modification, or deletion of their data.
+	•	A clear statement that PNW Cloud Services does not sell personal data.
+	3.	A footer link labeled “Privacy Policy” is added and visible on all pages of the site.
+	4.	Page uses website typography, spacing, and design elements to maintain consistent branding.
+	5.	Page loads with no console errors, broken links, or styling issues.
+	6.	Metadata is added, including:
+	•	Accurate, descriptive page title
+	•	Meta description summarizing the policy
+	7.	Page is indexable by search engines and included in the site’s sitemap (if applicable).
+	8.	Page renders properly on both mobile and desktop devices.
+	9.	Content is reviewed for clarity, accuracy, and tone.
+⸻
+Success Criteria
+	•	Users can navigate to the Privacy Policy from any page without friction.
+	•	Policy meets expectations for enterprise buyers who require documented privacy practices before engaging.
+	•	Website meets baseline U.S. privacy transparency standards for consultant-led businesses.
+	•	Prospects feel confident submitting data via the contact form, reflected by stable or increased form submissions.
+	•	Policy reduces legal exposure and supports compliance with platform requirements (e.g., Google, LinkedIn lead gen campaigns).

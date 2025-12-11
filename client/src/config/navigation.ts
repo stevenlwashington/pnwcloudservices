@@ -34,7 +34,7 @@ export const navigation = {
       { label: "Blog", href: "/blog" },
     ],
     legal: [
-      { label: "Privacy Policy", href: "/legal/privacy" }, // Placeholder route
+      { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms of Use", href: "/legal/terms" }, // Placeholder route
     ],
   },
