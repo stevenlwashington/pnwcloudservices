@@ -34,7 +34,7 @@ export function Footer() {
                 </div>
                 <ConsultationModal>
                   <Button size="sm" className="bg-secondary text-white rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                    Book
+                    Schedule a Free Consultation
                   </Button>
                 </ConsultationModal>
               </div>

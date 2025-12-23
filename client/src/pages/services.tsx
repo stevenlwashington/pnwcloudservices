@@ -72,7 +72,7 @@ export default function Services() {
           </p>
           <ConsultationModal>
             <Button className="bg-primary hover:bg-primary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-md animate-in slide-in-from-bottom-5 duration-700 delay-200 hover:scale-105 hover:bg-primary/85">
-              Talk to a Platform Expert
+              Schedule a Free Consultation
             </Button>
           </ConsultationModal>
         </div>
@@ -166,7 +166,7 @@ export default function Services() {
           </p>
           <ConsultationModal>
             <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-12 text-lg font-bold rounded-xl shadow-lg">
-              Schedule a Consultation
+              Schedule a Free Consultation
             </Button>
           </ConsultationModal>
         </div>

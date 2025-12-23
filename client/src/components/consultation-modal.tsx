@@ -14,9 +14,9 @@ export function ConsultationModal({ children }: ConsultationModalProps) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px] bg-white border-border shadow-lg rounded-xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-primary mb-2">Schedule a Consultation</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-primary mb-2">Schedule a Free Consultation</DialogTitle>
           <p className="text-muted-foreground">
-            Tell us a bit about your project and we'll get back to you shortly.
+            Share a few details and we'll follow up to coordinate a quick 20-minute intro.
           </p>
         </DialogHeader>
         <div className="mt-4">

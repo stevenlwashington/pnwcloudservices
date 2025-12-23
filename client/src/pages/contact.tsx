@@ -1,5 +1,7 @@
-import { Navbar } from "@/components/layout/navbar";
+import { ConsultationModal } from "@/components/consultation-modal";
+import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
+import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Mail, MapPin, Phone } from "lucide-react";
 
@@ -12,7 +14,7 @@ export default function Contact() {
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 animate-in slide-in-from-bottom-5 duration-500">Let's Connect</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-in slide-in-from-bottom-5 duration-500 delay-100">
-            Ready to modernize your business? Our team is here to help you navigate your cloud journey.
+            Prefer to share more detail? Send us a message below. If you’d rather start with a quick intro, <ConsultationModal><button className="text-secondary font-bold underline hover:text-secondary/80">schedule a free consultation</button></ConsultationModal>.
           </p>
         </div>
       </section>
@@ -49,21 +51,26 @@ export default function Contact() {
                  </div>
                </div>
 
-               <div className="bg-primary text-white p-8 rounded-xl">
-                 <h3 className="font-bold text-lg mb-4">Why PNW Cloud?</h3>
-                 <ul className="space-y-3 text-sm opacity-90">
-                   <li>✓ Free 20-minute consultation</li>
-                   <li>✓ Vendor Agnostic Approach</li>
-                   <li>✓ Enterprise-Grade Security</li>
-                   <li>✓ Proven ROI Focus</li>
-                 </ul>
+               <div className="bg-background p-8 rounded-xl border border-border">
+                 <h3 className="font-bold text-lg mb-4 text-primary">Want to move faster?</h3>
+                 <p className="text-sm text-muted-foreground mb-6">
+                   Schedule a free 20-minute consultation and we’ll align on goals, constraints, and next steps.
+                 </p>
+                 <ConsultationModal>
+                   <Button className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold">
+                     Schedule a Free Consultation
+                   </Button>
+                 </ConsultationModal>
                </div>
             </div>
 
             {/* Form */}
             <div className="lg:col-span-2 animate-in slide-in-from-right-5 duration-700">
                <div className="bg-white p-8 rounded-xl border border-border shadow-sm">
-                 <h3 className="text-2xl font-bold text-primary mb-6">Send us a message</h3>
+                 <h3 className="text-2xl font-bold text-primary mb-2">Tell us about your project</h3>
+                 <p className="text-sm text-muted-foreground mb-6">
+                   This form is best if you want to provide context up front. If you prefer, you can also <ConsultationModal><button className="text-secondary font-bold underline hover:text-secondary/80">schedule a free consultation</button></ConsultationModal>.
+                 </p>
                  <ContactForm />
                </div>
             </div>

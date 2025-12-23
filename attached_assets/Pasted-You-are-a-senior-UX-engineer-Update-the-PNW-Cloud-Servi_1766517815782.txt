@@ -1,0 +1,63 @@
+You are a senior UX engineer. Update the PNW Cloud Services site to standardize our conversion CTAs and clarify the difference between “quick consult” (modal) vs “long-form contact” (dedicated Contact page). Do NOT change routing or page layout drastically—this is a copy + CTA + small UI consistency pass.
+
+GOALS
+1) All CTAs across the site use one consistent phrase:
+   - Primary CTA label: “Schedule a Free Consultation”
+2) Clicking any “Schedule a Free Consultation” CTA should open the existing consultation modal (do not navigate away).
+3) The Contact page should clearly position the on-page form as the “long-form / detailed” option, while the modal is the “quick intro” option.
+4) Reduce redundancy on the Contact page: the bottom scheduling section should not compete with the main form.
+
+SCOPE / IMPLEMENTATION REQUIREMENTS
+- Search the codebase for all CTA button labels and normalize them to “Schedule a Free Consultation”.
+- Ensure header button uses this label and opens the existing modal.
+- Ensure any “Schedule Consultation”, “Schedule a Consultation”, “Schedule Appointment”, “Talk to a Platform Expert”, etc. are replaced with the standard label and wired to the same modal open handler.
+- Ensure there is only ONE scheduling entry point: the modal.
+- Keep the dedicated Contact page form for longer context and submissions.
+
+CONTACT PAGE CHANGES (client/src/pages/contact.tsx or equivalent)
+A) Update hero title/subtitle copy to clarify intent:
+   - Keep the page title “Let’s Connect”
+   - Update the subtitle to: “Prefer to share more detail? Send us a message below. If you’d rather start with a quick intro, schedule a free consultation.”
+B) Update the form section heading:
+   - Change “Send us a message” to “Tell us about your project”
+C) Add a short helper line above the form fields (small text):
+   - “This form is best if you want to provide context up front. If you prefer, you can also schedule a free consultation.”
+   - The phrase “schedule a free consultation” should be a link/button that opens the same modal.
+D) Bottom scheduling section:
+   - Replace the “Schedule Appointment” card/section with a simple, secondary CTA block (no pricing).
+   - Suggested content:
+     - Title: “Want to move faster?”
+     - Body: “Schedule a free 20-minute consultation and we’ll align on goals, constraints, and next steps.”
+     - Button: “Schedule a Free Consultation” (opens modal)
+   - Ensure this block is visually secondary to the main form (smaller header, lighter styling, less prominence than the form).
+
+MODAL CHANGES (wherever the modal component lives)
+- Modal title should remain “Schedule a Consultation” OR update to “Schedule a Free Consultation” (choose whichever is already used in the UI, but make it consistent with CTA label).
+- If there are multiple modal titles/subtitles, standardize them to:
+  - Title: “Schedule a Free Consultation”
+  - Subtitle: “Share a few details and we’ll follow up to coordinate a quick 20-minute intro.”
+
+GLOBAL CTA AUDIT
+- Grep/search for all occurrences of:
+  “Schedule Consultation”
+  “Schedule a Consultation”
+  “Schedule Appointment”
+  “Talk to a Platform Expert”
+  “Talk to an Expert”
+  “Book”
+  “Get in touch” (when used as a scheduling CTA)
+- Replace their button text with “Schedule a Free Consultation” where the intent is scheduling.
+- Do not change “Contact” navigation label (nav item can remain “Contact”).
+- For non-scheduling CTAs that truly mean “submit the contact form”, use “Send Message” or “Submit” only inside the form.
+
+ACCEPTANCE CRITERIA
+1) Every scheduling CTA across the site displays exactly: “Schedule a Free Consultation”.
+2) Clicking any scheduling CTA opens the same consultation modal.
+3) Contact page clearly differentiates: long-form message form vs quick consult modal.
+4) No pricing is displayed anywhere in the consultation area.
+5) Mobile and desktop both look clean and consistent; no overflowing buttons or broken spacing.
+
+After changes:
+- Run the app and verify all CTAs open the modal.
+- Verify Contact form still submits via Formspree unchanged.
+- Provide a short checklist of files changed and where you found/updated the CTAs.

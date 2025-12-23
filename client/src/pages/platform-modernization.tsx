@@ -16,7 +16,7 @@ export default function PlatformModernization() {
         title="Modernize your platforms without breaking your business."
         description="Upgrade your architecture, workflows, data, and user experience—while keeping your teams productive and your customers happy."
         image={heroImage}
-        ctaText="Book a modernization assessment"
+        ctaText="Schedule a Free Consultation"
       />
 
       {/* Why Modernization Matters */}

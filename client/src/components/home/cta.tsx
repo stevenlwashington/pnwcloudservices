@@ -15,7 +15,7 @@ export function CTA() {
         </p>
         <ConsultationModal>
           <Button className="bg-primary hover:bg-primary/90 text-white h-16 px-12 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-primary/85">
-            Talk to a Platform Expert
+            Schedule a Free Consultation
           </Button>
         </ConsultationModal>
       </div>

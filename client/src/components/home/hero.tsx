@@ -21,7 +21,7 @@ export function Hero() {
           <div className="flex flex-wrap gap-4 pt-4 animate-in slide-in-from-bottom-5 duration-1000 delay-300 fade-in">
             <ConsultationModal>
               <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-lg font-bold shadow-sm transition-all hover:scale-105 hover:bg-primary/85">
-                Talk to a Platform Expert
+                Schedule a Free Consultation
               </Button>
             </ConsultationModal>
           </div>

@@ -9,7 +9,7 @@ interface PageHeaderProps {
   ctaLink?: string; // Kept for compatibility but will prioritize modal trigger for main CTA
 }
 
-export function PageHeader({ title, description, image, ctaText = "Talk to a Platform Expert", ctaLink }: PageHeaderProps) {
+export function PageHeader({ title, description, image, ctaText = "Schedule a Free Consultation", ctaLink }: PageHeaderProps) {
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background">
       <div className="container mx-auto px-6 relative z-10">

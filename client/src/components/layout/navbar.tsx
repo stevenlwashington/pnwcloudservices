@@ -89,7 +89,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <ConsultationModal>
             <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-lg px-6 py-5 font-semibold text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-              Schedule a Consultation
+              Schedule a Free Consultation
             </Button>
           </ConsultationModal>
         </div>
@@ -128,7 +128,7 @@ export function Navbar() {
 
             <ConsultationModal>
               <Button className="w-full bg-secondary text-white rounded-lg py-6 text-lg font-bold mt-4">
-                Schedule a Consultation
+                Schedule a Free Consultation
               </Button>
             </ConsultationModal>
           </div>
