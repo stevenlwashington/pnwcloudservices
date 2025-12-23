@@ -1,0 +1,51 @@
+Contact Form Tech Stack Setup Prompt
+I want to implement a contact form submission system with the following tech stack:
+
+Frontend:
+
+React Hook Form + Zod validation
+Cloudflare Turnstile bot protection
+Toast notifications for success/error feedback
+Backend:
+
+Express POST endpoint at /api/contact
+Zod schema validation
+Cloudflare Turnstile token verification
+Resend for email delivery (sends 2 emails: one to admin inbox, one auto-reply to user)
+Implementation Details:
+
+Validation Schema (shared/schema.ts):
+
+Add a contactFormSchema with fields: name (min 2 chars), email (valid email), message (min 10 chars), turnstileToken (required)
+Export the type as ContactForm
+Frontend Component (client/src/components/ContactForm.tsx):
+
+Build a form using react-hook-form + shadcn Form components
+Integrate Turnstile widget with site key 0x4AAAAAACHSj1Itg-urobPN (this is public, safe to hardcode)
+Handle Turnstile state: onVerify, onExpire, onError with refresh/retry buttons
+Submit via apiRequest("POST", "/api/contact", data) using React Query mutation
+Show loading state while submitting
+Reset form and Turnstile on success
+Show toast notifications for success and error cases
+Backend Endpoint (server/routes.ts):
+
+Create POST /api/contact route
+Validate request body with Zod schema
+Verify Turnstile token by calling Cloudflare's siteverify endpoint with TURNSTILE_SECRET_KEY
+If verification passes, use Resend to send 2 emails:
+Email 1: To admin (from contact form with reply-to set to user's email)
+Email 2: Auto-reply to user from admin
+Return { success: true } on success, error status codes on failure
+Secrets Required:
+
+RESEND_API_KEY - Get from https://resend.com/api-keys
+TURNSTILE_SECRET_KEY - Get from https://dash.cloudflare.com/profile/api-tokens (create new token for Turnstile)
+CONTACT_TO_EMAIL - Your email address (receives submissions)
+CONTACT_FROM_EMAIL - Sending email (from Resend verified domain)
+Dependencies (should already be installed in stack):
+
+react-turnstile
+react-hook-form
+zod
+resend
+@hookform/resolvers
