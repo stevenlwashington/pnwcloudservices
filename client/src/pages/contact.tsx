@@ -14,7 +14,7 @@ export default function Contact() {
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 animate-in slide-in-from-bottom-5 duration-500">Let's Connect</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-in slide-in-from-bottom-5 duration-500 delay-100">
-            Prefer to share more detail? Send us a message below. If you’d rather start with a quick intro, <ConsultationModal><button className="text-secondary font-bold underline hover:text-secondary/80">schedule a free consultation</button></ConsultationModal>.
+            Prefer to share more detail? Send us a message below. If you'd rather start with a quick intro, <ConsultationModal><button className="text-secondary font-bold underline hover:text-secondary/80">schedule a free consultation</button></ConsultationModal>.
           </p>
         </div>
       </section>
@@ -50,18 +50,6 @@ export default function Contact() {
                    </div>
                  </div>
                </div>
-
-               <div className="bg-background p-8 rounded-xl border border-border">
-                 <h3 className="font-bold text-lg mb-4 text-primary">Want to move faster?</h3>
-                 <p className="text-sm text-muted-foreground mb-6">
-                   Schedule a free 20-minute consultation and we’ll align on goals, constraints, and next steps.
-                 </p>
-                 <ConsultationModal>
-                   <Button className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold">
-                     Schedule a Free Consultation
-                   </Button>
-                 </ConsultationModal>
-               </div>
             </div>
 
             {/* Form */}
@@ -75,6 +63,30 @@ export default function Contact() {
                </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Below the Fold CTA */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="text-center lg:text-left">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Ready to talk?</h2>
+              <p className="text-xl text-muted-foreground">
+                Schedule a free 20-minute consultation with a platform expert.
+              </p>
+            </div>
+
+            {/* Button */}
+            <div className="flex justify-center lg:justify-end">
+              <ConsultationModal>
+                <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-xl px-10 py-6 text-lg font-bold shadow-md hover:shadow-lg transition-all hover:scale-105">
+                  Schedule a Free Consultation
+                </Button>
+              </ConsultationModal>
+            </div>
           </div>
         </div>
       </section>

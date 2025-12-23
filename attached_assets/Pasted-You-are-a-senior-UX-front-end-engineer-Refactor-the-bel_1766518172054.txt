@@ -1,0 +1,47 @@
+You are a senior UX/front-end engineer. Refactor the “below the fold” CTA section on the Contact page to remove confusion and reduce it to ONE clear call-to-action.
+
+CONTEXT
+On /contact, there is currently a below-the-fold section with:
+- Left: “Ready to talk? Get in touch.” + paragraph copy
+- Right: a card titled “Schedule Appointment” containing an inner “Free Consultation” card and a button.
+
+This feels redundant because we already have the main form above and a modal CTA elsewhere. We want a clean, single CTA block here.
+
+GOAL
+Replace the entire below-the-fold CTA section with a simple “single CTA” layout:
+- One headline
+- One short supporting line
+- One primary button
+No nested cards, no “Schedule Appointment” header, no inner “Free Consultation” card.
+
+DESIGN SPEC
+1) Section layout:
+   - Desktop: 2-column, horizontally aligned (text on left, button on right), vertically centered.
+   - Mobile: stacked, centered, with button full-width.
+2) Copy:
+   - Headline: “Ready to talk?”
+   - Supporting line: “Schedule a free 20-minute consultation with a platform expert.”
+   - Button label: “Schedule a Free Consultation”
+3) Behavior:
+   - Button must open the existing consultation modal (same handler used by the header CTA).
+   - Do not navigate to another page.
+4) Styling:
+   - Keep the current brand look (light green background, rounded corners, subtle border/shadow).
+   - Remove any nested card UI; the section itself can be a single rounded container.
+   - Add tasteful spacing: generous padding, clean hierarchy, no extra decorative elements.
+   - Ensure accessibility: proper button focus state, readable contrast.
+5) Clean up:
+   - Remove unused components/markup for the old “Schedule Appointment” block.
+   - Confirm there is no second “Schedule a Free Consultation” button inside this section besides the primary one.
+
+FILES
+Locate the Contact page file (likely client/src/pages/contact.tsx) and refactor the below-the-fold CTA section. If the CTA is implemented as a separate component, refactor that component instead, but keep the change scoped to the Contact page CTA area.
+
+ACCEPTANCE CRITERIA
+- On desktop, the section displays as a clean two-column CTA block with one button.
+- On mobile, it stacks and the button is full-width.
+- Clicking the button opens the existing consultation modal.
+- No “Schedule Appointment” title or nested “Free Consultation” card remains.
+- Visual result is simpler, clearer, and consistent with the rest of the site.
+
+After implementing, provide a brief summary of which file(s) were changed and what was removed/replaced.
