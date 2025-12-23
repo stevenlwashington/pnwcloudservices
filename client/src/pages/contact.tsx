@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -23,25 +23,9 @@ export default function Contact() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-12">
             
-            {/* Contact Info */}
+            {/* Location Info */}
             <div className="space-y-8 lg:col-span-1 animate-in slide-in-from-left-5 duration-700">
                <div className="bg-background p-8 rounded-xl border border-border space-y-6">
-                 <div className="flex items-start gap-4">
-                   <Mail className="w-6 h-6 text-secondary mt-1" />
-                   <div>
-                     <h3 className="font-bold text-lg">Email Us</h3>
-                     <a href="mailto:hello@pnwcloudservices.com" className="text-muted-foreground hover:text-secondary">hello@pnwcloudservices.com</a>
-                   </div>
-                 </div>
-
-                 <div className="flex items-start gap-4">
-                   <Phone className="w-6 h-6 text-secondary mt-1" />
-                   <div>
-                     <h3 className="font-bold text-lg">Call Us</h3>
-                     <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                   </div>
-                 </div>
-
                  <div className="flex items-start gap-4">
                    <MapPin className="w-6 h-6 text-secondary mt-1" />
                    <div>
