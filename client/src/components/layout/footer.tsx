@@ -11,38 +11,6 @@ export function Footer() {
     <footer className="bg-white pt-24 pb-12 border-t border-border">
       <div className="container mx-auto px-6">
         
-        {/* Top Section - CTA */}
-        <div className="grid lg:grid-cols-2 gap-16 mb-24">
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary">
-              Ready to talk? <br />
-              <span className="text-secondary">Get in touch.</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-md">
-              Take charge of your business future by booking an appointment with our expert consultants.
-            </p>
-          </div>
-
-          <div className="bg-background p-8 space-y-6 border border-border rounded-xl shadow-sm">
-            <h3 className="text-xl font-bold text-primary mb-4">Schedule Appointment</h3>
-            
-            <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-white border border-border hover:border-secondary transition-colors group cursor-pointer rounded-lg">
-                <div>
-                  <h4 className="font-bold text-foreground group-hover:text-secondary transition-colors">Free Consultation</h4>
-                  <p className="text-sm text-muted-foreground">Free 20-minute consultation</p>
-                </div>
-                <ConsultationModal>
-                  <Button size="sm" className="bg-secondary text-white rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                    Schedule a Free Consultation
-                  </Button>
-                </ConsultationModal>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="h-px bg-border mb-16"></div>
 
         {/* Navigation Links */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
