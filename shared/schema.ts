@@ -9,10 +9,28 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
+export const contactSubmissions = pgTable("contact_submissions", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  company: text("company").notNull(),
+  role: text("role").notNull(),
+  source: text("source"),
+  message: text("message").notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
 });
 
+export const insertContactSchema = createInsertSchema(contactSubmissions).omit({
+  id: true,
+}).extend({
+  turnstileToken: z.string().min(1, "Bot verification failed"),
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+export type ContactSubmission = typeof contactSubmissions.$inferSelect;
+export type InsertContact = z.infer<typeof insertContactSchema>;
