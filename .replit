@@ -49,3 +49,9 @@ waitForPort = 5000
 
 [agent]
 mockupState = "FULLSTACK"
+
+[userenv]
+
+[userenv.shared]
+CONTACT_TO_EMAIL = "steven@pnwcloudservices.com,stevenlwashington@gmail.com"
+CONTACT_FROM_EMAIL = "noreply@pnwcloudservices.com"

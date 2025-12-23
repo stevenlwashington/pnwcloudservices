@@ -221,7 +221,6 @@ export function ContactForm() {
         <div className="space-y-4">
           <div className="flex justify-center">
             <Turnstile
-              ref={turnstileRef}
               sitekey="0x4AAAAAACHSj1Itg-urobPN"
               onVerify={(token) => {
                 form.setValue("turnstileToken", token);

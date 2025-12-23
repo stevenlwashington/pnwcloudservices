@@ -39,7 +39,11 @@ export class MemStorage implements IStorage {
 
   async createContactSubmission(contact: Omit<InsertContact, 'turnstileToken'>): Promise<ContactSubmission> {
     const id = randomUUID();
-    const submission: ContactSubmission = { ...contact, id };
+    const submission: ContactSubmission = { 
+      ...contact, 
+      id,
+      source: contact.source || null,
+    };
     this.contacts.set(id, submission);
     return submission;
   }
