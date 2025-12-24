@@ -55,5 +55,4 @@ mockupState = "FULLSTACK"
 [userenv.shared]
 CONTACT_TO_EMAIL = "steven@pnwcloudservices.com,stevenlwashington@gmail.com"
 CONTACT_FROM_EMAIL = "noreply@pnwcloudservices.com"
-TURNSTILE_SITE_KEY = "0x4AAAAAACIzcF3eCuLDGd5K"
 VITE_TURNSTILE_SITE_KEY = "0x4AAAAAACIxcF3eOcLDoGS5K"
