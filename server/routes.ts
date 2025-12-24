@@ -6,24 +6,37 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function verifyTurnstile(token: string): Promise<boolean> {
+async function verifyTurnstile(token: string): Promise<{ success: boolean; error?: string }> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  
+  if (!secretKey) {
+    console.error("TURNSTILE_SECRET_KEY is not configured");
+    return { success: false, error: "Server configuration error" };
+  }
+
   try {
-    const response = await fetch("https://challenges.cloudflare.com/turnstile/validate", {
+    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify({
-        secret: process.env.TURNSTILE_SECRET_KEY,
+      body: new URLSearchParams({
+        secret: secretKey,
         response: token,
       }),
     });
 
-    const data = await response.json() as { success: boolean };
-    return data.success;
+    const data = await response.json() as { success: boolean; "error-codes"?: string[] };
+    
+    if (!data.success) {
+      console.error("Turnstile verification failed:", data["error-codes"]);
+      return { success: false, error: "Bot verification failed. Please try again." };
+    }
+    
+    return { success: true };
   } catch (error) {
     console.error("Turnstile verification error:", error);
-    return false;
+    return { success: false, error: "Verification service unavailable. Please try again." };
   }
 }
 
@@ -42,10 +55,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const { turnstileToken, ...contactData } = parsedData.data;
 
-      // Verify Turnstile token
-      const isValidToken = await verifyTurnstile(turnstileToken);
-      if (!isValidToken) {
-        return res.status(400).json({ error: "Bot verification failed" });
+      // Verify Turnstile token - must pass before sending any emails
+      const verification = await verifyTurnstile(turnstileToken);
+      if (!verification.success) {
+        return res.status(400).json({ error: verification.error || "Bot verification failed" });
       }
 
       // Save to storage
