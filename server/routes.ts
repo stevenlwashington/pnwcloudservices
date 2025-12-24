@@ -6,11 +6,16 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function verifyTurnstile(token: string): Promise<{ success: boolean; error?: string }> {
+async function verifyTurnstile(token: string, hostname?: string): Promise<{ success: boolean; error?: string }> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY;
   
+  if (!token) {
+    console.error("[Turnstile] Verification failed - token missing", { hostname });
+    return { success: false, error: "Verification token is required" };
+  }
+  
   if (!secretKey) {
-    console.error("TURNSTILE_SECRET_KEY is not configured");
+    console.error("[Turnstile] TURNSTILE_SECRET_KEY is not configured", { hostname });
     return { success: false, error: "Server configuration error" };
   }
 
@@ -26,16 +31,20 @@ async function verifyTurnstile(token: string): Promise<{ success: boolean; error
       }),
     });
 
-    const data = await response.json() as { success: boolean; "error-codes"?: string[] };
+    const data = await response.json() as { success: boolean; "error-codes"?: string[]; hostname?: string };
     
     if (!data.success) {
-      console.error("Turnstile verification failed:", data["error-codes"]);
+      console.error("[Turnstile] Verification failed", {
+        hostname: data.hostname || hostname,
+        errorCodes: data["error-codes"] || [],
+        tokenProvided: !!token,
+      });
       return { success: false, error: "Bot verification failed. Please try again." };
     }
     
     return { success: true };
   } catch (error) {
-    console.error("Turnstile verification error:", error);
+    console.error("[Turnstile] Verification error", { hostname, error: String(error) });
     return { success: false, error: "Verification service unavailable. Please try again." };
   }
 }
@@ -56,7 +65,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { turnstileToken, ...contactData } = parsedData.data;
 
       // Verify Turnstile token - must pass before sending any emails
-      const verification = await verifyTurnstile(turnstileToken);
+      const hostname = req.get("host") || req.hostname;
+      const verification = await verifyTurnstile(turnstileToken, hostname);
       if (!verification.success) {
         return res.status(400).json({ error: verification.error || "Bot verification failed" });
       }

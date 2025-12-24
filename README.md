@@ -13,6 +13,12 @@ Configure the following secrets in your Replit Secrets panel (or `.env` file for
 | `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile secret key for server-side bot verification | [Cloudflare Dashboard](https://dash.cloudflare.com) > Turnstile > Your Widget > Secret Key |
 | `RESEND_API_KEY` | Resend API key for sending emails | [Resend Dashboard](https://resend.com/api-keys) |
 
+### Required Environment Variables (Public Config)
+
+| Variable | Description | Where to Get It |
+|----------|-------------|-----------------|
+| `VITE_TURNSTILE_SITE_KEY` | Cloudflare Turnstile site key (public) for client-side widget | [Cloudflare Dashboard](https://dash.cloudflare.com) > Turnstile > Your Widget > Site Key |
+
 ### Optional Environment Variables
 
 | Variable | Description | Default |
@@ -22,7 +28,7 @@ Configure the following secrets in your Replit Secrets panel (or `.env` file for
 
 ## Turnstile Configuration
 
-The Turnstile **site key** (public) is configured in the frontend code at `client/src/components/contact-form.tsx`. This is safe to include in client code.
+The Turnstile **site key** (public) is configured via the `VITE_TURNSTILE_SITE_KEY` environment variable. This is NOT a secret - it is a public config value that is bundled into the client-side code at build time.
 
 The Turnstile **secret key** (private) must ONLY be configured as a server-side environment variable (`TURNSTILE_SECRET_KEY`). Never commit or expose this key.
 
