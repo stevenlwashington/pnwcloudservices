@@ -27,7 +27,7 @@ export const insertUserSchema = createInsertSchema(users).pick({
 export const insertContactSchema = createInsertSchema(contactSubmissions).omit({
   id: true,
 }).extend({
-  turnstileToken: z.string().min(1, "Bot verification failed"),
+  turnstileToken: z.string().optional(),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

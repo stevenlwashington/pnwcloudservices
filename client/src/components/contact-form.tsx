@@ -6,10 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useState, useRef } from "react";
-import { CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle, Loader2, AlertCircle, AlertTriangle } from "lucide-react";
 import Turnstile from "react-turnstile";
 import { toast } from "sonner";
+
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+const isTurnstileEnabled = !!TURNSTILE_SITE_KEY;
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -19,14 +22,15 @@ const formSchema = z.object({
   source: z.string().optional(),
   message: z.string().min(10, "Please provide a brief project description"),
   website: z.string().max(0, "Spam detected").optional().or(z.literal("")),
-  turnstileToken: z.string().min(1, "Please verify you are not a bot"),
+  turnstileToken: isTurnstileEnabled 
+    ? z.string().min(1, "Please verify you are not a bot")
+    : z.string().optional(),
 });
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [turnstileError, setTurnstileError] = useState<string | null>(null);
-  const turnstileRef = useRef<{ reset: () => void } | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,7 +47,7 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (!values.turnstileToken) {
+    if (isTurnstileEnabled && !values.turnstileToken) {
       setTurnstileError("Please verify you are not a bot");
       return;
     }
@@ -61,7 +65,6 @@ export function ContactForm() {
       if (!response.ok) {
         const error = await response.json();
         toast.error(error.error || "Failed to submit form. Please try again.");
-        turnstileRef.current?.reset();
         form.setValue("turnstileToken", "");
         setTurnstileError(null);
         return;
@@ -70,11 +73,9 @@ export function ContactForm() {
       toast.success("Message sent! We'll get back to you soon.");
       setIsSuccess(true);
       form.reset();
-      turnstileRef.current?.reset();
     } catch (error) {
       console.error("Submission error", error);
       toast.error("Failed to submit form. Please try again.");
-      turnstileRef.current?.reset();
       form.setValue("turnstileToken", "");
     } finally {
       setIsSubmitting(false);
@@ -219,24 +220,34 @@ export function ContactForm() {
         />
 
         <div className="space-y-4">
-          <div className="flex justify-center">
-            <Turnstile
-              sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY || ""}
-              onVerify={(token) => {
-                form.setValue("turnstileToken", token);
-                setTurnstileError(null);
-              }}
-              onExpire={() => {
-                form.setValue("turnstileToken", "");
-                setTurnstileError("Verification expired. Please verify again.");
-              }}
-              onError={() => {
-                form.setValue("turnstileToken", "");
-                setTurnstileError("Verification failed. Please try again.");
-              }}
-              theme="light"
-            />
-          </div>
+          {!isTurnstileEnabled && import.meta.env.DEV && (
+            <div className="flex items-center gap-2 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800">
+              <AlertTriangle className="w-5 h-5 flex-shrink-0" />
+              <span className="text-sm">
+                <strong>Dev Warning:</strong> VITE_TURNSTILE_SITE_KEY is not configured. Bot protection is disabled.
+              </span>
+            </div>
+          )}
+          {isTurnstileEnabled && (
+            <div className="flex justify-center">
+              <Turnstile
+                sitekey={TURNSTILE_SITE_KEY}
+                onVerify={(token) => {
+                  form.setValue("turnstileToken", token);
+                  setTurnstileError(null);
+                }}
+                onExpire={() => {
+                  form.setValue("turnstileToken", "");
+                  setTurnstileError("Verification expired. Please verify again.");
+                }}
+                onError={() => {
+                  form.setValue("turnstileToken", "");
+                  setTurnstileError("Verification failed. Please try again.");
+                }}
+                theme="light"
+              />
+            </div>
+          )}
           {turnstileError && (
             <div className="flex items-center gap-2 text-red-600">
               <AlertCircle className="w-4 h-4" />

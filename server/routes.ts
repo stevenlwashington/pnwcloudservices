@@ -66,9 +66,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Verify Turnstile token - must pass before sending any emails
       const hostname = req.get("host") || req.hostname;
-      const verification = await verifyTurnstile(turnstileToken, hostname);
-      if (!verification.success) {
-        return res.status(400).json({ error: verification.error || "Bot verification failed" });
+      const isTurnstileConfigured = !!process.env.TURNSTILE_SECRET_KEY;
+      
+      if (isTurnstileConfigured) {
+        if (!turnstileToken) {
+          console.error("[Turnstile] Token missing from submission", { hostname });
+          return res.status(400).json({ error: "Bot verification required" });
+        }
+        const verification = await verifyTurnstile(turnstileToken, hostname);
+        if (!verification.success) {
+          return res.status(400).json({ error: verification.error || "Bot verification failed" });
+        }
+      } else {
+        console.warn("[Turnstile] TURNSTILE_SECRET_KEY not configured, skipping verification", { hostname });
       }
 
       // Save to storage
