@@ -1,0 +1,77 @@
+You are working in my Replit project for pnwcloudservices.com (Vite + React). Implement a site-wide Calendly popup modal behavior for every CTA that says “Schedule a Free Consultation” (or similar scheduling CTAs). The Calendly event link is:
+https://calendly.com/steven-pnwcloudservices/intro
+
+GOALS
+1) Any “Schedule a Free Consultation” CTA anywhere on the site opens a Calendly popup modal (no navigation away).
+2) Centralize the Calendly logic so we don’t duplicate code across pages.
+3) Add lightweight analytics hooks for Microsoft Clarity and Cloudflare analytics (“Pendo lite”).
+4) Keep styling consistent and fix CTA text inconsistencies (e.g., “Schedule Consultation” vs “Schedule a Consultation” vs “Schedule Appointment”). Canonical label should be:
+“Schedule a Free Consultation”
+
+IMPLEMENTATION REQUIREMENTS
+A) Create a single source of truth for the Calendly URL:
+- Add a config constant (e.g., in client/src/lib/config.ts or client/src/lib/calendly.ts) with the Calendly URL.
+
+B) Add a Calendly loader + opener utility:
+- Create client/src/lib/calendly.ts that:
+  1) Lazily injects Calendly’s official widget script only once:
+     https://assets.calendly.com/assets/external/widget.js
+  2) Optionally inject Calendly widget CSS once:
+     https://assets.calendly.com/assets/external/widget.css
+  3) Exposes an async function openCalendlyPopup({ source?: string }):
+     - Ensures script is loaded (await load)
+     - Calls window.Calendly.initPopupWidget({ url: CALENDLY_URL_WITH_OPTIONAL_SOURCE_PARAMS })
+     - Returns gracefully if Calendly fails to load, and logs an error.
+
+C) Add a reusable CTA component:
+- Create client/src/components/ScheduleFreeConsultationCTA.tsx that:
+  - Renders a button by default (and optionally supports a “variant” prop like primary/secondary/link).
+  - Uses the canonical label “Schedule a Free Consultation” unless overridden.
+  - On click:
+    1) Fires analytics events (see section D)
+    2) Calls openCalendlyPopup({ source: <meaningful source string> })
+  - Shows a lightweight “Opening…” loading state if the Calendly script isn’t ready immediately (do not block the click, but give user feedback).
+
+D) Analytics hooks (do not break if unavailable):
+- In the click handler, fire:
+  1) Microsoft Clarity custom event if available:
+     - If window.clarity exists, call window.clarity("event", "schedule_free_consultation_clicked", { source, page: window.location.pathname })
+  2) Cloudflare analytics hook:
+     - If there is an existing analytics function/util in the codebase, use it.
+     - Otherwise, implement a lightweight non-blocking POST to a backend endpoint (e.g., /api/analytics) that logs the event server-side. Keep it minimal; event name + source + path + timestamp.
+- Ensure analytics is best-effort: failures should not prevent Calendly from opening.
+
+E) Refactor all scheduling CTAs across the site:
+- Identify all existing “schedule” CTAs:
+  - Navbar/header button
+  - hero section button
+  - below-the-fold CTA buttons
+  - contact page buttons/links
+  - footer scheduling CTA
+- Replace them with <ScheduleFreeConsultationCTA /> so behavior is consistent.
+- Ensure the contact page remains a dedicated page (do not auto-open Calendly on page load), but any schedule buttons there should open the popup.
+- Remove any direct <a href="https://calendly.com/..."> links used for scheduling and replace with the popup CTA.
+
+F) UX/Accessibility:
+- Use a semantic <button> element for actions.
+- Ensure keyboard activation works (Enter/Space).
+- Do not trap focus; Calendly overlay handles itself.
+- Ensure mobile works.
+
+G) Testing/Validation:
+- After implementation, provide a brief checklist of where you updated CTAs (file list) and how to test:
+  - Click CTA from header, hero, footer, contact page
+  - Confirm Calendly popup opens
+  - Confirm no navigation
+  - Confirm no console errors
+  - Confirm Clarity events fire (if Clarity installed)
+
+DELIVERABLES
+1) New files:
+- client/src/lib/calendly.ts (and config/constants if needed)
+- client/src/components/ScheduleFreeConsultationCTA.tsx
+- Optional: server endpoint for /api/analytics if no existing Cloudflare analytics integration exists
+2) Refactor existing pages/components to use the new CTA component everywhere.
+3) Ensure CTA label is standardized site-wide: “Schedule a Free Consultation”.
+
+Proceed with implementation. Keep changes minimal and clean. Use the existing styling system in the project. If there is a shared Button component, use it.
