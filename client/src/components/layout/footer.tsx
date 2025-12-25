@@ -1,9 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Link } from "wouter";
 import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 import { navigation } from "@/config/navigation";
-import { ConsultationModal } from "@/components/consultation-modal";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export function Footer() {

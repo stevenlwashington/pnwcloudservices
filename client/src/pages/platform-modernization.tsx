@@ -4,8 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Layout, Database, Server, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/futuristic_construct_f8e13174.jpg";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export default function PlatformModernization() {
   return (
@@ -213,11 +212,13 @@ export default function PlatformModernization() {
       <section className="py-24 bg-white text-center">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="text-4xl font-bold text-primary mb-6">Ready to modernize your platform the right way?</h2>
-          <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
-              Start your modernization assessment
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="platform-modernization-cta"
+            variant="secondary"
+            size="lg"
+            label="Start your modernization assessment"
+            className="h-14 px-10 text-lg rounded-xl shadow-lg"
+          />
         </div>
       </section>
 

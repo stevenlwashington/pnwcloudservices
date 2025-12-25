@@ -3,8 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { Activity } from "lucide-react";
 import heroImage from "@assets/stock_images/data_dashboard_analy_aac797ea.jpg";
-import { Button } from "@/components/ui/button";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export default function Observability() {
   return (
@@ -107,11 +106,13 @@ export default function Observability() {
       <section className="py-24 bg-white text-center border-t border-border">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="text-4xl font-bold text-primary mb-6">Ready to improve visibility, reliability, and decisions?</h2>
-          <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
-              Assess your observability posture
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="observability-cta"
+            variant="secondary"
+            size="lg"
+            label="Assess your observability posture"
+            className="h-14 px-10 text-lg rounded-xl shadow-lg"
+          />
         </div>
       </section>
 

@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 interface PageHeaderProps {
   title: string;
@@ -21,11 +20,13 @@ export function PageHeader({ title, description, image, ctaText = "Schedule a Fr
             {description}
           </p>
           <div className="animate-in slide-in-from-bottom-5 duration-700 delay-200">
-            <ConsultationModal>
-              <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 text-lg font-bold shadow-md hover:shadow-xl transition-all hover:scale-105 hover:bg-primary/85">
-                {ctaText}
-              </Button>
-            </ConsultationModal>
+            <ScheduleFreeConsultationCTA
+              source="page-header"
+              variant="primary"
+              size="lg"
+              label={ctaText}
+              className="rounded-xl px-8 py-6 text-lg shadow-md hover:shadow-xl"
+            />
           </div>
         </div>
       </div>

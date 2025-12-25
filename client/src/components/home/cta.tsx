@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export function CTA() {
   return (
@@ -13,11 +12,12 @@ export function CTA() {
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
           Ready to modernize? Schedule a free consultation to discuss your goals and challenges.
         </p>
-        <ConsultationModal>
-          <Button className="bg-primary hover:bg-primary/90 text-white h-16 px-12 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-primary/85">
-            Schedule a Free Consultation
-          </Button>
-        </ConsultationModal>
+        <ScheduleFreeConsultationCTA
+          source="home-cta"
+          variant="primary"
+          size="lg"
+          className="h-16 px-12 text-xl rounded-xl shadow-lg hover:shadow-xl"
+        />
       </div>
     </section>
   );

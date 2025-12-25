@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import heroImage from "@assets/hero-forest-nature-tech.png";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export function Hero() {
   return (
@@ -19,11 +18,12 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4 animate-in slide-in-from-bottom-5 duration-1000 delay-300 fade-in">
-            <ConsultationModal>
-              <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-lg font-bold shadow-sm transition-all hover:scale-105 hover:bg-primary/85">
-                Schedule a Free Consultation
-              </Button>
-            </ConsultationModal>
+            <ScheduleFreeConsultationCTA
+              source="hero"
+              variant="primary"
+              size="lg"
+              className="rounded-xl h-14 px-8 text-lg shadow-sm"
+            />
           </div>
         </div>
 

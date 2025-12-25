@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { navigation } from "@/config/navigation";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 
 export function Navbar() {
@@ -87,11 +86,11 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-lg px-6 py-5 font-semibold text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-              Schedule a Free Consultation
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="navbar-desktop"
+            variant="secondary"
+            className="rounded-lg px-6 py-5 font-semibold text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
+          />
         </div>
 
         {/* Mobile Toggle */}
@@ -126,11 +125,11 @@ export function Navbar() {
               </div>
             ))}
 
-            <ConsultationModal>
-              <Button className="w-full bg-secondary text-white rounded-lg py-6 text-lg font-bold mt-4">
-                Schedule a Free Consultation
-              </Button>
-            </ConsultationModal>
+            <ScheduleFreeConsultationCTA
+              source="navbar-mobile"
+              variant="secondary"
+              className="w-full rounded-lg py-6 text-lg mt-4"
+            />
           </div>
         </div>
       )}

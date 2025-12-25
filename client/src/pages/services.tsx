@@ -1,9 +1,8 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, Server, Zap, Shield, Eye, TrendingUp } from "lucide-react";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 const SERVICES = [
   {
@@ -70,11 +69,12 @@ export default function Services() {
           <p className="text-xl text-muted-foreground mb-10 animate-in slide-in-from-bottom-5 duration-700 delay-100">
             From platform modernization to AI automation, we help you build, scale, and optimize the systems that power your business.
           </p>
-          <ConsultationModal>
-            <Button className="bg-primary hover:bg-primary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-md animate-in slide-in-from-bottom-5 duration-700 delay-200 hover:scale-105 hover:bg-primary/85">
-              Schedule a Free Consultation
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="services-hero"
+            variant="primary"
+            size="lg"
+            className="h-14 px-10 text-lg rounded-xl shadow-md animate-in slide-in-from-bottom-5 duration-700 delay-200"
+          />
         </div>
       </section>
 
@@ -164,11 +164,12 @@ export default function Services() {
           <p className="text-xl text-muted-foreground mb-10">
             Schedule a free 20-minute consultation to discuss which service is right for you.
           </p>
-          <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-12 text-lg font-bold rounded-xl shadow-lg">
-              Schedule a Free Consultation
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="services-cta"
+            variant="secondary"
+            size="lg"
+            className="h-14 px-12 text-lg rounded-xl shadow-lg"
+          />
         </div>
       </section>
 

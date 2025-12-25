@@ -1,10 +1,9 @@
 import { PageHeader } from "@/components/layout/page-header";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Button } from "@/components/ui/button";
 import { Bot, BarChart, FileText, Shield } from "lucide-react";
 import heroImage from "@assets/stock_images/artificial_intellige_9d4db54f.jpg";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export default function AIAutomation() {
   return (
@@ -300,11 +299,13 @@ export default function AIAutomation() {
           <p className="text-xl text-muted-foreground mb-10">
             PNW Cloud Services can help you connect the dots between platforms, data, and AI so your teams move faster—and your customers feel the difference.
           </p>
-          <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
-              Start a Conversation
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="ai-automation-cta"
+            variant="secondary"
+            size="lg"
+            label="Start a Conversation"
+            className="h-14 px-10 text-lg rounded-xl shadow-lg"
+          />
         </div>
       </section>
 

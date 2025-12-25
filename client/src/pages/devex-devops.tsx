@@ -3,8 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { GitPullRequest, Terminal, Gauge, Rocket, CheckCircle2 } from "lucide-react";
 import heroImage from "@assets/stock_images/devops_pipeline_infi_c0072be5.jpg";
-import { Button } from "@/components/ui/button";
-import { ConsultationModal } from "@/components/consultation-modal";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export default function DevEx() {
   return (
@@ -139,11 +138,13 @@ export default function DevEx() {
       <section className="py-24 bg-white text-center border-t border-border">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="text-4xl font-bold text-primary mb-6">Ready to modernize your development pipeline?</h2>
-          <ConsultationModal>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white h-14 px-10 text-lg font-bold rounded-xl shadow-lg">
-              Improve developer experience
-            </Button>
-          </ConsultationModal>
+          <ScheduleFreeConsultationCTA
+            source="devex-cta"
+            variant="secondary"
+            size="lg"
+            label="Improve developer experience"
+            className="h-14 px-10 text-lg rounded-xl shadow-lg"
+          />
         </div>
       </section>
 

@@ -1,9 +1,8 @@
-import { ConsultationModal } from "@/components/consultation-modal";
-import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MapPin } from "lucide-react";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
 export default function Contact() {
   console.log(
@@ -24,11 +23,11 @@ export default function Contact() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-in slide-in-from-bottom-5 duration-500 delay-100">
             Prefer to share more detail? Send us a message below. If you'd
             rather start with a quick intro,{" "}
-            <ConsultationModal>
-              <button className="text-secondary font-bold underline hover:text-secondary/80">
-                schedule a free consultation
-              </button>
-            </ConsultationModal>
+            <ScheduleFreeConsultationCTA
+              source="contact-hero"
+              variant="link"
+              label="schedule a free consultation"
+            />
             .
           </p>
         </div>
@@ -63,11 +62,11 @@ export default function Contact() {
                 <p className="text-sm text-muted-foreground mb-6">
                   This form is best if you want to provide context up front. If
                   you prefer, you can also{" "}
-                  <ConsultationModal>
-                    <button className="text-secondary font-bold underline hover:text-secondary/80">
-                      schedule a free consultation
-                    </button>
-                  </ConsultationModal>
+                  <ScheduleFreeConsultationCTA
+                    source="contact-form-section"
+                    variant="link"
+                    label="schedule a free consultation"
+                  />
                   .
                 </p>
                 <ContactForm />
@@ -93,11 +92,12 @@ export default function Contact() {
 
             {/* Button */}
             <div className="flex justify-center lg:justify-end">
-              <ConsultationModal>
-                <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-xl px-10 py-6 text-lg font-bold shadow-md hover:shadow-lg transition-all hover:scale-105">
-                  Schedule a Free Consultation
-                </Button>
-              </ConsultationModal>
+              <ScheduleFreeConsultationCTA
+                source="contact-cta"
+                variant="secondary"
+                size="lg"
+                className="rounded-xl px-10 py-6 text-lg shadow-md hover:shadow-lg"
+              />
             </div>
           </div>
         </div>
