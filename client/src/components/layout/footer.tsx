@@ -56,7 +56,7 @@ export function Footer() {
         </div>
 
         <div className="text-center text-xs text-muted-foreground pt-8 border-t border-border">
-          © 2025 Pacific Northwest Cloud Services LLC. All rights reserved.
+          © 2026 Pacific Northwest Cloud Services LLC. All rights reserved.
         </div>
       </div>
     </footer>
