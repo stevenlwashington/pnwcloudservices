@@ -1,0 +1,174 @@
+Context
+
+You are working on the PNW Cloud Services website.
+This is an enterprise-focused consulting brand. The audience is senior engineering leaders, platform owners, and executives. The tone must be calm, confident, human-centered, and senior — never pushy, gimmicky, or salesy.
+
+The site must support three distinct user intent flows, all first-class and intentional.
+
+Core UX Model: Three Intent Paths (Priority Order)
+Priority 1 — Consult (High Intent, Synchronous)
+
+This is the primary conversion path.
+
+Purpose: book a 20-minute free consultation via Calendly.
+
+This path should feel decisive, confident, and frictionless.
+
+Rules
+
+Calendly integration remains unchanged.
+
+All “Schedule a Consultation” / “Schedule a Free Consultation” CTAs:
+
+Open Calendly directly (new tab or modal, whichever is already implemented).
+
+This CTA should remain:
+
+In the header
+
+In the hero
+
+In the primary bottom-of-page CTA
+
+Priority 2 — Contact (Medium Intent, Asynchronous)
+
+(Key instruction: optimize Contact flow)
+
+This is a separate path from Calendly.
+
+Intent
+
+Users who want to send context, ask a question, or reach out without committing to a meeting.
+
+This path must feel thoughtful, low-pressure, and respectful of time.
+
+Optimize Contact Flow (MANDATORY)
+
+When the instruction “optimize Contact flow” is used, implement the following:
+
+Modal-first Contact Experience
+
+The Contact form must open in a modal, not navigate to a separate page.
+
+The modal should:
+
+Be reusable
+
+Be accessible from anywhere on the site
+
+Preserve scroll position when closed
+
+CTAs that open the Contact modal
+
+“Contact” in the header
+
+Inline “send us a message” links
+
+Secondary CTAs across the site
+
+Footer “Contact” links
+
+Dedicated Contact Page Behavior
+
+The /contact route should still exist for SEO and direct access.
+
+When visited directly, it should:
+
+Render the same Contact form inline
+
+Use identical copy, fields, validation, and submission logic as the modal
+
+No duplicated logic or forked UX.
+
+Relationship to Calendly
+
+The Contact modal must not replace Calendly.
+
+It should gently reference it with secondary inline copy:
+
+Example: “If you’d prefer to start with a quick conversation, schedule a free consultation.”
+
+Calendly is never embedded inside the Contact modal.
+
+Priority 3 — Explore (Low Intent, Trust-Building)
+
+Blog
+
+Expertise pages
+
+Insights
+
+Non-transactional browsing
+
+This path should:
+
+Never interrupt users with forced CTAs
+
+Use subtle inline links instead of buttons
+
+Reinforce credibility and thinking, not conversion pressure
+
+Visual & Interaction Principles
+
+Think river delta, not funnel
+
+Avoid stacking multiple CTAs that compete with each other in the same viewport
+
+One primary action per section
+
+Secondary actions should be visually subordinate (links > buttons)
+
+Hero Section Rules
+
+Headline remains:
+Engineering Speed
+Business Confidence
+
+“Speed” may retain gradient emphasis
+
+Primary CTA: Schedule a Free Consultation
+
+Secondary CTA (if present): text link → opens Contact modal
+
+Below-the-Fold CTA Rules
+
+Do not present both Calendly and Contact side-by-side in the same block
+
+Use one decisive CTA
+
+Prefer Calendly for bottom-of-page CTAs
+
+Contact should be available, but not visually competing
+
+Contact Form Requirements
+
+Fields remain as currently designed
+
+Lightweight validation
+
+Clear success state (inline confirmation, no page reload)
+
+Uses existing backend integration (Resend, Turnstile if enabled)
+
+Do not introduce Salesforce or heavy CRM tooling
+
+Implementation Notes
+
+Reuse components wherever possible
+
+Modal Contact form must be a shared component
+
+Keep code clean, readable, and production-ready
+
+Do not invent new flows beyond what is specified here
+
+Summary Intent (Non-Negotiable)
+
+This site should feel like:
+
+“A confident platform partner who respects your time, gives you space to think, and meets you exactly where you are.”
+
+No urgency tricks.
+No clutter.
+No duplicated CTAs.
+Everything intentional.

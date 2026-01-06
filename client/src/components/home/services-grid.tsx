@@ -59,19 +59,21 @@ export function ServicesGrid() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Link key={index} href={service.href}>
-              <a className="group bg-white p-6 rounded-lg border border-border shadow-sm hover:shadow-md hover:border-secondary/30 transition-all duration-300 flex flex-col h-full">
-                <div className="w-12 h-12 bg-primary/5 rounded-md flex items-center justify-center mb-4 group-hover:bg-secondary/10 transition-colors">
-                  <service.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">{service.title}</h3>
-                <p className="text-sm text-muted-foreground mb-6 flex-grow">
-                  {service.description}
-                </p>
-                <div className="flex items-center text-sm font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                  Learn more <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </a>
+            <Link 
+              key={index} 
+              href={service.href}
+              className="group bg-white p-6 rounded-lg border border-border shadow-sm hover:shadow-md hover:border-secondary/30 transition-all duration-300 flex flex-col h-full"
+            >
+              <div className="w-12 h-12 bg-primary/5 rounded-md flex items-center justify-center mb-4 group-hover:bg-secondary/10 transition-colors">
+                <service.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">{service.title}</h3>
+              <p className="text-sm text-muted-foreground mb-6 flex-grow">
+                {service.description}
+              </p>
+              <div className="flex items-center text-sm font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                Learn more <ArrowRight className="w-4 h-4 ml-1" />
+              </div>
             </Link>
           ))}
         </div>

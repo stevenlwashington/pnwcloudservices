@@ -35,36 +35,32 @@ export function BlogTeaser() {
             <h2 className="text-3xl font-bold text-primary mb-2">Latest Insights</h2>
             <p className="text-muted-foreground">Thinking on cloud strategy, AI, and platform engineering.</p>
           </div>
-          <Link href="/blog">
-            <a className="text-secondary font-bold flex items-center hover:underline">
-              View all posts <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+          <Link href="/blog" className="text-secondary font-bold flex items-center hover:underline">
+            View all posts <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {RECENT_POSTS.map((post, i) => (
-            <Link key={i} href={`/blog/${post.slug}`}>
-              <a className="group block">
-                <div className="relative overflow-hidden rounded-lg aspect-video mb-4">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 bg-white/90 text-primary px-2 py-1 text-xs font-bold uppercase rounded-sm shadow-sm">
-                    {post.category}
-                  </div>
+            <Link key={i} href={`/blog/${post.slug}`} className="group block">
+              <div className="relative overflow-hidden rounded-lg aspect-video mb-4">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-3 left-3 bg-white/90 text-primary px-2 py-1 text-xs font-bold uppercase rounded-sm shadow-sm">
+                  {post.category}
                 </div>
-                <div className="space-y-2">
-                  <div className="text-xs text-muted-foreground flex items-center gap-1">
-                    <Calendar className="w-3 h-3" /> {post.date}
-                  </div>
-                  <h3 className="text-xl font-bold text-primary group-hover:text-secondary transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
+              </div>
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground flex items-center gap-1">
+                  <Calendar className="w-3 h-3" /> {post.date}
                 </div>
-              </a>
+                <h3 className="text-xl font-bold text-primary group-hover:text-secondary transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+              </div>
             </Link>
           ))}
         </div>

@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { navigation } from "@/config/navigation";
 import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { ContactLink } from "@/components/ContactLink";
 import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 
 export function Navbar() {
@@ -21,12 +22,13 @@ export function Navbar() {
   const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) => {
     const isActive = location === href;
     return (
-      <Link href={href}>
-        <a className={`text-sm font-medium transition-colors hover:text-secondary ${
+      <Link 
+        href={href}
+        className={`text-sm font-medium transition-colors hover:text-secondary ${
           isActive ? "text-secondary font-bold" : "text-foreground"
-        } ${className}`}>
-          {children}
-        </a>
+        } ${className || ""}`}
+      >
+        {children}
       </Link>
     );
   };
@@ -41,18 +43,16 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo & Branding - Responsive Text */}
-        <Link href="/">
-          <a className="flex items-center gap-3 group">
-            <img 
-              src={logo} 
-              alt="PNW Cloud Services" 
-              className="w-auto object-contain"
-              style={{ height: '50px' }}
-            />
-            <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
-              PNW Cloud Services
-            </span>
-          </a>
+        <Link href="/" className="flex items-center gap-3 group">
+          <img 
+            src={logo} 
+            alt="PNW Cloud Services" 
+            className="w-auto object-contain"
+            style={{ height: '50px' }}
+          />
+          <span className="font-heading font-bold text-lg md:text-xl text-primary tracking-tight group-hover:text-secondary transition-colors">
+            PNW Cloud Services
+          </span>
         </Link>
 
         {/* Desktop Links */}
@@ -69,15 +69,19 @@ export function Navbar() {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[300px] bg-white shadow-xl border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 p-4 rounded-xl origin-top">
                   <div className="space-y-2">
                     {item.children.map((child, childIndex) => (
-                      <Link key={childIndex} href={child.href}>
-                        <a className="block group/item p-2 hover:bg-background rounded-lg transition-colors">
-                          <div className="font-medium text-sm text-foreground group-hover/item:text-secondary">{child.label}</div>
-                        </a>
+                      <Link 
+                        key={childIndex} 
+                        href={child.href}
+                        className="block group/item p-2 hover:bg-background rounded-lg transition-colors"
+                      >
+                        <div className="font-medium text-sm text-foreground group-hover/item:text-secondary">{child.label}</div>
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
+            ) : item.label === "Contact" ? (
+              <ContactLink key={index}>{item.label}</ContactLink>
             ) : (
               <NavLink key={index} href={item.href}>{item.label}</NavLink>
             )
@@ -112,14 +116,25 @@ export function Navbar() {
                   <>
                     <h4 className="text-xs font-bold uppercase text-muted-foreground tracking-wider mb-2">{item.label}</h4>
                     {item.children.map((child, childIndex) => (
-                      <Link key={childIndex} href={child.href}>
-                         <a className="block py-2 text-lg font-medium border-b border-border/50">{child.label}</a>
+                      <Link 
+                        key={childIndex} 
+                        href={child.href}
+                        className="block py-2 text-lg font-medium border-b border-border/50"
+                      >
+                        {child.label}
                       </Link>
                     ))}
                   </>
+                ) : item.label === "Contact" ? (
+                  <ContactLink className="block text-lg font-medium border-b border-border/50 py-2 text-left w-full">
+                    {item.label}
+                  </ContactLink>
                 ) : (
-                  <Link href={item.href}>
-                    <a className="block text-lg font-medium border-b border-border/50 py-2">{item.label}</a>
+                  <Link 
+                    href={item.href}
+                    className="block text-lg font-medium border-b border-border/50 py-2"
+                  >
+                    {item.label}
                   </Link>
                 )}
               </div>
