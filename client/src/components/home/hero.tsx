@@ -1,20 +1,23 @@
-import { Link } from "wouter";
 import heroImage from "@assets/hero-forest-nature-tech.png";
 import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 export function Hero() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
         
         <div className="space-y-8 animate-in slide-in-from-bottom-5 duration-1000 fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary">
-            Engineering <span className="text-gradient-speed">Speed</span><br />
-            Business Confidence
+            Engineering <span className="text-gradient-speed">Speed</span>.<br />
+            Business Confidence.
           </h1>
           
-          <p className="text-xl text-muted-foreground max-w-xl leading-relaxed animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in">
-            Helping organizations build the foundation their data, teams, and customers need to thrive in an AI-driven world.
+          <p className="text-xl text-foreground/80 max-w-xl leading-relaxed font-medium animate-in slide-in-from-bottom-5 duration-1000 delay-200 fade-in">
+            We modernize the platforms behind your product so your teams can move faster—and leadership can move forward with confidence.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4 animate-in slide-in-from-bottom-5 duration-1000 delay-300 fade-in">
@@ -24,6 +27,15 @@ export function Hero() {
               size="lg"
               className="rounded-xl h-14 px-8 text-lg shadow-sm"
             />
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => openContactModal("Platform Health Scorecard")}
+              className="rounded-xl h-14 px-8 text-lg border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 text-primary font-semibold"
+              data-testid="button-platform-health-scorecard"
+            >
+              Request a Platform Health Scorecard
+            </Button>
           </div>
         </div>
 

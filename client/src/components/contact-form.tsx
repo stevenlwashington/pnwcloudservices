@@ -20,6 +20,7 @@ const formSchema = z.object({
   company: z.string().min(1, "Company name is required"),
   role: z.string().min(1, "Job title is required"),
   source: z.string().optional(),
+  inquiryType: z.string().optional(),
   message: z.string().min(10, "Please provide a brief project description"),
   website: z.string().max(0, "Spam detected").optional().or(z.literal("")),
   turnstileToken: isTurnstileEnabled 
@@ -27,7 +28,11 @@ const formSchema = z.object({
     : z.string().optional(),
 });
 
-export function ContactForm() {
+interface ContactFormProps {
+  inquiryType?: string | null;
+}
+
+export function ContactForm({ inquiryType }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [turnstileError, setTurnstileError] = useState<string | null>(null);
@@ -40,7 +45,8 @@ export function ContactForm() {
       company: "",
       role: "",
       source: "",
-      message: "",
+      inquiryType: inquiryType || "",
+      message: inquiryType ? `I'm interested in: ${inquiryType}` : "",
       website: "",
       turnstileToken: "",
     },

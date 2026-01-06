@@ -2,9 +2,10 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/home/hero";
 import { Stats } from "@/components/home/stats";
+import { StartHere } from "@/components/home/start-here";
 import { ServicesGrid } from "@/components/home/services-grid";
-import { Highlights } from "@/components/home/highlights";
 import { BlogTeaser } from "@/components/home/blog-teaser";
+import { FounderSection } from "@/components/home/founder-section";
 import { CTA } from "@/components/home/cta";
 
 export default function Home() {
@@ -14,9 +15,10 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
+        <StartHere />
         <ServicesGrid />
-        <Highlights />
         <BlogTeaser />
+        <FounderSection />
         <CTA />
       </main>
       <Footer />

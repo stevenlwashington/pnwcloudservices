@@ -2,7 +2,8 @@ import { createContext, useContext, useState, useCallback, ReactNode } from "rea
 
 interface ContactModalContextType {
   isOpen: boolean;
-  openContactModal: () => void;
+  inquiryType: string | null;
+  openContactModal: (inquiryType?: string) => void;
   closeContactModal: () => void;
 }
 
@@ -10,17 +11,20 @@ const ContactModalContext = createContext<ContactModalContextType | undefined>(u
 
 export function ContactModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [inquiryType, setInquiryType] = useState<string | null>(null);
 
-  const openContactModal = useCallback(() => {
+  const openContactModal = useCallback((type?: string) => {
+    setInquiryType(type || null);
     setIsOpen(true);
   }, []);
 
   const closeContactModal = useCallback(() => {
     setIsOpen(false);
+    setInquiryType(null);
   }, []);
 
   return (
-    <ContactModalContext.Provider value={{ isOpen, openContactModal, closeContactModal }}>
+    <ContactModalContext.Provider value={{ isOpen, inquiryType, openContactModal, closeContactModal }}>
       {children}
     </ContactModalContext.Provider>
   );
