@@ -1,0 +1,179 @@
+You are a senior product designer + senior front-end engineer. Implement the following homepage updates for PNW Cloud Services (production site). Maintain the existing brand system (PNW green palette, subtle purple accents for AI, professional minimal animations). Do not introduce new third-party tools beyond what already exists (Calendly + Contact modal patterns we discussed previously). Keep the tone calm, confident, human-centered, enterprise-ready.
+
+SCOPE
+- Primary scope: Homepage (/)
+- Secondary scope: shared UI components used by homepage sections (typography, service cards, CTA components)
+- Do not break existing navigation, Calendly scheduling path, or Contact modal behavior.
+
+GOALS
+1) Sharpen messaging (remove generic placeholder prose)
+2) Improve trust and clarity (enterprise credibility + social proof framing)
+3) Establish a clear “Start Here” primary wedge (Platform Modernization)
+4) Reduce CTA fatigue by introducing a low-friction CTA while preserving Calendly as primary conversion path
+5) Improve accessibility/readability (contrast + font weight)
+6) Bring Insights higher and make it feel intentional
+7) Add a lightweight human element near the bottom to increase conversion confidence
+8) Re-order homepage flow to match an “engagement path” (explore → trust → start here → deepen → closer)
+
+========================================================
+1) HERO: UPDATE SUBTEXT + CTA HIERARCHY
+========================================================
+Keep hero headline exactly as:
+- "Engineering Speed."
+- "Business Confidence."
+
+Replace hero subtext with this (Option C selected):
+- "We modernize the platforms behind your product so your teams can move faster—and leadership can move forward with confidence."
+
+CTA rules in Hero:
+- Primary CTA remains Calendly-based and labeled consistently:
+  Button label must be EXACT: "Schedule a Free Consultation"
+  Behavior: open existing Calendly scheduling flow (no change to scheduling implementation).
+- Add ONE secondary, low-friction CTA in the hero (visually secondary: outline button or text link):
+  Label: "Request a Platform Health Scorecard"
+  Behavior: open the Contact modal (NOT Calendly). This is an async path.
+  If Contact modal does not support a “reason” field, prefill or add hidden context like:
+    inquiryType = "Platform Health Scorecard"
+  so inbound message routing can distinguish it.
+
+Do NOT add additional CTAs in the hero beyond these two.
+
+========================================================
+2) SOCIAL PROOF: IMPLEMENT "$11B+" PROBLEM FRAMING
+========================================================
+Convert the stats row into a clearly labeled credibility block.
+
+Add section heading above stats:
+- Title: "Proven at Enterprise Scale"
+- One-liner: "Outcomes delivered across complex, regulated, enterprise environments."
+
+Update each stat card to include a short descriptive line:
+- "$11B+ Revenue Influenced" — "Platforms powering growth at global scale"
+- "80% Faster Deployment Velocity" — "From manual releases to on-demand delivery"
+- "$450K+ Annual Cost Savings" — "Infrastructure and tooling optimized for efficiency"
+
+Keep styling consistent with current cards but increase text contrast/weight (see accessibility section below).
+
+========================================================
+3) PRIMARY WEDGE: "START HERE" = PLATFORM MODERNIZATION
+========================================================
+Introduce a dedicated “Start Here” section immediately after Social Proof:
+
+Section header:
+- "Start Here"
+Primary card/service:
+- Title: "Platform Modernization"
+- Subtitle: "Modernize the foundation your products run on."
+- Description:
+  "We help organizations modernize legacy platforms into secure, scalable foundations—so every team above the stack can ship faster with confidence."
+CTA in this section (single CTA):
+- Label: "Explore Platform Modernization"
+- Behavior: navigate to the Platform Modernization service page if it exists.
+  If there is not a dedicated page yet, create a stub route/page that matches the existing design system and includes:
+    - Overview
+    - Typical engagements (3 bullets)
+    - Example outcomes (placeholders ok)
+    - CTA to Schedule + Contact modal
+  Keep it anonymized; no client logos.
+
+========================================================
+4) SUPPORTING CAPABILITIES: GROUP THE REST
+========================================================
+Below “Start Here,” add a section titled:
+- "Supporting Capabilities"
+
+Re-present the remaining services as grouped capabilities (use existing service cards but adjust intro copy):
+Replace any generic section subtext (e.g., "drive business value") with:
+- "We don’t hand over a slide deck. We embed with your team to design, build, and ship production-ready platforms."
+
+Service card microcopy must be rewritten in a feature → benefit style (executive-readable, minimal jargon). Examples:
+- Avoid leading with acronyms (MTTR, etc.). If used, spell out once.
+
+Keep the list of capabilities consistent with the site’s current services (do not invent new ones). Maintain existing icons.
+
+========================================================
+5) LOW-FRICTION CTA STRATEGY (REDUCE CTA FATIGUE)
+========================================================
+Homepage CTA distribution should follow:
+- Header sticky CTA: "Schedule a Free Consultation" (Calendly) — keep.
+- Hero: Primary = Schedule (Calendly), Secondary = Platform Health Scorecard (Contact modal).
+- Midpage: Avoid repeating the big “Schedule” CTA multiple times.
+- Bottom: Keep one strong closer CTA ("Schedule a Free Consultation") + one secondary ("Contact" modal) if desired, but ensure visual hierarchy clearly favors the primary.
+
+Remove/avoid any additional large “Schedule” buttons that create “marry me” fatigue. Keep CTAs intentional.
+
+========================================================
+6) INSIGHTS: MOVE HIGHER + MAKE IT FEEL INTENTIONAL
+========================================================
+Move “Latest Insights” section higher in the homepage flow:
+- Place it after “Supporting Capabilities” (before the final closer CTA).
+Rename section title to one of:
+- "Platform Insights" (preferred) OR keep "Latest Insights" if already indexed
+Add a 1-line intro above posts:
+- "How we think about platforms, AI enablement, and delivery at scale."
+
+If posts are already displayed, keep the same data source and layout, but ensure spacing/typography matches the new hierarchy.
+
+========================================================
+7) HUMAN ELEMENT: LIGHTWEIGHT “FOUNDED BY ENGINEERS” BLOCK
+========================================================
+Add a section near the bottom (above the final CTA) titled:
+- "Founded by Platform Engineers"
+
+Body copy:
+- "PNW Cloud Services was founded by engineers who’ve built and operated platforms at enterprise scale. We don’t sell frameworks—we ship systems alongside your team."
+
+Add an optional small “profile card” layout that supports:
+- Name (Steven Washington)
+- Title (Founder)
+- One-line credibility statement (15+ years platform/CRM/DevOps leadership)
+Do NOT add company logos. Keep anonymized.
+
+If no headshot is available, use a tasteful placeholder (monochrome avatar or abstract PNW/tech image) consistent with brand.
+
+========================================================
+8) ACCESSIBILITY + READABILITY (MUST DO)
+========================================================
+Improve readability sitewide for:
+- Hero subtext
+- Service card descriptions
+- Stat card descriptions
+- Section intros
+
+Actions:
+- Increase font weight (e.g., from 300/400 to 400/500 depending on current system).
+- Darken light gray text to improve contrast ratio (avoid ultra-light gray).
+- Ensure hover/focus states remain accessible.
+- Verify that text remains readable on laptop glare and smaller screens.
+
+Do not change overall typography style; just improve contrast/weight.
+
+========================================================
+9) ORDER OF HOMEPAGE SECTIONS (FINAL FLOW)
+========================================================
+Homepage should follow this order:
+
+1) Hero (headline + new subtext + 2 CTAs)
+2) Social Proof: “Proven at Enterprise Scale” (stats with context)
+3) Start Here: Platform Modernization (primary wedge)
+4) Supporting Capabilities (grouped services + new human subtext line)
+5) Insights (moved up, with intro line)
+6) Founded by Platform Engineers (human element)
+7) Final Closer CTA (single primary schedule CTA; optional secondary contact modal link)
+
+========================================================
+10) QA / ACCEPTANCE CRITERIA
+========================================================
+- No broken routes; page loads cleanly in production.
+- Calendly scheduling remains functional and unchanged.
+- Contact modal opens reliably from the new “Platform Health Scorecard” CTA.
+- CTA labels are consistent: "Schedule a Free Consultation" everywhere.
+- Text contrast is visibly improved (no thin light-gray body copy).
+- Homepage feels calmer: fewer repeated big-ask CTAs.
+- Mobile layout remains clean and readable.
+
+After implementing, summarize:
+- Which files were changed
+- What sections were moved/added
+- Any new routes created (e.g., Platform Modernization page)
+- Any follow-up tasks you recommend (optional)
