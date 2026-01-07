@@ -17,8 +17,8 @@ export function Footer() {
               <img src={logo} alt="PNW Cloud" style={{ height: '50px' }} className="mb-6" />
             </Link>
             <p className="text-sm text-muted-foreground mb-6">
-              Smarter Cloud Decisions. <br />
-              Better Business Outcomes.
+              Engineering Speed. <br />
+              Business Confidence.
             </p>
             <div className="flex flex-col gap-2">
               <h4 className="font-bold text-foreground mb-3">Join our Community</h4>
