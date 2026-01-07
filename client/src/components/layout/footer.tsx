@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 import { navigation } from "@/config/navigation";
-import { NewsletterSignup } from "@/components/newsletter-signup";
 import { ContactLink } from "@/components/ContactLink";
 
 export function Footer() {
@@ -16,14 +15,10 @@ export function Footer() {
             <Link href="/">
               <img src={logo} alt="PNW Cloud" style={{ height: '50px' }} className="mb-6" />
             </Link>
-            <p className="text-sm text-muted-foreground mb-6">
+            <p className="text-sm text-muted-foreground">
               Engineering Speed. <br />
               Business Confidence.
             </p>
-            <div className="flex flex-col gap-2">
-              <h4 className="font-bold text-foreground mb-3">Join our Community</h4>
-              <NewsletterSignup />
-            </div>
           </div>
 
           <div>
