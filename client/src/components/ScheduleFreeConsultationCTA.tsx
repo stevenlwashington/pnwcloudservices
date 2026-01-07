@@ -59,10 +59,10 @@ export function ScheduleFreeConsultationCTA({
   };
 
   return (
-    <div className={cn("relative group inline-flex", className)}>
-      {/* Glow div - EXACT same implementation as Service Cards */}
+    <div className={cn("relative inline-block group", className)}>
+      {/* Glow div - EXACT same as Service Cards */}
       <div 
-        className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 group-focus-within:opacity-60"
+        className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 group-focus-within:opacity-60"
         aria-hidden="true"
       />
       <button
@@ -71,10 +71,10 @@ export function ScheduleFreeConsultationCTA({
         disabled={isLoading}
         data-testid={testId || `cta-schedule-${source}`}
         className={cn(
-          "relative z-10 inline-flex items-center justify-center font-bold rounded-full",
+          "relative z-10 inline-flex items-center justify-center font-bold rounded-2xl",
           "bg-primary text-white",
           "transition-transform duration-200 group-hover:-translate-y-0.5",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
+          "focus:outline-none focus-visible:outline-none",
           "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
           "motion-reduce:transform-none",
           sizeClasses[size]
