@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Calendar, ArrowRight } from "lucide-react";
 
-// Mock data - ideally shared with blog index
 const RECENT_POSTS = [
   {
     slug: "future-of-ai-in-enterprise",
@@ -26,6 +25,21 @@ const RECENT_POSTS = [
   }
 ];
 
+function AnimatedLink({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) {
+  return (
+    <Link 
+      href={href} 
+      className={`group/link inline-flex items-center font-bold text-secondary transition-colors hover:text-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2 rounded-sm ${className}`}
+    >
+      <span className="relative">
+        {children}
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left scale-x-0 transition-transform duration-200 ease-out group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100" />
+      </span>
+      <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 ease-out group-hover/link:translate-x-1 group-focus-visible/link:translate-x-1" aria-hidden="true" />
+    </Link>
+  );
+}
+
 export function BlogTeaser() {
   return (
     <section className="py-24 bg-white">
@@ -35,31 +49,44 @@ export function BlogTeaser() {
             <h2 className="text-3xl font-bold text-primary mb-2">Platform Insights</h2>
             <p className="text-foreground/80 font-medium">How we think about platforms, AI enablement, and delivery at scale.</p>
           </div>
-          <Link href="/blog" className="text-secondary font-bold flex items-center hover:underline">
-            View all posts <ArrowRight className="w-4 h-4 ml-2" />
-          </Link>
+          <AnimatedLink href="/blog">View all posts</AnimatedLink>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {RECENT_POSTS.map((post, i) => (
-            <Link key={i} href={`/blog/${post.slug}`} className="group block">
-              <div className="relative overflow-hidden rounded-lg aspect-video mb-4">
+            <Link 
+              key={i} 
+              href={`/blog/${post.slug}`} 
+              className="group block bg-white rounded-2xl border border-border shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2 motion-reduce:transform-none motion-reduce:transition-none"
+              data-testid={`blog-card-${post.slug}`}
+            >
+              <div className="relative overflow-hidden rounded-t-2xl aspect-video">
                 <img 
                   src={post.image} 
                   alt={post.title} 
-                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover w-full h-full transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                 />
-                <div className="absolute top-3 left-3 bg-white/90 text-primary px-2 py-1 text-xs font-bold uppercase rounded-sm shadow-sm">
+                <div className="absolute top-3 left-3 bg-white/95 text-primary px-2.5 py-1 text-xs font-bold uppercase rounded shadow-sm">
                   {post.category}
                 </div>
               </div>
-              <div className="space-y-2">
-                <div className="text-xs text-muted-foreground flex items-center gap-1">
-                  <Calendar className="w-3 h-3" /> {post.date}
+              <div className="p-5 space-y-3">
+                <div className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5" aria-hidden="true" /> 
+                  <time>{post.date}</time>
                 </div>
-                <h3 className="text-xl font-bold text-primary group-hover:text-secondary transition-colors line-clamp-2">
+                <h3 className="text-lg font-bold text-primary transition-colors duration-200 group-hover:text-foreground line-clamp-2">
                   {post.title}
                 </h3>
+                <div className="pt-2">
+                  <span className="inline-flex items-center text-sm font-semibold text-secondary">
+                    <span className="relative">
+                      Read post
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100" />
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 ease-out group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
               </div>
             </Link>
           ))}

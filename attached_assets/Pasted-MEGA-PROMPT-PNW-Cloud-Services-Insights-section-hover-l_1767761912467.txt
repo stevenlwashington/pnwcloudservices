@@ -1,0 +1,94 @@
+MEGA PROMPT — PNW Cloud Services: “Insights” section hover + link animations (AWS “What’s new” inspired)
+
+Goal
+- Update the homepage “Platform Insights” section so it feels like AWS’s “What’s new” interaction pattern: subtle, premium, confidence-building.
+- Add micro-interactions to:
+  1) The “View all posts →” link
+  2) Each blog card (hover state)
+  3) A per-card CTA link (e.g., “Read post →”)
+- Keep the design minimal (no gimmicks), accessible, and consistent with the existing brand styling.
+
+Scope
+- Only touch the “Insights / Platform Insights / Latest Insights” section component(s) and any shared UI primitives it uses.
+- Do not change routing or data source logic (keep whatever is currently used to render the posts).
+- Do not introduce a new dependency unless necessary. Prefer Tailwind + small utility components. If framer-motion is already installed, you MAY use it for in-view animations; otherwise implement with IntersectionObserver + Tailwind classes.
+
+Requirements (UX + interaction)
+A) Section header link (“View all posts →”)
+- On hover/focus:
+  - underline should animate in (left-to-right)
+  - arrow should translate slightly right (e.g., translate-x-1)
+  - transition should be smooth and short (150–200ms)
+- On keyboard focus: show visible focus ring and keep the same motion
+
+B) Blog cards (hover/focus-within)
+Each card should have these behaviors:
+- Card “lifts” slightly: translateY(-2px) and increases shadow a touch
+- Image micro-zooms slightly: scale(1.02–1.04)
+- Title text subtly darkens (or increases contrast) and/or underline appears
+- The per-card CTA link (“Read post →”) animates like AWS:
+  - underline reveals left-to-right
+  - arrow nudges right on hover/focus
+- Entire card should still be clickable (or at least obvious the card is interactive)
+- Include :focus-visible styles for accessibility
+
+C) Optional: “in-view” entrance animation (recommended)
+- When the section enters viewport, cards should fade in + slide up slightly with a stagger (very subtle).
+- Respect prefers-reduced-motion: if reduced motion is on, disable animations and show everything static.
+- Implement either with:
+  1) framer-motion (if already present), OR
+  2) IntersectionObserver hook and Tailwind transitions.
+
+D) Accessibility / performance
+- Keep motion subtle; do not animate layout-heavy properties beyond transform/opacity.
+- Add aria-labels if needed for icons/links.
+- Ensure text contrast remains readable; do not lighten text.
+
+Implementation details
+1) Find the homepage section component that renders “Platform Insights” cards.
+   - Common locations: /app/page.tsx, /components/sections/Insights.tsx, /components/home/InsightsSection.tsx
+2) Refactor the card markup to have:
+   - Outer clickable container (Link) with group and focus-within classes
+   - Image wrapper with overflow-hidden and rounded corners
+   - Title + meta + CTA link (“Read post →”)
+3) Add Tailwind classes for hover/focus states using group-hover/group-focus-visible.
+4) Build a small reusable “AnimatedLink” component (optional but recommended) used for:
+   - “View all posts →”
+   - “Read post →”
+   This component should:
+   - accept href + children
+   - render underline using pseudo-element or a span with scale-x transition
+   - animate arrow translate on hover/focus
+
+Concrete Tailwind behaviors to apply (examples; adjust to match site style)
+- Card:
+  - base: rounded-2xl border bg-white shadow-sm transition-transform transition-shadow duration-200
+  - hover: hover:-translate-y-0.5 hover:shadow-md
+  - focus: focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/40
+- Image:
+  - wrapper: overflow-hidden rounded-xl
+  - img: transition-transform duration-300 ease-out group-hover:scale-[1.03]
+- Title:
+  - transition-colors duration-200 group-hover:text-emerald-950
+- CTA underline:
+  - use span underline that scales from 0 to 100% with origin-left
+- Arrow:
+  - transition-transform duration-200 group-hover:translate-x-1
+
+Deliverables
+- Updated Insights section with the described micro-interactions.
+- Add per-card “Read post →” link (if not already present).
+- Ensure reduced-motion is respected.
+- Test in desktop + mobile:
+  - Hover interactions on desktop
+  - Focus interactions via keyboard
+  - Mobile should remain clean (no awkward hover artifacts)
+
+Do not
+- Do not change the overall page layout order.
+- Do not add heavy animations or carousels.
+- Do not reduce readability/contrast.
+
+After implementing
+- Provide a short summary of changed files and what to visually verify.
+- Include before/after screenshots in the Replit preview if possible.
