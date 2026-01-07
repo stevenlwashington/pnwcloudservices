@@ -59,9 +59,9 @@ export function ScheduleFreeConsultationCTA({
     sm: "h-10 px-6 text-sm",
   };
 
-  // Gradient glow using multiple box-shadows: blue-500, cyan-400, emerald-500
+  // Gradient glow matching service cards: blue-500, cyan-400, emerald-500
   const glowShadow = isHovered 
-    ? '0 0 25px 3px rgba(59, 130, 246, 0.5), 0 0 50px 6px rgba(34, 211, 238, 0.35), 0 0 75px 10px rgba(16, 185, 129, 0.25)'
+    ? '0 0 20px 4px rgba(59, 130, 246, 0.35), 0 0 35px 8px rgba(34, 211, 238, 0.25), 0 0 50px 12px rgba(16, 185, 129, 0.2)'
     : 'none';
 
   return (
