@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   Select,
   SelectContent,
@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { openCalendlyPopup, fireAnalyticsEvent } from "@/lib/calendly";
+import { GlowCTA } from "@/components/cta/GlowCTA";
 
 interface IntentOption {
   id: string;
@@ -24,7 +24,7 @@ const intentOptions: IntentOption[] = [
     id: "strategy",
     label: "review my platform strategy",
     description: "Schedule a free consultation to discuss your platform goals and get expert recommendations.",
-    actionLabel: "Schedule a Call",
+    actionLabel: "Schedule a Free Consultation",
     actionType: "calendly",
   },
   {
@@ -45,19 +45,47 @@ const intentOptions: IntentOption[] = [
   },
 ];
 
+interface GlowButtonProps {
+  label: string;
+  onClick: () => void;
+  testId: string;
+}
+
+function GlowButton({ label, onClick, testId }: GlowButtonProps) {
+  return (
+    <div className="relative inline-flex group">
+      <div 
+        className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 group-focus-within:opacity-60"
+        aria-hidden="true"
+      />
+      <button
+        type="button"
+        onClick={onClick}
+        data-testid={testId}
+        className={cn(
+          "relative z-10 inline-flex items-center justify-center font-bold rounded-2xl",
+          "bg-primary text-white",
+          "border-0 outline-none ring-0 ring-offset-0 shadow-none",
+          "focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
+          "transition-transform duration-200 group-hover:-translate-y-0.5",
+          "motion-reduce:transform-none",
+          "h-14 px-10 text-lg"
+        )}
+      >
+        {label}
+      </button>
+    </div>
+  );
+}
+
 export function CTA() {
   const [selectedIntent, setSelectedIntent] = useState<string>("strategy");
   const [, navigate] = useLocation();
 
   const currentOption = intentOptions.find((opt) => opt.id === selectedIntent) || intentOptions[0];
 
-  const handleAction = () => {
-    if (currentOption.actionType === "calendly") {
-      fireAnalyticsEvent("home-cta-intent-selector");
-      openCalendlyPopup({ source: "home-cta-intent-selector" });
-    } else if (currentOption.actionType === "navigate" && currentOption.actionTarget) {
-      navigate(currentOption.actionTarget);
-    }
+  const handleNavigate = (target: string) => {
+    navigate(target);
   };
 
   return (
@@ -107,14 +135,20 @@ export function CTA() {
             {currentOption.description}
           </p>
 
-          <Button
-            onClick={handleAction}
-            size="lg"
-            className="bg-primary text-white hover:bg-primary/90 font-semibold px-8 py-6 text-lg rounded-lg shadow-md hover:shadow-lg transition-all"
-            data-testid="intent-action-button"
-          >
-            {currentOption.actionLabel}
-          </Button>
+          {currentOption.actionType === "calendly" ? (
+            <GlowCTA
+              source="home-cta-intent-selector"
+              label={currentOption.actionLabel}
+              size="lg"
+              data-testid="intent-action-button"
+            />
+          ) : (
+            <GlowButton
+              label={currentOption.actionLabel}
+              onClick={() => handleNavigate(currentOption.actionTarget || "/")}
+              testId="intent-action-button"
+            />
+          )}
         </div>
       </div>
     </section>
