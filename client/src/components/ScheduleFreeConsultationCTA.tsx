@@ -59,10 +59,10 @@ export function ScheduleFreeConsultationCTA({
   };
 
   return (
-    <span className={cn("group relative inline-flex", className)}>
-      {/* Outer gradient glow - only visible on hover */}
-      <span 
-        className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur transition-opacity duration-300 group-hover:opacity-50 motion-reduce:transition-none"
+    <div className={cn("group relative inline-block", className)}>
+      {/* Outer gradient glow - matches service cards exactly */}
+      <div 
+        className="pointer-events-none absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 group-focus-within:opacity-60 motion-reduce:transition-none"
         aria-hidden="true"
       />
       <button
@@ -71,7 +71,7 @@ export function ScheduleFreeConsultationCTA({
         disabled={isLoading}
         data-testid={testId || `cta-schedule-${source}`}
         className={cn(
-          "relative inline-flex items-center justify-center font-bold rounded-full transition-transform duration-200",
+          "relative z-10 inline-flex items-center justify-center font-bold rounded-full transition-transform duration-200",
           "bg-primary text-white",
           "group-hover:-translate-y-0.5",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
@@ -83,6 +83,6 @@ export function ScheduleFreeConsultationCTA({
         {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
         {label}
       </button>
-    </span>
+    </div>
   );
 }
