@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { GlowCTA } from "@/components/cta/GlowCTA";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 interface IntentOption {
   id: string;
@@ -81,11 +82,16 @@ function GlowButton({ label, onClick, testId }: GlowButtonProps) {
 export function CTA() {
   const [selectedIntent, setSelectedIntent] = useState<string>("strategy");
   const [, navigate] = useLocation();
+  const { openContactModal } = useContactModal();
 
   const currentOption = intentOptions.find((opt) => opt.id === selectedIntent) || intentOptions[0];
 
-  const handleNavigate = (target: string) => {
-    navigate(target);
+  const handleAction = () => {
+    if (currentOption.id === "contact") {
+      openContactModal();
+    } else if (currentOption.actionTarget) {
+      navigate(currentOption.actionTarget);
+    }
   };
 
   return (
@@ -145,7 +151,7 @@ export function CTA() {
           ) : (
             <GlowButton
               label={currentOption.actionLabel}
-              onClick={() => handleNavigate(currentOption.actionTarget || "/")}
+              onClick={handleAction}
               testId="intent-action-button"
             />
           )}
