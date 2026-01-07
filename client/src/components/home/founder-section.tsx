@@ -19,7 +19,7 @@ export function FounderSection() {
   return (
     <section className="py-20 bg-white border-t border-border/50">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl">
           <div className="text-left mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Built by Platform Engineering Leaders
