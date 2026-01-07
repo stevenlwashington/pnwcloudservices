@@ -6,11 +6,11 @@ export function CTA() {
       className="py-24 border-t border-border/50 relative overflow-hidden"
       style={{ backgroundColor: 'hsl(120, 33%, 88%)' }}
     >
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-left relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
           Let's talk about your platforms.
         </h2>
-        <p className="text-xl text-foreground/80 font-medium max-w-2xl mx-auto mb-10">
+        <p className="text-xl text-foreground/80 font-medium max-w-2xl mb-10">
           Ready to modernize? Schedule a free consultation to discuss your goals and challenges.
         </p>
         <GlowCTA
