@@ -33,7 +33,7 @@ export function Stats() {
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 text-left">Built in Real Enterprise Environments</h2>
-          <p className="text-lg text-foreground/80 font-medium">
+          <p className="text-lg text-foreground/80 font-medium text-left">
             Platforms engineered inside complex, regulated, high-scale organizations.
           </p>
         </div>

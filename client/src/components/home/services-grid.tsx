@@ -62,7 +62,7 @@ export function ServicesGrid() {
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-left">Start with the Platform. Everything Else Builds on It.</h2>
-          <p className="text-lg text-foreground/80 font-medium">
+          <p className="text-lg text-foreground/80 font-medium text-left">
             We don't deliver slide decks. We embed with teams to design, build, and ship production-ready platforms.
           </p>
         </div>
