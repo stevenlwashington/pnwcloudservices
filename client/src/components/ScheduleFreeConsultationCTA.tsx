@@ -59,30 +59,33 @@ export function ScheduleFreeConsultationCTA({
   };
 
   return (
-    <div className={cn("group relative inline-block", className)}>
-      {/* Outer gradient glow - matches service cards exactly */}
-      <div 
-        className="pointer-events-none absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 group-focus-within:opacity-60 motion-reduce:transition-none"
-        aria-hidden="true"
-      />
-      <button
-        type="button"
-        onClick={handleClick}
-        disabled={isLoading}
-        data-testid={testId || `cta-schedule-${source}`}
-        className={cn(
-          "relative z-10 inline-flex items-center justify-center font-bold rounded-full transition-transform duration-200",
-          "bg-primary text-white",
-          "group-hover:-translate-y-0.5",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
-          "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
-          "motion-reduce:transform-none",
-          sizeClasses[size]
-        )}
-      >
-        {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
-        {label}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={handleClick}
+      disabled={isLoading}
+      data-testid={testId || `cta-schedule-${source}`}
+      className={cn(
+        "group relative inline-flex items-center justify-center font-bold rounded-full",
+        "bg-primary text-white",
+        "transition-transform duration-200 hover:-translate-y-0.5",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
+        "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
+        "motion-reduce:transform-none",
+        sizeClasses[size],
+        className
+      )}
+      style={{
+        boxShadow: 'none',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = '0 0 20px 2px rgba(34, 211, 238, 0.4), 0 0 40px 4px rgba(16, 185, 129, 0.2)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+    >
+      {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
+      {label}
+    </button>
   );
 }
