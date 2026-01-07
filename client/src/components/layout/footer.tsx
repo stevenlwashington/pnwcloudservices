@@ -13,12 +13,12 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <img src={logo} alt="PNW Cloud" style={{ height: '24px' }} />
+              <img src={logo} alt="PNW Cloud" style={{ height: '50px' }} />
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Engineering Speed. <br />
-              Business Confidence.
-            </p>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li>Engineering Speed.</li>
+              <li>Business Confidence.</li>
+            </ul>
           </div>
 
           <div>
