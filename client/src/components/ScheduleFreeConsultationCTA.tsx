@@ -59,7 +59,6 @@ export function ScheduleFreeConsultationCTA({
     sm: "h-10 px-6 text-sm",
   };
 
-  // Gradient glow using multiple box-shadows: blue-500, cyan-400, emerald-500
   const glowShadow = isHovered 
     ? '0 0 25px 3px rgba(59, 130, 246, 0.5), 0 0 50px 6px rgba(34, 211, 238, 0.35), 0 0 75px 10px rgba(16, 185, 129, 0.25)'
     : 'none';
@@ -76,7 +75,7 @@ export function ScheduleFreeConsultationCTA({
       onBlur={() => setIsHovered(false)}
       className={cn(
         "inline-flex items-center justify-center font-bold rounded-full",
-        "bg-primary text-white",
+        "bg-white text-primary border border-slate-200",
         "transition-all duration-300",
         "hover:-translate-y-0.5",
         "focus-visible:outline-none",
