@@ -76,7 +76,7 @@ export function ScheduleFreeConsultationCTA({
       onBlur={() => setIsHovered(false)}
       className={cn(
         "inline-flex items-center justify-center font-bold rounded-full",
-        "bg-primary text-white",
+        "bg-white text-primary border-2 border-primary",
         "transition-all duration-300",
         "hover:-translate-y-0.5",
         "focus-visible:outline-none",
