@@ -114,7 +114,7 @@ export function CTA() {
               onValueChange={setSelectedIntent}
             >
               <SelectTrigger
-                className="inline-flex w-auto h-auto py-0 px-0 text-2xl md:text-3xl font-medium border-0 bg-transparent rounded-none shadow-none focus:ring-0 hover:bg-primary/5 transition-colors relative [&>span]:bg-gradient-to-r [&>span]:from-blue-500 [&>span]:via-cyan-400 [&>span]:to-emerald-500 [&>span]:bg-clip-text [&>span]:text-transparent after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:via-cyan-400 after:to-emerald-500 after:opacity-60 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:text-cyan-500 [&_svg]:opacity-100"
+                className="inline-flex w-auto h-auto py-0 px-0 text-2xl md:text-3xl font-medium border-0 bg-transparent rounded-none shadow-none focus:ring-0 hover:bg-primary/5 transition-colors [&>span]:bg-gradient-to-r [&>span]:from-blue-500 [&>span]:via-cyan-400 [&>span]:to-emerald-500 [&>span]:bg-clip-text [&>span]:text-transparent [&>span]:border-b-4 [&>span]:border-cyan-400/60 [&>span]:pb-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:text-cyan-500 [&_svg]:opacity-100"
                 data-testid="intent-selector-trigger"
               >
                 <SelectValue />
