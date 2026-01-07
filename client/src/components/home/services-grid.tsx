@@ -1,58 +1,102 @@
-import { Cloud, Bot, Terminal, Activity, Shield, TrendingDown, ArrowRight } from "lucide-react";
+import { Layout, Cloud, Bot, Terminal, Activity, Shield, TrendingDown, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
   {
+    title: "Platform Modernization",
+    description: "Turn fragile legacy systems into platforms built to scale. We modernize monoliths and aging infrastructure into cloud-native platforms that support faster delivery, safer change, and long-term growth—without rewriting your business overnight.",
+    icon: Layout,
+    href: "/platform-modernization",
+    isPrimary: true
+  },
+  {
     title: "Salesforce & CRM Strategy",
-    description: "Align CRM architecture with your go-to-market strategy to accelerate revenue and improve customer insights.",
+    description: "Make your CRM a growth engine, not a workflow bottleneck. We design Salesforce architectures that align data, teams, and automation—so your CRM supports revenue scale instead of slowing it down.",
     icon: Cloud,
-    href: "/salesforce-crm-strategy"
+    href: "/salesforce-crm-strategy",
+    isPrimary: false
   },
   {
     title: "AI & Automation",
-    description: "Deploy intelligent agents and automate complex workflows—responsibly and at scale.",
+    description: "Automate the work that shouldn't need human judgment. We implement practical automation and AI workflows on top of stable platforms—reducing manual effort and improving accuracy without introducing fragility.",
     icon: Bot,
-    href: "/ai-automation"
+    href: "/ai-automation",
+    isPrimary: false
   },
   {
     title: "DevEx & DevOps",
-    description: "Accelerate delivery with internal developer platforms and automated CI/CD pipelines.",
+    description: "Ship changes confidently without breaking production. We build pipelines, environments, and developer tooling that make releases predictable, repeatable, and boring—in the best way.",
     icon: Terminal,
-    href: "/devex-devops"
+    href: "/devex-devops",
+    isPrimary: false
   },
   {
     title: "Observability",
-    description: "Gain visibility into system health to reduce mean time to resolution and improve reliability.",
+    description: "Know what's broken before your customers do. We implement end-to-end visibility so teams can detect issues early, resolve them faster, and understand how system health impacts the business.",
     icon: Activity,
-    href: "/observability"
+    href: "/observability",
+    isPrimary: false
   },
   {
     title: "Compliance & Governance",
-    description: "Operationalize compliance for TCPA, CPRA, and GDPR without slowing delivery.",
+    description: "Build guardrails that enable speed instead of blocking it. We embed security, compliance, and data governance directly into platform design—so teams move fast without creating risk.",
     icon: Shield,
-    href: "/compliance-governance"
+    href: "/compliance-governance",
+    isPrimary: false
   },
   {
     title: "Cloud Strategy & Cost Optimization",
-    description: "Right-size infrastructure and reduce cloud spend while improving performance.",
+    description: "Reduce cloud spend by fixing architecture, not cutting corners. We help teams understand where costs come from, why they grow, and how to optimize sustainably without sacrificing reliability.",
     icon: TrendingDown,
-    href: "/cloud-strategy-cost-optimization"
+    href: "/cloud-strategy-cost-optimization",
+    isPrimary: false
   }
 ];
 
 export function ServicesGrid() {
+  const primaryService = services.find(s => s.isPrimary);
+  const supportingServices = services.filter(s => !s.isPrimary);
+
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Supporting Capabilities</h2>
-          <p className="text-lg text-foreground/70 font-medium">
-            We don't hand over a slide deck. We embed with your team to design, build, and ship production-ready platforms.
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Start with the Platform. Everything Else Builds on It.</h2>
+          <p className="text-lg text-foreground/80 font-medium">
+            We don't deliver slide decks. We embed with teams to design, build, and ship production-ready platforms.
           </p>
         </div>
 
+        {primaryService && (
+          <div className="max-w-4xl mx-auto mb-12">
+            <Link 
+              href={primaryService.href}
+              className="group block bg-primary/5 p-8 md:p-10 rounded-2xl border-2 border-primary/20 hover:border-secondary/40 shadow-sm hover:shadow-lg transition-all duration-300"
+              data-testid="service-card-platform-modernization"
+            >
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/10 transition-colors">
+                  <primaryService.icon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-2 py-1 rounded">Start here</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">{primaryService.title}</h3>
+                  <p className="text-foreground/80 font-medium leading-relaxed mb-4">
+                    {primaryService.description}
+                  </p>
+                  <div className="flex items-center text-sm font-bold text-secondary">
+                    See how we modernize platforms <ArrowRight className="w-4 h-4 ml-2" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+          {supportingServices.map((service, index) => (
             <Link 
               key={index} 
               href={service.href}
@@ -62,8 +106,8 @@ export function ServicesGrid() {
               <div className="w-12 h-12 bg-primary/5 rounded-md flex items-center justify-center mb-4 group-hover:bg-secondary/10 transition-colors">
                 <service.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">{service.title}</h3>
-              <p className="text-sm text-foreground/70 font-medium mb-6 flex-grow">
+              <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
+              <p className="text-sm text-foreground/80 font-medium mb-6 flex-grow leading-relaxed">
                 {service.description}
               </p>
               <div className="flex items-center text-sm font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">

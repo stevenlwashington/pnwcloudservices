@@ -9,7 +9,7 @@ export function FounderSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Founded by Platform Engineers
             </h2>
-            <p className="text-lg text-foreground/70 font-medium max-w-2xl mx-auto">
+            <p className="text-lg text-foreground/80 font-medium max-w-2xl mx-auto">
               PNW Cloud Services was founded by engineers who've built and operated platforms at enterprise scale. We don't sell frameworks—we ship systems alongside your team.
             </p>
           </div>
@@ -21,7 +21,7 @@ export function FounderSection() {
               </div>
               <h3 className="text-xl font-bold text-primary mb-1">Steven Washington</h3>
               <p className="text-secondary font-semibold mb-2">Founder</p>
-              <p className="text-foreground/70 text-sm font-medium">
+              <p className="text-foreground/80 text-sm font-medium">
                 15+ years platform, CRM, and DevOps leadership
               </p>
             </div>

@@ -33,7 +33,7 @@ export function BlogTeaser() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
             <h2 className="text-3xl font-bold text-primary mb-2">Platform Insights</h2>
-            <p className="text-foreground/70 font-medium">How we think about platforms, AI enablement, and delivery at scale.</p>
+            <p className="text-foreground/80 font-medium">How we think about platforms, AI enablement, and delivery at scale.</p>
           </div>
           <Link href="/blog" className="text-secondary font-bold flex items-center hover:underline">
             View all posts <ArrowRight className="w-4 h-4 ml-2" />

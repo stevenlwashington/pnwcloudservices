@@ -4,7 +4,7 @@ const stats = [
   {
     value: "$11B+",
     label: "Revenue Influenced",
-    description: "Platforms powering growth at global scale",
+    description: "Platforms supporting mission-critical growth at global scale",
     icon: DollarSign,
     color: "text-accent-orange",
     bg: "bg-accent-orange/10"
@@ -12,7 +12,7 @@ const stats = [
   {
     value: "80%",
     label: "Faster Deployment Velocity",
-    description: "From manual releases to on-demand delivery",
+    description: "From manual releases to safe, on-demand delivery",
     icon: Zap,
     color: "text-secondary",
     bg: "bg-secondary/10"
@@ -20,7 +20,7 @@ const stats = [
   {
     value: "$450K+",
     label: "Annual Cost Savings",
-    description: "Infrastructure and tooling optimized for efficiency",
+    description: "Infrastructure optimized through architecture—not shortcuts",
     icon: TrendingUp,
     color: "text-accent-purple",
     bg: "bg-accent-purple/10"
@@ -32,9 +32,9 @@ export function Stats() {
     <section className="py-20 bg-white border-y border-border">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Proven at Enterprise Scale</h2>
-          <p className="text-lg text-foreground/70 font-medium">
-            Outcomes delivered across complex, regulated, enterprise environments.
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Built in Real Enterprise Environments</h2>
+          <p className="text-lg text-foreground/80 font-medium">
+            Platforms engineered inside complex, regulated, high-scale organizations.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -53,7 +53,7 @@ export function Stats() {
               <div className="text-foreground font-semibold uppercase tracking-wider text-sm mb-2">
                 {stat.label}
               </div>
-              <div className="text-foreground/70 text-sm font-medium">
+              <div className="text-foreground/80 text-sm font-medium">
                 {stat.description}
               </div>
             </div>

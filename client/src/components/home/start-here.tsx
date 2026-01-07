@@ -21,11 +21,11 @@ export function StartHere() {
                 <h2 className="text-3xl md:text-4xl font-bold text-primary">
                   Platform Modernization
                 </h2>
-                <p className="text-lg text-foreground/80 font-medium">
-                  Modernize the foundation your products run on.
+                <p className="text-lg text-foreground/90 font-medium">
+                  Turn fragile legacy systems into platforms built to scale.
                 </p>
-                <p className="text-foreground/70 leading-relaxed">
-                  We help organizations modernize legacy platforms into secure, scalable foundations—so every team above the stack can ship faster with confidence.
+                <p className="text-foreground/80 leading-relaxed font-medium">
+                  We modernize monoliths and aging infrastructure into cloud-native platforms that support faster delivery, safer change, and long-term growth—without rewriting your business overnight.
                 </p>
                 
                 <div className="pt-4">
@@ -35,7 +35,7 @@ export function StartHere() {
                       className="bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl h-12 px-6"
                       data-testid="button-explore-platform-modernization"
                     >
-                      Explore Platform Modernization
+                      See how we modernize platforms
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>

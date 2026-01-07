@@ -1,0 +1,187 @@
+🔹 REPLIT MEGA PROMPT — Homepage Differentiation & Service Rewrite
+
+Context
+This is the homepage for PNW Cloud Services, a platform engineering and cloud modernization consultancy.
+The site already exists. Do not redesign from scratch. Focus on copy, hierarchy, and UX clarity, keeping the current layout, colors, and components unless explicitly instructed.
+
+🎯 Primary Goals (in order of priority)
+
+Differentiate tone and positioning from generic “consulting / MSP” language
+
+Establish Platform Modernization as the clear core wedge / primary specialization
+
+Reduce buzzwords; emphasize mechanism → outcome language
+
+Clarify CTA intent without increasing CTA count
+
+Improve readability and executive clarity
+
+1️⃣ HERO SECTION — COPY UPDATE (NO LAYOUT CHANGE)
+
+Keep headline exactly as:
+
+Engineering Speed. Business Confidence.
+
+Replace hero subtext with:
+
+We solve the technical debt and infrastructure bottlenecks that stall your product roadmap. Get from legacy to cloud-native in months—not years.
+
+Design notes:
+
+Maintain existing gradient emphasis on Speed
+
+Increase subtext contrast slightly (darker gray or heavier weight)
+
+No new buttons added here
+
+2️⃣ SOCIAL PROOF / STATS — REFRAME “PROVEN” LANGUAGE
+Section Header (replace current)
+
+From:
+
+Proven at Enterprise Scale
+
+To:
+
+Built in Real Enterprise Environments
+
+Subtext (replace):
+
+Platforms engineered inside complex, regulated, high-scale organizations.
+
+Keep all three metrics as-is numerically, but update descriptions:
+
+$11B+ Revenue Influenced
+Platforms supporting mission-critical growth at global scale
+
+80% Faster Deployment Velocity
+From manual releases to safe, on-demand delivery
+
+$450K+ Annual Cost Savings
+Infrastructure optimized through architecture—not shortcuts
+
+3️⃣ SERVICES SECTION — CORE WEDGE + SUPPORTING CAPABILITIES
+Section Header (replace)
+
+From:
+
+Our Expertise
+
+To:
+
+Start with the Platform. Everything Else Builds on It.
+
+Subtext (replace entirely):
+
+We don’t deliver slide decks. We embed with teams to design, build, and ship production-ready platforms.
+
+🔹 SERVICE CARD STRUCTURE RULES
+
+Keep existing card layout and icons
+
+Replace all service card copy
+
+Use plain English
+
+Use Outcome-first language
+
+Avoid buzzwords like “leverage,” “synergy,” “optimize business value”
+
+🟢 PRIMARY SERVICE (FIRST CARD — VISUALLY EMPHASIZED)
+Platform Modernization (Primary / Core Wedge)
+
+Description:
+
+Turn fragile legacy systems into platforms built to scale.
+We modernize monoliths and aging infrastructure into cloud-native platforms that support faster delivery, safer change, and long-term growth—without rewriting your business overnight.
+
+Add a subtle label above or below title:
+
+Start here
+
+🔹 SUPPORTING CAPABILITIES (Rewrite All)
+Salesforce & CRM Strategy
+
+Make your CRM a growth engine, not a workflow bottleneck.
+We design Salesforce architectures that align data, teams, and automation—so your CRM supports revenue scale instead of slowing it down.
+
+AI & Automation
+
+Automate the work that shouldn’t need human judgment.
+We implement practical automation and AI workflows on top of stable platforms—reducing manual effort and improving accuracy without introducing fragility.
+
+DevEx & DevOps
+
+Ship changes confidently without breaking production.
+We build pipelines, environments, and developer tooling that make releases predictable, repeatable, and boring—in the best way.
+
+Observability
+
+Know what’s broken before your customers do.
+We implement end-to-end visibility so teams can detect issues early, resolve them faster, and understand how system health impacts the business.
+
+Compliance & Governance
+
+Build guardrails that enable speed instead of blocking it.
+We embed security, compliance, and data governance directly into platform design—so teams move fast without creating risk.
+
+Cloud Strategy & Cost Optimization
+
+Reduce cloud spend by fixing architecture, not cutting corners.
+We help teams understand where costs come from, why they grow, and how to optimize sustainably without sacrificing reliability.
+
+4️⃣ CTA STRATEGY — CLARITY WITHOUT ADDING BUTTONS
+
+Do NOT add new CTAs.
+
+CTA Hierarchy Rules:
+
+Keep “Schedule a Free Consultation” only:
+
+In the top-right nav
+
+In the final bottom section
+
+Replace any mid-page consultation CTAs with:
+
+“See how we modernize platforms”
+
+OR “View platform case studies” (non-modal, scroll or link)
+
+5️⃣ READABILITY & ACCESSIBILITY FIXES (GLOBAL)
+
+Increase body copy font weight slightly across:
+
+Hero subtext
+
+Service card descriptions
+
+Improve contrast ratio for light gray text
+
+Ensure all service descriptions pass basic WCAG contrast checks
+
+6️⃣ WHAT NOT TO CHANGE
+
+Do not alter routing or page structure
+
+Do not change brand colors or fonts
+
+Do not introduce pricing
+
+Do not add testimonials yet
+
+Do not add new sections unless required for copy placement
+
+✅ SUCCESS CRITERIA
+
+When finished, the homepage should:
+
+Clearly signal Platform Modernization as the entry point
+
+Sound like builders, not consultants
+
+Be understandable to a CTO and a VP Product
+
+Reduce buzzwords while increasing credibility
+
+Feel distinctly different from MSP / Replit-template competitors
