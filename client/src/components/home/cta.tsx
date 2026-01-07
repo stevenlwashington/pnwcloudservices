@@ -114,10 +114,15 @@ export function CTA() {
               onValueChange={setSelectedIntent}
             >
               <SelectTrigger
-                className="inline-flex w-auto h-auto py-0 px-0 text-2xl md:text-3xl font-medium border-0 bg-transparent rounded-none shadow-none focus:ring-0 hover:bg-primary/5 transition-colors [&>span]:bg-gradient-to-r [&>span]:from-blue-500 [&>span]:via-cyan-400 [&>span]:to-emerald-500 [&>span]:bg-clip-text [&>span]:text-transparent [&>span]:border-b-4 [&>span]:border-cyan-400/60 [&>span]:pb-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:text-cyan-500 [&_svg]:opacity-100"
+                className="inline-flex w-auto h-auto py-0 px-0 text-2xl md:text-3xl font-medium border-0 bg-transparent rounded-none shadow-none focus:ring-0 hover:bg-primary/5 transition-colors [&_svg]:h-6 [&_svg]:w-6 [&_svg]:text-cyan-500 [&_svg]:opacity-100"
                 data-testid="intent-selector-trigger"
               >
-                <SelectValue />
+                <span className="relative pb-2">
+                  <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 bg-clip-text text-transparent">
+                    {currentOption.label}
+                  </span>
+                  <span className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 rounded-full" />
+                </span>
               </SelectTrigger>
               <SelectContent
                 className="bg-white border border-border shadow-lg rounded-lg"
