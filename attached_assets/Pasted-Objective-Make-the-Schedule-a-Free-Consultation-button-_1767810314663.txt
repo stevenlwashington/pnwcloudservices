@@ -1,0 +1,51 @@
+Objective:
+Make the “Schedule a Free Consultation” button use the exact same hover glow behavior as the Service Cards (e.g., “Salesforce & CRM Strategy”), including gradient colors, blur, opacity, spread, timing, and interaction model.
+
+Do NOT invent a new glow. Reuse the existing service-card glow pattern verbatim.
+
+Context:
+The Service Cards implement their glow using an absolutely positioned gradient div inside a `group` wrapper with Tailwind CSS utilities.
+
+Current Service Card Glow (reference implementation):
+<div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60" />
+
+Tasks:
+1. Locate the “Schedule a Free Consultation” button component (used in:
+   - Top navigation CTA
+   - Hero section CTA
+   - Bottom-of-page CTA)
+
+2. Wrap the button in a `relative group` container, exactly like the Service Cards.
+
+3. Add an absolutely positioned glow div BEHIND the button using the SAME Tailwind classes:
+   - bg-gradient-to-r
+   - from-blue-500 via-cyan-400 to-emerald-500
+   - blur-lg
+   - -inset-1
+   - opacity-0 → group-hover:opacity-60
+   - transition-opacity duration-300
+   - matching border radius (rounded-xl or rounded-2xl depending on button size)
+
+4. Ensure layering is correct:
+   - Glow div uses `absolute` positioning
+   - Button uses `relative z-10`
+   - Glow sits behind the button but above the page background
+
+5. Match interaction behavior:
+   - Hover (desktop): glow fades in smoothly
+   - Focus (keyboard): glow appears for accessibility
+   - Touch (mobile): glow appears on tap/active state
+
+6. Do NOT:
+   - Change button text
+   - Change button size, padding, or typography
+   - Introduce shadows or effects not used on service cards
+   - Increase glow opacity beyond 60%
+
+7. Result:
+   - The “Schedule a Free Consultation” button should be visually indistinguishable from a Service Card hover glow, just applied to a button shape.
+   - Same gradient, same blur, same timing, same intensity.
+
+Deliverable:
+- Updated button component code with the glow implemented
+- Reuse existing Tailwind utilities (no new CSS files unless absolutely required)
