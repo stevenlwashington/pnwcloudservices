@@ -1,0 +1,44 @@
+Replit Mega-Prompt: Update “Humanized” Section (Homepage)
+
+Goal:
+Replace the current “Founded by Platform Engineers” section that includes my name/card (“Steven Washington – Founder”) with a higher-trust, brand-safe section that does NOT include any personal name, photo, or individual bio card.
+
+What to build:
+1) Section headline (Option A — use exactly):
+“Built by Platform Engineering Leaders”
+
+2) Supporting copy (use this verbatim, unless you need minor spacing edits):
+“PNW Cloud Services is built by leaders who’ve owned and scaled platform teams across DevOps, CRM, data, and internal tooling—partnering directly with engineers to ship production systems.”
+
+3) Replace the current single-person “Founder” card with a neutral, non-personal trust component.
+Implement ONE of these (choose the cleanest visually given the current design system):
+- A) A 3-pill “credibility bar” with icons:
+  - “Embedded with engineering teams”
+  - “Production systems shipped”
+  - “Enterprise platform experience”
+OR
+- B) A 2x2 grid of small cards (no people) with icons:
+  - “Platform Modernization”
+  - “DevEx & DevOps”
+  - “AI & Automation”
+  - “Governance & Security”
+
+Design requirements:
+- Keep the same background color + spacing rhythm as the rest of the homepage sections.
+- Match the existing typography scale (H2/H3 styles) and button styles.
+- Improve readability: ensure the paragraph text uses a darker color / higher contrast than the current light gray treatment (increase font weight slightly if needed).
+- Center the headline and paragraph as currently done, but ensure the content doesn’t feel empty—use the credibility bar/cards to create visual weight.
+
+Implementation details:
+- Find the existing “Founded by Platform Engineers” section component/file and refactor it (do not create a duplicate section).
+- Remove any references to:
+  - “Steven Washington”
+  - “Founder”
+  - Any avatar/profile placeholder
+- Keep the section’s id/anchor stable if it exists (so nav/links don’t break).
+- Ensure it is responsive: looks good on desktop and mobile (stack pills/cards vertically on small screens).
+
+After changes:
+- Run the app and confirm the homepage renders with the new section.
+- Confirm there is no personal name anywhere in this section.
+- Commit the changes with a message like: “Refactor humanized section to platform leadership positioning”

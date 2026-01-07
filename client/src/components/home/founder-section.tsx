@@ -1,4 +1,19 @@
-import { User } from "lucide-react";
+import { Users, Rocket, Building2 } from "lucide-react";
+
+const credibilityItems = [
+  {
+    icon: Users,
+    label: "Embedded with engineering teams"
+  },
+  {
+    icon: Rocket,
+    label: "Production systems shipped"
+  },
+  {
+    icon: Building2,
+    label: "Enterprise platform experience"
+  }
+];
 
 export function FounderSection() {
   return (
@@ -7,24 +22,25 @@ export function FounderSection() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Founded by Platform Engineers
+              Built by Platform Engineering Leaders
             </h2>
-            <p className="text-lg text-foreground/80 font-medium max-w-2xl mx-auto">
-              PNW Cloud Services was founded by engineers who've built and operated platforms at enterprise scale. We don't sell frameworks—we ship systems alongside your team.
+            <p className="text-lg text-foreground/80 font-medium max-w-3xl mx-auto">
+              PNW Cloud Services is built by leaders who've owned and scaled platform teams across DevOps, CRM, data, and internal tooling—partnering directly with engineers to ship production systems.
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="bg-white border border-border rounded-xl p-6 shadow-sm max-w-sm text-center">
-              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <User className="w-10 h-10 text-primary" />
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+            {credibilityItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 bg-primary/5 border border-primary/10 rounded-full px-5 py-3"
+              >
+                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-sm font-semibold text-foreground">{item.label}</span>
               </div>
-              <h3 className="text-xl font-bold text-primary mb-1">Steven Washington</h3>
-              <p className="text-secondary font-semibold mb-2">Founder</p>
-              <p className="text-foreground/80 text-sm font-medium">
-                15+ years platform, CRM, and DevOps leadership
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
