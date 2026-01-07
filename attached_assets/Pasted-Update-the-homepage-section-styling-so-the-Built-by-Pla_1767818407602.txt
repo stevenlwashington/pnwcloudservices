@@ -1,0 +1,36 @@
+Update the homepage section styling so the “Built by Platform Engineering Leaders” section and the final CTA section feel related but clearly distinct using layered tints of the same green atmosphere.
+
+Goal:
+- “Built by…” = lighter / airy tint (fog green) that’s close to the site background.
+- Final CTA section = slightly deeper tint (10–15% darker than “Built by…”) but NOT the current dark forest green.
+- Keep typography, spacing, and layout unchanged unless needed for contrast.
+- Ensure the CTA button (including its glow/hover behavior) looks good on the new CTA background.
+
+Implementation requirements:
+1) Identify the component(s) / section wrappers for:
+   a) “Built by Platform Engineering Leaders”
+   b) “Let’s talk about your platforms.” (the CTA above the footer)
+2) Set “Built by…” background to a very light green tint consistent with the site palette.
+   - Use a Tailwind class like: bg-emerald-50 / bg-green-50 (or a custom hex via bg-[#…]) that matches the site’s soft mint tone.
+3) Set the final CTA background to a deeper, but still soft, green tint.
+   - Example targets (choose what matches best): bg-emerald-100, bg-green-100, bg-emerald-200 (avoid anything as dark as the current section).
+   - The CTA section must be visually distinct from “Built by…” but not a harsh jump.
+4) Contrast & readability:
+   - Ensure headings/subtext remain readable with WCAG-friendly contrast.
+   - If needed, slightly darken text colors (e.g., text-emerald-950) but keep the brand feel.
+5) Glow/button behavior:
+   - Keep the same glow used elsewhere, but tune it for the CTA background so it’s subtle (not neon).
+   - Reduce intensity only for this CTA section if necessary by adjusting the glow overlay opacity/blur on hover (e.g., group-hover:opacity-40 instead of 60).
+   - Do NOT introduce any unwanted border/padding halo around the button.
+6) Visual separation:
+   - Add subtle section separation if needed using spacing (py) or a faint top border (border-t border-emerald-200/30) rather than changing layout.
+
+Acceptance criteria:
+- “Built by…” reads as calm credibility (lighter background).
+- Final CTA reads as the action moment (slightly deeper background), but still cohesive with the rest of the site.
+- The CTA button glow looks tasteful on this new background and matches the site’s other hover glows in style.
+- No new white/gray outlines appear around the button.
+
+After changes:
+- Update only the relevant components/styles.
+- Provide the exact files changed and what classes/hex values were applied.

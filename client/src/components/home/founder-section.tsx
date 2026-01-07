@@ -17,7 +17,7 @@ const credibilityItems = [
 
 export function FounderSection() {
   return (
-    <section className="py-20 bg-background border-t border-border">
+    <section className="py-20 bg-emerald-50/50 border-t border-emerald-100">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -33,7 +33,7 @@ export function FounderSection() {
             {credibilityItems.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 bg-primary/5 border border-primary/10 rounded-full px-5 py-3"
+                className="flex items-center gap-3 bg-white/80 border border-emerald-200/50 rounded-full px-5 py-3"
               >
                 <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-4 h-4 text-primary" />
