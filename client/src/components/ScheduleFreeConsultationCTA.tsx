@@ -59,32 +59,29 @@ export function ScheduleFreeConsultationCTA({
   };
 
   return (
-    <div className={cn("group relative inline-block", className)}>
-      {/* Gradient glow - only visible on hover */}
-      <div 
-        className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70 motion-reduce:transition-none"
+    <button
+      type="button"
+      onClick={handleClick}
+      disabled={isLoading}
+      data-testid={testId || `cta-schedule-${source}`}
+      className={cn(
+        "group relative inline-flex items-center justify-center font-bold rounded-full transition-all duration-200",
+        "bg-primary text-white",
+        "hover:-translate-y-0.5",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
+        "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
+        "motion-reduce:transform-none",
+        sizeClasses[size],
+        className
+      )}
+    >
+      {/* Subtle gradient glow - matching service cards */}
+      <span 
+        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40 motion-reduce:transition-none -z-10"
         aria-hidden="true"
       />
-      
-      {/* Button */}
-      <button
-        type="button"
-        onClick={handleClick}
-        disabled={isLoading}
-        data-testid={testId || `cta-schedule-${source}`}
-        className={cn(
-          "relative inline-flex items-center justify-center font-bold rounded-full transition-all duration-200",
-          "bg-primary text-white",
-          "hover:-translate-y-0.5 hover:shadow-lg",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
-          "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
-          "motion-reduce:transform-none",
-          sizeClasses[size]
-        )}
-      >
-        {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
-        {label}
-      </button>
-    </div>
+      {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
+      {label}
+    </button>
   );
 }
