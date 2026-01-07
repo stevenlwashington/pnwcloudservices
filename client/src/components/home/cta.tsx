@@ -2,7 +2,10 @@ import { GlowCTA } from "@/components/cta/GlowCTA";
 
 export function CTA() {
   return (
-    <section className="py-24 bg-emerald-100/80 border-t border-emerald-200/50 relative overflow-hidden">
+    <section 
+      className="py-24 border-t border-border/50 relative overflow-hidden"
+      style={{ backgroundColor: 'hsl(120, 33%, 88%)' }}
+    >
       <div className="container mx-auto px-6 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
           Let's talk about your platforms.
