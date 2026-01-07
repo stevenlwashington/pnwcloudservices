@@ -80,7 +80,7 @@ export function ServicesGrid() {
                 aria-hidden="true"
               />
               
-              <div className="relative bg-primary/5 p-8 md:p-10 rounded-2xl border-2 border-primary/20 group-hover:border-secondary/40 shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:-translate-y-0.5 motion-reduce:transform-none">
+              <div className="relative bg-white p-8 md:p-10 rounded-2xl border border-slate-200 group-hover:border-slate-300 shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:-translate-y-0.5 motion-reduce:transform-none">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/10 transition-colors">
                     <primaryService.icon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors" />
@@ -121,7 +121,7 @@ export function ServicesGrid() {
                 aria-hidden="true"
               />
               
-              <div className="relative h-full bg-background p-6 rounded-lg border border-border shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300 flex flex-col motion-reduce:transform-none">
+              <div className="relative h-full bg-white p-6 rounded-lg border border-slate-200 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300 flex flex-col motion-reduce:transform-none">
                 <div className="w-12 h-12 bg-primary/5 rounded-md flex items-center justify-center mb-4 group-hover:bg-secondary/10 transition-colors">
                   <service.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
                 </div>
