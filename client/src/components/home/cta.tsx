@@ -1,4 +1,4 @@
-import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { GlowCTA } from "@/components/cta/GlowCTA";
 
 export function CTA() {
   return (
@@ -12,11 +12,10 @@ export function CTA() {
         <p className="text-xl text-white/90 font-medium max-w-2xl mx-auto mb-10">
           Ready to modernize? Schedule a free consultation to discuss your goals and challenges.
         </p>
-        <ScheduleFreeConsultationCTA
+        <GlowCTA
           source="home-cta"
-          variant="primary"
+          variant="secondary"
           size="lg"
-          className="h-14 px-10 text-lg rounded-xl shadow-lg hover:shadow-xl bg-secondary hover:bg-secondary/90"
         />
       </div>
     </section>

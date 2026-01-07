@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { navigation } from "@/config/navigation";
-import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { GlowCTA } from "@/components/cta/GlowCTA";
 import { ContactLink } from "@/components/ContactLink";
 import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 
@@ -90,10 +90,10 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <ScheduleFreeConsultationCTA
+          <GlowCTA
             source="navbar-desktop"
-            variant="secondary"
-            className="rounded-lg px-6 py-5 font-semibold text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            variant="primary"
+            size="sm"
           />
         </div>
 
@@ -140,10 +140,11 @@ export function Navbar() {
               </div>
             ))}
 
-            <ScheduleFreeConsultationCTA
+            <GlowCTA
               source="navbar-mobile"
-              variant="secondary"
-              className="w-full rounded-lg py-6 text-lg mt-4"
+              variant="primary"
+              size="lg"
+              className="w-full mt-4"
             />
           </div>
         </div>
