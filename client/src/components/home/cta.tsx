@@ -105,7 +105,7 @@ export function CTA() {
         </h2>
 
         <div className="max-w-2xl">
-          <div className="flex flex-wrap items-center gap-2 mb-6">
+          <div className="flex flex-wrap items-baseline gap-2 mb-6">
             <span className="text-2xl md:text-3xl font-medium text-foreground/90">
               I want to
             </span>
@@ -114,7 +114,7 @@ export function CTA() {
               onValueChange={setSelectedIntent}
             >
               <SelectTrigger
-                className="inline-flex w-auto min-w-[280px] h-auto py-1 px-3 text-2xl md:text-3xl font-medium border-0 border-b-2 border-transparent bg-transparent rounded-none shadow-none focus:ring-0 hover:bg-primary/5 transition-colors [&>span]:bg-gradient-to-r [&>span]:from-blue-500 [&>span]:via-cyan-400 [&>span]:to-emerald-500 [&>span]:bg-clip-text [&>span]:text-transparent"
+                className="inline-flex w-auto min-w-[280px] h-auto py-0 px-1 text-2xl md:text-3xl font-medium border-0 bg-transparent rounded-none shadow-none focus:ring-0 hover:bg-primary/5 transition-colors [&>span]:bg-gradient-to-r [&>span]:from-blue-500 [&>span]:via-cyan-400 [&>span]:to-emerald-500 [&>span]:bg-clip-text [&>span]:text-transparent [&>span]:underline [&>span]:decoration-2 [&>span]:underline-offset-4 [&>span]:decoration-cyan-400 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:text-cyan-500 [&_svg]:opacity-100"
                 data-testid="intent-selector-trigger"
               >
                 <SelectValue />
