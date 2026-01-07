@@ -21,6 +21,7 @@ export function ScheduleFreeConsultationCTA({
   "data-testid": testId,
 }: ScheduleFreeConsultationCTAProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
@@ -58,31 +59,36 @@ export function ScheduleFreeConsultationCTA({
     sm: "h-10 px-6 text-sm",
   };
 
+  // Gradient glow using multiple box-shadows: blue-500, cyan-400, emerald-500
+  const glowShadow = isHovered 
+    ? '0 0 25px 3px rgba(59, 130, 246, 0.5), 0 0 50px 6px rgba(34, 211, 238, 0.35), 0 0 75px 10px rgba(16, 185, 129, 0.25)'
+    : 'none';
+
   return (
-    <span className={cn("group relative inline-block", className)}>
-      {/* Gradient glow - exactly matches service cards */}
-      <span 
-        className="pointer-events-none absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 motion-reduce:transition-none"
-        aria-hidden="true"
-      />
-      <button
-        type="button"
-        onClick={handleClick}
-        disabled={isLoading}
-        data-testid={testId || `cta-schedule-${source}`}
-        className={cn(
-          "relative z-10 inline-flex items-center justify-center font-bold rounded-full",
-          "bg-primary text-white",
-          "transition-transform duration-200 group-hover:-translate-y-0.5",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2",
-          "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
-          "motion-reduce:transform-none",
-          sizeClasses[size]
-        )}
-      >
-        {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
-        {label}
-      </button>
-    </span>
+    <button
+      type="button"
+      onClick={handleClick}
+      disabled={isLoading}
+      data-testid={testId || `cta-schedule-${source}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      className={cn(
+        "inline-flex items-center justify-center font-bold rounded-full",
+        "bg-primary text-white",
+        "transition-all duration-300",
+        "hover:-translate-y-0.5",
+        "focus-visible:outline-none",
+        "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
+        "motion-reduce:transform-none",
+        sizeClasses[size],
+        className
+      )}
+      style={{ boxShadow: glowShadow }}
+    >
+      {isLoading && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
+      {label}
+    </button>
   );
 }
