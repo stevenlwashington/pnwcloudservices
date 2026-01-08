@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Calendar, ArrowRight } from "lucide-react";
+import devexImage from "@assets/Gemini_Generated_Image_93s08293s08293s0_1767848634746.png";
 
 const RECENT_POSTS = [
   {
@@ -14,7 +15,7 @@ const RECENT_POSTS = [
     title: "Platform Engineering 101: Treating Infrastructure as a Product",
     date: "Nov 02, 2025",
     category: "DevEx",
-    image: "https://images.unsplash.com/photo-1667372393119-c8f4307048f7?auto=format&fit=crop&q=80&w=800"
+    image: devexImage
   },
   {
     slug: "salesforce-data-cloud",
