@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import logo from "@assets/ChatGPT Image Nov 29, 2025, 09_22_05 PM_1764480136520.png";
 import { navigation } from "@/config/navigation";
 import { ContactLink } from "@/components/ContactLink";
 
@@ -10,17 +9,7 @@ export function Footer() {
         
 
         {/* Navigation Links */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-6">
-              <img src={logo} alt="PNW Cloud" style={{ height: '50px' }} />
-            </Link>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>Engineering Speed.</li>
-              <li>Business Confidence.</li>
-            </ul>
-          </div>
-
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <h4 className="font-bold text-foreground mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
