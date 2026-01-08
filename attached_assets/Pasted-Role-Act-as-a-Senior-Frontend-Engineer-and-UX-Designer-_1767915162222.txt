@@ -1,0 +1,57 @@
+Role: Act as a Senior Frontend Engineer and UX Designer. Objective: Create a new page platform-modernization.html (or a dynamic route) that follows the existing brand identity of PNW Cloud Services while implementing a specialized "Solution Page" layout.
+
+1. Global Layout & Branding
+Header & Footer: Retain the exact same navigation header and footer from the current homepage, including logo placement, navigation links, and the dark forest green button styles.
+
+Typography: Use the same clean sans-serif stack. Headers should be the primary dark green.
+
+Color Palette: Use the mint-white background (#f4f9f4 equivalent) as the base.
+
+The "Speed" Gradient: Use the specific pink-to-cyan linear gradient found in the homepage "Speed." text for accent borders and the CSAT widget background.
+
+2. Page Content Structure
+Implement the following sections with a focus on high whitespace and scannability:
+
+Hero Section:
+
+Headline: "Platform Modernization: Turn Your Infrastructure into a Product Accelerator.".
+
+Sub-headline: "We don’t just move servers to the cloud. We refactor the bottlenecks that stall your product roadmap. Get from 'Legacy' to 'Cloud-native' in months, not years.".
+
+Visual: An abstract hero image. A topographic forest map on the left transitioning into a clean, glowing digital grid on the right, utilizing the pink/purple accent glow.
+
+"Product Thinking" Section (The Why):
+
+Headline: "Strategy Before Syntax."
+
+Copy: "Most modernization projects fail because they focus on the 'How' before the 'What.' We audit your product roadmap first to identify legacy constraints costing you the most in developer toil and customer churn."
+
+"Engineering Execution" Section (The How):
+
+Create a three-column grid for desktop (stacks on mobile) featuring:
+
+Monolith Decomposition: Strategically breaking legacy systems into scalable microservices.
+
+Automated Migration: Using Infrastructure-as-Code (IaC) for repeatable, zero-downtime deployments.
+
+Cloud-Native Optimization: Leveraging native cloud capabilities to slash long-term maintenance costs.
+
+The Outcome Section:
+
+A high-contrast callout box.
+
+Copy: "The result: An 80% improvement in deployment velocity and a platform built for engineers, not just uptime.".
+
+3. CSAT Feedback Widget (Above Footer)
+Visuals: A full-width or centered-contained banner featuring the exact pink-to-cyan gradient from the "Speed" hero text.
+
+Text: "Did you find what you were looking for today?" (Subtext: "Let us know so we can improve the quality of the content on our pages").
+
+Interaction: Two pill-shaped buttons: "Yes [Thumb Up Icon]" and "No [Thumb Down Icon]". Use the dark forest green color for these buttons to match the site's primary CTA style.
+
+4. Technical Specifications
+Responsive Design: Use a mobile-first approach. Ensure padding scales appropriately (e.g., px-6 on mobile, px-20 on desktop).
+
+Animations: Implement subtle fade-in-on-scroll for the "Engineering Execution" cards.
+
+CTA: End the page with a final section: "Ready to review your platform strategy?" leading to the "Schedule a Free Consultation" button.

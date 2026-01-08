@@ -1,224 +1,161 @@
-import { PageHeader } from "@/components/layout/page-header";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Layout, Database, Server, CheckCircle2 } from "lucide-react";
-import heroImage from "@assets/stock_images/futuristic_construct_f8e13174.jpg";
-import { Link } from "wouter";
-import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { Layers, Repeat, Cloud, ThumbsUp, ThumbsDown } from "lucide-react";
+import { useState } from "react";
+import { GlowCTA } from "@/components/cta/GlowCTA";
+
+function CSATWidget() {
+  const [feedback, setFeedback] = useState<"yes" | "no" | null>(null);
+
+  const handleFeedback = (value: "yes" | "no") => {
+    setFeedback(value);
+  };
+
+  return (
+    <section className="py-16">
+      <div className="container mx-auto px-6">
+        <div className="rounded-2xl p-8 md:p-12 text-center" style={{ background: 'linear-gradient(to right, #ec4899, #06b6d4)' }}>
+          {feedback ? (
+            <div className="text-white">
+              <p className="text-2xl font-bold mb-2">Thank you for your feedback!</p>
+              <p className="text-white/80">Your input helps us improve our content.</p>
+            </div>
+          ) : (
+            <>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Did you find what you were looking for today?
+              </h3>
+              <p className="text-white/80 mb-8">
+                Let us know so we can improve the quality of the content on our pages.
+              </p>
+              <div className="flex justify-center gap-4">
+                <button
+                  onClick={() => handleFeedback("yes")}
+                  className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
+                  data-testid="csat-yes"
+                >
+                  <ThumbsUp className="w-5 h-5" />
+                  Yes
+                </button>
+                <button
+                  onClick={() => handleFeedback("no")}
+                  className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
+                  data-testid="csat-no"
+                >
+                  <ThumbsDown className="w-5 h-5" />
+                  No
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const executionCards = [
+  {
+    icon: Layers,
+    title: "Monolith Decomposition",
+    description: "Strategically breaking legacy systems into scalable microservices."
+  },
+  {
+    icon: Repeat,
+    title: "Automated Migration",
+    description: "Using Infrastructure-as-Code (IaC) for repeatable, zero-downtime deployments."
+  },
+  {
+    icon: Cloud,
+    title: "Cloud-Native Optimization",
+    description: "Leveraging native cloud capabilities to slash long-term maintenance costs."
+  }
+];
 
 export default function PlatformModernization() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background selection:bg-secondary/20 selection:text-secondary-foreground">
       <Navbar />
       
-      <PageHeader 
-        title="Modernize your platforms without breaking your business."
-        description="Upgrade your architecture, workflows, data, and user experience—while keeping your teams productive and your customers happy."
-        image={heroImage}
-        ctaText="Schedule a Free Consultation"
-      />
-
-      {/* Why Modernization Matters */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-primary mb-6">Why Modernization Matters</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Modernization isn’t a “nice to have.” It’s a competitive requirement.
-            </p>
-            <p className="text-lg text-muted-foreground mb-6">
-              You can’t ship new features, embed AI, or scale your business when your platforms struggle with:
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {[
-                "Technical debt", "Siloed data", 
-                "Long release cycles", "Fragile integrations",
-                "Manual workflows", "Inconsistent user experience"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 bg-secondary rounded-full"></div>
-                  <span className="text-foreground font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xl font-bold text-primary border-l-4 border-secondary pl-6 italic">
-              PNW Cloud Services modernizes systems in a way that respects current operations, future AI, and business outcomes.
+      <section className="pt-32 pb-20 bg-background">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
+              Platform Modernization: Turn Your Infrastructure into a{" "}
+              <span className="text-gradient-speed">Product Accelerator</span>.
+            </h1>
+            <p className="text-xl md:text-2xl text-foreground/80 font-medium leading-relaxed animate-in slide-in-from-bottom-5 duration-500 delay-100">
+              We don't just move servers to the cloud. We refactor the bottlenecks that stall your product roadmap. Get from "Legacy" to "Cloud-native" in months, not years.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Our Approach */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-primary text-center mb-16">Our Approach</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Discover",
-                items: ["Map current systems", "Identify friction points", "Define modernization goals"]
-              },
-              {
-                step: "2",
-                title: "Design",
-                items: ["Future-state architecture", "Map data models", "Align UX & workflows"]
-              },
-              {
-                step: "3",
-                title: "Migrate",
-                items: ["Iterative execution", "Modernize APIs", "Improve reliability"]
-              },
-              {
-                step: "4",
-                title: "Optimize",
-                items: ["Tune performance", "Add observability", "Validate outcomes"]
-              }
-            ].map((phase, i) => (
-              <div key={i} className="bg-background p-8 rounded-xl border border-border relative group hover:-translate-y-1 transition-transform duration-300">
-                <div className="text-6xl font-bold text-border/40 absolute top-4 right-4 group-hover:text-secondary/10 transition-colors">{phase.step}</div>
-                <h3 className="text-xl font-bold text-primary mb-6 relative z-10">{phase.title}</h3>
-                <ul className="space-y-3 relative z-10">
-                  {phase.items.map((item, idx) => (
-                    <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-secondary mt-1">•</span> {item}
-                    </li>
-                  ))}
-                </ul>
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Strategy Before Syntax.
+            </h2>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              Most modernization projects fail because they focus on the "How" before the "What." We audit your product roadmap first to identify legacy constraints costing you the most in developer toil and customer churn.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-left">
+            Engineering Execution
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {executionCards.map((card, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl border border-border shadow-sm hover:shadow-lg transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
+                style={{ animationDelay: `${index * 100}ms` }}
+                data-testid={`execution-card-${index}`}
+              >
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                  <card.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-3">{card.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{card.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Architecture Modernization */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Server className="w-8 h-8 text-accent-purple" />
-                <h2 className="text-3xl font-bold text-primary">Architecture Modernization</h2>
-              </div>
-              <p className="text-lg text-muted-foreground mb-6">
-                Modernizing platforms doesn’t mean a total rewrite. We improve what matters:
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Cloud-native architecture using AWS",
-                  "Modular, maintainable services",
-                  "Consistent API design",
-                  "Reduced operational overhead",
-                  "Easier onboarding for engineering teams"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-border">
-                    <CheckCircle2 className="w-5 h-5 text-accent-purple" />
-                    <span className="text-foreground">{item}</span>
-                  </div>
-                ))}
-              </ul>
-            </div>
-            {/* Placeholder Component */}
-            <div className="bg-white p-8 rounded-xl border border-border shadow-lg flex items-center justify-center h-full min-h-[300px]">
-              <div className="text-center opacity-50">
-                <Layout className="w-24 h-24 text-accent-purple mx-auto mb-4" />
-                <div className="font-mono text-sm bg-gray-100 p-2 rounded">[Image placeholder — Modernization Diagram coming soon]</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Data Modernization */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 bg-background p-8 rounded-xl border border-border shadow-lg flex items-center justify-center h-full min-h-[300px]">
-              <div className="text-center opacity-50">
-                <Database className="w-24 h-24 text-accent-orange mx-auto mb-4" />
-                <div className="font-mono text-sm bg-gray-200 p-2 rounded">[Image placeholder — Data Flow coming soon]</div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-3 mb-6">
-                <Database className="w-8 h-8 text-accent-orange" />
-                <h2 className="text-3xl font-bold text-primary">Data Modernization</h2>
-              </div>
-              <p className="text-lg text-muted-foreground mb-6">
-                Data is the engine for AI. We modernize data systems by:
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Cleaning and mapping data models",
-                  "Establishing single sources of truth",
-                  "Improving pipelines for accuracy and reliability",
-                  "Aligning data governance to compliance (TCPA, CPRA)",
-                  "Preparing your data for LLMs and automation"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-background p-4 rounded-xl border border-border">
-                    <CheckCircle2 className="w-5 h-5 text-accent-orange" />
-                    <span className="text-foreground">{item}</span>
-                  </div>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Workflow & UX */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-6">Workflow & UX Modernization</h2>
-            <p className="text-lg text-muted-foreground">
-              Modernization must be <strong>felt</strong>, not just implemented. We enhance customer journeys, internal tooling, and operational workflows.
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="bg-primary rounded-2xl p-8 md:p-12 text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">The Outcome</h2>
+            <p className="text-xl md:text-2xl font-medium leading-relaxed text-white/90">
+              An <span className="text-secondary font-bold">80% improvement</span> in deployment velocity and a platform built for engineers, not just uptime.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {["End-to-end customer journeys", "Seller and agent experiences", "Internal tooling", "Support & compliance workflows", "Mobile and desktop UI"].map((item, i) => (
-              <div key={i} className="bg-white p-6 rounded-xl border border-border text-center font-bold text-foreground shadow-sm hover:shadow-md transition-all">
-                {item}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Example Outcomes */}
-      <section className="py-24 bg-primary text-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center">Example Modernization Outcomes</h2>
-          <div className="max-w-4xl mx-auto bg-white/10 p-8 rounded-xl border border-white/20">
-            <h3 className="text-xl font-bold text-accent-orange mb-4">Leading Online Real Estate Marketplace</h3>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {[
-                "Multi-platform consolidation",
-                "Faster release cycles",
-                "Reduced costs across storage & compute",
-                "Platform ready for embedded AI workflows"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-secondary" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <CSATWidget />
 
-      {/* CTA */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <h2 className="text-4xl font-bold text-primary mb-6">Ready to modernize your platform the right way?</h2>
-          <ScheduleFreeConsultationCTA
-            source="platform-modernization-cta"
-            variant="secondary"
-            size="lg"
-            label="Start your modernization assessment"
-            className="h-14 px-10 text-lg rounded-xl shadow-lg"
-          />
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Ready to review your platform strategy?
+            </h2>
+            <p className="text-lg text-foreground/70 mb-8">
+              Schedule a free consultation to discuss your modernization goals and challenges.
+            </p>
+            <GlowCTA
+              source="platform-modernization-cta"
+              label="Schedule a Free Consultation"
+              size="lg"
+            />
+          </div>
         </div>
       </section>
 
