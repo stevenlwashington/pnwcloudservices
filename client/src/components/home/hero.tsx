@@ -17,12 +17,14 @@ export function Hero() {
         </div>
 
         <div className="relative h-[600px] w-full hidden lg:block animate-in slide-in-from-right-5 duration-1000 delay-200 fade-in">
-           <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-transparent to-transparent z-10"></div>
-           <img 
-            src={heroImage} 
-            alt="Enterprise Platform Architecture" 
-            className="w-full h-full object-cover rounded-l-3xl shadow-2xl opacity-90"
-          />
+          <div className="relative rounded-3xl overflow-hidden shadow-lg h-full w-full">
+            <img 
+              src={heroImage} 
+              alt="Enterprise Platform Architecture" 
+              className="w-full h-full object-cover block"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-black/10 pointer-events-none" />
+          </div>
           <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-accent-purple/20 rounded-full blur-3xl -z-10"></div>
           <div className="absolute top-12 right-12 w-48 h-48 bg-accent-orange/20 rounded-full blur-3xl -z-10"></div>
         </div>

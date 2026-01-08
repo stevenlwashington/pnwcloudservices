@@ -1,0 +1,85 @@
+GOAL
+Fix the hero image framing so it looks intentional, premium, and consistent across all breakpoints.
+We want a SINGLE, consistent rounded rectangle with no white artifacts, no mixed corners, and no accidental transparency.
+
+DESIGN INTENT (Option 5)
+- Use a wrapper container that defines the shape (rounded corners)
+- Clip the image inside the container (overflow-hidden)
+- Add a subtle inner gradient / mask overlay for polish
+- Ensure ALL four corners are identical
+- No white edges, no mixed radii, no odd spacing
+
+REQUIREMENTS
+1. The image itself should NEVER define corner radius
+2. The container defines shape + clipping
+3. Image fills container completely
+4. Optional overlay adds depth but does NOT affect corners
+5. Matches existing brand softness (same radius as cards)
+
+IMPLEMENTATION STEPS
+
+1) Wrap the hero image in a dedicated container
+   - Apply rounded corners ONLY to the container
+   - Use overflow-hidden to clip everything inside
+
+2) Ensure the image:
+   - Uses object-cover
+   - Has width/height: 100%
+   - Has NO border-radius
+
+3) Add a subtle overlay layer INSIDE the container
+   - Absolute positioned
+   - Pointer-events-none
+   - Soft gradient or noise at very low opacity
+   - Used only for polish (not framing)
+
+4) Remove any existing border-radius, padding, or background from the image element itself
+
+TAILWIND IMPLEMENTATION (REFERENCE)
+
+Container:
+- relative
+- rounded-3xl (or rounded-2xl if matching service cards)
+- overflow-hidden
+- shadow-lg (subtle, optional)
+
+Image:
+- w-full h-full
+- object-cover
+- block
+- NO rounded classes
+
+Overlay (optional but recommended):
+- absolute inset-0
+- bg-gradient-to-tr from-white/10 via-transparent to-black/10
+- pointer-events-none
+
+EXAMPLE STRUCTURE
+
+<div className="relative rounded-3xl overflow-hidden shadow-lg">
+  <img
+    src="/path/to/hero-image.png"
+    alt="Platform engineering visualization"
+    className="w-full h-full object-cover block"
+  />
+
+  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/10 pointer-events-none" />
+</div>
+
+VALIDATION CHECKLIST
+- All four corners identical
+- No white edges at any viewport size
+- Image never bleeds outside container
+- Matches service card visual language
+- Looks correct on desktop + mobile
+
+DO NOT
+- Add border-radius to the image
+- Add padding around the image
+- Use background images instead of <img>
+- Stack multiple competing radii
+
+APPLY THIS CHANGE ONLY TO:
+- Homepage hero image frame
+
+Do not alter other images unless they share the same framing bug.
