@@ -200,19 +200,4 @@
     height: 4px;
     background: linear-gradient(to right, #ec4899, #06b6d4);
   }
-
-  .gradient-border-button {
-    position: relative;
-    background: white;
-    z-index: 1;
-  }
-
-  .gradient-border-button::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    background: linear-gradient(to right, #ec4899, #06b6d4);
-    border-radius: 16px;
-    z-index: -1;
-  }
 }

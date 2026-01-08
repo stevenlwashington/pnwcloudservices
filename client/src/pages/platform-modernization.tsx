@@ -286,13 +286,13 @@ export default function PlatformModernization() {
             <p className="text-lg text-foreground/70 mb-10">
               Let's discuss how to transform your infrastructure into a product accelerator.
             </p>
-            <div className="inline-block gradient-border-button rounded-xl">
+            <div className="inline-block rounded-xl">
               <ScheduleFreeConsultationCTA
                 source="platform-modernization-final-cta"
-                variant="primary"
+                variant="secondary"
                 size="lg"
                 label="Schedule a Free Consultation"
-                className="h-14 px-10 text-lg font-bold bg-white text-primary rounded-xl hover:bg-gray-50 !border-0"
+                className="h-14 px-10 text-lg font-bold rounded-xl"
               />
             </div>
           </div>
