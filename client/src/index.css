@@ -175,4 +175,44 @@
   .text-gradient-speed {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-pink to-accent-orange;
   }
+
+  .bg-forest-gradient {
+    background: linear-gradient(180deg, hsl(122 40% 15%) 0%, hsl(122 40% 20%) 50%, hsl(120 33% 94%) 100%);
+  }
+
+  .bg-topography {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cpath fill='none' stroke='%23173618' stroke-width='1' d='M10 100 Q100 50 200 100 T400 100 T600 100 M10 200 Q120 150 220 200 T420 200 T600 200 M10 300 Q80 250 180 300 T380 300 T600 300 M10 400 Q140 350 240 400 T440 400 T600 400 M10 500 Q90 450 190 500 T390 500 T600 500'/%3E%3C/svg%3E");
+    background-size: 600px 600px;
+    opacity: 0.05;
+  }
+
+  .floating-card {
+    @apply bg-white rounded-xl relative overflow-hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .floating-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #ec4899, #06b6d4);
+  }
+
+  .gradient-border-button {
+    position: relative;
+    background: white;
+    z-index: 1;
+  }
+
+  .gradient-border-button::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(to right, #ec4899, #06b6d4);
+    border-radius: 16px;
+    z-index: -1;
+  }
 }

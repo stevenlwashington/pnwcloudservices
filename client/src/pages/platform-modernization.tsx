@@ -1,160 +1,300 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Layers, Repeat, Cloud, ThumbsUp, ThumbsDown } from "lucide-react";
-import { useState } from "react";
-import { GlowCTA } from "@/components/cta/GlowCTA";
+import { Layers, Server, Cloud, ArrowRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
 
-function CSATWidget() {
-  const [feedback, setFeedback] = useState<"yes" | "no" | null>(null);
+const sections = [
+  { id: "framework", label: "Framework" },
+  { id: "implementation", label: "Implementation" },
+  { id: "impact", label: "Impact" }
+];
 
-  const handleFeedback = (value: "yes" | "no") => {
-    setFeedback(value);
-  };
-
-  return (
-    <section className="py-16">
-      <div className="container mx-auto px-6">
-        <div className="rounded-2xl p-8 md:p-12 text-center" style={{ background: 'linear-gradient(to right, #ec4899, #06b6d4)' }}>
-          {feedback ? (
-            <div className="text-white">
-              <p className="text-2xl font-bold mb-2">Thank you for your feedback!</p>
-              <p className="text-white/80">Your input helps us improve our content.</p>
-            </div>
-          ) : (
-            <>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Did you find what you were looking for today?
-              </h3>
-              <p className="text-white/80 mb-8">
-                Let us know so we can improve the quality of the content on our pages.
-              </p>
-              <div className="flex justify-center gap-4">
-                <button
-                  onClick={() => handleFeedback("yes")}
-                  className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
-                  data-testid="csat-yes"
-                >
-                  <ThumbsUp className="w-5 h-5" />
-                  Yes
-                </button>
-                <button
-                  onClick={() => handleFeedback("no")}
-                  className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
-                  data-testid="csat-no"
-                >
-                  <ThumbsDown className="w-5 h-5" />
-                  No
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const executionCards = [
+const pillars = [
   {
     icon: Layers,
     title: "Monolith Decomposition",
-    description: "Strategically breaking legacy systems into scalable microservices."
+    description: "Strategically break apart legacy systems into modular, scalable microservices that accelerate feature delivery."
   },
   {
-    icon: Repeat,
-    title: "Automated Migration",
-    description: "Using Infrastructure-as-Code (IaC) for repeatable, zero-downtime deployments."
+    icon: Server,
+    title: "Internal Developer Platforms",
+    description: "Build self-service infrastructure that reduces cognitive load and empowers engineering teams to ship faster."
   },
   {
     icon: Cloud,
-    title: "Cloud-Native Optimization",
-    description: "Leveraging native cloud capabilities to slash long-term maintenance costs."
+    title: "Cloud-Native Refactoring",
+    description: "Transform applications to leverage cloud-native patterns for resilience, scalability, and cost efficiency."
   }
 ];
 
+function StickyNav({ activeSection }: { activeSection: string }) {
+  return (
+    <nav className="bg-white/95 backdrop-blur-sm border-b border-border py-4 z-40">
+      <div className="container mx-auto px-6 md:px-20">
+        <div className="flex gap-2 md:gap-8 overflow-x-auto scrollbar-hide">
+          {sections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className={`whitespace-nowrap px-4 py-2 rounded-full md:rounded-none md:px-0 md:py-0 font-medium transition-all text-sm md:text-base ${
+                activeSection === section.id
+                  ? "bg-primary text-white md:bg-transparent md:text-primary md:border-b-2 md:pb-2"
+                  : "text-foreground/70 hover:text-foreground md:border-b-2 md:border-transparent md:pb-2"
+              }`}
+              style={
+                activeSection === section.id
+                  ? { borderImage: "linear-gradient(to right, #ec4899, #06b6d4) 1" }
+                  : undefined
+              }
+              data-testid={`nav-${section.id}`}
+            >
+              {section.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export default function PlatformModernization() {
+  const [showStickyNav, setShowStickyNav] = useState(false);
+  const [activeSection, setActiveSection] = useState("framework");
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
+        setShowStickyNav(heroBottom < 0);
+      }
+    };
+
+    const observerOptions = {
+      rootMargin: "-100px 0px -50% 0px",
+      threshold: 0
+    };
+
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    sections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
+    });
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background selection:bg-secondary/20 selection:text-secondary-foreground">
       <Navbar />
       
-      <section className="pt-32 pb-20 bg-background">
-        <div className="container mx-auto px-6 md:px-20">
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-forest-gradient overflow-hidden">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 py-24 relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
-              Platform Modernization: Turn Your Infrastructure into a{" "}
-              <span className="text-gradient-speed">Product Accelerator</span>.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
+              Stop Rescuing Legacy Systems.{" "}
+              <span className="block mt-2">Start Accelerating Your Roadmap.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-foreground/80 font-medium leading-relaxed animate-in slide-in-from-bottom-5 duration-500 delay-100">
-              We don't just move servers to the cloud. We refactor the bottlenecks that stall your product roadmap. Get from "Legacy" to "Cloud-native" in months, not years.
+            <p className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-2xl animate-in slide-in-from-bottom-5 duration-500 delay-100">
+              Transform your infrastructure from a constraint into a competitive advantage.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Strategy Before Syntax.
-            </h2>
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              Most modernization projects fail because they focus on the "How" before the "What." We audit your product roadmap first to identify legacy constraints costing you the most in developer toil and customer churn.
-            </p>
-          </div>
+      {showStickyNav && (
+        <div className="fixed top-0 left-0 right-0 z-50 animate-in slide-in-from-top-2 duration-200">
+          <StickyNav activeSection={activeSection} />
         </div>
-      </section>
+      )}
 
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 md:px-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-left">
-            Engineering Execution
-          </h2>
+      <section id="framework" className="py-24 bg-background relative">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+                A Framework for Accelerated Modernization
+              </h2>
+              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+                Most modernization projects fail because they focus on "How" before "What." 
+                We start with your product roadmap to identify the legacy constraints costing 
+                you the most in developer toil and customer churn.
+              </p>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                Our framework ensures every architectural decision ties directly to business 
+                outcomes—not just technical elegance.
+              </p>
+            </div>
+            <div className="floating-card p-8">
+              <h3 className="text-xl font-bold text-primary mb-4">Strategic Priorities</h3>
+              <ul className="space-y-4">
+                {["Reduce time-to-market for new features", "Eliminate deployment bottlenecks", "Enable engineering autonomy", "Prepare infrastructure for AI integration"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-foreground/80">
+                    <ArrowRight className="w-5 h-5 text-accent-purple shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            {executionCards.map((card, index) => (
+            {pillars.map((pillar, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl border border-border shadow-sm hover:shadow-lg transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
-                style={{ animationDelay: `${index * 100}ms` }}
-                data-testid={`execution-card-${index}`}
+                className="floating-card p-8 pt-10 group cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+                data-testid={`pillar-card-${index}`}
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                  <card.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 bg-accent-purple/10 rounded-xl flex items-center justify-center mb-6">
+                  <pillar.icon className="w-7 h-7 text-accent-purple" />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{card.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{card.description}</p>
+                <h3 className="text-xl font-bold text-primary mb-3">{pillar.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{pillar.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="bg-primary rounded-2xl p-8 md:p-12 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">The Outcome</h2>
-            <p className="text-xl md:text-2xl font-medium leading-relaxed text-white/90">
-              An <span className="text-secondary font-bold">80% improvement</span> in deployment velocity and a platform built for engineers, not just uptime.
-            </p>
+      <section id="implementation" className="py-24 bg-white relative">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
+            Implementation Approach
+          </h2>
+          
+          <div className="space-y-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-4">Discovery & Assessment</h3>
+                <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+                  We map your current systems, identify friction points, and define clear 
+                  modernization goals aligned with business outcomes.
+                </p>
+                <div className="floating-card p-6 pt-8 hover:scale-[1.02] transition-transform duration-300">
+                  <ul className="space-y-3">
+                    {["Architecture audit", "Dependency mapping", "Technical debt quantification", "Roadmap alignment"].map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-foreground/80">
+                        <div className="w-2 h-2 rounded-full bg-accent-purple" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="h-64 md:h-80 rounded-2xl bg-gradient-to-br from-primary/5 to-accent-purple/10 flex items-center justify-center">
+                <div className="text-center opacity-60">
+                  <Layers className="w-20 h-20 text-primary mx-auto mb-4" />
+                  <p className="text-sm text-foreground/60">Discovery Phase Visual</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-4">Iterative Migration</h3>
+                <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+                  We execute modernization in controlled phases, delivering value incrementally 
+                  while maintaining system stability.
+                </p>
+                <div className="floating-card p-6 pt-8 hover:scale-[1.02] transition-transform duration-300">
+                  <ul className="space-y-3">
+                    {["Strangler fig pattern adoption", "Zero-downtime deployments", "Automated testing gates", "Rollback safeguards"].map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-foreground/80">
+                        <div className="w-2 h-2 rounded-full bg-accent-purple" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="h-64 md:h-80 rounded-2xl bg-gradient-to-br from-accent-purple/10 to-primary/5 flex items-center justify-center">
+                <div className="text-center opacity-60">
+                  <Server className="w-20 h-20 text-accent-purple mx-auto mb-4" />
+                  <p className="text-sm text-foreground/60">Migration Phase Visual</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <CSATWidget />
+      <section id="impact" className="py-24 bg-background relative">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
+            Measurable Impact
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              { metric: "80%", label: "Improvement in deployment velocity" },
+              { metric: "60%", label: "Reduction in incident response time" },
+              { metric: "3x", label: "Faster feature delivery" }
+            ].map((stat, index) => (
+              <div 
+                key={index} 
+                className="floating-card p-8 pt-10 text-center hover:scale-[1.02] transition-transform duration-300"
+                data-testid={`impact-stat-${index}`}
+              >
+                <div className="text-5xl font-bold text-primary mb-2">{stat.metric}</div>
+                <p className="text-foreground/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
 
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Ready to review your platform strategy?
-            </h2>
-            <p className="text-lg text-foreground/70 mb-8">
-              Schedule a free consultation to discuss your modernization goals and challenges.
+          <div className="floating-card p-8 pt-10 md:p-12 md:pt-14">
+            <h3 className="text-2xl font-bold text-primary mb-4">Client Success: Enterprise Real Estate Platform</h3>
+            <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+              Modernized a legacy monolith serving 10M+ monthly users into a cloud-native 
+              architecture, enabling the client to launch new features in days instead of months.
             </p>
-            <GlowCTA
-              source="platform-modernization-cta"
-              label="Schedule a Free Consultation"
-              size="lg"
-            />
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              {["Multi-platform consolidation", "Faster release cycles", "40% infrastructure cost reduction", "AI-ready architecture"].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-sm text-foreground/70">
+                  <div className="w-2 h-2 rounded-full bg-accent-purple shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Ready for a Platform Strategy Review?
+            </h2>
+            <p className="text-lg text-foreground/70 mb-10">
+              Let's discuss how to transform your infrastructure into a product accelerator.
+            </p>
+            <div className="inline-block gradient-border-button rounded-xl">
+              <ScheduleFreeConsultationCTA
+                source="platform-modernization-final-cta"
+                variant="primary"
+                size="lg"
+                label="Schedule a Free Consultation"
+                className="h-14 px-10 text-lg font-bold bg-white text-primary rounded-xl hover:bg-gray-50 !border-0"
+              />
+            </div>
           </div>
         </div>
       </section>
