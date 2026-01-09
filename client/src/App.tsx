@@ -7,6 +7,7 @@ import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { ContactModalProvider } from "@/contexts/ContactModalContext";
 import { ContactModal } from "@/components/ContactModal";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { BackToTop } from "@/components/layout/BackToTop";
 
 // Pages
 import Home from "@/pages/home";
@@ -63,6 +64,7 @@ function App() {
             <Toaster />
             <Router />
             <ContactModal />
+            <BackToTop />
           </ContactModalProvider>
         </TooltipProvider>
       </QueryClientProvider>
