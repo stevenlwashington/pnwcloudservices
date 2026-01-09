@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Layers, Server, Cloud, Shield, ChevronDown, ThumbsUp, ThumbsDown, ArrowRight } from "lucide-react";
+import { Layers, Server, Cloud, Shield, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { GlowCTA } from "@/components/cta/GlowCTA";
 
@@ -95,52 +95,6 @@ function AccordionItem({ title, content, isOpen, onToggle }: { title: string; co
         <p className="text-foreground/70 leading-relaxed">{content}</p>
       </div>
     </div>
-  );
-}
-
-function CSATWidget() {
-  const [feedback, setFeedback] = useState<"yes" | "no" | null>(null);
-
-  return (
-    <section className="py-12">
-      <div className="container mx-auto px-6 md:px-20">
-        <div className="rounded-2xl p-8 md:p-12 text-center" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)" }}>
-          {feedback ? (
-            <div className="text-white">
-              <p className="text-2xl font-bold mb-2">Thank you for your feedback!</p>
-              <p className="text-white/80">Your input helps us improve our content.</p>
-            </div>
-          ) : (
-            <>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Did you find what you were looking for today?
-              </h3>
-              <p className="text-white/80 mb-8">
-                Let us know so we can improve the quality of the content on our pages.
-              </p>
-              <div className="flex justify-center gap-4">
-                <button
-                  onClick={() => setFeedback("yes")}
-                  className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
-                  data-testid="csat-yes"
-                >
-                  <ThumbsUp className="w-5 h-5" />
-                  Yes
-                </button>
-                <button
-                  onClick={() => setFeedback("no")}
-                  className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
-                  data-testid="csat-no"
-                >
-                  <ThumbsDown className="w-5 h-5" />
-                  No
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -247,7 +201,7 @@ export default function PlatformModernization() {
             {technicalPillars.map((pillar, index) => (
               <div
                 key={index}
-                className={`floating-card overflow-hidden group hover:scale-[1.02] transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 ${index % 2 === 1 ? "md:mt-12" : ""}`}
+                className="floating-card overflow-hidden group hover:scale-[1.02] transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 h-full"
                 style={{ animationDelay: `${index * 100}ms` }}
                 data-testid={`pillar-card-${index}`}
               >
@@ -294,8 +248,6 @@ export default function PlatformModernization() {
           </div>
         </div>
       </section>
-
-      <CSATWidget />
 
       <section id="contact" className="py-24 bg-white">
         <div className="container mx-auto px-6 md:px-20">
