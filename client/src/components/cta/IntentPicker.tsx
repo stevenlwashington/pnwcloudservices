@@ -11,16 +11,16 @@ import {
 import { GlowCTA } from "@/components/cta/GlowCTA";
 import { useContactModal } from "@/contexts/ContactModalContext";
 
-interface IntentOption {
+export interface IntentOption {
   id: string;
   label: string;
   description: string;
   actionLabel: string;
-  actionType: "calendly" | "navigate";
+  actionType: "calendly" | "navigate" | "contact";
   actionTarget?: string;
 }
 
-const intentOptions: IntentOption[] = [
+const defaultIntentOptions: IntentOption[] = [
   {
     id: "strategy",
     label: "review my platform strategy",
@@ -33,8 +33,7 @@ const intentOptions: IntentOption[] = [
     label: "share my project details",
     description: "Send us a message with details about your project and we'll get back to you within 24 hours.",
     actionLabel: "Send a Message",
-    actionType: "navigate",
-    actionTarget: "/contact",
+    actionType: "contact",
   },
   {
     id: "modernization",
@@ -83,21 +82,24 @@ export interface IntentPickerProps {
   headline?: string;
   source?: string;
   className?: string;
+  options?: IntentOption[];
 }
 
 export function IntentPicker({ 
   headline = "Let's talk about your platforms.",
   source = "intent-picker",
-  className
+  className,
+  options
 }: IntentPickerProps) {
-  const [selectedIntent, setSelectedIntent] = useState<string>("strategy");
+  const intentOptions = options || defaultIntentOptions;
+  const [selectedIntent, setSelectedIntent] = useState<string>(intentOptions[0]?.id || "strategy");
   const [, navigate] = useLocation();
   const { openContactModal } = useContactModal();
 
   const currentOption = intentOptions.find((opt) => opt.id === selectedIntent) || intentOptions[0];
 
   const handleAction = () => {
-    if (currentOption.id === "contact") {
+    if (currentOption.actionType === "contact") {
       openContactModal();
     } else if (currentOption.actionTarget) {
       navigate(currentOption.actionTarget);
@@ -107,7 +109,7 @@ export function IntentPicker({
   return (
     <section
       className={cn("py-24 border-t border-border/50 relative overflow-hidden", className)}
-      style={{ backgroundColor: "hsl(120, 20%, 97%)" }} // Lighter mint/cream
+      style={{ backgroundColor: "hsl(120, 20%, 97%)" }}
     >
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-10">

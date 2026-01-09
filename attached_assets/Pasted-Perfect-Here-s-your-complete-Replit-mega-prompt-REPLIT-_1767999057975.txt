@@ -1,0 +1,410 @@
+Perfect! Here's your complete Replit mega prompt:
+
+REPLIT MEGA PROMPT: Salesforce & CRM Strategy Page
+PROJECT OVERVIEW
+Build the Salesforce & CRM Strategy service page for PNW Cloud Services with updated copy, foundation-first positioning, Agent Force readiness emphasis, and complete brand consistency. This page targets technical executives (CTOs, VP Engineering, VP Product) who need to transform their CRM from a maintenance burden into a revenue engine.
+
+BRAND & COLOR SYSTEM REFERENCE
+Use Existing Color Palette
+Reference the established PNW Cloud Services brand system:
+Primary Colors:
+
+Light mint green: #e8f5e9, #f1f8f4, #e0f2f1 (backgrounds, hero sections)
+Dark forest green: #064e3b, #065f46 (CTAs, text, footer)
+Cream/off-white: #fafafa, #ffffff (card backgrounds)
+
+Accent Colors:
+
+Pink/magenta gradient: linear-gradient(135deg, #ec4899 0%, #f97316 100%) - USE ONLY FOR METRICS/NUMBERS
+Blue-green gradient: linear-gradient(to right, #2563eb 0%, #059669 100%) - USE FOR ALL HOVER STATES
+Teal: #14b8a6, #10b981 - Secondary accents, borders
+Light variations: #d1fae5 (icon backgrounds), #5eead4 (hover states)
+
+Text Colors:
+
+Primary text: #111827, #1f2937
+Secondary text: #6b7280, #4b5563
+White text: #ffffff (on dark backgrounds)
+
+Color Usage Rules
+
+Pink gradient ONLY for metrics/numbers (40%, $1.5B+, 50%, 60%, 2x, etc.)
+Blue-green gradient for ALL interactive hover states (CTAs, cards, links)
+Light mint backgrounds for hero and main sections (NOT dark green)
+Teal for borders and dividers
+Dark green for primary CTAs (solid) that transition to blue-green gradient on hover
+
+
+PAGE STRUCTURE & COPY
+1. HEADER/NAVIGATION (STANDARD COMPONENT)
+
+Logo: Cloud icon + "PNW Cloud Services" text (left aligned)
+Navigation: Services (dropdown), Blog, Contact
+Primary CTA button: "Schedule a Free Consultation"
+Sticky header with subtle shadow on scroll
+CTA button: Dark green solid → blue-green gradient on hover
+
+Navigation Dropdown Should Include All Services:
+
+Platform Modernization
+Salesforce & CRM Strategy ← Current page, show active state
+AI-Powered Productivity & Automation
+DevEx & DevOps
+Observability
+Compliance & Governance
+Cloud Strategy & Cost Optimization
+
+
+2. HERO SECTION
+Background: Light mint green gradient (linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%))
+Layout: Two-column grid (text left, visual right)
+Copy:
+
+Headline (Large, Bold): "Transform Your CRM from Cost Center to Revenue Engine."
+Subhead (XL text): "We eliminate the technical debt and architectural gaps blocking your GTM automation—so your CRM accelerates revenue instead of slowing it down."
+Primary CTA: "Get Your CRM Assessment →" (dark green → blue-green gradient hover)
+
+Hero Visual (Right Side):
+Create a simple visual showing CRM transformation:
+
+Left element: Gray/muted box with warning icon (representing broken/technical debt state)
+Center: Green arrow or flow line showing transformation
+Right element: Bright green/gradient box with checkmark or growth icon (representing optimized state)
+Keep it clean, professional, iconographic (not illustration-heavy)
+Optional: Add small icons representing "Agent Force," "Data Cloud," "Automation" around the optimized state
+
+
+3. CRM STRATEGY SECTION
+Background: White
+Section Intro:
+
+Headline (4XL, Bold): "CRM Strategy That Drives Revenue"
+Subhead (XL, gray text): "Your CRM should be a growth engine, not a maintenance burden. We fix problems at the architecture, workflow, and GTM process level—building the foundation required for Agent Force, automation, and measurable revenue impact."
+
+Layout: Three-column card grid
+Card 1: GTM Flow Automation
+Card Style:
+
+Background: Subtle gradient from-emerald-50 to-teal-50
+Border: border-emerald-100
+Hover: Shadow lift, subtle scale
+Icon: Circle background #d1fae5, icon #065f46 (use a flow/connection icon)
+
+Copy:
+
+Headline: "GTM Flow Automation"
+Body: "Automate the revenue operations that matter—outreach campaigns, lead routing, customer follow-up, and targeting workflows. We design intelligent automation that connects marketing, sales, and customer success, eliminating manual handoffs and ensuring every prospect gets the right engagement at the right time. Clean foundations unlock Salesforce's native capabilities—Agent Force for Sales, Einstein Copilot, and intelligent routing—so your automation evolves with the platform instead of fighting against it."
+Impact Box (white background, emerald border):
+
+Label: "Impact:" (small, emerald)
+Metric: "50% faster" (2XL, bold, PINK GRADIENT)
+Description: "lead response times with automated GTM flows" (small, gray)
+
+
+
+Card 2: CRM Technical Debt Reduction
+Card Style:
+
+Background: Subtle gradient from-blue-50 to-cyan-50
+Border: border-blue-100
+Icon: Circle background #dbeafe, icon #1e40af (use a cleanup/wrench icon)
+
+Copy:
+
+Headline: "CRM Technical Debt Reduction"
+Body: "Years of quick fixes and workarounds leave CRMs brittle and unmaintainable. We systematically identify and eliminate technical debt—cleaning up duplicate fields, consolidating automation rules, refactoring monolithic architectures, and establishing sustainable patterns that make your CRM a platform for growth, not a liability."
+Impact Box (white background, blue border):
+
+Label: "Impact:"
+Metric: "60% reduction" (2XL, bold, PINK GRADIENT)
+Description: "in CRM maintenance overhead after debt cleanup" (small, gray)
+
+
+
+Card 3: Salesforce Data Cloud Integration
+Card Style:
+
+Background: Subtle gradient from-purple-50 to-pink-50
+Border: border-purple-100
+Icon: Circle background #e9d5ff, icon #6b21a8 (use a data/database icon)
+
+Copy:
+
+Headline: "Salesforce Data Cloud Integration"
+Body: "Unlock the full potential of your customer data by connecting Salesforce Data Cloud to your entire ecosystem. We architect unified customer profiles that power personalization, predictive analytics, and AI-driven insights across every touchpoint—turning fragmented data into competitive advantage. Unified, high-quality data is the prerequisite for Agent Force and predictive AI. We architect the foundations that make Salesforce's agentic capabilities production-ready, not just proof-of-concept demos."
+Impact Box (white background, purple border):
+
+Label: "Impact:"
+Metric: "2x faster" (2XL, bold, PINK GRADIENT)
+Description: "time-to-insight with unified customer data" (small, gray)
+
+
+
+
+4. AGENT FORCE READINESS SECTION (NEW)
+Background: Light gray (#f9fafb)
+Layout: Single column with centered content, visual element on left or right
+Section Intro:
+
+Headline (4XL, center or left): "Foundation-Ready for Agent Force"
+
+Copy (main body):
+"Salesforce's latest innovations—Agent Force for Sales and Service, Einstein AI, and autonomous workflows—require clean data architecture and sustainable technical foundations. Without them, these capabilities remain unused licenses on your invoice.
+We systematically prepare your CRM for agentic workflows by:
+
+Cleaning duplicate records and conflicting field logic
+Refactoring monolithic automation into modular, maintainable patterns
+Establishing data governance that AI systems can trust
+Building integration architectures that support real-time decisioning
+
+The result: You unlock the bells and whistles you're already paying for—and your CRM becomes a platform that evolves with Salesforce's innovation roadmap instead of falling further behind."
+Visual Element (Option B):
+Create a simple before/after comparison visual:
+
+Left side: Icon/illustration showing "Blocked" state
+
+Red X or lock icon
+Grayed out icons for "Agent Force," "Einstein," "Data Cloud"
+Label: "Without Foundations"
+
+
+Right side: Icon/illustration showing "Enabled" state
+
+Green checkmark or unlock icon
+Bright, colorful icons for "Agent Force," "Einstein," "Data Cloud"
+Label: "Foundation-Ready"
+
+
+Connect them with an arrow showing transformation
+Use brand colors (grays/reds for blocked, greens for enabled)
+
+
+5. TECHNICAL PILLARS SECTION
+Background: White
+Section Intro:
+
+Headline (4XL): "Technical Pillars"
+
+Layout: 2x2 grid of cards
+Card Design System:
+
+White background
+Border: Teal/green at 20% opacity (border-emerald-200)
+Icon: Rounded square background (light green), dark green icon
+Hover: Blue-green gradient border, shadow lift, "Learn more" arrow slides right
+
+Pillar 1: Foundation-First Architecture
+Icon: Building blocks or foundation icon
+Copy:
+
+Headline: "Foundation-First Architecture"
+Body: "Clean, scalable object models that support GTM growth without creating tech debt. We audit your current data architecture, eliminate duplicates and legacy patterns, and design domain boundaries that align with how your business actually operates—not how Salesforce defaults work."
+Link: "Learn more →" (emerald text, arrow shifts on hover)
+
+Pillar 2: Revenue Operations Automation
+Icon: Flow or automation icon
+Copy:
+
+Headline: "Revenue Operations Automation"
+Body: "Intelligent workflows that connect marketing, sales, and customer success into a unified revenue engine. We map your GTM motions, identify manual bottlenecks, and build automation that accelerates deals—without breaking when your business changes."
+Link: "Learn more →"
+
+Pillar 3: Enterprise Integration Strategy
+Icon: Connection/integration icon
+Copy:
+
+Headline: "Enterprise Integration Strategy"
+Body: "Seamless connections between Salesforce, marketing automation, finance systems, and the rest of your martech stack. We design integration architectures that ensure data flows where it needs to go—reliably, securely, and without constant maintenance."
+Link: "Learn more →"
+
+Pillar 4: Governance & Operational Excellence
+Icon: Shield or compliance icon
+Copy:
+
+Headline: "Governance & Operational Excellence"
+Body: "Built-in compliance, security, and change management that scales with your business. We establish governance frameworks, audit trails, and deployment processes that ensure your CRM remains reliable as your team and GTM strategy evolve."
+Link: "Learn more →"
+
+
+6. PROVEN IMPACT SECTION
+Background: Light mint green gradient (same as hero: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%))
+Section Intro:
+
+Headline (4XL, center): "Proven Impact"
+
+Layout: Two-column stat cards + full-width context card
+Stat Card 1
+
+Card: White/cream with subtle transparency, emerald border, shadow
+Metric: "$1.5B+" (6XL, bold, PINK GRADIENT)
+Description: "In annual revenue protected through CRM optimization" (XL, dark gray)
+
+Stat Card 2
+
+Card: White/cream with subtle transparency, emerald border, shadow
+Metric: "40%" (6XL, bold, PINK GRADIENT)
+Description: "Improvement in pipeline forecast accuracy" (XL, dark gray)
+
+Context Card (Full Width Below Stats)
+
+Card: White/cream with transparency, emerald border
+Text (center, large): "Our CRM transformations have powered GTM operations at organizations navigating TCPA, CFPAA, and emerging AI regulations—delivering trusted data, accurate forecasting, and scalable automation."
+
+
+7. FINAL CTA SECTION WITH INTENTPICKER (STANDARD COMPONENT)
+Background: White
+Section Layout: Centered, contained width
+Copy:
+
+Headline (4XL, center): "Start Your CRM Transformation."
+Subhead (XL, gray, center): "Choose what makes sense for where you are:"
+
+Interactive IntentPicker Component:
+Create a dropdown/select interface with contextual CTAs:
+Dropdown Options:
+
+"review my CRM strategy"
+"get a CRM technical audit"
+"discuss GTM automation roadmap"
+"request Agent Force readiness assessment"
+"see CRM transformation case studies"
+
+Interaction Design:
+
+Large, styled dropdown (not default browser style)
+When option selected, reveal contextual CTA card below with fade-in animation
+Card should have white background, gradient border, descriptive text, and prominent CTA button
+
+Example Revealed Cards:
+For "get a CRM technical audit":
+
+Text: "Get a comprehensive technical assessment of your Salesforce architecture, data quality, and automation patterns. We'll identify the foundational work needed to unlock Agent Force and revenue automation."
+CTA Button: "Request CRM Technical Audit →" (dark green → blue-green gradient hover)
+
+For "request Agent Force readiness assessment":
+
+Text: "Find out if your CRM is ready for agentic workflows. We'll audit your data architecture, automation maturity, and integration landscape to create an Agent Force implementation roadmap."
+CTA Button: "Get Agent Force Readiness Report →" (dark green → blue-green gradient hover)
+
+Style the container with:
+
+Gradient background from-gray-50 to-emerald-50
+Rounded corners, border, shadow
+Ample padding
+
+
+8. FOOTER (STANDARD COMPONENT)
+Background: Dark forest green (#064e3b)
+Layout: Four-column grid
+Columns:
+
+Company: About, Careers
+Services:
+
+Platform Modernization
+Salesforce & CRM Strategy
+AI-Powered Productivity & Automation
+DevEx & DevOps
+Observability
+Compliance & Governance
+Cloud Strategy & Cost Optimization
+
+
+Resources: Blog
+Legal: Privacy Policy, Terms of Use
+
+Link Styling:
+
+Default: Light gray (#9ca3af)
+Hover: Teal (#14b8a6)
+
+Bottom Section:
+
+Divider line (gray-800)
+Copyright: "© 2025 Pacific Northwest Cloud Services, LLC. All rights reserved." (center, gray-400)
+
+
+DESIGN SYSTEM & INTERACTIONS
+Typography
+
+Headlines: Bold, tight line-height
+Body: Regular weight, comfortable line-height (1.7)
+Hierarchy:
+
+H1: 3.5-4rem
+H2: 2.5-3rem
+H3: 1.5-2rem
+Body: 1.125rem
+Small: 0.875rem
+
+
+
+Spacing
+
+Section padding: py-20 (top/bottom)
+Container max-width: 1280px
+Card padding: p-8 to p-10
+Grid gaps: gap-8
+
+Animations & Interactions
+
+All CTAs: Smooth transition on hover (300ms)
+Cards: Subtle lift on hover (shadow + translateY)
+IntentPicker reveal: Fade-in with slide-up (400ms ease)
+Hover states: Blue-green gradient appears on ALL interactive elements
+Agent Force visual: Static (not animated), clean icons
+
+Accessibility
+
+Proper heading hierarchy (H1 → H2 → H3)
+Alt text for all icons/images
+Sufficient color contrast (WCAG AA minimum)
+Focus states visible for keyboard navigation
+Semantic HTML (nav, section, article tags)
+
+
+TECHNICAL REQUIREMENTS
+Framework/Stack
+
+Use React with Tailwind CSS
+Mobile-responsive (breakpoints: sm, md, lg, xl)
+Smooth scroll behavior
+Lazy load images where appropriate
+
+Performance
+
+Optimize SVG/icons
+Minimize repaints
+Fast load times (<3s)
+
+Browser Support
+
+Modern browsers (Chrome, Firefox, Safari, Edge)
+Graceful degradation for older browsers
+
+
+KEY PRINCIPLES
+
+Pink gradient = Metrics ONLY - Never use pink for anything except numbers/data
+Blue-green gradient = Hover states - Consistent across ALL interactive elements
+Light backgrounds - Use light mint, NOT dark green for main sections
+Foundation-first messaging - Emphasize prerequisites before features
+Agent Force prominence - Dedicated section showing blocked vs enabled state
+IntentPicker on every page - Standard component for all service pages
+Business outcomes over features - Copy emphasizes revenue, speed, reliability
+Subtle interactions - Enhance UX without being distracting
+
+
+DELIVERABLE
+A fully functional, responsive Salesforce & CRM Strategy page that:
+
+Implements all copy exactly as specified
+Follows color system rules precisely
+Includes Agent Force readiness section with before/after visual
+Has all standard components (header, footer, IntentPicker)
+Works seamlessly on mobile and desktop
+Matches the established PNW Cloud Services brand
+
+Output: Single-page React component with Tailwind CSS, ready to deploy.
+
+END OF PROMPTClaude is AI and can make mistakes. Please double-check responses. Sonnet 4.5
