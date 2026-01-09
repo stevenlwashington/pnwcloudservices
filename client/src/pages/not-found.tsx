@@ -1,7 +1,8 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Home, ArrowLeft, Search, Mail } from "lucide-react";
+import { Home, ArrowLeft, Mail } from "lucide-react";
 import { Link } from "wouter";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 const quickLinks = [
   { label: "Platform Modernization", href: "/platform-modernization" },
@@ -11,15 +12,17 @@ const quickLinks = [
 ];
 
 export default function NotFound() {
+  const { openModal } = useContactModal();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
       
-      <main className="flex-1 flex items-center justify-center py-20 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="relative mb-8">
+      <main className="flex-1 flex items-center justify-center py-12 md:py-20 px-6">
+        <div className="max-w-2xl mx-auto text-center w-full">
+          <div className="relative mb-6 md:mb-8">
             <div 
-              className="text-[120px] md:text-[180px] font-bold leading-none"
+              className="text-[100px] md:text-[180px] font-bold leading-none select-none"
               style={{ 
                 background: "linear-gradient(135deg, #1a3a2f 0%, #2d5a47 50%, #1a3a2f 100%)",
                 WebkitBackgroundClip: "text",
@@ -28,9 +31,6 @@ export default function NotFound() {
               }}
             >
               404
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Search className="w-16 h-16 md:w-24 md:h-24 text-primary/20" />
             </div>
           </div>
           
@@ -41,10 +41,10 @@ export default function NotFound() {
             The page you're looking for doesn't exist or may have been moved. Let's get you back on track.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-10 md:mb-12">
+            <Link href="/" className="w-full sm:w-auto">
               <button 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
                 data-testid="button-go-home"
               >
                 <Home className="w-5 h-5" />
@@ -53,7 +53,7 @@ export default function NotFound() {
             </Link>
             <button 
               onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary/5 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary/5 transition-colors"
               data-testid="button-go-back"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -61,11 +61,11 @@ export default function NotFound() {
             </button>
           </div>
           
-          <div className="bg-white rounded-2xl border border-border p-8 shadow-sm">
+          <div className="bg-white rounded-2xl border border-border p-6 md:p-8 shadow-sm">
             <h2 className="text-lg font-bold text-primary mb-4">
               Explore Our Services
             </h2>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {quickLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <span 
@@ -82,15 +82,14 @@ export default function NotFound() {
               <p className="text-sm text-foreground/60 mb-3">
                 Need help? We're here for you.
               </p>
-              <Link href="/contact">
-                <span 
-                  className="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors cursor-pointer"
-                  data-testid="link-contact"
-                >
-                  <Mail className="w-4 h-4" />
-                  Contact our team
-                </span>
-              </Link>
+              <button 
+                onClick={openModal}
+                className="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors cursor-pointer"
+                data-testid="link-contact"
+              >
+                <Mail className="w-4 h-4" />
+                Contact our team
+              </button>
             </div>
           </div>
         </div>
