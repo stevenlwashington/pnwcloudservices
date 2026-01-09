@@ -107,7 +107,7 @@ export function IntentPicker({
   return (
     <section
       className={cn("py-24 border-t border-border/50 relative overflow-hidden", className)}
-      style={{ backgroundColor: "hsl(120, 33%, 88%)" }}
+      style={{ backgroundColor: "hsl(120, 20%, 97%)" }} // Lighter mint/cream
     >
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-10">
