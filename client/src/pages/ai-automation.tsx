@@ -1,311 +1,270 @@
-import { PageHeader } from "@/components/layout/page-header";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Bot, BarChart, FileText, Shield } from "lucide-react";
-import heroImage from "@assets/stock_images/artificial_intellige_9d4db54f.jpg";
-import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { Bot, Brain, Zap, Shield, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { GlowCTA } from "@/components/cta/GlowCTA";
+
+const sections = [
+  { id: "overview", label: "Overview" },
+  { id: "strategy", label: "Strategy" },
+  { id: "implementation", label: "Implementation" },
+  { id: "proof", label: "Proof" },
+  { id: "contact", label: "Contact" }
+];
+
+const strategicItems = [
+  {
+    title: "Platform-First AI",
+    content: "AI doesn't work in a vacuum—it requires clean data, solid integrations, and well-architected platforms. We start by assessing your existing infrastructure, identifying data quality gaps, and ensuring your systems are ready to support AI workloads before deploying any models."
+  },
+  {
+    title: "Governance-Ready Deployment",
+    content: "Every AI solution we build is designed with compliance, auditability, and human oversight in mind. From TCPA and CPRA considerations to internal policy alignment, we embed governance into the architecture—not as an afterthought."
+  },
+  {
+    title: "Outcome-Driven Implementation",
+    content: "We measure success by business impact, not by the sophistication of the model. Whether it's reducing manual processes, accelerating sales cycles, or improving customer satisfaction, every AI initiative is tied to measurable outcomes."
+  }
+];
+
+const technicalPillars = [
+  {
+    icon: Bot,
+    title: "AI Sales Agents",
+    description: "Intelligent agents that qualify leads, personalize outreach, and accelerate deal cycles—while keeping humans in control of key decisions."
+  },
+  {
+    icon: Brain,
+    title: "Product Analytics & Insights",
+    description: "AI-powered analytics that surface hidden patterns, segment users by behavior, and generate actionable narratives for leadership."
+  },
+  {
+    icon: Zap,
+    title: "Workflow Automation",
+    description: "Eliminate repetitive tasks across sales, support, and operations with intelligent automation that learns and adapts over time."
+  },
+  {
+    icon: Shield,
+    title: "AI Governance Framework",
+    description: "Built-in guardrails for responsible AI: data lineage, model monitoring, bias detection, and compliance tracking from day one."
+  }
+];
+
+function StickyNav({ activeSection }: { activeSection: string }) {
+  return (
+    <nav className="bg-white/95 backdrop-blur-sm border-b py-3 z-40" style={{ borderImage: "linear-gradient(to right, transparent, transparent) 1" }}>
+      <div className="container mx-auto px-6 md:px-20">
+        <div className="flex gap-2 md:gap-6 overflow-x-auto scrollbar-hide">
+          {sections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className={`whitespace-nowrap px-4 py-2 rounded-full md:rounded-none md:px-0 md:py-1 font-medium transition-all text-sm ${
+                activeSection === section.id
+                  ? "bg-primary text-white md:bg-transparent md:text-primary"
+                  : "text-foreground/60 hover:text-foreground"
+              }`}
+              style={
+                activeSection === section.id
+                  ? { borderBottom: "2px solid transparent", borderImage: "linear-gradient(to right, #ec4899, #06b6d4) 1" }
+                  : { borderBottom: "2px solid transparent" }
+              }
+              data-testid={`nav-${section.id}`}
+            >
+              {section.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function AccordionItem({ title, content, isOpen, onToggle }: { title: string; content: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="border-b border-border">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between py-6 text-left group"
+        data-testid={`accordion-${title.toLowerCase().replace(/\s+/g, "-")}`}
+      >
+        <span className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">{title}</span>
+        <ChevronDown className={`w-6 h-6 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 pb-6" : "max-h-0"}`}>
+        <p className="text-foreground/70 leading-relaxed">{content}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function AIAutomation() {
+  const [showStickyNav, setShowStickyNav] = useState(false);
+  const [activeSection, setActiveSection] = useState("overview");
+  const [openAccordion, setOpenAccordion] = useState<number | null>(0);
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
+        setShowStickyNav(heroBottom < 0);
+      }
+    };
+
+    const observerOptions = {
+      rootMargin: "-100px 0px -50% 0px",
+      threshold: 0
+    };
+
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    sections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
+    });
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background selection:bg-secondary/20 selection:text-secondary-foreground">
       <Navbar />
       
-      <PageHeader 
-        title="AI that ships outcomes, not experiments."
-        description="PNW Cloud Services helps you design and ship AI-powered workflows—sales agents, product insights, and automation—that actually move revenue, efficiency, and customer satisfaction, not just spin up another proof of concept."
-        image={heroImage}
-        ctaText="Explore AI Opportunities" 
-      />
-
-      {/* Section 1: Why AI has to start with your platforms */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-primary mb-8">Why AI has to start with your platforms</h2>
-            
-            <p className="text-lg text-muted-foreground mb-6">
-              Most teams don’t fail at AI because the models are bad. They fail because:
+      <section id="overview" ref={heroRef} className="relative min-h-[70vh] flex items-center bg-background overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 py-16 relative z-10">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
+              Responsible AI Execution.{" "}
+              <span className="block mt-2">Not Just the Hype.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-foreground/80 font-medium leading-relaxed max-w-3xl animate-in slide-in-from-bottom-5 duration-500 delay-100">
+              We design and ship AI-powered workflows—sales agents, product insights, and automation—that move revenue and efficiency, not just spin up proofs of concept.
             </p>
-            <ul className="list-disc pl-6 space-y-2 mb-8 text-muted-foreground">
-              <li>The data feeding those models is incomplete or messy</li>
-              <li>The workflows around AI are bolted on instead of designed in</li>
-              <li>No one is clear on how to measure success beyond “we built a cool demo”</li>
-            </ul>
-
-            <p className="text-lg font-medium text-primary mb-6">
-              PNW Cloud Services starts with your <strong>platforms, data, and GTM systems</strong>—then layers AI in a way that is:
-            </p>
-            <ul className="space-y-4">
-              {[
-                "Grounded in clear business outcomes",
-                "Respectful of compliance and governance (TCPA, CPRA, internal policies)",
-                "Sustainable for your engineering and operations teams"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-border shadow-sm hover:translate-y-[-2px] transition-transform">
-                  <div className="w-2 h-2 bg-accent-ai rounded-full shadow-[0_0_10px_theme(colors.accent.ai)]"></div>
-                  <span className="text-foreground">{item}</span>
-                </div>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
 
-      {/* Section 2: AI Sales Agents */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-accent-ai/10 rounded-xl flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-accent-ai" />
-                </div>
-                <h2 className="text-3xl font-bold text-primary">AI Sales Agents (B2B & B2C)</h2>
-              </div>
-              
-              <h3 className="text-xl font-bold mb-4">What we build</h3>
-              <p className="text-muted-foreground mb-8">
-                We design AI Sales Agents that act like an always-on extension of your GTM team, not a random chatbot bolted to your website.
-              </p>
-
-              <div className="space-y-8">
-                <div className="p-6 bg-background rounded-xl border border-border hover:shadow-md transition-all">
-                  <h4 className="font-bold text-lg mb-3 text-accent-ai">B2B AI Sales Agents</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Qualify inbound leads using existing data and behavioral signals</li>
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Route to the right reps based on territory, segment, or product line</li>
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Draft personalized outreach and follow-ups that match your tone and brand</li>
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Update Salesforce or your CRM automatically with key callouts and next steps</li>
-                  </ul>
-                </div>
-
-                <div className="p-6 bg-background rounded-xl border border-border hover:shadow-md transition-all">
-                  <h4 className="font-bold text-lg mb-3 text-accent-ai">B2C AI Sales Agents</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Guide customers through complex product choices</li>
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Answer pre-purchase questions using trusted, curated knowledge</li>
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Hand off to human agents gracefully when needed</li>
-                    <li className="flex gap-2"><span className="text-accent-ai">•</span> Capture intent and feedback to improve journeys over time</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="bg-background p-8 rounded-xl border border-border">
-                <h3 className="text-xl font-bold mb-6">What this can achieve</h3>
-                <div className="space-y-6">
-                  {[
-                    { title: "Faster speed-to-lead", desc: "Instant response times for every visitor." },
-                    { title: "Higher conversion", desc: "Better qualification leading to closed deals." },
-                    { title: "Better signal", desc: "Rich data for marketing and revenue operations." }
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="w-8 h-8 bg-accent-orange/20 rounded-full flex items-center justify-center flex-shrink-0 text-accent-orange font-bold">
-                        {i + 1}
-                      </div>
-                      <div>
-                        <div className="font-bold text-foreground">{item.title}</div>
-                        <div className="text-sm text-muted-foreground">{item.desc}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Placeholder Component */}
-              <div className="aspect-video bg-muted/30 rounded-xl border border-border flex items-center justify-center text-muted-foreground text-sm font-medium">
-                [AI Workflow Diagram Placeholder — Coming Soon]
-              </div>
-            </div>
-          </div>
+      {showStickyNav && (
+        <div className="fixed top-0 left-0 right-0 z-50 animate-in slide-in-from-top-2 duration-200">
+          <StickyNav activeSection={activeSection} />
         </div>
-      </section>
+      )}
 
-      {/* Section 3: Product Analytics */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="container mx-auto px-6 relative z-10">
+      <section id="strategy" className="py-24 bg-white relative">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <BarChart className="w-8 h-8 text-accent-ai" />
-              <h2 className="text-3xl font-bold">AI-Embedded Product Analytics & Insights</h2>
-            </div>
-            
-            <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              You don’t need more dashboards—you need better questions and faster answers.
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              AI Strategy That Ships
+            </h2>
+            <p className="text-lg text-foreground/70 mb-12">
+              AI success isn't about picking the right model—it's about building the right foundation and measuring the right outcomes.
             </p>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="space-y-4">
-                <h3 className="font-bold text-lg text-accent-ai">We help you:</h3>
-                <ul className="space-y-3 text-white/70">
-                  <li>• Segment users by behavior and outcome</li>
-                  <li>• Identify friction in critical workflows</li>
-                  <li>• Surface hidden patterns automatically</li>
-                  <li>• Generate actionable narratives for leaders</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-bold text-lg text-accent-ai">Working with:</h3>
-                <ul className="space-y-3 text-white/70">
-                  <li>• Product analytics and telemetry</li>
-                  <li>• CRM and GTM systems</li>
-                  <li>• Data platforms and warehouses</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white/10 p-6 rounded-xl border border-white/20 inline-block">
-              <p className="font-bold text-lg">The goal: shorten the loop between <br/>
-              <span className="text-accent-ai">signal → insight → decision → change</span>.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Product Management */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="flex-1">
-              <div className="w-16 h-16 bg-accent-purple/10 rounded-xl flex items-center justify-center mb-6">
-                <FileText className="w-8 h-8 text-accent-purple" />
-              </div>
-              <h2 className="text-3xl font-bold text-primary mb-6">AI for Product Management & Roadmapping</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                AI isn’t going to replace your product managers. But it can absolutely take friction out of their day.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  "Generate structured user stories",
-                  "Draft PRDs and requirement docs",
-                  "Propose roadmap options & tradeoffs",
-                  "Summarize customer feedback"
-                ].map((item, i) => (
-                  <div key={i} className="p-4 bg-background rounded-lg border border-border text-sm font-medium text-foreground hover:border-accent-purple/50 transition-colors">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
             
-            <div className="flex-1 bg-accent-purple/5 p-8 rounded-xl border border-accent-purple/20">
-               <h3 className="text-xl font-bold text-accent-purple mb-4">The Result</h3>
-               <p className="text-lg font-medium text-foreground leading-relaxed">
-                 It’s not “auto-pilot product management.” <br/><br/>
-                 It’s <strong>more time spent talking to customers and shaping strategy</strong>, and less time wrangling documents.
-               </p>
+            <div className="border-t border-border">
+              {strategicItems.map((item, index) => (
+                <AccordionItem
+                  key={index}
+                  title={item.title}
+                  content={item.content}
+                  isOpen={openAccordion === index}
+                  onToggle={() => setOpenAccordion(openAccordion === index ? null : index)}
+                />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 5: The AI Stack */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-primary mb-12">The AI stack we work with</h2>
-          <p className="text-muted-foreground mb-12 max-w-2xl mx-auto">
-            We’re vendor-aware but not vendor-locked. Depending on your environment and needs, we align the stack to your compliance, security, and platform investments.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-12">
-            {[
-              { name: "OpenAI", desc: "General-purpose LLMs" },
-              { name: "Anthropic", desc: "Safer, long-context reasoning" },
-              { name: "Google Gemini", desc: "Integrated stack" },
-              { name: "Glean", desc: "Enterprise search" },
-              { name: "Replit", desc: "Rapid experimentation" }
-            ].map((tool, i) => (
-              <div key={i} className="bg-white p-6 rounded-xl border border-border shadow-sm w-64 hover:border-accent-ai hover:shadow-md hover:translate-y-[-2px] transition-all">
-                <div className="font-bold text-lg text-primary mb-1">{tool.name}</div>
-                <div className="text-xs text-muted-foreground">{tool.desc}</div>
+      <section id="implementation" className="py-24 bg-background relative">
+        <div className="absolute inset-0 bg-topography pointer-events-none" />
+        <div className="container mx-auto px-6 md:px-20 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
+            Technical Pillars
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {technicalPillars.map((pillar, index) => (
+              <div
+                key={index}
+                className="floating-card overflow-hidden group hover:scale-[1.02] transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 h-full"
+                style={{ animationDelay: `${index * 100}ms` }}
+                data-testid={`pillar-card-${index}`}
+              >
+                <div className="h-40 relative" style={{ background: "linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(6, 182, 212, 0.2))" }}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <pillar.icon className="w-16 h-16 text-primary/30" />
+                  </div>
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent, white)" }} />
+                </div>
+                <div className="p-8 pt-6">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10 bg-white shadow-lg" style={{ border: "2px solid transparent", backgroundImage: "linear-gradient(white, white), linear-gradient(to right, #ec4899, #06b6d4)", backgroundOrigin: "border-box", backgroundClip: "padding-box, border-box" }}>
+                    <pillar.icon className="w-7 h-7 text-accent-purple" />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3">{pillar.title}</h3>
+                  <p className="text-foreground/70 leading-relaxed">{pillar.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 6: Responsible AI */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto border border-border rounded-xl p-8 md:p-12 shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary via-accent-purple to-accent-orange"></div>
-            
-            <div className="flex items-center gap-4 mb-8">
-              <Shield className="w-8 h-8 text-accent-ai" />
-              <h2 className="text-3xl font-bold text-primary">Responsible AI, by design</h2>
+      <section id="proof" className="py-24 bg-primary text-white relative overflow-hidden">
+        <div className="container mx-auto px-6 md:px-20 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">
+            Proven Impact
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="bg-white/10 rounded-2xl p-8 border border-white/20">
+              <div className="text-6xl md:text-7xl font-bold mb-4" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>80%</div>
+              <p className="text-xl text-white/90 font-medium">Reduction in manual processes</p>
             </div>
+            <div className="bg-white/10 rounded-2xl p-8 border border-white/20">
+              <div className="text-6xl md:text-7xl font-bold mb-4" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>$11B+</div>
+              <p className="text-xl text-white/90 font-medium">Revenue influenced by AI solutions we've designed</p>
+            </div>
+          </div>
 
-            <p className="text-lg text-muted-foreground mb-8">
-              You can’t separate AI from governance anymore. Every engagement considers:
+          <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
+            <p className="text-lg text-white/80 leading-relaxed">
+              Applied at scale within organizations like <span className="font-bold text-white">AWS</span> and <span className="font-bold text-white">Zillow</span>—delivering AI solutions that drive real business outcomes, not just impressive demos.
             </p>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {[
-                { title: "Data Governance", desc: "What data are we using?" },
-                { title: "Privacy & Regulation", desc: "TCPA, CPRA, internal policies." },
-                { title: "Human-in-the-loop", desc: "Where do people make final decisions?" },
-                { title: "Measurement", desc: "Is this helping or hurting?" }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-3">
-                  <div className="w-1.5 h-1.5 bg-accent-ai rounded-full mt-2 shadow-[0_0_5px_theme(colors.accent.ai)]"></div>
-                  <div>
-                    <div className="font-bold text-foreground">{item.title}</div>
-                    <div className="text-sm text-muted-foreground">{item.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-background p-6 rounded-xl border border-border">
-              <h4 className="font-bold mb-2 text-sm uppercase tracking-wider text-muted-foreground">Our Solution Design Philosophy</h4>
-              <div className="flex flex-wrap gap-4">
-                <span className="px-3 py-1 bg-white border border-border rounded-full text-sm font-medium hover:border-accent-ai transition-colors">Traceable</span>
-                <span className="px-3 py-1 bg-white border border-border rounded-full text-sm font-medium hover:border-accent-ai transition-colors">Tunable</span>
-                <span className="px-3 py-1 bg-white border border-border rounded-full text-sm font-medium hover:border-accent-ai transition-colors">Accountable</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 7: How we work */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-           <h2 className="text-3xl font-bold text-primary text-center mb-16">How we work with you</h2>
-           <div className="grid md:grid-cols-4 gap-6">
-             {[
-               { step: "01", title: "Discovery & Alignment", desc: "Clarify goals, constraints, and success metrics." },
-               { step: "02", title: "Design & Architecture", desc: "Define user journeys, governance, and stack." },
-               { step: "03", title: "Build & Integrate", desc: "Implement workflows, integrations, and UX." },
-               { step: "04", title: "Launch & Iterate", desc: "Validate impact and tune based on usage." }
-             ].map((phase, i) => (
-               <div key={i} className="bg-white p-6 rounded-xl border border-border relative group hover:-translate-y-1 transition-transform duration-300">
-                 <div className="text-4xl font-bold text-border mb-4 group-hover:text-accent-ai/20 transition-colors">{phase.step}</div>
-                 <h3 className="text-lg font-bold text-foreground mb-2">{phase.title}</h3>
-                 <p className="text-sm text-muted-foreground">{phase.desc}</p>
-               </div>
-             ))}
-           </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <h2 className="text-4xl font-bold text-primary mb-6">Ready to turn AI into a real advantage?</h2>
-          <p className="text-xl text-muted-foreground mb-10">
-            PNW Cloud Services can help you connect the dots between platforms, data, and AI so your teams move faster—and your customers feel the difference.
-          </p>
-          <ScheduleFreeConsultationCTA
-            source="ai-automation-cta"
-            variant="secondary"
-            size="lg"
-            label="Start a Conversation"
-            className="h-14 px-10 text-lg rounded-xl shadow-lg"
-          />
+      <section id="contact" className="py-24 bg-white">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Ready to Put AI to Work?
+            </h2>
+            <p className="text-lg text-foreground/70 mb-10">
+              Let's discuss how to transform your AI ambitions into measurable business impact.
+            </p>
+            <GlowCTA
+              source="ai-automation-final-cta"
+              variant="primary"
+              size="lg"
+              label="I want to review my AI strategy →"
+            />
+          </div>
         </div>
       </section>
 

@@ -1,0 +1,99 @@
+Role: Senior Full-Stack Engineer and Lead UX/UI Designer.
+
+Objective: Redesign and populate all service pages (referencing the content/ directory filenames) using a consistent, human-centered "Vertical Solution Architecture."
+
+1. Visual System & Global Contrast Updates
+To solve for the over-reliance on green and white, implement these visual rules across all service pages:
+
+The "Contrast Anchor": Every page must feature at least one full-width section with a Dark Forest Green background and white text (typically for "Proof" or "Success Story" modules).
+
+The "Speed" Gradient: Use the pink-to-cyan linear gradient for:
+
+Icon accents and "Strategic Benefit" card borders.
+
+Progress bars or "Architecture Flow" lines.
+
+A 3px bottom border on the active link in the sticky sub-navigation.
+
+Imagery: Use duotone images (Forest Green/Action Purple) or feathered-edge architectural diagrams that blend into the faint topographic SVG background pattern.
+
+2. The Universal Page Architecture
+All pages must follow this scroll-rhythm for consistency:
+
+Hero: Large-scale headline (Strategic Hook) + Sub-headline (Pain Killer).
+
+Sticky Sub-Nav: Overview | Strategy | Implementation | Proof | Contact.
+
+The "Why" (Strategic Framework): Use AWS-style accordions to progressively disclose 3-5 high-level business benefits.
+
+The "How" (Engineering Pillars): A staggered 2x2 grid of feature cards with stylized icons and technical deep-dives.
+
+The Proof (Dark Anchor): High-contrast section featuring the $11B+ and 80% stats contextualized to that specific service.
+
+The Onramp: Centered CTA using a gradient-bordered button: "I want to review my [Service Name] strategy »".
+
+3. Specific Content Mapping by Filename
+A. platform-modernization.md (Strategic/Visionary)
+
+Hook: "Stop Rescuing Legacy Systems. Start Accelerating Your Roadmap."
+
+Focus: Monolith decomposition, Internal Developer Platforms (IDP), and Cloud-Native refactoring.
+
+Outcome: 80% improvement in deployment velocity.
+
+B. crm-strategy.md (Efficiency/Revenue)
+
+Hook: "Align Your Architecture with Your GTM Ambitions."
+
+Focus: Salesforce Data Cloud integration, GTM flow automation, and CRM technical debt reduction.
+
+Outcome: Fixing fragmented pipelines to secure the $1.5B+ annual revenue flow.
+
+C. ai-automation.md (Innovation/Safety)
+
+Hook: "Responsible AI Execution. Not Just the Hype."
+
+Focus: Deploying intelligent agents, workflow automation, and building AI governance in regulated environments.
+
+Outcome: Enabling safe AI adoption without trading off engineering speed.
+
+D. devex-devops.md (Speed/Retention)
+
+Hook: "Build the Golden Path. Let Engineers Ship."
+
+Focus: Standardizing CI/CD, eliminating "bottleneck culture," and building self-service developer systems.
+
+Outcome: Unlocking 100+ engineers by eliminating infrastructure toil.
+
+E. observability.md (Reliability/Trust)
+
+Hook: "Eliminate Blind Spots. Achieve Operational Silence."
+
+Focus: Full-stack visibility, MTTR reduction, and real-time system health dashboarding.
+
+Outcome: Reducing friction in high-volume frontline user experiences (e.g., T-Mobile scale).
+
+F. compliance-governance.md (Risk/Stability)
+
+Hook: "Frictionless Trust. Compliance at Scale."
+
+Focus: Operationalizing TCPA, CPRA, and GDPR via "Governance as Code."
+
+Outcome: Making AI and Cloud safe to ship in highly regulated enterprise environments.
+
+G. cloud-strategy-cost-optimiza...md (ROI/Precision)
+
+Hook: "Scale with Precision. Right-Size Your Future."
+
+Focus: Eliminating idle resource waste, cloud spend auditing, and ROI-focused infrastructure roadmaps.
+
+Outcome: Identifying $450K+ in annual savings within the first 90 days.
+
+4. Technical & UX Requirements
+Responsive: All grids must stack 1-column for mobile. The sticky sub-nav must become a horizontal pill-scroll on small viewports.
+
+Routing: Ensure the frontend labels (e.g., "AI-Powered Productivity & Automation") match the navigation menu exactly while mapping to the correct .md backend file.
+
+Interactivity: Implement a subtle 0.3s hover-lift on all service cards.
+
+Integrity: Retain the existing global Header and Footer without modification. Do not include CSAT widgets.
