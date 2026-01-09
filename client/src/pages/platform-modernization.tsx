@@ -288,7 +288,7 @@ export default function PlatformModernization() {
             </p>
             <GlowCTA
               source="platform-modernization-final-cta"
-              variant="secondary"
+              variant="primary"
               size="lg"
               label="Schedule a Free Consultation"
             />
