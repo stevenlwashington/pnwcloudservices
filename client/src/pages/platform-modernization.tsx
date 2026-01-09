@@ -2,7 +2,7 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { Layers, Server, Cloud, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { ScheduleFreeConsultationCTA } from "@/components/ScheduleFreeConsultationCTA";
+import { GlowCTA } from "@/components/cta/GlowCTA";
 
 const sections = [
   { id: "framework", label: "Framework" },
@@ -102,15 +102,15 @@ export default function PlatformModernization() {
     <div className="min-h-screen bg-background selection:bg-secondary/20 selection:text-secondary-foreground">
       <Navbar />
       
-      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-forest-gradient overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-background overflow-hidden">
         <div className="absolute inset-0 bg-topography pointer-events-none" />
         <div className="container mx-auto px-6 md:px-20 py-24 relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
               Stop Rescuing Legacy Systems.{" "}
               <span className="block mt-2">Start Accelerating Your Roadmap.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-2xl animate-in slide-in-from-bottom-5 duration-500 delay-100">
+            <p className="text-xl md:text-2xl text-foreground/80 font-medium leading-relaxed max-w-2xl animate-in slide-in-from-bottom-5 duration-500 delay-100">
               Transform your infrastructure from a constraint into a competitive advantage.
             </p>
           </div>
@@ -286,15 +286,12 @@ export default function PlatformModernization() {
             <p className="text-lg text-foreground/70 mb-10">
               Let's discuss how to transform your infrastructure into a product accelerator.
             </p>
-            <div className="inline-block rounded-xl">
-              <ScheduleFreeConsultationCTA
-                source="platform-modernization-final-cta"
-                variant="secondary"
-                size="lg"
-                label="Schedule a Free Consultation"
-                className="h-14 px-10 text-lg font-bold rounded-xl"
-              />
-            </div>
+            <GlowCTA
+              source="platform-modernization-final-cta"
+              variant="secondary"
+              size="lg"
+              label="Schedule a Free Consultation"
+            />
           </div>
         </div>
       </section>

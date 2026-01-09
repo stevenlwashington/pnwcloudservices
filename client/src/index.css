@@ -198,6 +198,6 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(to right, #ec4899, #06b6d4);
+    background: linear-gradient(to right, hsl(265 40% 50%), hsl(330 70% 60%), hsl(25 85% 55%));
   }
 }
