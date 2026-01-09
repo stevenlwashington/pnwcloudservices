@@ -12,7 +12,7 @@ const quickLinks = [
 ];
 
 export default function NotFound() {
-  const { openModal } = useContactModal();
+  const { openContactModal } = useContactModal();
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -83,7 +83,7 @@ export default function NotFound() {
                 Need help? We're here for you.
               </p>
               <button 
-                onClick={openModal}
+                onClick={() => openContactModal()}
                 className="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors cursor-pointer"
                 data-testid="link-contact"
               >
