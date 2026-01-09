@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { ContactModalProvider } from "@/contexts/ContactModalContext";
 import { ContactModal } from "@/components/ContactModal";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 // Pages
 import Home from "@/pages/home";
@@ -55,15 +56,17 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <ContactModalProvider>
-          <Toaster />
-          <Router />
-          <ContactModal />
-        </ContactModalProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <ContactModalProvider>
+            <Toaster />
+            <Router />
+            <ContactModal />
+          </ContactModalProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 
