@@ -1,16 +1,8 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Layers, Server, Cloud, Shield, TrendingDown, Users, DollarSign, ArrowRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Layers, Server, Cloud, Shield, TrendingDown, Users, DollarSign, ArrowRight } from "lucide-react";
 import { GlowCTA } from "@/components/cta/GlowCTA";
-
-const ctaOptions = [
-  { value: "review", label: "review my platform strategy", description: "Get strategic guidance on your current platform and identify quick wins.", cta: "Request Strategy Review →" },
-  { value: "assessment", label: "get a platform assessment", description: "Get a comprehensive technical assessment of your current platform and receive a prioritized modernization roadmap.", cta: "Request Platform Assessment →" },
-  { value: "roadmap", label: "discuss my modernization roadmap", description: "Work with our team to build a phased modernization plan that delivers value at every step.", cta: "Schedule Roadmap Discussion →" },
-  { value: "estimate", label: "request a project estimate", description: "Get a detailed estimate for your modernization initiative including timeline and investment.", cta: "Request Estimate →" },
-  { value: "case-studies", label: "see relevant case studies", description: "See how we've helped similar organizations transform their platforms.", cta: "View Case Studies →" },
-];
+import { IntentPicker } from "@/components/cta/IntentPicker";
 
 function HeroAnimation() {
   return (
@@ -147,60 +139,6 @@ function TechnicalPillarCard({ icon: Icon, title, body }: { icon: typeof Layers;
       <span className="inline-flex items-center gap-1 text-emerald-600 font-medium text-sm group-hover:gap-2 transition-all">
         Learn more <ArrowRight className="w-4 h-4" />
       </span>
-    </div>
-  );
-}
-
-function CTAPicker() {
-  const [selected, setSelected] = useState<string | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  
-  const selectedOption = ctaOptions.find(o => o.value === selected);
-
-  return (
-    <div className="max-w-2xl mx-auto">
-      <div className="relative">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-full flex items-center justify-between bg-white border-2 border-gray-200 rounded-xl px-6 py-4 text-left text-lg font-medium text-gray-700 hover:border-emerald-300 transition-colors"
-          data-testid="cta-picker-trigger"
-        >
-          <span>{selected ? `I want to ${selectedOption?.label}` : "I want to..."}</span>
-          <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-        </button>
-        
-        {isOpen && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-10 overflow-hidden">
-            {ctaOptions.map((option) => (
-              <button
-                key={option.value}
-                onClick={() => { setSelected(option.value); setIsOpen(false); }}
-                className="w-full px-6 py-3 text-left hover:bg-emerald-50 transition-colors text-gray-700"
-                data-testid={`cta-option-${option.value}`}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-      
-      {selectedOption && (
-        <div 
-          className="mt-6 p-6 rounded-xl border-2 animate-in fade-in slide-in-from-bottom-2 duration-300"
-          style={{ 
-            background: "linear-gradient(135deg, #f9fafb, #ecfdf5)",
-            borderImage: "linear-gradient(to right, #2563eb, #059669) 1"
-          }}
-        >
-          <p className="text-gray-600 mb-6">{selectedOption.description}</p>
-          <GlowCTA
-            source={`platform-modernization-${selectedOption.value}`}
-            label={selectedOption.cta}
-            size="lg"
-          />
-        </div>
-      )}
     </div>
   );
 }
@@ -401,20 +339,10 @@ export default function PlatformModernization() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Start Your Modernization Roadmap.
-            </h2>
-            <p className="text-xl text-gray-500">
-              Choose what makes sense for where you are:
-            </p>
-          </div>
-          
-          <CTAPicker />
-        </div>
-      </section>
+      <IntentPicker 
+        headline="Start Your Modernization Roadmap."
+        source="platform-modernization"
+      />
 
       <Footer />
     </div>

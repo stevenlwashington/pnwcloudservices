@@ -42,6 +42,14 @@ Preferred communication style: Simple, everyday language.
 - Lazy-loads Calendly script on first CTA click
 - Centralized CTA component `ScheduleFreeConsultationCTA` with analytics hooks
 
+### Reusable CTA Components
+- **IntentPicker**: Reusable intent-based CTA section at `/client/src/components/cta/IntentPicker.tsx`
+  - Features gradient text dropdown with three options: "review my platform strategy", "share my project details", "explore modernization options"
+  - Each option shows contextual description and action button (Calendly or navigation)
+  - Accepts `headline` prop to customize the main text (e.g., "Let's talk about your platforms." or "Start Your Modernization Roadmap.")
+  - Used on: Home page, Platform Modernization page
+- **GlowCTA**: Button component with blue-cyan-emerald gradient glow effect on hover at `/client/src/components/cta/GlowCTA.tsx`
+
 ## External Dependencies
 
 ### Third-Party Services
