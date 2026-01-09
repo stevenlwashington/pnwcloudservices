@@ -1,0 +1,68 @@
+Role: Senior Frontend Architect and UX/UI Designer.
+
+Objective: Create platform-modernization.html using a Vertical Solution Architecture and specific UI patterns borrowed from AWS Industry pages.
+
+1. Page Header & Sub-Nav
+Global Header: Retain the exact header from the homepage.
+
+Sticky Sub-Nav: Implement a slim, secondary navigation bar that sticks to the top upon scrolling past the hero.
+
+Links: Overview, The Strategy, Technical Pillars, Impact, Contact.
+
+Styling: Use a 1px border-bottom with the pink-to-cyan "Speed" gradient to indicate the active section.
+
+2. Hero Section (The "What")
+Headline: "Stop Rescuing Legacy Systems. Start Accelerating Your Roadmap.".
+
+Sub-headline: "We refactor the bottlenecks that stall your product roadmap. Get from 'Legacy' to 'Cloud-native' in months, not years.".
+
+Visual: An atmospheric, large-scale image (e.g., misty PNW forest) with a digital architecture overlay. Use the pink/cyan "Speed" gradient as a light-glow effect on the digital lines.
+
+3. Strategic Framework (The "Why" - AWS Progressive Disclosure)
+Heading: "Modernization as a Product Initiative."
+
+UI Pattern: Implement a vertical accordion or "click-to-reveal" list to manage depth without clutter.
+
+Item 1: Reduced Opportunity Cost. Detail how faster shipping hits market windows.
+
+Item 2: Talent Retention. Explain how modern stacks prevent engineer burnout.
+
+Item 3: Cost Predictability. Moving from technical debt to fixed operational spend.
+
+4. Technical Pillars (The "How" - AWS Feature Grid)
+UI Pattern: Create a staggered 2x2 grid of large feature cards.
+
+Visual Styling: Each card should feature a high-quality, stylized duotone image (using the pink/cyan gradient) representing the concept.
+
+Content:
+
+Monolith Decomposition: Breaking legacy systems into scalable microservices.
+
+Internal Developer Platforms (IDP): Building the "Golden Path" for delivery.
+
+Cloud-Native Refactoring: Leveraging managed services to slash overhead.
+
+Governance as Code: Building security and compliance into the platform by default.
+
+5. Social Proof & Impact (The "Proof")
+UI Pattern: A "Success Story" module with high-contrast text.
+
+Content: Feature the 80% Deployment Velocity and $11B+ Revenue Influenced stats prominently. Include a note: "Applied at scale within organizations like AWS and Zillow.".
+
+6. CSAT Feedback & CTA (The "Onramp")
+CSAT Banner: Insert the gradient banner (image_c7ed9e.jpg) exactly as provided:
+
+Text: "Did you find what you were looking for today?".
+
+Buttons: "Yes" and "No" in the dark forest green style.
+
+Final CTA: "Ready for a Platform Strategy Review?".
+
+Button Text: "I want to review my platform strategy »".
+
+7. Design Specs
+Background: Light #f4f9f4 (Mint White) with a faint topographic SVG texture.
+
+Responsiveness: Ensure the sub-nav becomes a horizontal pill-scroll on mobile devices.
+
+Transitions: Implement subtle fade-in-on-scroll for the Feature Grid cards.
