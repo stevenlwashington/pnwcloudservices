@@ -71,3 +71,24 @@ Preferred communication style: Simple, everyday language.
 - `npm run build` - Build client and server for production
 - `npm start` - Run production server
 - `npm run db:push` - Push Drizzle schema to database
+
+## Error Handling & Monitoring
+
+### Error Pages
+- **404 Page**: Branded "Page Not Found" at `/client/src/pages/not-found.tsx` with navigation links
+- **500 Page**: Branded error page at `/client/src/pages/error.tsx` for server errors
+- **ErrorBoundary**: React error boundary at `/client/src/components/ErrorBoundary.tsx` with minimal self-contained fallback
+
+### Current Monitoring (Built-in)
+- **Microsoft Clarity**: Session recordings, heatmaps, and user behavior analytics (integrated in index.html)
+- **Cloudflare Web Analytics**: Page views and performance metrics (integrated in index.html)
+- **Console Error Logging**: ErrorBoundary logs errors to console and sends to Clarity
+
+### Production Monitoring Options
+For advanced monitoring, integrate external services:
+- **Datadog**: Full-stack monitoring, logs, traces, alerting ($15+/host/mo)
+- **New Relic**: APM, infrastructure monitoring ($99+/mo)
+- **Splunk**: Log aggregation and analytics
+
+### SEO Documentation
+- **Keyword Strategy**: See `/docs/SEO-KEYWORDS.md` for prioritized keywords by service area
