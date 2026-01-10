@@ -1,0 +1,368 @@
+PROJECT OVERVIEW
+Build the AI-Powered Productivity & Automation service page for PNW Cloud Services with updated copy, multi-agent orchestration positioning, and responsible AI execution emphasis. This page targets technical executives (CTOs, VP Engineering, VP Product) who need to implement AI capabilities across engineering, sales, and service organizations at scale.
+
+BRAND & COLOR SYSTEM REFERENCE
+Use Existing Color Palette
+Reference the established PNW Cloud Services brand system:
+Primary Colors:
+
+Light mint green: #e8f5e9, #f1f8f4, #e0f2f1 (backgrounds, hero sections)
+Dark forest green: #064e3b, #065f46 (CTAs, text, footer)
+Cream/off-white: #fafafa, #ffffff (card backgrounds)
+
+Accent Colors:
+
+Pink/magenta gradient: linear-gradient(135deg, #ec4899 0%, #f97316 100%) - USE ONLY FOR METRICS/NUMBERS
+Blue-green gradient: linear-gradient(to right, #2563eb 0%, #059669 100%) - USE FOR ALL HOVER STATES
+Teal: #14b8a6, #10b981 - Secondary accents, borders
+Light variations: #d1fae5 (icon backgrounds), #5eead4 (hover states)
+
+Text Colors:
+
+Primary text: #111827, #1f2937
+Secondary text: #6b7280, #4b5563
+White text: #ffffff (on dark backgrounds)
+
+Color Usage Rules
+
+Pink gradient ONLY for metrics/numbers (80%, $11B+, 10x, 70%, 3x, etc.)
+Blue-green gradient for ALL interactive hover states (CTAs, cards, links)
+Light mint backgrounds for hero and main sections (NOT dark green)
+Teal for borders and dividers
+Dark green for primary CTAs (solid) that transition to blue-green gradient on hover
+
+
+PAGE STRUCTURE & COPY
+1. HEADER/NAVIGATION (STANDARD COMPONENT)
+
+Logo: Cloud icon + "PNW Cloud Services" text (left aligned)
+Navigation: Services (dropdown), Blog, Contact
+Primary CTA button: "Schedule a Free Consultation"
+Sticky header with subtle shadow on scroll
+CTA button: Dark green solid → blue-green gradient on hover
+
+Navigation Dropdown Should Include All Services:
+
+Platform Modernization
+Salesforce & CRM Strategy
+AI-Powered Productivity & Automation ← Current page, show active state
+DevEx & DevOps
+Observability
+Compliance & Governance
+Cloud Strategy & Cost Optimization
+
+
+2. HERO SECTION
+Background: Light mint green gradient (linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%))
+Layout: Two-column grid (text left, visual right)
+Copy:
+
+Headline (Large, Bold): "AI That Ships to Production. Responsibly."
+Subhead (XL text): "We design and deploy AI agent ecosystems across engineering, sales, and service—creating the orchestration and governance frameworks that let organizations scale to thousands of specialized agents working in coordination."
+Primary CTA: "Get Your AI Readiness Assessment →" (dark green → blue-green gradient hover)
+
+Hero Visual (Right Side):
+Create a visual showing AI agent orchestration:
+
+Center element: Network/hub visualization showing interconnected nodes
+Nodes/circles: Represent different agent types (code review, sales outreach, customer support, testing, deployment)
+Connections: Lines showing coordination/communication between agents
+Visual style: Clean, modern, iconographic (not illustration-heavy)
+Colors: Use greens and teals, with some nodes highlighted to show active coordination
+Optional: Subtle animation showing information/context flowing between nodes
+
+
+3. AI STRATEGY SECTION
+Background: White
+Section Intro:
+
+Headline (4XL, Bold): "AI Strategy That Ships"
+Subhead (XL, gray text): "We design and deploy AI solutions for engineers, sales teams, and service organizations—with the governance, compliance, and outcome measurement that makes AI trustworthy at scale."
+
+Layout: Three-column card grid
+Card 1: Agent Ecosystems That Scale
+Card Style:
+
+Background: Subtle gradient from-emerald-50 to-teal-50
+Border: border-emerald-100
+Hover: Shadow lift, subtle scale
+Icon: Circle background #d1fae5, icon #065f46 (use a network/nodes icon)
+
+Copy:
+
+Headline: "Agent Ecosystems That Scale"
+Body: "Most organizations deploy a handful of AI experiments. We help you build agent architectures that scale to thousands—specialized agents for sales outreach, customer support, code review, testing, and operations, all coordinating intelligently across your organization. With proper orchestration, context management, and governance frameworks, your agent ecosystem becomes a force multiplier, not a maintenance nightmare."
+Impact Box (white background, emerald border):
+
+Label: "Impact:" (small, emerald)
+Metric: "10x growth" (2XL, bold, PINK GRADIENT)
+Description: "in agent deployment scale within first year" (small, gray)
+
+
+
+Card 2: Developer Velocity Through Automation
+Card Style:
+
+Background: Subtle gradient from-blue-50 to-cyan-50
+Border: border-blue-100
+Icon: Circle background #dbeafe, icon #1e40af (use a code/terminal icon)
+
+Copy:
+
+Headline: "Developer Velocity Through Automation"
+Body: "From scratch org provisioning to production deployment, we automate the entire development lifecycle. Intelligent agents handle environment setup, code review, regression testing, security scanning, and deployment orchestration—eliminating bottlenecks and freeing your engineers to focus on features that drive business value, not operational overhead."
+Impact Box (white background, blue border):
+
+Label: "Impact:"
+Metric: "70% faster" (2XL, bold, PINK GRADIENT)
+Description: "deployment cycles with end-to-end automation" (small, gray)
+
+
+
+Card 3: Revenue Operations on Autopilot
+Card Style:
+
+Background: Subtle gradient from-purple-50 to-pink-50
+Border: border-purple-100
+Icon: Circle background #e9d5ff, icon #6b21a8 (use a revenue/growth icon)
+
+Copy:
+
+Headline: "Revenue Operations on Autopilot"
+Body: "AI agents that handle prospecting, qualification, meeting scheduling, follow-up, and customer success workflows—turning your revenue teams into force multipliers. We architect Agent Force for Sales and Service deployments that scale across thousands of customer interactions, with the data quality and governance foundations that make autonomous revenue operations trustworthy."
+Impact Box (white background, purple border):
+
+Label: "Impact:"
+Metric: "3x increase" (2XL, bold, PINK GRADIENT)
+Description: "in customer touchpoints through agent automation" (small, gray)
+
+
+
+
+4. TECHNICAL PILLARS SECTION
+Background: White
+Section Intro:
+
+Headline (4XL): "Technical Pillars"
+
+Layout: 2x2 grid of cards
+Card Design System:
+
+White background
+Border: Teal/green at 20% opacity (border-emerald-200)
+Icon: Rounded square background (light green), dark green icon
+Hover: Blue-green gradient border, shadow lift, "Learn more" arrow slides right
+
+Pillar 1: Multi-Agent Orchestration at Scale
+Icon: Network/orchestration icon
+Copy:
+
+Headline: "Multi-Agent Orchestration at Scale"
+Body: "Design and deploy thousands of specialized agents across sales, service, and engineering workflows—with intelligent routing, context sharing, and coordinated handoffs between agents. We architect agent ecosystems that scale without chaos, ensuring your AI capabilities grow with your business."
+Link: "Learn more →" (emerald text, arrow shifts on hover)
+
+Pillar 2: Developer Velocity Engineering
+Icon: Rocket or speed icon
+Copy:
+
+Headline: "Developer Velocity Engineering"
+Body: "End-to-end automation of the software development lifecycle—from scratch org provisioning to automated peer review, test ops, and production deployment with built-in security gates. We eliminate the operational friction that keeps engineers from shipping features."
+Link: "Learn more →"
+
+Pillar 3: Agentic Revenue Operations
+Icon: Revenue/sales icon
+Copy:
+
+Headline: "Agentic Revenue Operations"
+Body: "AI-powered workflows that connect marketing, sales, and service into unified revenue engines—automating outreach, qualification, follow-up, and customer success at scale. We implement Agent Force for Sales and Service with the foundations that make autonomous revenue operations production-ready."
+Link: "Learn more →"
+
+Pillar 4: Production-Ready AI Infrastructure
+Icon: Infrastructure/foundation icon
+Copy:
+
+Headline: "Production-Ready AI Infrastructure"
+Body: "Platform foundations that make AI deployable and maintainable—clean data pipelines, integration architectures, observability, and the governance frameworks that enable trust at scale. Compliance, auditability, and human oversight aren't afterthoughts—they're woven into the architecture from day one."
+Link: "Learn more →"
+
+
+5. PROVEN IMPACT SECTION
+Background: Light mint green gradient (same as hero: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%))
+Section Intro:
+
+Headline (4XL, center): "Proven Impact"
+
+Layout: Two-column stat cards + full-width context card
+Stat Card 1
+
+Card: White/cream with subtle transparency, emerald border, shadow
+Metric: "80%" (6XL, bold, PINK GRADIENT)
+Description: "Reduction in manual processes through intelligent automation" (XL, dark gray)
+
+Stat Card 2
+
+Card: White/cream with subtle transparency, emerald border, shadow
+Metric: "$11B+" (6XL, bold, PINK GRADIENT)
+Description: "Revenue influenced by AI solutions we've designed" (XL, dark gray)
+
+Context Card (Full Width Below Stats)
+
+Card: White/cream with transparency, emerald border
+Text (center, large): "Applied at scale within organizations—delivering AI solutions that drive real business outcomes, not just impressive demos."
+
+
+6. FINAL CTA SECTION WITH INTENTPICKER (STANDARD COMPONENT)
+Background: White
+Section Layout: Centered, contained width
+Copy:
+
+Headline (4XL, center): "Start Your AI Transformation."
+Subhead (XL, gray, center): "Choose what makes sense for where you are:"
+
+Interactive IntentPicker Component:
+Create a dropdown/select interface with contextual CTAs:
+Dropdown Options:
+
+"review my AI strategy"
+"get an agent readiness assessment"
+"discuss multi-agent architecture"
+"request developer automation roadmap"
+"see AI transformation case studies"
+
+Interaction Design:
+
+Large, styled dropdown (not default browser style)
+When option selected, reveal contextual CTA card below with fade-in animation
+Card should have white background, gradient border, descriptive text, and prominent CTA button
+
+Example Revealed Cards:
+For "get an agent readiness assessment":
+
+Text: "Evaluate your organization's readiness to deploy AI agents at scale. We'll assess your data infrastructure, integration maturity, and governance frameworks to create a roadmap for agent deployment."
+CTA Button: "Request Agent Readiness Assessment →" (dark green → blue-green gradient hover)
+
+For "discuss multi-agent architecture":
+
+Text: "Explore how to architect agent ecosystems that coordinate thousands of specialized AI agents across sales, service, and engineering workflows."
+CTA Button: "Schedule Architecture Discussion →" (dark green → blue-green gradient hover)
+
+Style the container with:
+
+Gradient background from-gray-50 to-emerald-50
+Rounded corners, border, shadow
+Ample padding
+
+
+7. FOOTER (STANDARD COMPONENT)
+Background: Dark forest green (#064e3b)
+Layout: Four-column grid
+Columns:
+
+Company: About, Careers
+Services:
+
+Platform Modernization
+Salesforce & CRM Strategy
+AI-Powered Productivity & Automation
+DevEx & DevOps
+Observability
+Compliance & Governance
+Cloud Strategy & Cost Optimization
+
+
+Resources: Blog
+Legal: Privacy Policy, Terms of Use
+
+Link Styling:
+
+Default: Light gray (#9ca3af)
+Hover: Teal (#14b8a6)
+
+Bottom Section:
+
+Divider line (gray-800)
+Copyright: "© 2025 Pacific Northwest Cloud Services, LLC. All rights reserved." (center, gray-400)
+
+
+DESIGN SYSTEM & INTERACTIONS
+Typography
+
+Headlines: Bold, tight line-height
+Body: Regular weight, comfortable line-height (1.7)
+Hierarchy:
+
+H1: 3.5-4rem
+H2: 2.5-3rem
+H3: 1.5-2rem
+Body: 1.125rem
+Small: 0.875rem
+
+
+
+Spacing
+
+Section padding: py-20 (top/bottom)
+Container max-width: 1280px
+Card padding: p-8 to p-10
+Grid gaps: gap-8
+
+Animations & Interactions
+
+All CTAs: Smooth transition on hover (300ms)
+Cards: Subtle lift on hover (shadow + translateY)
+Hero visual: Optional subtle animation showing agent coordination (flowing lines between nodes)
+IntentPicker reveal: Fade-in with slide-up (400ms ease)
+Hover states: Blue-green gradient appears on ALL interactive elements
+
+Accessibility
+
+Proper heading hierarchy (H1 → H2 → H3)
+Alt text for all icons/images
+Sufficient color contrast (WCAG AA minimum)
+Focus states visible for keyboard navigation
+Semantic HTML (nav, section, article tags)
+
+
+TECHNICAL REQUIREMENTS
+Framework/Stack
+
+Use React with Tailwind CSS
+Mobile-responsive (breakpoints: sm, md, lg, xl)
+Smooth scroll behavior
+Lazy load images where appropriate
+
+Performance
+
+Optimize SVG/icons
+Minimize repaints
+Fast load times (<3s)
+
+Browser Support
+
+Modern browsers (Chrome, Firefox, Safari, Edge)
+Graceful degradation for older browsers
+
+
+KEY PRINCIPLES
+
+Pink gradient = Metrics ONLY - Never use pink for anything except numbers/data
+Blue-green gradient = Hover states - Consistent across ALL interactive elements
+Light backgrounds - Use light mint, NOT dark green for main sections
+Multi-agent orchestration emphasis - Emphasize scaling to thousands of coordinated agents
+Responsible AI positioning - Governance and compliance woven into architecture
+IntentPicker on every page - Standard component for all service pages
+Business outcomes over features - Copy emphasizes velocity, scale, revenue
+Subtle interactions - Enhance UX without being distracting
+
+
+DELIVERABLE
+A fully functional, responsive AI-Powered Productivity & Automation page that:
+
+Implements all copy exactly as specified
+Follows color system rules precisely
+Includes agent orchestration visual in hero
+Has all standard components (header, footer, IntentPicker)
+Works seamlessly on mobile and desktop
+Matches the established PNW Cloud Services brand
+
+Output: Single-page React component with Tailwind CSS, ready to deploy.

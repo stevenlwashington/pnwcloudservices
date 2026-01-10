@@ -1,272 +1,323 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { Bot, Brain, Zap, Shield, ChevronDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { Network, Code, TrendingUp, Rocket, DollarSign, Blocks, ArrowRight } from "lucide-react";
 import { GlowCTA } from "@/components/cta/GlowCTA";
+import { IntentPicker, IntentOption } from "@/components/cta/IntentPicker";
 
-const sections = [
-  { id: "overview", label: "Overview" },
-  { id: "strategy", label: "Strategy" },
-  { id: "implementation", label: "Implementation" },
-  { id: "proof", label: "Proof" },
-  { id: "contact", label: "Contact" }
+const aiIntentOptions: IntentOption[] = [
+  {
+    id: "ai-strategy",
+    label: "review my AI strategy",
+    description: "Schedule a free consultation to discuss your AI goals and get expert recommendations on agent deployment.",
+    actionLabel: "Schedule a Free Consultation",
+    actionType: "calendly",
+  },
+  {
+    id: "agent-assessment",
+    label: "get an agent readiness assessment",
+    description: "Evaluate your organization's readiness to deploy AI agents at scale. We'll assess your data infrastructure, integration maturity, and governance frameworks to create a roadmap for agent deployment.",
+    actionLabel: "Request Agent Readiness Assessment →",
+    actionType: "calendly",
+  },
+  {
+    id: "multi-agent",
+    label: "discuss multi-agent architecture",
+    description: "Explore how to architect agent ecosystems that coordinate thousands of specialized AI agents across sales, service, and engineering workflows.",
+    actionLabel: "Schedule Architecture Discussion →",
+    actionType: "calendly",
+  },
+  {
+    id: "dev-automation",
+    label: "request developer automation roadmap",
+    description: "Get a customized roadmap for automating your development lifecycle—from scratch org provisioning to production deployment with built-in security gates.",
+    actionLabel: "Request Automation Roadmap →",
+    actionType: "calendly",
+  },
+  {
+    id: "case-studies",
+    label: "see AI transformation case studies",
+    description: "See how we've helped similar organizations deploy AI agents at scale with measurable business outcomes.",
+    actionLabel: "View Case Studies →",
+    actionType: "contact",
+  },
 ];
 
-const strategicItems = [
-  {
-    title: "Platform-First AI",
-    content: "AI doesn't work in a vacuum—it requires clean data, solid integrations, and well-architected platforms. We start by assessing your existing infrastructure, identifying data quality gaps, and ensuring your systems are ready to support AI workloads before deploying any models."
-  },
-  {
-    title: "Governance-Ready Deployment",
-    content: "Every AI solution we build is designed with compliance, auditability, and human oversight in mind. From TCPA and CPRA considerations to internal policy alignment, we embed governance into the architecture—not as an afterthought."
-  },
-  {
-    title: "Outcome-Driven Implementation",
-    content: "We measure success by business impact, not by the sophistication of the model. Whether it's reducing manual processes, accelerating sales cycles, or improving customer satisfaction, every AI initiative is tied to measurable outcomes."
-  }
-];
-
-const technicalPillars = [
-  {
-    icon: Bot,
-    title: "AI Sales Agents",
-    description: "Intelligent agents that qualify leads, personalize outreach, and accelerate deal cycles—while keeping humans in control of key decisions."
-  },
-  {
-    icon: Brain,
-    title: "Product Analytics & Insights",
-    description: "AI-powered analytics that surface hidden patterns, segment users by behavior, and generate actionable narratives for leadership."
-  },
-  {
-    icon: Zap,
-    title: "Workflow Automation",
-    description: "Eliminate repetitive tasks across sales, support, and operations with intelligent automation that learns and adapts over time."
-  },
-  {
-    icon: Shield,
-    title: "AI Governance Framework",
-    description: "Built-in guardrails for responsible AI: data lineage, model monitoring, bias detection, and compliance tracking from day one."
-  }
-];
-
-function StickyNav({ activeSection }: { activeSection: string }) {
+function HeroVisual() {
   return (
-    <nav className="bg-white/95 backdrop-blur-sm border-b py-3 z-40" style={{ borderImage: "linear-gradient(to right, transparent, transparent) 1" }}>
-      <div className="container mx-auto px-6 md:px-20">
-        <div className="flex gap-2 md:gap-6 overflow-x-auto scrollbar-hide">
-          {sections.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className={`whitespace-nowrap px-4 py-2 rounded-full md:rounded-none md:px-0 md:py-1 font-medium transition-all text-sm ${
-                activeSection === section.id
-                  ? "bg-primary text-white md:bg-transparent md:text-primary"
-                  : "text-foreground/60 hover:text-foreground"
-              }`}
-              style={
-                activeSection === section.id
-                  ? { borderBottom: "2px solid transparent", borderImage: "linear-gradient(to right, #ec4899, #06b6d4) 1" }
-                  : { borderBottom: "2px solid transparent" }
-              }
-              data-testid={`nav-${section.id}`}
-            >
-              {section.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
+    <div className="w-full h-full flex items-center justify-center">
+      <svg viewBox="0 0 400 300" className="w-full max-w-md" aria-hidden="true">
+        <defs>
+          <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#065f46" />
+            <stop offset="100%" stopColor="#14b8a6" />
+          </linearGradient>
+          <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#059669" />
+          </linearGradient>
+        </defs>
+        
+        <circle cx="200" cy="150" r="35" fill="url(#aiGradient)" opacity="0.9" />
+        <text x="200" y="155" textAnchor="middle" fill="white" fontSize="10" fontWeight="600">Orchestrator</text>
+        
+        <g className="animate-pulse" style={{ animationDuration: "3s" }}>
+          <circle cx="100" cy="80" r="25" fill="url(#nodeGradient)" opacity="0.8" />
+          <text x="100" y="84" textAnchor="middle" fill="white" fontSize="8">Sales</text>
+        </g>
+        
+        <g className="animate-pulse" style={{ animationDuration: "2.5s", animationDelay: "0.5s" }}>
+          <circle cx="300" cy="80" r="25" fill="url(#nodeGradient)" opacity="0.8" />
+          <text x="300" y="84" textAnchor="middle" fill="white" fontSize="8">Service</text>
+        </g>
+        
+        <g className="animate-pulse" style={{ animationDuration: "2.8s", animationDelay: "0.3s" }}>
+          <circle cx="80" cy="200" r="25" fill="url(#nodeGradient)" opacity="0.8" />
+          <text x="80" y="204" textAnchor="middle" fill="white" fontSize="8">Code</text>
+        </g>
+        
+        <g className="animate-pulse" style={{ animationDuration: "3.2s", animationDelay: "0.7s" }}>
+          <circle cx="200" cy="260" r="25" fill="url(#nodeGradient)" opacity="0.8" />
+          <text x="200" y="264" textAnchor="middle" fill="white" fontSize="8">Testing</text>
+        </g>
+        
+        <g className="animate-pulse" style={{ animationDuration: "2.6s", animationDelay: "0.2s" }}>
+          <circle cx="320" cy="200" r="25" fill="url(#nodeGradient)" opacity="0.8" />
+          <text x="320" y="204" textAnchor="middle" fill="white" fontSize="8">Deploy</text>
+        </g>
+        
+        <line x1="125" y1="95" x2="170" y2="130" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4,2" opacity="0.6" />
+        <line x1="275" y1="95" x2="230" y2="130" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4,2" opacity="0.6" />
+        <line x1="100" y1="175" x2="170" y2="150" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4,2" opacity="0.6" />
+        <line x1="200" y1="235" x2="200" y2="185" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4,2" opacity="0.6" />
+        <line x1="295" y1="185" x2="230" y2="165" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4,2" opacity="0.6" />
+      </svg>
+    </div>
   );
 }
 
-function AccordionItem({ title, content, isOpen, onToggle }: { title: string; content: string; isOpen: boolean; onToggle: () => void }) {
+function StrategyCard({ 
+  title, 
+  body, 
+  impactMetric, 
+  impactLabel, 
+  icon: Icon,
+  gradientFrom,
+  gradientTo,
+  borderColor,
+  iconBg,
+  iconColor
+}: {
+  title: string;
+  body: string;
+  impactMetric: string;
+  impactLabel: string;
+  icon: typeof Network;
+  gradientFrom: string;
+  gradientTo: string;
+  borderColor: string;
+  iconBg: string;
+  iconColor: string;
+}) {
   return (
-    <div className="border-b border-border">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-6 text-left group"
-        data-testid={`accordion-${title.toLowerCase().replace(/\s+/g, "-")}`}
-      >
-        <span className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">{title}</span>
-        <ChevronDown className={`w-6 h-6 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-      </button>
-      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 pb-6" : "max-h-0"}`}>
-        <p className="text-foreground/70 leading-relaxed">{content}</p>
+    <div 
+      className="rounded-2xl p-8 border transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`, borderColor }}
+      data-testid={`card-${title.toLowerCase().replace(/\s+/g, "-")}`}
+    >
+      <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: iconBg }}>
+        <Icon className="w-7 h-7" style={{ color: iconColor }} />
+      </div>
+      <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
+      <p className="text-gray-600 leading-relaxed mb-6">{body}</p>
+      <div className="bg-white rounded-xl p-4 border" style={{ borderColor }}>
+        <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Impact:</p>
+        <p 
+          className="text-2xl font-bold mb-1"
+          style={{ background: "linear-gradient(135deg, #ec4899, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+        >
+          {impactMetric}
+        </p>
+        <p className="text-sm text-gray-500">{impactLabel}</p>
       </div>
     </div>
   );
 }
 
-export default function AIAutomation() {
-  const [showStickyNav, setShowStickyNav] = useState(false);
-  const [activeSection, setActiveSection] = useState("overview");
-  const [openAccordion, setOpenAccordion] = useState<number | null>(0);
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
-        setShowStickyNav(heroBottom < 0);
-      }
-    };
-
-    const observerOptions = {
-      rootMargin: "-100px 0px -50% 0px",
-      threshold: 0
-    };
-
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
-    sections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
-    };
-  }, []);
-
+function TechnicalPillarCard({ icon: Icon, title, body }: { icon: typeof Network; title: string; body: string }) {
   return (
-    <div className="min-h-screen bg-background selection:bg-secondary/20 selection:text-secondary-foreground">
+    <div 
+      className="bg-white rounded-xl p-8 border border-emerald-200/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
+      data-testid={`pillar-${title.toLowerCase().replace(/\s+/g, "-")}`}
+    >
+      <div className="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
+        <Icon className="w-7 h-7 text-emerald-700" />
+      </div>
+      <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
+      <p className="text-gray-600 leading-relaxed mb-4">{body}</p>
+      <span className="inline-flex items-center gap-1 text-emerald-600 font-medium text-sm group-hover:gap-2 transition-all">
+        Learn more <ArrowRight className="w-4 h-4" />
+      </span>
+    </div>
+  );
+}
+
+export default function AIAutomation() {
+  return (
+    <div className="min-h-screen bg-white">
       <Navbar />
       
-      <section id="overview" ref={heroRef} className="relative min-h-[70vh] flex items-center bg-background overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-topography pointer-events-none" />
-        <div className="container mx-auto px-6 md:px-20 py-16 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
-              Responsible AI Execution.{" "}
-              <span className="block mt-2">Not Just the Hype.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-foreground/80 font-medium leading-relaxed max-w-3xl animate-in slide-in-from-bottom-5 duration-500 delay-100">
-              We design and ship AI-powered workflows—sales agents, product insights, and automation—that move revenue and efficiency, not just spin up proofs of concept.
-            </p>
+      <section 
+        className="relative min-h-[80vh] flex items-center pt-20"
+        style={{ background: "linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%)" }}
+      >
+        <div className="container mx-auto px-6 md:px-20 py-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-in slide-in-from-left-5 duration-500">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                AI That Ships to Production. Responsibly.
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">
+                We design and deploy AI agent ecosystems across engineering, sales, and service—creating the orchestration and governance frameworks that let organizations scale to thousands of specialized agents working in coordination.
+              </p>
+              <GlowCTA
+                source="ai-hero"
+                label="Get Your AI Readiness Assessment →"
+                size="lg"
+              />
+            </div>
+            <div className="hidden lg:block animate-in slide-in-from-right-5 duration-500 delay-200">
+              <HeroVisual />
+            </div>
           </div>
         </div>
       </section>
 
-      {showStickyNav && (
-        <div className="fixed top-0 left-0 right-0 z-50 animate-in slide-in-from-top-2 duration-200">
-          <StickyNav activeSection={activeSection} />
-        </div>
-      )}
-
-      <section id="strategy" className="py-24 bg-white relative">
-        <div className="absolute inset-0 bg-topography pointer-events-none" />
-        <div className="container mx-auto px-6 md:px-20 relative z-10">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               AI Strategy That Ships
             </h2>
-            <p className="text-lg text-foreground/70 mb-12">
-              AI success isn't about picking the right model—it's about building the right foundation and measuring the right outcomes.
+            <p className="text-xl text-gray-500">
+              We design and deploy AI solutions for engineers, sales teams, and service organizations—with the governance, compliance, and outcome measurement that makes AI trustworthy at scale.
             </p>
-            
-            <div className="border-t border-border">
-              {strategicItems.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  title={item.title}
-                  content={item.content}
-                  isOpen={openAccordion === index}
-                  onToggle={() => setOpenAccordion(openAccordion === index ? null : index)}
-                />
-              ))}
-            </div>
           </div>
-        </div>
-      </section>
-
-      <section id="implementation" className="py-24 bg-background relative">
-        <div className="absolute inset-0 bg-topography pointer-events-none" />
-        <div className="container mx-auto px-6 md:px-20 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
-            Technical Pillars
-          </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            {technicalPillars.map((pillar, index) => (
-              <div
-                key={index}
-                className="floating-card overflow-hidden group hover:scale-[1.02] transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 h-full"
-                style={{ animationDelay: `${index * 100}ms` }}
-                data-testid={`pillar-card-${index}`}
-              >
-                <div className="h-40 relative" style={{ background: "linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(6, 182, 212, 0.2))" }}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <pillar.icon className="w-16 h-16 text-primary/30" />
-                  </div>
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent, white)" }} />
-                </div>
-                <div className="p-8 pt-6">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10 bg-white shadow-lg" style={{ border: "2px solid transparent", backgroundImage: "linear-gradient(white, white), linear-gradient(to right, #ec4899, #06b6d4)", backgroundOrigin: "border-box", backgroundClip: "padding-box, border-box" }}>
-                    <pillar.icon className="w-7 h-7 text-accent-purple" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">{pillar.title}</h3>
-                  <p className="text-foreground/70 leading-relaxed">{pillar.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="proof" className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="container mx-auto px-6 md:px-20 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Proven Impact
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="bg-white/10 rounded-2xl p-8 border border-white/20">
-              <div className="text-6xl md:text-7xl font-bold mb-4" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>80%</div>
-              <p className="text-xl text-white/90 font-medium">Reduction in manual processes</p>
-            </div>
-            <div className="bg-white/10 rounded-2xl p-8 border border-white/20">
-              <div className="text-6xl md:text-7xl font-bold mb-4" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>$11B+</div>
-              <p className="text-xl text-white/90 font-medium">Revenue influenced by AI solutions we've designed</p>
-            </div>
-          </div>
-
-          <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-            <p className="text-lg text-white/80 leading-relaxed">
-              Applied at scale within organizations like <span className="font-bold text-white">AWS</span> and <span className="font-bold text-white">Zillow</span>—delivering AI solutions that drive real business outcomes, not just impressive demos.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-24 bg-white">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Ready to Put AI to Work?
-            </h2>
-            <p className="text-lg text-foreground/70 mb-10">
-              Let's discuss how to transform your AI ambitions into measurable business impact.
-            </p>
-            <GlowCTA
-              source="ai-automation-final-cta"
-              variant="primary"
-              size="lg"
-              label="I want to review my AI strategy →"
+          <div className="grid md:grid-cols-3 gap-8">
+            <StrategyCard
+              title="Agent Ecosystems That Scale"
+              body="Most organizations deploy a handful of AI experiments. We help you build agent architectures that scale to thousands—specialized agents for sales outreach, customer support, code review, testing, and operations, all coordinating intelligently across your organization."
+              impactMetric="10x growth"
+              impactLabel="in agent deployment scale within first year"
+              icon={Network}
+              gradientFrom="#ecfdf5"
+              gradientTo="#f0fdfa"
+              borderColor="#a7f3d0"
+              iconBg="#d1fae5"
+              iconColor="#065f46"
+            />
+            <StrategyCard
+              title="Developer Velocity Through Automation"
+              body="From scratch org provisioning to production deployment, we automate the entire development lifecycle. Intelligent agents handle environment setup, code review, regression testing, security scanning, and deployment orchestration."
+              impactMetric="70% faster"
+              impactLabel="deployment cycles with end-to-end automation"
+              icon={Code}
+              gradientFrom="#eff6ff"
+              gradientTo="#ecfeff"
+              borderColor="#bfdbfe"
+              iconBg="#dbeafe"
+              iconColor="#1e40af"
+            />
+            <StrategyCard
+              title="Revenue Operations on Autopilot"
+              body="AI agents that handle prospecting, qualification, meeting scheduling, follow-up, and customer success workflows—turning your revenue teams into force multipliers. We architect Agent Force deployments that scale across thousands of customer interactions."
+              impactMetric="3x increase"
+              impactLabel="in customer touchpoints through agent automation"
+              icon={TrendingUp}
+              gradientFrom="#faf5ff"
+              gradientTo="#fdf2f8"
+              borderColor="#e9d5ff"
+              iconBg="#e9d5ff"
+              iconColor="#6b21a8"
             />
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+            Technical Pillars
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <TechnicalPillarCard
+              icon={Network}
+              title="Multi-Agent Orchestration at Scale"
+              body="Design and deploy thousands of specialized agents across sales, service, and engineering workflows—with intelligent routing, context sharing, and coordinated handoffs between agents. We architect agent ecosystems that scale without chaos."
+            />
+            <TechnicalPillarCard
+              icon={Rocket}
+              title="Developer Velocity Engineering"
+              body="End-to-end automation of the software development lifecycle—from scratch org provisioning to automated peer review, test ops, and production deployment with built-in security gates. We eliminate the operational friction that keeps engineers from shipping."
+            />
+            <TechnicalPillarCard
+              icon={DollarSign}
+              title="Agentic Revenue Operations"
+              body="AI-powered workflows that connect marketing, sales, and service into unified revenue engines—automating outreach, qualification, follow-up, and customer success at scale. We implement Agent Force with foundations that make autonomous revenue operations production-ready."
+            />
+            <TechnicalPillarCard
+              icon={Blocks}
+              title="Production-Ready AI Infrastructure"
+              body="Platform foundations that make AI deployable and maintainable—clean data pipelines, integration architectures, observability, and governance frameworks that enable trust at scale. Compliance and human oversight are woven into the architecture from day one."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section 
+        className="py-20"
+        style={{ background: "linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%)" }}
+      >
+        <div className="container mx-auto px-6 md:px-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Proven Impact
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-white/80 backdrop-blur rounded-2xl p-10 border border-emerald-200 shadow-lg text-center">
+              <p 
+                className="text-6xl md:text-7xl font-bold mb-4"
+                style={{ background: "linear-gradient(135deg, #ec4899, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
+                80%
+              </p>
+              <p className="text-xl text-gray-700">Reduction in manual processes through intelligent automation</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur rounded-2xl p-10 border border-emerald-200 shadow-lg text-center">
+              <p 
+                className="text-6xl md:text-7xl font-bold mb-4"
+                style={{ background: "linear-gradient(135deg, #ec4899, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
+                $11B+
+              </p>
+              <p className="text-xl text-gray-700">Revenue influenced by AI solutions we've designed</p>
+            </div>
+          </div>
+          
+          <div className="bg-white/80 backdrop-blur rounded-2xl p-8 border border-emerald-200 text-center">
+            <p className="text-lg text-gray-600">
+              Applied at scale within organizations—delivering AI solutions that drive real business outcomes, not just impressive demos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <IntentPicker 
+        headline="Start Your AI Transformation."
+        source="ai-automation"
+        options={aiIntentOptions}
+      />
 
       <Footer />
     </div>
