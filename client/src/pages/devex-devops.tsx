@@ -1,272 +1,321 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { GitBranch, Terminal, Gauge, Rocket, ChevronDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { Rocket, Star, KeyRound, Route, CheckCircle2, Users, Unlock, ArrowRight, Shield } from "lucide-react";
 import { GlowCTA } from "@/components/cta/GlowCTA";
+import { IntentPicker, IntentOption } from "@/components/cta/IntentPicker";
 
-const sections = [
-  { id: "overview", label: "Overview" },
-  { id: "strategy", label: "Strategy" },
-  { id: "implementation", label: "Implementation" },
-  { id: "proof", label: "Proof" },
-  { id: "contact", label: "Contact" }
+const devexIntentOptions: IntentOption[] = [
+  {
+    id: "devex-strategy",
+    label: "review my DevEx strategy",
+    description: "Schedule a free consultation to discuss your developer experience goals and identify opportunities to improve engineering velocity.",
+    actionLabel: "Schedule a Free Consultation",
+    actionType: "calendly",
+  },
+  {
+    id: "platform-assessment",
+    label: "get a platform engineering assessment",
+    description: "Get a comprehensive assessment of your current developer experience, tooling maturity, and platform engineering capabilities. We'll identify friction points and create a roadmap for improvement.",
+    actionLabel: "Request Platform Assessment →",
+    actionType: "calendly",
+  },
+  {
+    id: "golden-path",
+    label: "discuss golden path architecture",
+    description: "Explore how to design opinionated, self-service workflows that make the right way the easy way—with guardrails built in for security and compliance.",
+    actionLabel: "Schedule Architecture Discussion →",
+    actionType: "calendly",
+  },
+  {
+    id: "dora-benchmark",
+    label: "request DORA metrics benchmark",
+    description: "Benchmark your team's deployment frequency, lead time, change failure rate, and MTTR against industry standards. Understand where you are and what improvements will drive the most impact.",
+    actionLabel: "Get DORA Benchmark →",
+    actionType: "calendly",
+  },
+  {
+    id: "case-studies",
+    label: "see DevEx transformation case studies",
+    description: "See how we've helped engineering organizations improve developer experience, reduce friction, and increase shipping velocity.",
+    actionLabel: "View Case Studies →",
+    actionType: "contact",
+  },
 ];
 
-const strategicItems = [
-  {
-    title: "Developer Productivity as Product",
-    content: "Treat your internal developer platform as a product with real users—your engineers. Measure satisfaction, gather feedback, iterate on tooling, and build the 'golden path' that makes shipping frictionless. When developers thrive, features ship faster."
-  },
-  {
-    title: "Eliminating Bottleneck Culture",
-    content: "Every ticket in a queue is velocity lost. We identify and eliminate the human bottlenecks in your delivery pipeline—replacing manual approvals with policy-as-code, centralizing knowledge that's trapped in individuals, and building self-service escape hatches."
-  },
-  {
-    title: "Self-Service Infrastructure",
-    content: "Engineers shouldn't wait days for environments, permissions, or deployments. We build internal platforms where teams can provision resources, spin up environments, and deploy to production—all with guardrails that maintain security and compliance."
-  }
-];
-
-const technicalPillars = [
-  {
-    icon: GitBranch,
-    title: "CI/CD Pipeline Optimization",
-    description: "Build pipelines that run in minutes, not hours. Parallelized builds, smart caching, and incremental testing that scales with your codebase."
-  },
-  {
-    icon: Terminal,
-    title: "Internal Developer Platforms",
-    description: "Self-service portals for infrastructure, environments, and deployments—the 'Golden Path' that eliminates tickets and waiting."
-  },
-  {
-    icon: Gauge,
-    title: "DORA Metrics Implementation",
-    description: "Lead time, deployment frequency, change failure rate, and MTTR—measured, tracked, and continuously improved."
-  },
-  {
-    icon: Rocket,
-    title: "Release Automation",
-    description: "Feature flags, canary deployments, and progressive rollouts that make releases boring—and that's exactly what you want."
-  }
-];
-
-function StickyNav({ activeSection }: { activeSection: string }) {
+function HeroVisual() {
   return (
-    <nav className="bg-white/95 backdrop-blur-sm border-b py-3 z-40" style={{ borderImage: "linear-gradient(to right, transparent, transparent) 1" }}>
-      <div className="container mx-auto px-6 md:px-20">
-        <div className="flex gap-2 md:gap-6 overflow-x-auto scrollbar-hide">
-          {sections.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className={`whitespace-nowrap px-4 py-2 rounded-full md:rounded-none md:px-0 md:py-1 font-medium transition-all text-sm ${
-                activeSection === section.id
-                  ? "bg-primary text-white md:bg-transparent md:text-primary"
-                  : "text-foreground/60 hover:text-foreground"
-              }`}
-              style={
-                activeSection === section.id
-                  ? { borderBottom: "2px solid transparent", borderImage: "linear-gradient(to right, #ec4899, #06b6d4) 1" }
-                  : { borderBottom: "2px solid transparent" }
-              }
-              data-testid={`nav-${section.id}`}
-            >
-              {section.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
+    <div className="w-full h-full flex items-center justify-center">
+      <svg viewBox="0 0 400 300" className="w-full max-w-md" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldenPath" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#059669" />
+          </linearGradient>
+          <linearGradient id="frictionPath" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#9ca3af" />
+            <stop offset="100%" stopColor="#6b7280" />
+          </linearGradient>
+        </defs>
+        
+        <path d="M50,80 Q100,60 120,100 T150,80 Q180,120 170,150 T200,180" stroke="url(#frictionPath)" strokeWidth="4" fill="none" strokeDasharray="4,4" opacity="0.5" />
+        <circle cx="60" cy="75" r="10" fill="#ef4444" opacity="0.6" />
+        <text x="60" y="78" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">!</text>
+        <circle cx="140" cy="100" r="10" fill="#ef4444" opacity="0.6" />
+        <text x="140" y="103" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">!</text>
+        <rect x="165" y="145" width="12" height="12" fill="#f59e0b" rx="2" opacity="0.7" />
+        <text x="171" y="154" textAnchor="middle" fill="white" fontSize="8">⏸</text>
+        
+        <path d="M50,220 L350,220" stroke="url(#goldenPath)" strokeWidth="6" fill="none" strokeLinecap="round" />
+        
+        <circle cx="100" cy="220" r="14" fill="#10b981" className="animate-pulse" style={{ animationDuration: "2s" }} />
+        <text x="100" y="224" textAnchor="middle" fill="white" fontSize="10">✓</text>
+        
+        <circle cx="175" cy="220" r="14" fill="#10b981" className="animate-pulse" style={{ animationDuration: "2.3s", animationDelay: "0.2s" }} />
+        <text x="175" y="224" textAnchor="middle" fill="white" fontSize="10">✓</text>
+        
+        <circle cx="250" cy="220" r="14" fill="#10b981" className="animate-pulse" style={{ animationDuration: "2.5s", animationDelay: "0.4s" }} />
+        <text x="250" y="224" textAnchor="middle" fill="white" fontSize="10">✓</text>
+        
+        <circle cx="325" cy="220" r="14" fill="#059669" className="animate-pulse" style={{ animationDuration: "2.7s", animationDelay: "0.6s" }} />
+        <text x="325" y="224" textAnchor="middle" fill="white" fontSize="10">🚀</text>
+        
+        <text x="70" y="50" fill="#6b7280" fontSize="11" fontWeight="500">Manual Process</text>
+        <text x="50" y="250" fill="#065f46" fontSize="11" fontWeight="600">Golden Path</text>
+        
+        <path d="M200,150 L200,200" stroke="#14b8a6" strokeWidth="2" strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
+        <defs>
+          <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <polygon points="0,0 6,3 0,6" fill="#14b8a6" />
+          </marker>
+        </defs>
+      </svg>
+    </div>
   );
 }
 
-function AccordionItem({ title, content, isOpen, onToggle }: { title: string; content: string; isOpen: boolean; onToggle: () => void }) {
+function StrategyCard({ 
+  title, 
+  body, 
+  impactMetric, 
+  impactLabel, 
+  icon: Icon,
+  gradientFrom,
+  gradientTo,
+  borderColor,
+  iconBg,
+  iconColor
+}: {
+  title: string;
+  body: string;
+  impactMetric: string;
+  impactLabel: string;
+  icon: typeof Rocket;
+  gradientFrom: string;
+  gradientTo: string;
+  borderColor: string;
+  iconBg: string;
+  iconColor: string;
+}) {
   return (
-    <div className="border-b border-border">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-6 text-left group"
-        data-testid={`accordion-${title.toLowerCase().replace(/\s+/g, "-")}`}
-      >
-        <span className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">{title}</span>
-        <ChevronDown className={`w-6 h-6 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-      </button>
-      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 pb-6" : "max-h-0"}`}>
-        <p className="text-foreground/70 leading-relaxed">{content}</p>
+    <div 
+      className="rounded-2xl p-8 border transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`, borderColor }}
+      data-testid={`card-${title.toLowerCase().replace(/\s+/g, "-")}`}
+    >
+      <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: iconBg }}>
+        <Icon className="w-7 h-7" style={{ color: iconColor }} />
+      </div>
+      <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
+      <p className="text-gray-600 leading-relaxed mb-6">{body}</p>
+      <div className="bg-white rounded-xl p-4 border" style={{ borderColor }}>
+        <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Impact:</p>
+        <p 
+          className="text-2xl font-bold mb-1"
+          style={{ background: "linear-gradient(135deg, #ec4899, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+        >
+          {impactMetric}
+        </p>
+        <p className="text-sm text-gray-500">{impactLabel}</p>
       </div>
     </div>
   );
 }
 
-export default function DevExDevOps() {
-  const [showStickyNav, setShowStickyNav] = useState(false);
-  const [activeSection, setActiveSection] = useState("overview");
-  const [openAccordion, setOpenAccordion] = useState<number | null>(0);
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
-        setShowStickyNav(heroBottom < 0);
-      }
-    };
-
-    const observerOptions = {
-      rootMargin: "-100px 0px -50% 0px",
-      threshold: 0
-    };
-
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
-    sections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
-    };
-  }, []);
-
+function TechnicalPillarCard({ icon: Icon, title, body }: { icon: typeof Rocket; title: string; body: string }) {
   return (
-    <div className="min-h-screen bg-background selection:bg-secondary/20 selection:text-secondary-foreground">
+    <div 
+      className="bg-white rounded-xl p-8 border border-emerald-200/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
+      data-testid={`pillar-${title.toLowerCase().replace(/\s+/g, "-")}`}
+    >
+      <div className="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
+        <Icon className="w-7 h-7 text-emerald-700" />
+      </div>
+      <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
+      <p className="text-gray-600 leading-relaxed mb-4">{body}</p>
+      <span className="inline-flex items-center gap-1 text-emerald-600 font-medium text-sm group-hover:gap-2 transition-all">
+        Learn more <ArrowRight className="w-4 h-4" />
+      </span>
+    </div>
+  );
+}
+
+export default function DevExDevOps() {
+  return (
+    <div className="min-h-screen bg-white">
       <Navbar />
       
-      <section id="overview" ref={heroRef} className="relative min-h-[70vh] flex items-center bg-background overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-topography pointer-events-none" />
-        <div className="container mx-auto px-6 md:px-20 py-16 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-in slide-in-from-bottom-5 duration-500">
-              Build the Golden Path.{" "}
-              <span className="block mt-2">Let Engineers Ship.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-foreground/80 font-medium leading-relaxed max-w-3xl animate-in slide-in-from-bottom-5 duration-500 delay-100">
-              We build internal developer platforms and CI/CD pipelines that eliminate friction—so your teams can focus on building products, not fighting tools.
-            </p>
+      <section 
+        className="relative min-h-[80vh] flex items-center pt-20"
+        style={{ background: "linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%)" }}
+      >
+        <div className="container mx-auto px-6 md:px-20 py-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-in slide-in-from-left-5 duration-500">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Build Internal Platforms Engineers Actually Want to Use.
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">
+                We design developer experiences that engineers choose—not because they're mandated, but because they make shipping features faster, safer, and more sustainable than any alternative.
+              </p>
+              <GlowCTA
+                source="devex-hero"
+                label="Get Your DevEx Assessment →"
+                size="lg"
+              />
+            </div>
+            <div className="hidden lg:block animate-in slide-in-from-right-5 duration-500 delay-200">
+              <HeroVisual />
+            </div>
           </div>
         </div>
       </section>
 
-      {showStickyNav && (
-        <div className="fixed top-0 left-0 right-0 z-50 animate-in slide-in-from-top-2 duration-200">
-          <StickyNav activeSection={activeSection} />
-        </div>
-      )}
-
-      <section id="strategy" className="py-24 bg-white relative">
-        <div className="absolute inset-0 bg-topography pointer-events-none" />
-        <div className="container mx-auto px-6 md:px-20 relative z-10">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-20">
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               DevEx as a Strategic Investment
             </h2>
-            <p className="text-lg text-foreground/70 mb-12">
-              Developer experience isn't a luxury—it's a multiplier. Every hour of friction you remove compounds across your entire engineering organization.
+            <p className="text-xl text-gray-500">
+              Developer experience isn't a luxury—it's a multiplier. Every hour of friction you remove compounds across your engineering organization. Treat your internal developer platform as a product with real users—your engineers.
             </p>
-            
-            <div className="border-t border-border">
-              {strategicItems.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  title={item.title}
-                  content={item.content}
-                  isOpen={openAccordion === index}
-                  onToggle={() => setOpenAccordion(openAccordion === index ? null : index)}
-                />
-              ))}
-            </div>
           </div>
-        </div>
-      </section>
-
-      <section id="implementation" className="py-24 bg-background relative">
-        <div className="absolute inset-0 bg-topography pointer-events-none" />
-        <div className="container mx-auto px-6 md:px-20 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
-            Technical Pillars
-          </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            {technicalPillars.map((pillar, index) => (
-              <div
-                key={index}
-                className="floating-card overflow-hidden group hover:scale-[1.02] transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 h-full"
-                style={{ animationDelay: `${index * 100}ms` }}
-                data-testid={`pillar-card-${index}`}
-              >
-                <div className="h-40 relative" style={{ background: "linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(6, 182, 212, 0.2))" }}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <pillar.icon className="w-16 h-16 text-primary/30" />
-                  </div>
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent, white)" }} />
-                </div>
-                <div className="p-8 pt-6">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 -mt-12 relative z-10 bg-white shadow-lg" style={{ border: "2px solid transparent", backgroundImage: "linear-gradient(white, white), linear-gradient(to right, #ec4899, #06b6d4)", backgroundOrigin: "border-box", backgroundClip: "padding-box, border-box" }}>
-                    <pillar.icon className="w-7 h-7 text-accent-purple" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">{pillar.title}</h3>
-                  <p className="text-foreground/70 leading-relaxed">{pillar.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="proof" className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="container mx-auto px-6 md:px-20 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Proven Impact
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="bg-white/10 rounded-2xl p-8 border border-white/20">
-              <div className="text-6xl md:text-7xl font-bold mb-4" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>100+</div>
-              <p className="text-xl text-white/90 font-medium">Engineers unlocked to focus on product work</p>
-            </div>
-            <div className="bg-white/10 rounded-2xl p-8 border border-white/20">
-              <div className="text-6xl md:text-7xl font-bold mb-4" style={{ background: "linear-gradient(to right, #ec4899, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>90%</div>
-              <p className="text-xl text-white/90 font-medium">Reduction in deployment time</p>
-            </div>
-          </div>
-
-          <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-            <p className="text-lg text-white/80 leading-relaxed">
-              Applied at scale within organizations like <span className="font-bold text-white">AWS</span> and <span className="font-bold text-white">Zillow</span>—building the platforms and pipelines that power high-velocity engineering teams.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-24 bg-white">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Ready to Transform Your Developer Experience?
-            </h2>
-            <p className="text-lg text-foreground/70 mb-10">
-              Let's discuss how to build the golden path that lets your engineers ship faster.
-            </p>
-            <GlowCTA
-              source="devex-devops-final-cta"
-              variant="primary"
-              size="lg"
-              label="I want to review my DevEx strategy →"
+          <div className="grid md:grid-cols-3 gap-8">
+            <StrategyCard
+              title="Velocity Without Sacrifice"
+              body="Ship faster and safer—automated quality gates, continuous testing, and intelligent rollback strategies mean speed doesn't come at the cost of reliability. We build CI/CD pipelines where quality is a default outcome, not a heroic effort."
+              impactMetric="4x faster"
+              impactLabel="deployment frequency with 60% fewer incidents"
+              icon={Rocket}
+              gradientFrom="#ecfdf5"
+              gradientTo="#f0fdfa"
+              borderColor="#a7f3d0"
+              iconBg="#d1fae5"
+              iconColor="#065f46"
+            />
+            <StrategyCard
+              title="Platforms Engineers Choose"
+              body="Internal platforms that engineers consistently adopt—because they're faster, clearer, and more empowering than workarounds. We measure developer satisfaction, gather feedback, and iterate on tooling just like you do for customer-facing products."
+              impactMetric="85%"
+              impactLabel="developer satisfaction with platform tools"
+              icon={Star}
+              gradientFrom="#eff6ff"
+              gradientTo="#ecfeff"
+              borderColor="#bfdbfe"
+              iconBg="#dbeafe"
+              iconColor="#1e40af"
+            />
+            <StrategyCard
+              title="Self-Service Without Chaos"
+              body="Engineers provision environments, deploy to production, and manage resources independently—all within guardrails that maintain security and compliance. We eliminate the bottlenecks: manual approvals replaced by policy-as-code."
+              impactMetric="Days → Hours"
+              impactLabel="for environment provisioning with improved reliability"
+              icon={KeyRound}
+              gradientFrom="#faf5ff"
+              gradientTo="#fdf2f8"
+              borderColor="#e9d5ff"
+              iconBg="#e9d5ff"
+              iconColor="#6b21a8"
             />
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+            Technical Pillars
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <TechnicalPillarCard
+              icon={Route}
+              title="Golden Path Engineering"
+              body="Design opinionated, self-service workflows that make the right way the easy way. Paved paths with guardrails built in—so engineers ship fast without sacrificing quality, security, or compliance. When the golden path is smoother than the workaround, adoption becomes natural."
+            />
+            <TechnicalPillarCard
+              icon={CheckCircle2}
+              title="Quality-First Delivery Pipelines"
+              body="Build CI/CD pipelines where quality gates are automated, not optional. Shift security left, catch bugs before production, and make reliability a default outcome—not a heroic effort. Every deploy passes the same rigorous checks without manual intervention."
+            />
+            <TechnicalPillarCard
+              icon={Users}
+              title="Developer-Centric Platform Design"
+              body="Treat internal platforms like products—measure satisfaction, gather feedback, iterate relentlessly. Engineers adopt platforms they choose, not platforms they're forced to use. We apply product thinking to internal tooling, ensuring your platform evolves with your team's needs."
+            />
+            <TechnicalPillarCard
+              icon={Unlock}
+              title="Friction Elimination & Autonomy"
+              body="Identify and remove bottlenecks—human approvals replaced by policy-as-code, knowledge silos transformed into self-service documentation, waiting replaced by instant provisioning. Give engineers the autonomy to move fast within boundaries that maintain security and compliance."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section 
+        className="py-20"
+        style={{ background: "linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%)" }}
+      >
+        <div className="container mx-auto px-6 md:px-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Proven Impact
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-white/80 backdrop-blur rounded-2xl p-10 border border-emerald-200 shadow-lg text-center">
+              <p 
+                className="text-6xl md:text-7xl font-bold mb-4"
+                style={{ background: "linear-gradient(135deg, #ec4899, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
+                4x faster
+              </p>
+              <p className="text-xl text-gray-700">Deployment frequency improvement (DORA)</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur rounded-2xl p-10 border border-emerald-200 shadow-lg text-center">
+              <p 
+                className="text-6xl md:text-7xl font-bold mb-4"
+                style={{ background: "linear-gradient(135deg, #ec4899, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
+                85%
+              </p>
+              <p className="text-xl text-gray-700">Developer satisfaction scores</p>
+            </div>
+          </div>
+          
+          <div className="bg-white/80 backdrop-blur rounded-2xl p-8 border border-emerald-200 text-center">
+            <p className="text-lg text-gray-600">
+              These improvements translated to stronger retention signals and measurably better employee experience scores—proving that great developer tooling isn't just about velocity, it's about building teams that operate effectively over time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <IntentPicker 
+        headline="Transform Your Developer Experience."
+        source="devex-devops"
+        options={devexIntentOptions}
+      />
 
       <Footer />
     </div>

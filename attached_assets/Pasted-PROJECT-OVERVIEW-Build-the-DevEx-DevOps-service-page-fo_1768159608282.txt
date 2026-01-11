@@ -1,0 +1,504 @@
+PROJECT OVERVIEW
+
+Build the DevEx & DevOps service page for PNW Cloud Services with updated copy, platform-as-product positioning, and developer experience emphasis. This page targets CTOs, VP Engineering, Directors of Platform Engineering, and Procurement Managers who need to build internal platforms that engineers actually want to use.
+
+BRAND & COLOR SYSTEM REFERENCE
+Use Existing Color Palette
+
+Reference the established PNW Cloud Services brand system:
+
+Primary Colors:
+
+Light mint green: #e8f5e9, #f1f8f4, #e0f2f1 (backgrounds, hero sections)
+
+Dark forest green: #064e3b, #065f46 (CTAs, text, footer)
+
+Cream/off-white: #fafafa, #ffffff (card backgrounds)
+
+Accent Colors:
+
+Pink/magenta gradient: linear-gradient(135deg, #ec4899 0%, #f97316 100%) - USE ONLY FOR METRICS/NUMBERS
+
+Blue-green gradient: linear-gradient(to right, #2563eb 0%, #059669 100%) - USE FOR ALL PRIMARY HOVER STATES
+
+Teal: #14b8a6, #10b981 - Secondary accents, borders
+
+Light variations: #d1fae5 (icon backgrounds), #5eead4 (subtle UI accents only)
+
+Text Colors:
+
+Primary text: #111827, #1f2937
+
+Secondary text: #6b7280, #4b5563
+
+White text: #ffffff (on dark backgrounds)
+
+Color Usage Rules
+
+Pink gradient ONLY for metrics/numbers (4x, 85%, 40%, etc.)
+
+Blue-green gradient for ALL PRIMARY interactive hover states (CTAs, cards, links)
+
+Light mint backgrounds for hero and main sections (NOT dark green)
+
+Teal for borders and dividers
+
+Dark green for primary CTAs (solid) that transition to blue-green gradient on hover
+
+Use solid teal #5eead4 ONLY for subtle UI affordances (icons, dividers, secondary emphasis), not primary hover states
+
+METRICS & CLAIMS RULE (IMPORTANT)
+
+All metrics represent typical outcomes observed across prior engagements and/or industry benchmarks. Do not present these metrics as guarantees or promises. Avoid absolute claims like “zero incidents” unless clearly framed as aspirational targets or controlled-scope outcomes.
+
+PAGE STRUCTURE & COPY
+1. HEADER/NAVIGATION (REUSE EXISTING SHARED COMPONENT — DO NOT MODIFY)
+
+Logo: Cloud icon + "PNW Cloud Services" text (left aligned)
+
+Navigation: Services (dropdown), Blog, Contact
+
+Primary CTA button: "Schedule a Free Consultation"
+
+Sticky header with subtle shadow on scroll
+
+CTA button: Dark green solid → blue-green gradient on hover
+
+Navigation Dropdown Should Include All Services:
+
+Platform Modernization
+
+Salesforce & CRM Strategy
+
+AI-Powered Productivity & Automation
+
+DevEx & DevOps ← Current page, show active state
+
+Observability
+
+Compliance & Governance
+
+Cloud Strategy & Cost Optimization
+
+2. HERO SECTION
+
+Background: Light mint green gradient (linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%))
+Layout: Two-column grid (text left, visual right)
+
+Copy:
+
+Headline (Large, Bold): "Build Internal Platforms Engineers Actually Want to Use."
+
+Subhead (XL text): "We design developer experiences that engineers choose—not because they're mandated, but because they make shipping features faster, safer, and more sustainable than any alternative."
+
+Primary CTA: "Get Your DevEx Assessment →" (dark green → blue-green gradient hover)
+
+Hero Visual (Right Side):
+Create a visual showing developer platform experience:
+
+Concept: "Golden Path" visualization - a smooth, clear pathway vs. a tangled/blocked alternative route
+Visual style:
+
+Left/top: Tangled lines, warning icons, stop signs (representing friction, bottlenecks, manual approvals)
+
+Arrow/flow showing transformation
+
+Right/bottom: Clean, straight path with checkmarks, smooth flow (representing automated, self-service)
+
+Alternative concept: Developer at computer with connected tools/services around them (IDE, CI/CD, deployment, monitoring) all flowing smoothly
+Keep it clean, professional, iconographic (not illustration-heavy)
+Colors: Use greens for "good path," grays/reds for "friction path"
+
+3. DEVEX STRATEGY SECTION
+
+Background: White
+
+Section Intro:
+
+Headline (4XL, Bold): "DevEx as a Strategic Investment"
+
+Subhead (XL, gray text): "Developer experience isn't a luxury—it's a multiplier. Every hour of friction you remove compounds across your engineering organization. Treat your internal developer platform as a product with real users—your engineers."
+
+Layout: Three-column card grid
+
+Card 1: Velocity Without Sacrifice
+
+Card Style:
+
+Background: Subtle gradient from-emerald-50 to-teal-50
+
+Border: border-emerald-100
+
+Hover: Shadow lift, subtle scale
+
+Icon: Circle background #d1fae5, icon #065f46 (use a speed/rocket icon combined with shield/checkmark)
+
+Copy:
+
+Headline: "Velocity Without Sacrifice"
+
+Body: "Ship faster and safer—automated quality gates, continuous testing, and intelligent rollback strategies mean speed doesn't come at the cost of reliability. We build CI/CD pipelines where quality is a default outcome, not a heroic effort. Deploy with confidence, knowing that every release has passed the same rigorous checks without slowing down your team."
+
+Impact Box (white background, emerald border):
+
+Label: "Impact:" (small, emerald)
+
+Metric: "4x faster" (2XL, bold, PINK GRADIENT)
+
+Description: "deployment frequency with 60% fewer incidents" (small, gray)
+
+Card 2: Platforms Engineers Choose
+
+Card Style:
+
+Background: Subtle gradient from-blue-50 to-cyan-50
+
+Border: border-blue-100
+
+Icon: Circle background #dbeafe, icon #1e40af (use a star/quality icon representing preference/adoption)
+
+Copy (updated language only):
+
+Headline: "Platforms Engineers Choose"
+
+Body: "Internal platforms that engineers consistently adopt—because they're faster, clearer, and more empowering than workarounds. We measure developer satisfaction, gather feedback, and iterate on tooling just like you do for customer-facing products. When your platform reduces friction instead of creating it, retention and engagement follow. Great tooling isn't just about productivity—it's about building long-term team stability."
+
+Impact Box (white background, blue border):
+
+Label: "Impact:"
+
+Metric: "85%" (2XL, bold, PINK GRADIENT)
+
+Description: "developer satisfaction with platform tools" (small, gray)
+
+Card 3: Self-Service Without Chaos
+
+Card Style:
+
+Background: Subtle gradient from-purple-50 to-pink-50
+
+Border: border-purple-100
+
+Icon: Circle background #e9d5ff, icon #6b21a8 (use a key or unlock icon representing autonomy)
+
+Copy (updated language only where needed for claims):
+
+Headline: "Self-Service Without Chaos"
+
+Body: "Engineers provision environments, deploy to production, and manage resources independently—all within guardrails that maintain security and compliance. We eliminate the bottlenecks: manual approvals replaced by policy-as-code, knowledge silos transformed into self-service documentation, days of waiting replaced by instant provisioning. Autonomy that scales without creating risk."
+
+Impact Box (white background, purple border):
+
+Label: "Impact:"
+
+Metric: "Days → Hours" (2XL, bold, PINK GRADIENT)
+
+Description: "for environment provisioning with improved reliability" (small, gray)
+
+4. TECHNICAL PILLARS SECTION
+
+Background: White
+
+Section Intro:
+
+Headline (4XL): "Technical Pillars"
+
+Layout: 2x2 grid of cards
+
+Card Design System:
+
+White background
+
+Border: Teal/green at 20% opacity (border-emerald-200)
+
+Icon: Rounded square background (light green), dark green icon
+
+Hover: Blue-green gradient border, shadow lift, "Learn more" arrow slides right
+
+Pillar 1: Golden Path Engineering
+
+Icon: Path/road icon
+Copy:
+
+Headline: "Golden Path Engineering"
+
+Body: "Design opinionated, self-service workflows that make the right way the easy way. Paved paths with guardrails built in—so engineers ship fast without sacrificing quality, security, or compliance. When the golden path is smoother than the workaround, adoption becomes natural."
+
+Link: "Learn more →" (emerald text, arrow shifts on hover)
+
+Pillar 2: Quality-First Delivery Pipelines
+
+Icon: Pipeline with checkmarks icon
+Copy:
+
+Headline: "Quality-First Delivery Pipelines"
+
+Body: "Build CI/CD pipelines where quality gates are automated, not optional. Shift security left, catch bugs before production, and make reliability a default outcome—not a heroic effort. Every deploy passes the same rigorous checks without manual intervention."
+
+Link: "Learn more →"
+
+Pillar 3: Developer-Centric Platform Design
+
+Icon: User/person with tools icon
+Copy:
+
+Headline: "Developer-Centric Platform Design"
+
+Body: "Treat internal platforms like products—measure satisfaction, gather feedback, iterate relentlessly. Engineers adopt platforms they choose, not platforms they're forced to use. We apply product thinking to internal tooling, ensuring your platform evolves with your team's needs."
+
+Link: "Learn more →"
+
+Pillar 4: Friction Elimination & Autonomy
+
+Icon: Barrier removal or unlock icon
+Copy:
+
+Headline: "Friction Elimination & Autonomy"
+
+Body: "Identify and remove bottlenecks—human approvals replaced by policy-as-code, knowledge silos transformed into self-service documentation, waiting replaced by instant provisioning. Give engineers the autonomy to move fast within boundaries that maintain security and compliance."
+
+Link: "Learn more →"
+
+5. PROVEN IMPACT SECTION
+
+Background: Light mint green gradient (same as hero: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%))
+
+Section Intro:
+
+Headline (4XL, center): "Proven Impact"
+
+Layout: Two-column stat cards + full-width context card
+
+Stat Card 1
+
+Card: White/cream with subtle transparency, emerald border, shadow
+
+Metric: "4x faster" (6XL, bold, PINK GRADIENT)
+
+Description: "Deployment frequency improvement (DORA)" (XL, dark gray)
+
+Stat Card 2
+
+Card: White/cream with subtle transparency, emerald border, shadow
+
+Metric: "85%" (6XL, bold, PINK GRADIENT)
+
+Description: "Developer satisfaction scores" (XL, dark gray)
+
+Context Card (Full Width Below Stats)
+
+Card: White/cream with transparency, emerald border
+
+Text (center, large): "These improvements translated to stronger retention signals and measurably better employee experience scores—proving that great developer tooling isn't just about velocity, it's about building teams that operate effectively over time."
+
+6. FINAL CTA SECTION WITH INTENTPICKER (STANDARD COMPONENT)
+
+Background: White
+Section Layout: Centered, contained width
+
+Copy:
+
+Headline (4XL, center): "Transform Your Developer Experience."
+
+Subhead (XL, gray, center): "Choose what makes sense for where you are:"
+
+Interactive IntentPicker Component:
+Create a dropdown/select interface with contextual CTAs:
+
+Dropdown Options:
+
+"review my DevEx strategy"
+
+"get a platform engineering assessment"
+
+"discuss golden path architecture"
+
+"request DORA metrics benchmark"
+
+"see DevEx transformation case studies"
+
+Interaction Design:
+
+Large, styled dropdown (not default browser style)
+
+When option selected, reveal contextual CTA card below with fade-in animation
+
+Card should have white background, gradient border, descriptive text, and prominent CTA button
+
+Example Revealed Cards:
+For "get a platform engineering assessment":
+
+Text: "Get a comprehensive assessment of your current developer experience, tooling maturity, and platform engineering capabilities. We'll identify friction points and create a roadmap for improvement."
+
+CTA Button: "Request Platform Assessment →" (dark green → blue-green gradient hover)
+
+For "request DORA metrics benchmark":
+
+Text: "Benchmark your team's deployment frequency, lead time, change failure rate, and MTTR against industry standards. Understand where you are and what improvements will drive the most impact."
+
+CTA Button: "Get DORA Benchmark →" (dark green → blue-green gradient hover)
+
+Style the container with:
+
+Gradient background from-gray-50 to-emerald-50
+
+Rounded corners, border, shadow
+
+Ample padding
+
+7. FOOTER (REUSE EXISTING SHARED COMPONENT — DO NOT MODIFY)
+
+Background: Dark forest green (#064e3b)
+Layout: Four-column grid
+
+Columns:
+
+Company: About, Careers
+
+Services:
+
+Platform Modernization
+
+Salesforce & CRM Strategy
+
+AI-Powered Productivity & Automation
+
+DevEx & DevOps
+
+Observability
+
+Compliance & Governance
+
+Cloud Strategy & Cost Optimization
+
+Resources: Blog
+
+Legal: Privacy Policy, Terms of Use
+
+Link Styling:
+
+Default: Light gray (#9ca3af)
+
+Hover: Teal (#14b8a6)
+
+Bottom Section:
+
+Divider line (gray-800)
+
+Copyright: "© 2025 Pacific Northwest Cloud Services, LLC. All rights reserved." (center, gray-400)
+
+DESIGN SYSTEM & INTERACTIONS
+Typography
+
+Headlines: Bold, tight line-height
+
+Body: Regular weight, comfortable line-height (1.7)
+
+Hierarchy:
+
+H1: 3.5-4rem
+
+H2: 2.5-3rem
+
+H3: 1.5-2rem
+
+Body: 1.125rem
+
+Small: 0.875rem
+
+Spacing
+
+Section padding: py-20 (top/bottom)
+
+Container max-width: 1280px
+
+Card padding: p-8 to p-10
+
+Grid gaps: gap-8
+
+Animations & Interactions
+
+All CTAs: Smooth transition on hover (300ms)
+
+Cards: Subtle lift on hover (shadow + translateY)
+
+Hero visual: Static or subtle animation showing path clearing/smoothing
+
+IntentPicker reveal: Fade-in with slide-up (400ms ease)
+
+Hover states: Blue-green gradient appears on ALL PRIMARY interactive elements
+
+Accessibility
+
+Proper heading hierarchy (H1 → H2 → H3)
+
+Alt text for all icons/images
+
+Sufficient color contrast (WCAG AA minimum)
+
+Focus states visible for keyboard navigation
+
+Semantic HTML (nav, section, article tags)
+
+TECHNICAL REQUIREMENTS
+Framework/Stack
+
+Use React with Tailwind CSS
+
+Mobile-responsive (breakpoints: sm, md, lg, xl)
+
+Smooth scroll behavior
+
+Lazy load images where appropriate
+
+Performance
+
+Optimize SVG/icons
+
+Minimize repaints
+
+Fast load times (<3s)
+
+Browser Support
+
+Modern browsers (Chrome, Firefox, Safari, Edge)
+
+Graceful degradation for older browsers
+
+KEY PRINCIPLES
+
+Pink gradient = Metrics ONLY - Never use pink for anything except numbers/data
+
+Blue-green gradient = Hover states - Consistent across ALL PRIMARY interactive elements
+
+Light backgrounds - Use light mint, NOT dark green for main sections
+
+Platform-as-product mindset - Emphasize developer choice over mandate
+
+Quality + velocity together - Speed doesn't sacrifice safety
+
+IntentPicker on every page - Standard component for all service pages
+
+Developer-centric language - Focus on experience, satisfaction, autonomy
+
+Subtle interactions - Enhance UX without being distracting
+
+DELIVERABLE
+
+A fully functional, responsive DevEx & DevOps page that:
+
+Implements all copy exactly as specified
+
+Follows color system rules precisely
+
+Includes golden path or developer experience visual in hero
+
+Has all standard components (header, footer, IntentPicker)
+
+Works seamlessly on mobile and desktop
+
+Matches the established PNW Cloud Services brand
+
+Output: Single-page React component with Tailwind CSS, ready to deploy.
+
+END OF PROMPT
