@@ -1,0 +1,610 @@
+REPLIT MEGA PROMPT: Complete Service Pages Redesign - All 4 Pages
+PROJECT OVERVIEW
+Build a complete set of 4 service pages for PNW Cloud Services with updated copy, strategic positioning, observability and compliance woven throughout, and complete brand consistency. This comprehensive rebuild includes Platform Modernization, Salesforce & CRM Strategy, AI-Powered Productivity & Automation, and DevEx & DevOps.
+Target Audiences: CTOs, VP Engineering, VP Product Management, Directors of Platform Engineering, CROs, VP Sales, RevOps Leaders, Procurement Managers
+Key Strategic Positioning:
+We sell transformations, not individual capabilities
+Observability, compliance, and governance are woven into how we deliver, not standalone services
+Foundation-first approach across all services
+Responsible execution over hype
+Business outcomes over technical features
+
+BRAND & COLOR SYSTEM
+Color Palette
+Primary Colors:
+Light mint green: #e8f5e9, #f1f8f4, #e0f2f1 (backgrounds, hero sections)
+Dark forest green: #064e3b, #065f46 (CTAs, text, footer)
+Cream/off-white: #fafafa, #ffffff (card backgrounds)
+Accent Colors:
+Pink/magenta gradient: linear-gradient(135deg, #ec4899 0%, #f97316 100%) - USE ONLY FOR METRICS/NUMBERS
+Blue-green gradient: linear-gradient(to right, #2563eb 0%, #059669 100%) - USE FOR ALL HOVER STATES
+Teal: #14b8a6, #10b981 - Secondary accents, borders
+Light variations: #d1fae5 (icon backgrounds), #5eead4 (hover states)
+Text Colors:
+Primary text: #111827, #1f2937
+Secondary text: #6b7280, #4b5563
+White text: #ffffff (on dark backgrounds)
+CRITICAL Color Usage Rules
+Pink gradient = METRICS ONLY - Never use pink for anything except numbers/data (80%, $11B+, 3x, etc.)
+Blue-green gradient = HOVER STATES ONLY - Consistent across ALL interactive elements (CTAs, cards, links)
+Light mint backgrounds for hero and main sections (NEVER use dark green except footer)
+Teal for borders and dividers
+Dark green for primary CTAs (solid state) that transition to blue-green gradient on hover
+
+GLOBAL COMPONENTS (Used on All Pages)
+HEADER/NAVIGATION (Identical Across All Pages)
+Logo: Cloud icon + "PNW Cloud Services" text (left aligned)
+Navigation: Services (dropdown), Blog, Contact
+Primary CTA button: "Schedule a Free Consultation"
+Sticky header with subtle shadow on scroll
+CTA button: Dark green solid → blue-green gradient on hover (300ms transition)
+Services Dropdown Menu (4 items only):
+Platform Modernization
+Salesforce & CRM Strategy
+AI-Powered Productivity & Automation
+DevEx & DevOps
+Active State: Current page should be highlighted in the dropdown
+
+FOOTER (Identical Across All Pages)
+Background: Dark forest green (#064e3b)
+Layout: Four-column grid
+Columns:
+Company: About, Careers
+Services:
+Platform Modernization
+Salesforce & CRM Strategy
+AI-Powered Productivity & Automation
+DevEx & DevOps
+Resources: Blog
+Legal: Privacy Policy, Terms of Use
+Link Styling:
+Default: Light gray (#9ca3af)
+Hover: Teal (#14b8a6) with smooth transition
+Bottom Section:
+Divider line (border-gray-800)
+Copyright: "© 2025 Pacific Northwest Cloud Services, LLC. All rights reserved." (center, text-gray-400)
+
+INTENTPICKER COMPONENT (Identical Pattern Across All Pages)
+Standard Layout:
+Centered, max-width container
+Gradient background: from-gray-50 to-emerald-50
+Rounded corners, border, shadow
+Ample padding (p-10)
+Interaction Pattern:
+Large, custom-styled dropdown (not default browser style)
+When option selected → reveal contextual CTA card with fade-in animation (400ms ease)
+Card: white background, gradient border, descriptive text, prominent CTA button
+CTA button: dark green → blue-green gradient on hover
+Each page has unique dropdown options and revealed card content (specified per page below)
+
+DESIGN SYSTEM (Applied to All Pages)
+Typography
+Headlines: Bold, tight line-height (leading-tight)
+Body: Regular weight, comfortable line-height (leading-relaxed, 1.7)
+Font Hierarchy:
+H1 (Hero): 3.5-4rem (text-6xl)
+H2 (Section): 2.5-3rem (text-4xl)
+H3 (Card/Pillar): 1.5-2rem (text-2xl)
+Body: 1.125rem (text-lg)
+Small/Labels: 0.875rem (text-sm)
+Spacing System
+Section padding: py-20 (top/bottom)
+Container max-width: max-w-7xl (1280px)
+Card padding: p-8 to p-10
+Grid gaps: gap-8
+Consistent gutters: px-6
+Card Design Patterns
+Benefit Cards (3-column grid):
+Subtle gradient backgrounds (emerald/blue/purple variations)
+Matching border colors at 100 opacity
+Icon: Circle background (light shade), dark icon
+White impact box with colored border inside card
+Hover: Shadow lift + subtle scale (hover:shadow-xl hover:scale-[1.02])
+Technical Pillar Cards (2x2 grid):
+White background
+Border: border-emerald-200
+Icon: Rounded square background (light green #d1fae5), dark green icon (#065f46)
+Hover: Blue-green gradient border + shadow lift + "Learn more" arrow slides right
+Arrow animation: transform: translateX(0) → translateX(4px)
+Stat Cards (Proven Impact):
+White/cream with subtle transparency (bg-white/80)
+Emerald border (border-emerald-200)
+Shadow: shadow-lg
+Metric number: 6XL, bold, PINK GRADIENT (always)
+Description: XL, dark gray
+Animation Standards
+All CTAs: 300ms smooth transition on hover
+Cards: Subtle lift on hover (shadow + 2px translateY)
+Hero visuals: Optional subtle animation (keep professional)
+IntentPicker reveal: Fade-in with slide-up (400ms ease-in-out)
+Hover states: Blue-green gradient appears on ALL interactive elements
+Arrow animations: Slide right 4px on hover (300ms)
+Accessibility Requirements
+Proper semantic HTML (nav, section, article, header, footer tags)
+Heading hierarchy: H1 → H2 → H3 (no skipping levels)
+Alt text for all icons/images
+WCAG AA minimum contrast ratios (4.5:1 for body text, 3:1 for large text)
+Visible focus states for keyboard navigation (ring-2 ring-emerald-500)
+Aria labels for interactive elements
+Semantic button elements (not div with onClick)
+
+TECHNICAL REQUIREMENTS
+Framework/Stack
+React with Tailwind CSS
+TypeScript (preferred) or JavaScript
+Mobile-responsive design (breakpoints: sm:640px, md:768px, lg:1024px, xl:1280px)
+Smooth scroll behavior (scroll-smooth)
+Lazy load images where appropriate
+Component Structure
+/services
+  /platform-modernization
+    - index.tsx (or .jsx)
+  /salesforce-crm-strategy
+    - index.tsx
+  /ai-powered-productivity
+    - index.tsx
+  /devex-devops
+    - index.tsx
+/components
+  /shared
+    - Header.tsx
+    - Footer.tsx
+    - IntentPicker.tsx
+State Management
+Use React hooks (useState for IntentPicker dropdown state)
+No complex state management needed (Redux/Zustand not required)
+Component-level state only
+Performance Targets
+First Contentful Paint: <1.5s
+Time to Interactive: <3s
+Lighthouse Performance Score: >90
+Optimize images (WebP format, lazy loading)
+Minimize bundle size (code splitting by route)
+Browser Support
+Chrome (last 2 versions)
+Firefox (last 2 versions)
+Safari (last 2 versions)
+Edge (last 2 versions)
+Graceful degradation for older browsers (fallback to solid colors if gradients fail)
+
+PAGE 1: PLATFORM MODERNIZATION
+Hero Section
+Background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%)
+Layout: Two-column grid (text left, visual right)
+Copy:
+Headline: "Platform Modernization That Accelerates Your Business."
+Subhead: "We refactor the systems stalling your roadmap—delivering 3x faster deployments and the infrastructure your best engineers want to work on."
+Primary CTA: "Get Your Platform Assessment →"
+Hero Visual (Right Side): SVG animation showing transformation from legacy (gray boxes, disconnected) to modern (unified green system with flowing connections). Continuous loop, subtle, professional.
+
+Section: Modernization as a Product Initiative
+Headline: "Modernization as a Product Initiative" Subhead: "Treat platform modernization like you treat product development: as a strategic investment with measurable ROI, not a cost center."
+Three Benefit Cards:
+Card 1: Reduced Opportunity Cost
+Gradient: from-emerald-50 to-teal-50, Border: border-emerald-100
+Icon: Arrow/speed icon in emerald
+Headline: "Reduced Opportunity Cost"
+Body: "Every sprint spent maintaining legacy systems is a sprint your competitors spend capturing market share. Our modernization approach identifies and eliminates the specific bottlenecks blocking your highest-value features—so your team ships what matters, when it matters."
+Impact Box:
+Metric: "3x faster" (PINK GRADIENT)
+Description: "feature delivery within 6 months"
+Card 2: Talent Retention
+Gradient: from-blue-50 to-cyan-50, Border: border-blue-100
+Icon: People/team icon in blue
+Headline: "Talent Retention"
+Body: "Your best engineers aren't leaving for better pay—they're leaving for better tech stacks. Modern platforms with self-service tooling and cloud-native patterns don't just improve productivity; they become competitive advantages in talent wars. Build the infrastructure elite engineers want to work on."
+Impact Box:
+Metric: "40% lower" (PINK GRADIENT)
+Description: "engineering turnover with modern platforms"
+Card 3: Cost Predictability
+Gradient: from-purple-50 to-pink-50, Border: border-purple-100
+Icon: Chart/cost icon in purple
+Headline: "Cost Predictability"
+Body: "Legacy infrastructure hides costs until they become crises—emergency patches, scaling bottlenecks, compliance gaps. Modern cloud platforms provide transparent, elastic cost models with governance built in, transforming infrastructure from a budget risk into a strategic capability."
+Impact Box:
+Metric: "60% fewer" (PINK GRADIENT)
+Description: "unplanned infrastructure costs"
+
+Section: 4-Phase Modernization Framework
+Background: bg-gray-50
+Headline: "Our 4-Phase Modernization Framework" Subhead: "A proven, iterative approach that delivers value every step of the way"
+Layout: 4-column card grid with horizontal connecting line
+Visual Element: Subtle gradient line across top connecting all cards
+Four Phase Cards:
+Phase 1: Discovery & Assessment
+Number badge: Circle with "1" (emerald gradient, white text, size: 16x16)
+Card: White, shadow, emerald top border (4px)
+Headline: "Discovery & Assessment"
+Body: "Map current state, identify bottlenecks, prioritize high-impact areas"
+Hover: Lift with enhanced shadow
+Phase 2: Strategic Roadmapping
+Number badge: "2" (blue gradient)
+Card: Blue top border
+Headline: "Strategic Roadmapping"
+Body: "Design target architecture, create phased migration plan, define success metrics"
+Phase 3: Iterative Transformation
+Number badge: "3" (purple gradient)
+Card: Purple top border
+Headline: "Iterative Transformation"
+Body: "Execute in sprints, deliver working increments, minimize disruption"
+Phase 4: Optimization & Scale
+Number badge: "4" (teal gradient)
+Card: Teal top border
+Headline: "Optimization & Scale"
+Body: "Fine-tune performance, enable team autonomy, establish best practices"
+
+Section: Technical Pillars
+Background: White
+Headline: "Technical Pillars"
+Four Pillar Cards (2x2 grid):
+Pillar 1: Monolith Decomposition
+Icon: Layers/building blocks icon
+Headline: "Monolith Decomposition"
+Body: "Break down monolithic systems into scalable, independently deployable services with clear domain boundaries and well-defined APIs—reducing deployment cycles from weeks to hours and eliminating the bottleneck of coordinated releases."
+Link: "Learn more →"
+Pillar 2: Internal Developer Platforms
+Icon: Platform/tools icon
+Headline: "Internal Developer Platforms"
+Body: "Build self-service infrastructure that empowers teams to ship faster without sacrificing governance. Paved paths with guardrails built in—so engineers get autonomy, and leadership gets compliance."
+Link: "Learn more →"
+Pillar 3: Cloud-Native Refactoring
+Icon: Cloud icon
+Headline: "Cloud-Native Refactoring"
+Body: "Leverage managed services to eliminate undifferentiated operational overhead and unlock elastic scalability. Transform infrastructure from a cost center that needs constant attention to a platform that scales on demand."
+Link: "Learn more →"
+Pillar 4: Governance as Code with Observable Foundations
+Icon: Shield/governance icon
+Headline: "Governance as Code with Observable Foundations"
+Body: "Build security and compliance into the platform by default—policy enforcement happens at deployment time, not audit time. Shift compliance left so teams move fast without creating risk. Modern platforms include unified logging, distributed tracing, and real-time monitoring—so you always know what's happening and can resolve issues in minutes, not hours."
+Link: "Learn more →"
+NOTE: Pillar 4 now includes observability language integrated naturally.
+
+Section: Proven Impact
+Background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%)
+Headline: "Proven Impact"
+Two Stat Cards:
+Stat 1
+Metric: "80%" (6XL, bold, PINK GRADIENT)
+Description: "Average improvement in deployment velocity within 6 months"
+Stat 2
+Metric: "$11B+" (6XL, bold, PINK GRADIENT)
+Description: "In annual revenue running on platforms we've built"
+Context Card (Full Width): "These results come from systematic modernization at enterprise scale—where infrastructure directly impacts business outcomes."
+
+Section: Final CTA with IntentPicker
+Headline: "Start Your Modernization Roadmap." Subhead: "Choose what makes sense for where you are:"
+Dropdown Options:
+"review my platform strategy"
+"get a platform assessment"
+"discuss my modernization roadmap"
+"request a project estimate"
+"see relevant case studies"
+Example Revealed Cards:
+For "get a platform assessment":
+Text: "Get a comprehensive technical assessment of your current platform and receive a prioritized modernization roadmap."
+CTA Button: "Request Platform Assessment →"
+For "discuss my modernization roadmap":
+Text: "Let's map your path from legacy bottlenecks to cloud-native velocity—with a clear ROI at every phase."
+CTA Button: "Schedule Roadmap Discussion →"
+
+PAGE 2: SALESFORCE & CRM STRATEGY
+Hero Section
+Background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%)
+Copy:
+Headline: "Transform Your CRM from Cost Center to Revenue Engine."
+Subhead: "We eliminate the technical debt and architectural gaps blocking your GTM automation—so your CRM accelerates revenue instead of slowing it down."
+Primary CTA: "Get Your CRM Assessment →"
+Hero Visual: Simple visual showing CRM transformation: gray/muted box with warning icon (broken state) → green arrow → bright green box with checkmark (optimized state). Clean, professional, iconographic.
+
+Section: CRM Strategy That Drives Revenue
+Headline: "CRM Strategy That Drives Revenue" Subhead: "Your CRM should be a growth engine, not a maintenance burden. We fix problems at the architecture, workflow, and GTM process level—building the foundation required for Agent Force, automation, and measurable revenue impact."
+Three Benefit Cards:
+Card 1: GTM Flow Automation
+Gradient: from-emerald-50 to-teal-50
+Headline: "GTM Flow Automation"
+Body: "Automate the revenue operations that matter—outreach campaigns, lead routing, customer follow-up, and targeting workflows. We design intelligent automation that connects marketing, sales, and customer success, eliminating manual handoffs and ensuring every prospect gets the right engagement at the right time. Clean foundations unlock Salesforce's native capabilities—Agent Force for Sales, Einstein Copilot, and intelligent routing—so your automation evolves with the platform instead of fighting against it."
+Impact Box:
+Metric: "50% faster" (PINK GRADIENT)
+Description: "lead response times with automated GTM flows"
+Card 2: CRM Technical Debt Reduction
+Gradient: from-blue-50 to-cyan-50
+Headline: "CRM Technical Debt Reduction"
+Body: "Years of quick fixes and workarounds leave CRMs brittle and unmaintainable. We systematically identify and eliminate technical debt—cleaning up duplicate fields, consolidating automation rules, refactoring monolithic architectures, and establishing sustainable patterns that make your CRM a platform for growth, not a liability."
+Impact Box:
+Metric: "60% reduction" (PINK GRADIENT)
+Description: "in CRM maintenance overhead after debt cleanup"
+Card 3: Salesforce Data Cloud Integration
+Gradient: from-purple-50 to-pink-50
+Headline: "Salesforce Data Cloud Integration"
+Body: "Unlock the full potential of your customer data by connecting Salesforce Data Cloud to your entire ecosystem. We architect unified customer profiles that power personalization, predictive analytics, and AI-driven insights across every touchpoint—turning fragmented data into competitive advantage. Unified, high-quality data is the prerequisite for Agent Force and predictive AI. We architect the foundations that make Salesforce's agentic capabilities production-ready, not just proof-of-concept demos."
+Impact Box:
+Metric: "2x faster" (PINK GRADIENT)
+Description: "time-to-insight with unified customer data"
+
+Section: Foundation-Ready for Agent Force
+Background: bg-gray-50
+Headline: "Foundation-Ready for Agent Force"
+Copy: "Salesforce's latest innovations—Agent Force for Sales and Service, Einstein AI, and autonomous workflows—require clean data architecture and sustainable technical foundations. Without them, these capabilities remain unused licenses on your invoice.
+We systematically prepare your CRM for agentic workflows by:
+Cleaning duplicate records and conflicting field logic
+Refactoring monolithic automation into modular, maintainable patterns
+Establishing data governance that AI systems can trust
+Building integration architectures that support real-time decisioning
+The result: You unlock the bells and whistles you're already paying for—and your CRM becomes a platform that evolves with Salesforce's innovation roadmap instead of falling further behind."
+Visual Element (Before/After):
+Left side: "Blocked" state - Red X or lock icon, grayed out icons for "Agent Force," "Einstein," "Data Cloud", Label: "Without Foundations"
+Right side: "Enabled" state - Green checkmark, bright icons for "Agent Force," "Einstein," "Data Cloud", Label: "Foundation-Ready"
+Arrow connecting them showing transformation
+
+Section: Technical Pillars
+Four Pillar Cards:
+Pillar 1: Foundation-First Architecture
+Headline: "Foundation-First Architecture"
+Body: "Clean, scalable object models that support GTM growth without creating tech debt. We audit your current data architecture, eliminate duplicates and legacy patterns, and design domain boundaries that align with how your business actually operates—not how Salesforce defaults work."
+Pillar 2: Revenue Operations Automation
+Headline: "Revenue Operations Automation"
+Body: "Intelligent workflows that connect marketing, sales, and customer success into a unified revenue engine. We map your GTM motions, identify manual bottlenecks, and build automation that accelerates deals—without breaking when your business changes."
+Pillar 3: Enterprise Integration Strategy
+Headline: "Enterprise Integration Strategy"
+Body: "Seamless connections between Salesforce, marketing automation, finance systems, and the rest of your martech stack. We design integration architectures that ensure data flows where it needs to go—reliably, securely, and without constant maintenance."
+Pillar 4: Governance & Operational Excellence
+Headline: "Governance & Operational Excellence"
+Body: "Built-in compliance, security, and change management that scales with your business. We establish governance frameworks, audit trails, and deployment processes that ensure your CRM remains reliable as your team and GTM strategy evolve. Built-in audit trails, data lineage, and performance dashboards ensure your CRM operations are visible, measurable, and continuously improving."
+NOTE: Pillar 4 now includes observability language about audit trails and performance dashboards.
+
+Section: Proven Impact
+Two Stat Cards:
+Stat 1
+Metric: "$1.5B+" (PINK GRADIENT)
+Description: "In annual revenue protected through CRM optimization"
+Stat 2
+Metric: "40%" (PINK GRADIENT)
+Description: "Improvement in pipeline forecast accuracy"
+Context Card: "Our CRM transformations have powered GTM operations at organizations navigating TCPA, CFPAA, and emerging AI regulations—delivering trusted data, accurate forecasting, and scalable automation."
+
+Section: Final CTA with IntentPicker
+Headline: "Start Your CRM Transformation." Subhead: "Choose what makes sense for where you are:"
+Dropdown Options:
+"review my CRM strategy"
+"get a CRM technical audit"
+"discuss GTM automation roadmap"
+"request Agent Force readiness assessment"
+"see CRM transformation case studies"
+Example Revealed Card:
+For "request Agent Force readiness assessment":
+Text: "Find out if your CRM is ready for agentic workflows. We'll audit your data architecture, automation maturity, and integration landscape to create an Agent Force implementation roadmap."
+CTA Button: "Get Agent Force Readiness Report →"
+
+PAGE 3: AI-POWERED PRODUCTIVITY & AUTOMATION
+Hero Section
+Background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%)
+Copy:
+Headline: "AI That Ships to Production. Responsibly."
+Subhead: "We design and deploy AI agent ecosystems across engineering, sales, and service—creating the orchestration and governance frameworks that let organizations scale to thousands of specialized agents working in coordination."
+Primary CTA: "Get Your AI Readiness Assessment →"
+Hero Visual: Network/hub visualization showing interconnected nodes representing different agent types (code review, sales outreach, customer support, testing, deployment). Lines showing coordination/communication between agents. Clean, modern, iconographic. Optional subtle animation showing information/context flowing between nodes.
+
+Section: AI Strategy That Ships
+Headline: "AI Strategy That Ships" Subhead: "We design and deploy AI solutions for engineers, sales teams, and service organizations—with the governance, compliance, and outcome measurement that makes AI trustworthy at scale."
+Three Benefit Cards:
+Card 1: Agent Ecosystems That Scale
+Gradient: from-emerald-50 to-teal-50
+Icon: Network/nodes icon
+Headline: "Agent Ecosystems That Scale"
+Body: "Most organizations deploy a handful of AI experiments. We help you build agent architectures that scale to thousands—specialized agents for sales outreach, customer support, code review, testing, and operations, all coordinating intelligently across your organization. With proper orchestration, context management, and governance frameworks, your agent ecosystem becomes a force multiplier, not a maintenance nightmare."
+Impact Box:
+Metric: "10x growth" (PINK GRADIENT)
+Description: "in agent deployment scale within first year"
+Card 2: Developer Velocity Through Automation
+Gradient: from-blue-50 to-cyan-50
+Icon: Code/terminal icon
+Headline: "Developer Velocity Through Automation"
+Body: "From scratch org provisioning to production deployment, we automate the entire development lifecycle. Intelligent agents handle environment setup, code review, regression testing, security scanning, and deployment orchestration—eliminating bottlenecks and freeing your engineers to focus on features that drive business value, not operational overhead."
+Impact Box:
+Metric: "70% faster" (PINK GRADIENT)
+Description: "deployment cycles with end-to-end automation"
+Card 3: Revenue Operations on Autopilot
+Gradient: from-purple-50 to-pink-50
+Icon: Revenue/growth icon
+Headline: "Revenue Operations on Autopilot"
+Body: "AI agents that handle prospecting, qualification, meeting scheduling, follow-up, and customer success workflows—turning your revenue teams into force multipliers. We architect Agent Force for Sales and Service deployments that scale across thousands of customer interactions, with the data quality and governance foundations that make autonomous revenue operations trustworthy."
+Impact Box:
+Metric: "3x increase" (PINK GRADIENT)
+Description: "in customer touchpoints through agent automation"
+
+Section: Technical Pillars
+Four Pillar Cards:
+Pillar 1: Multi-Agent Orchestration at Scale
+Headline: "Multi-Agent Orchestration at Scale"
+Body: "Design and deploy thousands of specialized agents across sales, service, and engineering workflows—with intelligent routing, context sharing, and coordinated handoffs between agents. We architect agent ecosystems that scale without chaos, ensuring your AI capabilities grow with your business."
+Pillar 2: Developer Velocity Engineering
+Headline: "Developer Velocity Engineering"
+Body: "End-to-end automation of the software development lifecycle—from scratch org provisioning to automated peer review, test ops, and production deployment with built-in security gates. We eliminate the operational friction that keeps engineers from shipping features."
+Pillar 3: Agentic Revenue Operations
+Headline: "Agentic Revenue Operations"
+Body: "AI-powered workflows that connect marketing, sales, and service into unified revenue engines—automating outreach, qualification, follow-up, and customer success at scale. We implement Agent Force for Sales and Service with the foundations that make autonomous revenue operations production-ready."
+Pillar 4: Production-Ready AI Infrastructure
+Headline: "Production-Ready AI Infrastructure"
+Body: "Platform foundations that make AI deployable and maintainable—clean data pipelines, integration architectures, observability, and the governance frameworks that enable trust at scale. Compliance, auditability, and human oversight aren't afterthoughts—they're woven into the architecture from day one. Production AI requires observable systems—model performance monitoring, cost tracking, and audit trails that prove your AI is working as intended."
+NOTE: Pillar 4 now explicitly mentions observability for AI systems.
+
+Section: Proven Impact
+Two Stat Cards:
+Stat 1
+Metric: "80%" (PINK GRADIENT)
+Description: "Reduction in manual processes through intelligent automation"
+Stat 2
+Metric: "$11B+" (PINK GRADIENT)
+Description: "Revenue influenced by AI solutions we've designed"
+Context Card: "Applied at scale within organizations—delivering AI solutions that drive real business outcomes, not just impressive demos."
+
+Section: Final CTA with IntentPicker
+Headline: "Start Your AI Transformation." Subhead: "Choose what makes sense for where you are:"
+Dropdown Options:
+"review my AI strategy"
+"get an agent readiness assessment"
+"discuss multi-agent architecture"
+"request developer automation roadmap"
+"see AI transformation case studies"
+Example Revealed Card:
+For "discuss multi-agent architecture":
+Text: "Explore how to architect agent ecosystems that coordinate thousands of specialized AI agents across sales, service, and engineering workflows."
+CTA Button: "Schedule Architecture Discussion →"
+
+PAGE 4: DEVEX & DEVOPS
+Hero Section
+Background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%)
+Copy:
+Headline: "Build Internal Platforms Engineers Actually Want to Use."
+Subhead: "We design developer experiences that engineers choose—not because they're mandated, but because they make shipping features faster, safer, and more satisfying than any alternative."
+Primary CTA: "Get Your DevEx Assessment →"
+Hero Visual: "Golden Path" visualization showing:
+Left/top: Tangled lines, warning icons, stop signs (friction, bottlenecks, manual approvals) in grays/reds
+Arrow/flow showing transformation
+Right/bottom: Clean, straight path with checkmarks, smooth flow (automated, self-service) in greens Alternative: Happy developer at computer with connected tools/services (IDE, CI/CD, deployment, monitoring) flowing smoothly around them.
+
+Section: DevEx as a Strategic Investment
+Headline: "DevEx as a Strategic Investment" Subhead: "Developer experience isn't a luxury—it's a multiplier. Every hour of friction you remove compounds across your entire engineering organization. Treat your internal developer platform as a product with real users—your engineers."
+Three Benefit Cards:
+Card 1: Velocity Without Sacrifice
+Gradient: from-emerald-50 to-teal-50
+Icon: Speed/rocket with shield icon
+Headline: "Velocity Without Sacrifice"
+Body: "Ship faster and safer—automated quality gates, continuous testing, and intelligent rollback strategies mean speed doesn't come at the cost of reliability. We build CI/CD pipelines where quality is a default outcome, not a heroic effort. Deploy with confidence, knowing that every release has passed the same rigorous checks without slowing down your team. DORA metrics dashboards, deployment visibility, and intelligent alerting give teams the observability they need to ship with confidence."
+Impact Box:
+Metric: "4x faster" (PINK GRADIENT)
+Description: "deployment frequency with 60% fewer incidents"
+NOTE: Card 1 now includes observability language about DORA metrics and deployment visibility.
+Card 2: Platforms Engineers Choose
+Gradient: from-blue-50 to-cyan-50
+Icon: Heart/star icon
+Headline: "Platforms Engineers Choose"
+Body: "Internal platforms that engineers actually prefer—because they're faster, clearer, and more empowering than workarounds. We measure developer satisfaction, gather feedback, and iterate on tooling just like you do for customer-facing products. When your platform delights engineers instead of frustrating them, retention follows. Great tooling isn't just about productivity—it's about building teams that want to stay."
+Impact Box:
+Metric: "85%" (PINK GRADIENT)
+Description: "developer satisfaction with platform tools"
+Card 3: Self-Service Without Chaos
+Gradient: from-purple-50 to-pink-50
+Icon: Key/unlock icon
+Headline: "Self-Service Without Chaos"
+Body: "Engineers provision environments, deploy to production, and manage resources independently—all within guardrails that maintain security and compliance. We eliminate the bottlenecks: manual approvals replaced by policy-as-code, knowledge silos transformed into self-service documentation, days of waiting replaced by instant provisioning. Autonomy that scales without creating risk."
+Impact Box:
+Metric: "Days → Hours" (PINK GRADIENT)
+Description: "for environment provisioning with zero incidents"
+
+Section: Technical Pillars
+Four Pillar Cards:
+Pillar 1: Golden Path Engineering
+Headline: "Golden Path Engineering"
+Body: "Design opinionated, self-service workflows that make the right way the easy way. Paved paths with guardrails built in—so engineers ship fast without sacrificing quality, security, or compliance. When the golden path is smoother than the workaround, adoption becomes natural."
+Pillar 2: Quality-First Delivery Pipelines
+Headline: "Quality-First Delivery Pipelines"
+Body: "Build CI/CD pipelines where quality gates are automated, not optional. Shift security left, catch bugs before production, and make reliability a default outcome—not a heroic effort. Every deploy passes the same rigorous checks without manual intervention."
+Pillar 3: Developer-Centric Platform Design
+Headline: "Developer-Centric Platform Design"
+Body: "Treat internal platforms like products—measure satisfaction, gather feedback, iterate relentlessly. Engineers adopt platforms they choose, not platforms they're forced to use. We apply product thinking to internal tooling, ensuring your platform evolves with your team's needs."
+Pillar 4: Friction Elimination & Autonomy
+Headline: "Friction Elimination & Autonomy"
+Body: "Identify and remove bottlenecks—human approvals replaced by policy-as-code, knowledge silos transformed into self-service documentation, waiting replaced by instant provisioning. Give engineers the autonomy to move fast within boundaries that maintain security and compliance."
+
+Section: Proven Impact
+Two Stat Cards:
+Stat 1
+Metric: "4x faster" (PINK GRADIENT)
+Description: "Deployment frequency improvement (DORA)"
+Stat 2
+Metric: "85%" (PINK GRADIENT)
+Description: "Developer satisfaction scores"
+Context Card: "These improvements translated to 40% higher engineering retention and measurably better employee experience scores—proving that great developer tooling isn't just about velocity, it's about building teams that want to stay."
+
+Section: Final CTA with IntentPicker
+Headline: "Transform Your Developer Experience." Subhead: "Choose what makes sense for where you are:"
+Dropdown Options:
+"review my DevEx strategy"
+"get a platform engineering assessment"
+"discuss golden path architecture"
+"request DORA metrics benchmark"
+"see DevEx transformation case studies"
+Example Revealed Card:
+For "request DORA metrics benchmark":
+Text: "Benchmark your team's deployment frequency, lead time, change failure rate, and MTTR against industry standards. Understand where you are and what improvements will drive the most impact."
+CTA Button: "Get DORA Benchmark →"
+
+MESSAGING & TONE GUIDELINES
+Brand Voice
+Confident but not arrogant - We know our expertise, but we're here to help, not lecture
+Direct and clear - No buzzwords without substance, no jargon without explanation
+Business-outcome focused - Always tie technical capabilities to business impact (revenue, retention, velocity)
+Foundation-first mindset - Emphasize prerequisites before features, "step zero" work, realistic roadmaps
+Responsible execution - Speed matters, but trust and quality matter more
+Writing Principles
+Lead with outcomes, follow with how - "3x faster deployment" before "microservices architecture"
+Avoid over-promising - Use realistic timeframes ("within 6 months" not "overnight transformation")
+Speak to executives AND engineers - Balance business language with technical credibility
+Use concrete examples - "duplicate fields, conflicting automation rules" vs generic "technical debt"
+Acknowledge trade-offs - "Ship faster and safer" acknowledges the typical tension
+Make invisible work visible - Call out the foundational work others skip (data cleanup, governance, observability)
+Terminology Standards
+Use: "Platform," "Developer Experience," "Agent Ecosystems," "Golden Path," "Foundation-First," "Governance by Design"
+Avoid: "Digital Transformation" (vague), "Innovation" (overused), "Best-in-class" (meaningless), "Synergy"
+Be specific: "DORA metrics," "Agent Force for Sales," "TCPA compliance," "MTTR reduction"
+
+IMPLEMENTATION CHECKLIST
+Pre-Development
+[ ] Review all 4 page specifications
+[ ] Confirm color palette implementation (especially pink = metrics only rule)
+[ ] Set up component library (Header, Footer, IntentPicker as shared components)
+[ ] Configure Tailwind with custom color extensions if needed
+During Development
+[ ] Build shared components first (Header, Footer, IntentPicker)
+[ ] Implement one page fully before moving to next
+[ ] Test responsive behavior at all breakpoints
+[ ] Verify pink gradient is ONLY on metrics
+[ ] Verify blue-green gradient is ONLY on hover states
+[ ] Test all IntentPicker dropdown interactions
+[ ] Validate all "Learn more →" arrow animations
+Testing Phase
+[ ] Accessibility audit (WCAG AA compliance)
+[ ] Performance testing (Lighthouse score >90)
+[ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
+[ ] Mobile responsiveness testing
+[ ] Color contrast verification
+[ ] Interactive element focus states
+[ ] Smooth scroll behavior
+[ ] Animation performance (no jank)
+Pre-Launch
+[ ] Final copy review (no lorem ipsum)
+[ ] All CTAs functional (even if pointing to placeholder)
+[ ] Navigation dropdown works on all pages
+[ ] Footer links accurate
+[ ] No console errors
+[ ] Images optimized (WebP, lazy loading)
+[ ] Meta tags for SEO (title, description per page)
+
+KEY SUCCESS METRICS
+After deployment, measure:
+User Engagement: Time on page, scroll depth, CTA click-through rates
+Conversion: IntentPicker selection rates, form submissions
+Performance: Core Web Vitals (LCP, FID, CLS)
+Accessibility: WAVE/axe DevTools audit scores
+SEO: Page rankings for target keywords
+
+DELIVERABLE
+Four fully functional, responsive service pages:
+Platform Modernization
+Salesforce & CRM Strategy
+AI-Powered Productivity & Automation
+DevEx & DevOps
+Each page includes:
+✅ All copy exactly as specified
+✅ Observability and compliance woven throughout
+✅ Color system rules followed precisely
+✅ Shared components (Header, Footer, IntentPicker)
+✅ Mobile-responsive design
+✅ Accessibility standards met
+✅ Performance optimized
+✅ Brand consistency maintained
+Output Format: React components with Tailwind CSS, ready to deploy.
+
+END OF COMPREHENSIVE MEGA PROMPT
+

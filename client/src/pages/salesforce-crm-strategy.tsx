@@ -330,7 +330,7 @@ export default function SalesforceStrategy() {
             <TechnicalPillarCard
               icon={ShieldCheck}
               title="Governance & Operational Excellence"
-              body="Built-in compliance, security, and change management that scales with your business. We establish governance frameworks, audit trails, and deployment processes that ensure your CRM remains reliable."
+              body="Built-in compliance, security, and change management that scales with your business. We establish governance frameworks, audit trails, and deployment processes that ensure your CRM remains reliable as your team and GTM strategy evolve. Built-in audit trails, data lineage, and performance dashboards ensure your CRM operations are visible, measurable, and continuously improving."
             />
           </div>
         </div>

@@ -294,8 +294,8 @@ export default function PlatformModernization() {
             />
             <TechnicalPillarCard
               icon={Shield}
-              title="Governance as Code"
-              body="Build security and compliance into the platform by default—policy enforcement happens at deployment time, not audit time. Shift compliance left so teams move fast without creating risk."
+              title="Governance as Code with Observable Foundations"
+              body="Build security and compliance into the platform by default—policy enforcement happens at deployment time, not audit time. Shift compliance left so teams move fast without creating risk. Modern platforms include unified logging, distributed tracing, and real-time monitoring—so you always know what's happening and can resolve issues in minutes, not hours."
             />
           </div>
         </div>

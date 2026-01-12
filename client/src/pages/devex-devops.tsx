@@ -204,7 +204,7 @@ export default function DevExDevOps() {
           <div className="grid md:grid-cols-3 gap-8">
             <StrategyCard
               title="Velocity Without Sacrifice"
-              body="Ship faster and safer—automated quality gates, continuous testing, and intelligent rollback strategies mean speed doesn't come at the cost of reliability. We build CI/CD pipelines where quality is a default outcome, not a heroic effort."
+              body="Ship faster and safer—automated quality gates, continuous testing, and intelligent rollback strategies mean speed doesn't come at the cost of reliability. We build CI/CD pipelines where quality is a default outcome, not a heroic effort. DORA metrics dashboards, deployment visibility, and intelligent alerting give teams the observability they need to ship with confidence."
               impactMetric="4x faster"
               impactLabel="deployment frequency with 60% fewer incidents"
               icon={Rocket}

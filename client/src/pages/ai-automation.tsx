@@ -269,7 +269,7 @@ export default function AIAutomation() {
             <TechnicalPillarCard
               icon={Blocks}
               title="Production-Ready AI Infrastructure"
-              body="Platform foundations that make AI deployable and maintainable—clean data pipelines, integration architectures, observability, and governance frameworks that enable trust at scale. Compliance and human oversight are woven into the architecture from day one."
+              body="Platform foundations that make AI deployable and maintainable—clean data pipelines, integration architectures, observability, and governance frameworks that enable trust at scale. Compliance, auditability, and human oversight aren't afterthoughts—they're woven into the architecture from day one. Production AI requires observable systems—model performance monitoring, cost tracking, and audit trails that prove your AI is working as intended."
             />
           </div>
         </div>
