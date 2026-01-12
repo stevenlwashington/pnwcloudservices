@@ -342,6 +342,29 @@ export default function PlatformModernization() {
       <IntentPicker 
         headline="Start Your Modernization Roadmap."
         source="platform-modernization"
+        options={[
+          {
+            id: "strategy",
+            label: "review my platform strategy",
+            description: "Schedule a free consultation to discuss your platform goals and get expert recommendations.",
+            actionLabel: "Schedule a Free Consultation",
+            actionType: "calendly",
+          },
+          {
+            id: "contact",
+            label: "share my project details",
+            description: "Send us a message with details about your project and we'll get back to you within 24 hours.",
+            actionLabel: "Send a Message",
+            actionType: "contact",
+          },
+          {
+            id: "modernization",
+            label: "explore modernization options",
+            description: "Schedule a working session to learn about our platform modernization approach and see how we can transform your infrastructure.",
+            actionLabel: "Schedule Modernization Session",
+            actionType: "calendly",
+          },
+        ]}
       />
 
       <Footer />
