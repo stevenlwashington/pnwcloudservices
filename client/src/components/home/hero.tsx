@@ -16,7 +16,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative h-[600px] w-full hidden lg:block animate-in slide-in-from-right-5 duration-1000 delay-200 fade-in">
+        <div className="relative h-[400px] lg:h-[600px] w-full animate-in slide-in-from-right-5 duration-1000 delay-200 fade-in">
           <div className="relative rounded-3xl overflow-hidden shadow-lg h-full w-full">
             <img 
               src={heroImage} 
