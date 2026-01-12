@@ -2,15 +2,12 @@ export const navigation = {
   main: [
     {
       label: "Services",
-      href: "#", // Dropdown trigger
+      href: "#",
       children: [
         { label: "Platform Modernization", href: "/platform-modernization" },
         { label: "Salesforce & CRM Strategy", href: "/salesforce-crm-strategy" },
         { label: "AI-Powered Productivity & Automation", href: "/ai-automation" },
         { label: "DevEx & DevOps", href: "/devex-devops" },
-        { label: "Observability", href: "/observability" },
-        { label: "Compliance & Governance", href: "/compliance-governance" },
-        { label: "Cloud Strategy & Cost Optimization", href: "/cloud-strategy-cost-optimization" },
       ],
     },
     { label: "Blog", href: "/blog" },
@@ -26,9 +23,6 @@ export const navigation = {
       { label: "Salesforce & CRM Strategy", href: "/salesforce-crm-strategy" },
       { label: "AI-Powered Productivity & Automation", href: "/ai-automation" },
       { label: "DevEx & DevOps", href: "/devex-devops" },
-      { label: "Observability", href: "/observability" },
-      { label: "Compliance & Governance", href: "/compliance-governance" },
-      { label: "Cloud Strategy & Cost Optimization", href: "/cloud-strategy-cost-optimization" },
     ],
     resources: [
       { label: "Blog", href: "/blog" },

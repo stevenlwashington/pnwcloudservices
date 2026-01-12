@@ -2,9 +2,9 @@ import { CheckCircle2 } from "lucide-react";
 
 const highlights = [
   "Platform Modernization",
+  "Salesforce & CRM Strategy",
   "AI & Automation",
-  "DevEx & DevOps",
-  "Compliance & Governance"
+  "DevEx & DevOps"
 ];
 
 export function Highlights() {

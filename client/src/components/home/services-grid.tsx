@@ -1,4 +1,4 @@
-import { Layout, Cloud, Bot, Terminal, Activity, Shield, TrendingDown, ArrowRight } from "lucide-react";
+import { Layout, Cloud, Bot, Terminal, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
@@ -29,27 +29,6 @@ const services = [
     icon: Terminal,
     href: "/devex-devops",
     isPrimary: false
-  },
-  {
-    title: "Observability",
-    description: "Know what's broken before your customers do. We implement end-to-end visibility so teams can detect issues early, resolve them faster, and understand how system health impacts the business.",
-    icon: Activity,
-    href: "/observability",
-    isPrimary: false
-  },
-  {
-    title: "Compliance & Governance",
-    description: "Build guardrails that enable speed instead of blocking it. We embed security, compliance, and data governance directly into platform design—so teams move fast without creating risk.",
-    icon: Shield,
-    href: "/compliance-governance",
-    isPrimary: false
-  },
-  {
-    title: "Cloud Strategy & Cost Optimization",
-    description: "Reduce cloud spend by fixing architecture, not cutting corners. We help teams understand where costs come from, why they grow, and how to optimize sustainably without sacrificing reliability.",
-    icon: TrendingDown,
-    href: "/cloud-strategy-cost-optimization",
-    isPrimary: false
   }
 ];
 
@@ -74,7 +53,6 @@ export function ServicesGrid() {
               className="group relative block"
               data-testid="service-card-platform-modernization"
             >
-              {/* Gradient glow effect */}
               <div 
                 className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 motion-reduce:transition-none"
                 aria-hidden="true"
@@ -107,7 +85,7 @@ export function ServicesGrid() {
           </div>
         )}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {supportingServices.map((service, index) => (
             <Link 
               key={index} 
@@ -115,7 +93,6 @@ export function ServicesGrid() {
               className="group relative block"
               data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
-              {/* Gradient glow effect */}
               <div 
                 className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-60 motion-reduce:transition-none"
                 aria-hidden="true"

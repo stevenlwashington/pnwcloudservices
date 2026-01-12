@@ -1,0 +1,375 @@
+# REPLIT PROMPT: Site-Wide Navigation Update & Page Consolidation
+
+## PROJECT OVERVIEW
+Update the PNW Cloud Services website navigation to reflect the consolidated service offering of 4 core services (down from 7). This includes removing eliminated services from all navigation menus, handling existing page redirects, and ensuring site-wide consistency.
+
+---
+
+## CHANGES REQUIRED
+
+### Services Being REMOVED from Navigation:
+1. ❌ **Observability** (capabilities now woven into other services)
+2. ❌ **Compliance & Governance** (capabilities now woven into other services)
+3. ❌ **Cloud Strategy & Cost Optimization** (eliminated entirely)
+
+### Services REMAINING in Navigation:
+1. ✅ **Platform Modernization**
+2. ✅ **Salesforce & CRM Strategy**
+3. ✅ **AI-Powered Productivity & Automation**
+4. ✅ **DevEx & DevOps**
+
+---
+
+## NAVIGATION UPDATES
+
+### 1. Header Navigation Dropdown
+
+**Current State (7 services):**
+```
+Services ▼
+  - Platform Modernization
+  - Salesforce & CRM Strategy
+  - AI-Powered Productivity & Automation
+  - DevEx & DevOps
+  - Observability
+  - Compliance & Governance
+  - Cloud Strategy & Cost Optimization
+```
+
+**Updated State (4 services):**
+```
+Services ▼
+  - Platform Modernization
+  - Salesforce & CRM Strategy
+  - AI-Powered Productivity & Automation
+  - DevEx & DevOps
+```
+
+**Implementation:**
+- Remove the 3 eliminated services from the dropdown menu component
+- Ensure dropdown still functions properly with 4 items
+- Maintain hover states and active page indicators
+- Keep same styling/spacing (adjust if needed for visual balance)
+
+---
+
+### 2. Footer Navigation
+
+**Current Footer Services Column:**
+```
+Services
+  - Platform Modernization
+  - Salesforce & CRM Strategy
+  - AI-Powered Productivity & Automation
+  - DevEx & DevOps
+  - Observability
+  - Compliance & Governance
+  - Cloud Strategy & Cost Optimization
+```
+
+**Updated Footer Services Column:**
+```
+Services
+  - Platform Modernization
+  - Salesforce & CRM Strategy
+  - AI-Powered Productivity & Automation
+  - DevEx & DevOps
+```
+
+**Implementation:**
+- Update footer component to show only 4 services
+- Maintain link styling and hover states
+- Ensure footer layout remains balanced with fewer items
+
+---
+
+### 3. Homepage Service Cards/Links (If Applicable)
+
+**Action Required:**
+- If the homepage has a services section with cards/links to all 7 services, update to show only 4
+- Remove cards for: Observability, Compliance & Governance, Cloud Strategy
+- Adjust grid layout if needed (e.g., from 3x3 grid to 2x2 grid)
+- Maintain visual consistency and spacing
+
+**Note:** If homepage doesn't have service cards, skip this step.
+
+---
+
+## PAGE HANDLING FOR ELIMINATED SERVICES
+
+### Option A: 301 Redirects (RECOMMENDED)
+
+Create permanent redirects from old service pages to relevant new pages:
+
+**Redirect Mapping:**
+
+1. **`/observability`** → **`/platform-modernization`**
+   - Rationale: Observability is now integrated into Platform Modernization (Pillar 4: "Observable Foundations")
+
+2. **`/compliance-governance`** → **`/platform-modernization`**
+   - Rationale: Governance as Code is a pillar in Platform Modernization
+   - Alternative: Could redirect to all 4 pages via a "Compliance is built into all our services" landing page
+
+3. **`/cloud-strategy-cost-optimization`** → **`/platform-modernization`**
+   - Rationale: Cloud-Native Refactoring and Cost Predictability are covered in Platform Modernization
+
+**Implementation:**
+```javascript
+// Example redirect configuration (adjust based on your routing setup)
+const redirects = {
+  '/observability': '/platform-modernization',
+  '/compliance-governance': '/platform-modernization',
+  '/compliance-and-governance': '/platform-modernization',
+  '/cloud-strategy-cost-optimization': '/platform-modernization',
+  '/cloud-strategy': '/platform-modernization',
+  '/cost-optimization': '/platform-modernization'
+};
+```
+
+**Include Redirect Notice (Optional):**
+Add a dismissible banner at the top of the redirected-to page:
+```
+"Looking for [Observability/Compliance/Cloud Strategy]? We've integrated these capabilities into our core services. Learn more below."
+```
+
+---
+
+### Option B: 404 Page with Helpful Guidance (Alternative)
+
+If redirects aren't feasible, create a custom 404 page that:
+- Explains service consolidation
+- Shows the 4 current services with links
+- Provides search functionality
+- Includes contact CTA
+
+---
+
+### Option C: Archive Pages (Least Recommended)
+
+Keep the 3 eliminated service pages but:
+- Remove from all navigation
+- Add banner: "This service is now integrated into [Platform Modernization]. Visit our updated service page."
+- Add noindex meta tag to prevent SEO indexing
+- Link to relevant new service page
+
+---
+
+## SITEMAP UPDATES
+
+**Remove from sitemap.xml:**
+- `/observability`
+- `/compliance-governance`
+- `/cloud-strategy-cost-optimization`
+
+**Ensure in sitemap.xml:**
+- `/platform-modernization`
+- `/salesforce-crm-strategy`
+- `/ai-powered-productivity-automation`
+- `/devex-devops`
+
+---
+
+## SEO CONSIDERATIONS
+
+### Meta Tags for Redirected Pages
+
+If using 301 redirects, ensure proper HTTP status codes:
+```
+HTTP/1.1 301 Moved Permanently
+Location: https://www.pnwcloudservices.com/platform-modernization
+```
+
+### Update Canonical URLs
+
+Ensure all 4 remaining service pages have correct canonical tags:
+```html
+<link rel="canonical" href="https://www.pnwcloudservices.com/platform-modernization" />
+```
+
+### Update robots.txt (if needed)
+
+If archiving old pages instead of redirecting:
+```
+User-agent: *
+Disallow: /observability
+Disallow: /compliance-governance
+Disallow: /cloud-strategy-cost-optimization
+```
+
+---
+
+## INTERNAL LINK AUDIT
+
+### Search Entire Codebase For:
+
+**Links to eliminated services:**
+```
+/observability
+/compliance-governance
+/compliance-and-governance
+/cloud-strategy
+/cost-optimization
+```
+
+**Update or remove these links from:**
+- Blog posts (if any reference these services)
+- About page
+- Case studies
+- Any "Related Services" sections
+- Testimonials/quotes that mention specific services
+- Any hardcoded navigation arrays
+- Any service comparison tables
+
+---
+
+## ANALYTICS & TRACKING
+
+### Update Google Analytics (if applicable)
+
+**Goals/Events to Update:**
+- Remove conversion tracking for eliminated service page visits
+- Update service page goal funnels to reflect 4 services only
+- Create new dashboard view showing 4-service navigation
+
+### Update Tag Manager (if applicable)
+
+**Remove or update tags for:**
+- Observability page view events
+- Compliance page view events
+- Cloud Strategy page view events
+
+---
+
+## QUALITY ASSURANCE CHECKLIST
+
+### Navigation Testing
+- [ ] Header dropdown shows only 4 services on all pages
+- [ ] Footer shows only 4 services on all pages
+- [ ] Active page indicator works correctly in dropdown
+- [ ] Hover states work on all navigation links
+- [ ] Navigation is responsive on mobile (hamburger menu if applicable)
+
+### Redirect Testing
+- [ ] `/observability` redirects to `/platform-modernization` (301)
+- [ ] `/compliance-governance` redirects correctly (301)
+- [ ] `/cloud-strategy-cost-optimization` redirects correctly (301)
+- [ ] No broken links anywhere on site
+- [ ] Redirects work on both www and non-www domains
+
+### Link Audit
+- [ ] No internal links pointing to eliminated service pages
+- [ ] All "Learn more" links on homepage go to correct pages
+- [ ] Blog posts (if any) updated to remove references to eliminated services
+- [ ] Sitemap.xml updated and validated
+- [ ] robots.txt updated (if needed)
+
+### Cross-Browser Testing
+- [ ] Navigation works in Chrome
+- [ ] Navigation works in Firefox
+- [ ] Navigation works in Safari
+- [ ] Navigation works in Edge
+- [ ] Mobile navigation works (iOS Safari, Android Chrome)
+
+### SEO Validation
+- [ ] 301 redirects return correct HTTP status codes
+- [ ] Canonical tags correct on all 4 service pages
+- [ ] No duplicate content warnings
+- [ ] Google Search Console notified of URL changes
+- [ ] Sitemap resubmitted to search engines
+
+---
+
+## COMMUNICATION PLAN (Post-Deployment)
+
+### Internal Stakeholders
+- [ ] Notify sales team of service consolidation
+- [ ] Update sales collateral to reflect 4 services
+- [ ] Update any pitch decks or presentations
+- [ ] Update business cards (if services are listed)
+
+### External Communication
+- [ ] Update LinkedIn company page services
+- [ ] Update any third-party listings (Clutch, G2, etc.)
+- [ ] Consider blog post explaining service consolidation (optional)
+- [ ] Update email signatures (if services are listed)
+
+---
+
+## IMPLEMENTATION APPROACH
+
+### Step 1: Navigation Component Updates (30 min)
+1. Update `Header.tsx` (or equivalent) to show 4 services only
+2. Update `Footer.tsx` to show 4 services only
+3. Test navigation on all 4 service pages
+
+### Step 2: Redirect Configuration (15 min)
+1. Set up 301 redirects for 3 eliminated pages
+2. Test each redirect URL manually
+3. Verify HTTP status codes
+
+### Step 3: Internal Link Audit (30-60 min)
+1. Search codebase for links to eliminated pages
+2. Update or remove found links
+3. Test all updated links
+
+### Step 4: SEO Updates (15 min)
+1. Update sitemap.xml
+2. Verify canonical tags
+3. Submit updated sitemap to search engines
+
+### Step 5: QA Testing (30 min)
+1. Test all navigation elements
+2. Test all redirects
+3. Check for broken links
+4. Verify mobile responsiveness
+
+**Total Estimated Time: 2-2.5 hours**
+
+---
+
+## ROLLBACK PLAN (If Needed)
+
+If issues arise post-deployment:
+
+1. **Revert navigation changes:** Restore 7-service navigation from git history
+2. **Remove redirects:** Disable 301 redirects temporarily
+3. **Restore old pages:** Re-enable eliminated service pages if archived
+4. **Communication:** Notify stakeholders of temporary reversion
+
+**Keep backup of:**
+- Previous navigation component code
+- Previous sitemap.xml
+- Previous redirect configuration
+
+---
+
+## SUCCESS CRITERIA
+
+Post-deployment validation:
+
+✅ **Navigation shows 4 services only** across entire site
+✅ **All 3 eliminated pages redirect properly** (301 status)
+✅ **No broken links** anywhere on site
+✅ **No 404 errors** in Google Search Console
+✅ **Sitemap updated** and submitted
+✅ **Mobile navigation works** correctly
+✅ **Analytics tracking updated** to reflect new structure
+
+---
+
+## DELIVERABLE
+
+A fully updated PNW Cloud Services website with:
+- ✅ Navigation consolidated to 4 core services
+- ✅ 3 eliminated service pages properly redirected
+- ✅ No broken internal links
+- ✅ SEO properly maintained (301 redirects, updated sitemap)
+- ✅ All navigation components functioning correctly
+- ✅ Mobile-responsive navigation
+- ✅ Clean, consolidated service offering
+
+**Output:** Updated website with streamlined 4-service navigation, ready for production deployment.
+
+---
+
+END OF CONSOLIDATION PROMPT
